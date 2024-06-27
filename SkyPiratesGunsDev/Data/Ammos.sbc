@@ -196,7 +196,7 @@
             <ProjectileProperties>
                 <ProjectileTrailScale>0.15</ProjectileTrailScale>
                 <ProjectileHitImpulse>200</ProjectileHitImpulse>
-                <ProjectileMassDamage>250</ProjectileMassDamage>
+                <ProjectileMassDamage>400</ProjectileMassDamage>
                 <ProjectileHealthDamage>33</ProjectileHealthDamage>
                 <HeadShot>true</HeadShot>
             </ProjectileProperties>
@@ -290,7 +290,7 @@
 			</BasicProperties>
 			<ProjectileProperties>
 				<ProjectileHitImpulse>200</ProjectileHitImpulse>
-				<ProjectileMassDamage>250</ProjectileMassDamage>
+				<ProjectileMassDamage>300</ProjectileMassDamage>
 				<!--nice-->
 				<ProjectileHealthDamage>10</ProjectileHealthDamage>
 				<ProjectileTrailScale>0.05</ProjectileTrailScale>
