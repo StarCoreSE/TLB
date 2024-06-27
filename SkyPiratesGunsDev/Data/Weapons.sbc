@@ -273,8 +273,8 @@
             </Id>
             <ProjectileAmmoData RateOfFire="1000" ShootSoundName="WepShipGatlingShot" ShotsInBurst="140" />
             <ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
-            <DeviateShotAngle>0.15</DeviateShotAngle>
-            <DeviateShotAngleAiming>0.15</DeviateShotAngleAiming>
+            <DeviateShotAngle>0.3</DeviateShotAngle>
+            <DeviateShotAngleAiming>0.3</DeviateShotAngleAiming>
             <MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan>
             <NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
             <SecondarySoundName>WepShipGatlingRotation</SecondarySoundName>
@@ -289,7 +289,7 @@
             <AmmoMagazines>
                 <AmmoMagazine Subtype="NATO_25x184mm" />
             </AmmoMagazines>
-            <ReloadTime>4000</ReloadTime>
+            <ReloadTime>0</ReloadTime>
         </Weapon>
 
         <Weapon>
@@ -299,8 +299,8 @@
             </Id>
             <ProjectileAmmoData RateOfFire="1000" ShootSoundName="WepShipGatlingShot" ShotsInBurst="140" />
             <ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
-            <DeviateShotAngle>0.15</DeviateShotAngle>
-            <DeviateShotAngleAiming>0.15</DeviateShotAngleAiming>
+            <DeviateShotAngle>0.3</DeviateShotAngle>
+            <DeviateShotAngleAiming>0.3</DeviateShotAngleAiming>
             <MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan>
             <NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
             <SecondarySoundName>WepShipGatlingRotation</SecondarySoundName>
@@ -314,7 +314,7 @@
             <AmmoMagazines>
                 <AmmoMagazine Subtype="NATO_25x184mm" />
             </AmmoMagazines>
-            <ReloadTime>4000</ReloadTime>
+            <ReloadTime>0</ReloadTime>
         </Weapon>
 
         <Weapon>
@@ -324,8 +324,8 @@
             </Id>
             <ProjectileAmmoData RateOfFire="2000" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="140" />
             <ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
-            <DeviateShotAngle>0.3</DeviateShotAngle>
-            <DeviateShotAngleAiming>0.3</DeviateShotAngleAiming>
+            <DeviateShotAngle>0.4</DeviateShotAngle>
+            <DeviateShotAngleAiming>0.4</DeviateShotAngleAiming>
             <MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan><Effects>
                 <Effect Action="Shoot" Dummy="muzzle_projectile" Particle="Muzzle_Flash_Large" Loop="true" InstantStop="true" OffsetX="0" OffsetY="0" OffsetZ="-0.8"  />
                 <Effect Action="Shoot" Dummy="None" Particle="Smoke_LargeGunShot" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-1.9" 
@@ -334,7 +334,7 @@
             <AmmoMagazines>
                 <AmmoMagazine Subtype="NATO_25x184mm" />
             </AmmoMagazines>
-            <ReloadTime>4000</ReloadTime>
+            <ReloadTime>0</ReloadTime>
         </Weapon>
 
         <Weapon>
@@ -354,7 +354,7 @@
             <AmmoMagazines>
                 <AmmoMagazine Subtype="NATO_25x184mm" />
             </AmmoMagazines>
-            <ReloadTime>6000</ReloadTime>
+            <ReloadTime>0</ReloadTime>
         </Weapon>
 
         <Weapon>

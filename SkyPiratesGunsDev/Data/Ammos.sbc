@@ -186,7 +186,7 @@
                 <SubtypeId>LargeCaliber</SubtypeId>
             </Id>
             <BasicProperties>
-                <DesiredSpeed>600</DesiredSpeed>
+                <DesiredSpeed>1000</DesiredSpeed>
                 <SpeedVariance>0</SpeedVariance>
                 <MaxTrajectory>1000</MaxTrajectory>
                 <BackkickForce>200</BackkickForce>
@@ -194,9 +194,9 @@
                 <ExplosiveDamageMultiplier>0.6</ExplosiveDamageMultiplier>
             </BasicProperties>
             <ProjectileProperties>
-                <ProjectileTrailScale>0.1</ProjectileTrailScale>
-                <ProjectileHitImpulse>2</ProjectileHitImpulse>
-                <ProjectileMassDamage>100</ProjectileMassDamage>
+                <ProjectileTrailScale>0.15</ProjectileTrailScale>
+                <ProjectileHitImpulse>200</ProjectileHitImpulse>
+                <ProjectileMassDamage>250</ProjectileMassDamage>
                 <ProjectileHealthDamage>33</ProjectileHealthDamage>
                 <HeadShot>true</HeadShot>
             </ProjectileProperties>
@@ -210,17 +210,17 @@
                 <SubtypeId>AutocannonShell</SubtypeId>
             </Id>
             <BasicProperties>
-                <DesiredSpeed>1000</DesiredSpeed>
+                <DesiredSpeed>1200</DesiredSpeed>
                 <SpeedVariance>0</SpeedVariance>
-                <MaxTrajectory>1500</MaxTrajectory>
+                <MaxTrajectory>1600</MaxTrajectory>
                 <BackkickForce>1000</BackkickForce>
                 <PhysicalMaterial>GunAutocannonBullet</PhysicalMaterial>
                 <ExplosiveDamageMultiplier>0.8</ExplosiveDamageMultiplier>
             </BasicProperties>
             <ProjectileProperties>
                 <ProjectileTrailScale>0.5</ProjectileTrailScale>
-                <ProjectileHitImpulse>3</ProjectileHitImpulse>
-                <ProjectileMassDamage>500</ProjectileMassDamage>
+                <ProjectileHitImpulse>1500</ProjectileHitImpulse>
+                <ProjectileMassDamage>1200</ProjectileMassDamage>
                 <ProjectileHealthDamage>85</ProjectileHealthDamage>
                 <HeadShot>true</HeadShot>
             </ProjectileProperties>
@@ -232,7 +232,7 @@
                 <SubtypeId>Missile</SubtypeId>
             </Id>
             <BasicProperties>
-                <DesiredSpeed>600</DesiredSpeed>
+                <DesiredSpeed>800</DesiredSpeed>
                 <SpeedVariance>0</SpeedVariance>
                 <MaxTrajectory>2000</MaxTrajectory>
                 <IsExplosive>true</IsExplosive>
@@ -283,13 +283,13 @@
 				<SubtypeId>ShotgunAmmo</SubtypeId>
 			</Id>
 			<BasicProperties>
-				<DesiredSpeed>500</DesiredSpeed>
+				<DesiredSpeed>2000</DesiredSpeed>
 				<SpeedVariance>0.4</SpeedVariance>
 				<MaxTrajectory>800</MaxTrajectory>
 				<BackkickForce>50000</BackkickForce>
 			</BasicProperties>
 			<ProjectileProperties>
-				<ProjectileHitImpulse>100</ProjectileHitImpulse>
+				<ProjectileHitImpulse>200</ProjectileHitImpulse>
 				<ProjectileMassDamage>250</ProjectileMassDamage>
 				<!--nice-->
 				<ProjectileHealthDamage>10</ProjectileHealthDamage>
