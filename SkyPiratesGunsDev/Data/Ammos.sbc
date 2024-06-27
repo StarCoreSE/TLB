@@ -293,7 +293,7 @@
 				<ProjectileMassDamage>300</ProjectileMassDamage>
 				<!--nice-->
 				<ProjectileHealthDamage>10</ProjectileHealthDamage>
-				<ProjectileTrailScale>0.05</ProjectileTrailScale>
+				<ProjectileTrailScale>0.25</ProjectileTrailScale>
 				<ProjectileTrailColor x="1" y="1" z="1" />
 				<ProjectileTrailProbability>1</ProjectileTrailProbability>
 				<ProjectileCount>15</ProjectileCount>
