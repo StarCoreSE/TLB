@@ -117,7 +117,7 @@
                 <Y>0.3</Y>
                 <Z>0.3</Z>
             </Size>
-            <Mass>100</Mass>
+            <Mass>500</Mass>
             <Volume>100</Volume>
             <Model>Models\Ammo\SmallBomb.mwm</Model>
             <PhysicalMaterial>Ammo</PhysicalMaterial>
@@ -169,7 +169,7 @@
                 <Y>0.3</Y>
                 <Z>0.3</Z>
             </Size>
-            <Mass>300</Mass>
+            <Mass>1327</Mass>
             <Volume>300</Volume>
             <Model>Models\Ammo\MediumBomb.mwm</Model>
             <PhysicalMaterial>Ammo</PhysicalMaterial>
@@ -194,8 +194,8 @@
                 <Y>0.3</Y>
                 <Z>0.3</Z>
             </Size>
-            <Mass>300</Mass>
-            <Volume>300</Volume>
+            <Mass>0</Mass>
+            <Volume>0</Volume>
             <Model>Models\Ammo\MediumBomb.mwm</Model>
             <PhysicalMaterial>Ammo</PhysicalMaterial>
             <Capacity>1</Capacity>
@@ -219,8 +219,8 @@
                 <Y>0.2</Y>
                 <Z>0.2</Z>
             </Size>
-            <Mass>90</Mass>
-            <Volume>120</Volume>
+            <Mass>200</Mass>
+            <Volume>200</Volume>
             <Model>Models\Ammo\ElindisTorpedo.mwm</Model>
             <PhysicalMaterial>Ammo</PhysicalMaterial>
             <Capacity>1</Capacity>
@@ -244,8 +244,8 @@
                 <Y>0.3</Y>
                 <Z>0.3</Z>
             </Size>
-            <Mass>400</Mass>
-            <Volume>400</Volume>
+            <Mass>0</Mass>
+            <Volume>0</Volume>
             <Model>Models\Ammo\LargeBomb.mwm</Model>
             <PhysicalMaterial>Ammo</PhysicalMaterial>
             <Capacity>1</Capacity>
@@ -270,8 +270,8 @@
                 <Y>0.3</Y>
                 <Z>0.3</Z>
             </Size>
-            <Mass>80</Mass>
-            <Volume>160</Volume>
+            <Mass>0</Mass>
+            <Volume>0</Volume>
             <Model>Models\Ammo\GlideBomb.mwm</Model>
             <PhysicalMaterial>Ammo</PhysicalMaterial>
             <Capacity>1</Capacity>

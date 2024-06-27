@@ -175,7 +175,7 @@
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>Position0010_SemiAutoPistolMagazine</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_SemiAutoPistolMagazine</DisplayName>
+            <DisplayName>Ammo Pistol</DisplayName>
             <Icon>Textures\GUI\Icons\ammo\Pistol_Warfare_Ammo.dds</Icon>
             <Prerequisites>
                 <Item Amount="0.25" TypeId="Ingot" SubtypeId="Iron" />
@@ -224,7 +224,7 @@
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>Position0040_AutomaticRifleGun_Mag_20rd</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_AutomaticRifleGun_Mag_20rd</DisplayName>
+            <DisplayName>Ammo Rifle</DisplayName>
             <Icon>Textures\GUI\Icons\ammo\Rifle_Ammo_SemiAuto.dds</Icon>
             <Prerequisites>
                 <Item Amount="0.8" TypeId="Ingot" SubtypeId="Iron" />
@@ -291,7 +291,7 @@
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>Position0080_NATO_25x184mmMagazine</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_NATO_25x184mm</DisplayName>
+            <DisplayName>Ammo Gatling</DisplayName>
             <Icon>Textures\GUI\Icons\ammo\Ammo_Box.dds</Icon>
             <Prerequisites>
                 <Item Amount="40" TypeId="Ingot" SubtypeId="Iron" />
@@ -307,7 +307,7 @@
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>Position0090_AutocannonClip</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_AutoCannonClip</DisplayName>
+            <DisplayName>Ammo Autocannon</DisplayName>
             <Icon>Textures\GUI\Icons\ammo\AutoCanonShellBox.dds</Icon>
             <Prerequisites>
                 <Item Amount="25" TypeId="Ingot" SubtypeId="Iron" />
@@ -323,7 +323,7 @@
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>Position0100_Missile200mm</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_Missile200mm</DisplayName>
+            <DisplayName>Ammo Missile</DisplayName>
             <Icon>Textures\GUI\Icons\ammo\Small_Rocket.dds</Icon>
             <Prerequisites>
                 <Item Amount="55" TypeId="Ingot" SubtypeId="Iron" />
@@ -335,14 +335,50 @@
             <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="Missile200mm" />
             <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
         </Blueprint>
-	
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>smallBomb</SubtypeId>
+            </Id>
+            <DisplayName>Ammo Bomb Small</DisplayName>
+            <Icon>Textures\Icons\SmallBomb.png</Icon>
+            <Prerequisites>
+                <Item Amount="100" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="14" TypeId="Ingot" SubtypeId="Nickel" />
+                <Item Amount="0.4" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="0.06" TypeId="Ingot" SubtypeId="Cobalt" />
+                <Item Amount="12" TypeId="Ingot" SubtypeId="Magnesium" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="SmallBombMag" />
+            <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>mediumBomb</SubtypeId>
+            </Id>
+            <DisplayName>Ammo Bomb Medium</DisplayName>
+            <Icon>Textures\Icons\MediumBomb.png</Icon>
+            <Prerequisites>
+                <Item Amount="100" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="14" TypeId="Ingot" SubtypeId="Nickel" />
+                <Item Amount="0.4" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="0.06" TypeId="Ingot" SubtypeId="Cobalt" />
+                <Item Amount="12" TypeId="Ingot" SubtypeId="Magnesium" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="MediumBombMag" />
+            <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+        </Blueprint>
+
 	        <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>Torpedo</SubtypeId>
             </Id>
-            <DisplayName>Torpedo</DisplayName>
-            <Icon>Textures\GUI\Icons\ammo\Small_Rocket.dds</Icon>
+            <DisplayName>Ammo Torpedo</DisplayName>
+            <Icon>Textures\Icons\ElindisTorpedo.dds</Icon>
             <Prerequisites>
                 <Item Amount="100" TypeId="Ingot" SubtypeId="Iron" />
                 <Item Amount="7" TypeId="Ingot" SubtypeId="Nickel" />
@@ -360,7 +396,7 @@
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>Position0110_MediumCalibreAmmo</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_MediumCalibreAmmo</DisplayName>
+            <DisplayName>Ammo Cannon</DisplayName>
             <Icon>Textures\GUI\Icons\ammo\MediumCalibreShell.dds</Icon>
             <Prerequisites>
                 <Item Amount="15" TypeId="Ingot" SubtypeId="Iron" />
@@ -376,7 +412,7 @@
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>ShotgunAmmo</SubtypeId>
             </Id>
-            <DisplayName>Shotgun Ammo</DisplayName>
+            <DisplayName>Ammo Cannon</DisplayName>
             <Icon>Textures\GUI\Icons\ammo\Ammo_Box.dds</Icon>
             <Prerequisites>
                 <Item Amount="15" TypeId="Ingot" SubtypeId="Iron" />
@@ -392,7 +428,7 @@
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>Position0120_LargeCalibreAmmo</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_LargeCalibreAmmo</DisplayName>
+            <DisplayName>Ammo Artillery</DisplayName>
             <Icon>Textures\GUI\Icons\ammo\LargeCalibreShell.dds</Icon>
             <Prerequisites>
                 <Item Amount="60" TypeId="Ingot" SubtypeId="Iron" />
@@ -409,7 +445,7 @@
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>Position0130_SmallRailgunAmmo</SubtypeId>
             </Id> <Public>false</Public>
-            <DisplayName>DisplayName_Item_SmallRailgunAmmo</DisplayName>
+            <DisplayName>Ammo Railgun Small</DisplayName>
             <Icon>Textures\GUI\Icons\ammo\RailgunAmmo.dds</Icon>
             <Prerequisites>
                 <Item Amount="4" TypeId="Ingot" SubtypeId="Iron" />
@@ -426,7 +462,7 @@
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>Position0140_LargeRailgunAmmo</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_LargeRailgunAmmo</DisplayName>
+            <DisplayName>Ammo Railgun</DisplayName>
             <Icon>Textures\GUI\Icons\ammo\RailgunAmmoLarge.dds</Icon>
             <Prerequisites>
                 <Item Amount="100" TypeId="Ingot" SubtypeId="Iron" />

@@ -3,5 +3,7 @@
    <BlueprintClassEntries>
 	<Entry Class="EliteConsumables" BlueprintSubtypeId="Torpedo" />
 	<Entry Class="EliteConsumables" BlueprintSubtypeId="ShotgunAmmo" />
+	<Entry Class="EliteConsumables" BlueprintSubtypeId="mediumBomb" />
+	<Entry Class="EliteConsumables" BlueprintSubtypeId="smallBomb" />
    </BlueprintClassEntries>
 </Definitions>
