@@ -828,61 +828,69 @@ namespace SKY_PIRATES_CORE
         }
     }
 
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenGenerator), false)]
-    public class FuelMetrics : MyGameLogicComponent
-    {
-        private IMyGasGenerator _generator;
-        private IMyTerminalBlock _terminalBlock;
+    //[MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenGenerator), false)]
+    //public class FuelMetrics : MyGameLogicComponent
+    //{
+    //    private IMyGasGenerator _generator;
+    //    private IMyTerminalBlock _terminalBlock;
 
-        private float _iceConsumptionRate;
-        private float _iceToGasRatio;
-        private float _hydrogenProduction; 
+    //    private float _iceConsumptionRate;
+    //    private float _iceToGasRatio;
+    //    private float _hydrogenProduction; 
 
 
-        public override void Init(MyObjectBuilder_EntityBase objectBuilder)
-        {
-            _generator = (IMyGasGenerator)Entity;
-            _terminalBlock = _generator as IMyTerminalBlock;
-            _terminalBlock.AppendingCustomInfo += OnWriteToTerminal;
+    //    public override void Init(MyObjectBuilder_EntityBase objectBuilder)
+    //    {
+    //        _generator = (IMyGasGenerator)Entity;
+    //        _terminalBlock = _generator as IMyTerminalBlock;
+    //        _terminalBlock.AppendingCustomInfo += OnWriteToTerminal;
 
-            LoadBlockDefinition();
-            this.NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
-        }
+    //        LoadBlockDefinition();
+    //        this.NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
+    //    }
 
-        public override void Close()
-        {
-            _terminalBlock.AppendingCustomInfo -= OnWriteToTerminal;
-        }
+    //    public override void Close()
+    //    {
+    //        _terminalBlock.AppendingCustomInfo -= OnWriteToTerminal;
+    //    }
 
-        private void LoadBlockDefinition()
-        {
-            MyOxygenGeneratorDefinition blockDefinition = MyDefinitionManager.Static.GetCubeBlockDefinition(_generator.BlockDefinition) as MyOxygenGeneratorDefinition;
-            if (blockDefinition != null)
-            {
-                _iceConsumptionRate = blockDefinition.IceConsumptionPerSecond;
-                _iceToGasRatio = blockDefinition.ProducedGases[0].IceToGasRatio;
-                _hydrogenProduction = _iceConsumptionRate * _iceToGasRatio; // Hydrogen production rate in L/s
-            }
-        }
+    //    private void LoadBlockDefinition()
+    //    {
+    //        MyOxygenGeneratorDefinition blockDefinition = MyDefinitionManager.Static.GetCubeBlockDefinition(_generator.BlockDefinition) as MyOxygenGeneratorDefinition;
+    //        if (blockDefinition != null)
+    //        {
+    //            _iceConsumptionRate = blockDefinition.IceConsumptionPerSecond;
+    //            _iceToGasRatio = blockDefinition.ProducedGases[0].IceToGasRatio;
+    //            _hydrogenProduction = _iceConsumptionRate * _iceToGasRatio; // Hydrogen production rate in L/s
+    //        }
+    //    }
 
-        public override void UpdateAfterSimulation100()
-        {
-            _terminalBlock.RefreshCustomInfo();
-        }
+    //    public override void UpdateAfterSimulation100()
+    //    {
+    //        try
+    //        {
+    //            LoadBlockDefinition();
+    //        }
+    //        catch (Exception e)
+    //        {
 
-        public void OnWriteToTerminal(IMyTerminalBlock terminalBlock, StringBuilder stringBuilder)
-        {
-            try
-            {
-                stringBuilder.Clear(); // fuck you, keen
-                stringBuilder.Append(
-                    $"Ice Consumption: {_iceConsumptionRate:F2} kg/s\n" +
-                    $"Hydrogen Production: {_hydrogenProduction:F2} L/s\n" +
-                    $"Efficiency: {_iceToGasRatio:F2} L/kg"
-                );
-            }
-            catch (Exception e)
-            { }
-        }
-    }
+    //        }
+    //        _terminalBlock.RefreshCustomInfo();
+    //    }
+
+    //    public void OnWriteToTerminal(IMyTerminalBlock terminalBlock, StringBuilder stringBuilder)
+    //    {
+    //        try
+    //        {
+    //            stringBuilder.Clear(); // fuck you, keen
+    //            stringBuilder.Append(
+    //                $"Ice Consumption: {_iceConsumptionRate:F2} kg/s\n" +
+    //                $"Hydrogen Production: {_hydrogenProduction:F2} L/s\n" +
+    //                $"Efficiency: {_iceToGasRatio:F2} L/kg"
+    //            );
+    //        }
+    //        catch (Exception e)
+    //        { }
+    //    }
+    //}
 }
