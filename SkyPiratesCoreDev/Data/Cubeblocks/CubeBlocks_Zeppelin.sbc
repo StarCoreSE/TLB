@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+        <Definition  xsi:type="MyObjectBuilder_PoweredCargoContainerDefinition">
+			<Id>
+                <TypeId>Collector</TypeId>
+				<SubtypeId>ZeppelinTankCorner</SubtypeId>
+			</Id>
+			<DisplayName>Zeppelin Cell Corner</DisplayName>
+			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Icon>Textures\Icons\Tanks\ZeppelinTankCorner.png</Icon>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="5" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Zeppelin\ZeppelinTankCorner.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="300"/>
+				<Component Subtype="Computer" Count="10"/>
+				<Component Subtype="SteelPlate" Count="300"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0"/>
+			<BuildTimeSeconds>12</BuildTimeSeconds>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <Public>true</Public>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+			<GeneralDamageMultiplier>0.5</GeneralDamageMultiplier>
+		</Definition>
+		
+        <Definition  xsi:type="MyObjectBuilder_PoweredCargoContainerDefinition">
+			<Id>
+                <TypeId>Collector</TypeId>
+				<SubtypeId>ZeppelinTankSide</SubtypeId>
+			</Id>
+			<DisplayName>Zeppelin Cell Side</DisplayName>
+			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Icon>Textures\Icons\Tanks\ZeppelinTankSide.png</Icon>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="5" z="3"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Zeppelin\ZeppelinTankSide.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="300"/>
+				<Component Subtype="Computer" Count="10"/>
+				<Component Subtype="SteelPlate" Count="300"/>
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0"/>
+			<BuildTimeSeconds>12</BuildTimeSeconds>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <Public>true</Public>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+			<GeneralDamageMultiplier>0.5</GeneralDamageMultiplier>
+		</Definition>	
+	</CubeBlocks>
+</Definitions>

@@ -1,0 +1,249 @@
+<?xml version="1.0" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+		<Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
+			<Id>
+				<TypeId>UpgradeModule</TypeId>
+				<SubtypeId>OverclockerEngineUpgrade</SubtypeId>
+			</Id>
+			<DisplayName>Overclocker Engine Upgrade</DisplayName>
+			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Icon>Textures\Icons\Upgrades\OverclockerEngineUpgrade.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Upgrades\OverclockerEngineUpgrade.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10"/>
+			</Components>
+			<Upgrades>
+				<MyUpgradeModuleInfo>
+				  <UpgradeType>overclocker</UpgradeType>
+				  <Modifier>1</Modifier>
+				  <ModifierType>Additive</ModifierType>
+				</MyUpgradeModuleInfo>
+			</Upgrades><MirroringZ>Y</MirroringZ>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+			
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
+			<Id>
+				<TypeId>UpgradeModule</TypeId>
+				<SubtypeId>FuelInjectorEngineUpgrade</SubtypeId>
+			</Id>
+			<DisplayName>Fuel Injector Engine Upgrade</DisplayName>
+			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Icon>Textures\Icons\Upgrades\FuelInjectorEngineUpgrade.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Upgrades\FuelInjectorEngineUpgrade.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10"/>
+			</Components>
+			<Upgrades>
+				<MyUpgradeModuleInfo>
+				  <UpgradeType>fuelinjector</UpgradeType>
+				  <Modifier>1</Modifier>
+				  <ModifierType>Additive</ModifierType>
+				</MyUpgradeModuleInfo>
+			</Upgrades><MirroringZ>Y</MirroringZ>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+			
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
+			<Id>
+				<TypeId>UpgradeModule</TypeId>
+				<SubtypeId>CarburetorEngineUpgrade</SubtypeId>
+			</Id>
+			<DisplayName>Carburetor Engine Upgrade</DisplayName>
+			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Icon>Textures\Icons\Upgrades\CarburetorEngineUpgrade.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Upgrades\CarburetorEngineUpgrade.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10"/>
+			</Components>
+			<Upgrades>
+				<MyUpgradeModuleInfo>
+				  <UpgradeType>carburetor</UpgradeType>
+				  <Modifier>1</Modifier>
+				  <ModifierType>Additive</ModifierType>
+				</MyUpgradeModuleInfo>
+			</Upgrades><MirroringZ>Y</MirroringZ>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
+			<Id>
+				<TypeId>UpgradeModule</TypeId>
+				<SubtypeId>NosEngineUpgrade</SubtypeId>
+			</Id>
+			<DisplayName>NOS Injector Engine Upgrade</DisplayName>
+			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Icon>Textures\Icons\Upgrades\NosEngineUpgrade.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Upgrades\NosEngineUpgrade.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10"/>
+			</Components>
+			<Upgrades>
+				<MyUpgradeModuleInfo>
+				  <UpgradeType>nosinjector</UpgradeType>
+				  <Modifier>1</Modifier>
+				  <ModifierType>Additive</ModifierType>
+				</MyUpgradeModuleInfo>
+			</Upgrades><MirroringZ>Y</MirroringZ>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
+			<Id>
+				<TypeId>UpgradeModule</TypeId>
+				<SubtypeId>IntakeEngineUpgrade</SubtypeId>
+			</Id>
+			<DisplayName>Intake Engine Upgrade</DisplayName>
+			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Icon>Textures\Icons\Upgrades\IntakeEngineUpgrade.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="2" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Upgrades\IntakeEngineUpgrade.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10"/>
+			</Components>
+			<Upgrades>
+				<MyUpgradeModuleInfo>
+				  <UpgradeType>intake</UpgradeType>
+				  <Modifier>1</Modifier>
+				  <ModifierType>Additive</ModifierType>
+				</MyUpgradeModuleInfo>
+			</Upgrades><MirroringZ>Y</MirroringZ>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
+			<Id>
+				<TypeId>UpgradeModule</TypeId>
+				<SubtypeId>SensorEngineUpgrade</SubtypeId>
+			</Id>
+			<DisplayName>Sensor Engine Upgrade</DisplayName>
+			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Icon>Textures\Icons\Upgrades\SensorEngineUpgrade.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Upgrades\SensorEngineUpgrade.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10"/>
+			</Components>
+			<Upgrades>
+				<MyUpgradeModuleInfo>
+				  <UpgradeType>enginesensor</UpgradeType>
+				  <Modifier>1</Modifier>
+				  <ModifierType>Additive</ModifierType>
+				</MyUpgradeModuleInfo>
+			</Upgrades><MirroringZ>Y</MirroringZ>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
+			<Id>
+				<TypeId>UpgradeModule</TypeId>
+				<SubtypeId>StormEngineUpgrade</SubtypeId>
+			</Id>
+			<DisplayName>Storm Dynamo Engine Upgrade</DisplayName>
+			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Icon>Textures\Icons\Upgrades\StormEngineUpgrade.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Upgrades\StormEngineUpgrade.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10"/>
+			</Components>
+			<Upgrades>
+				<MyUpgradeModuleInfo>
+				  <UpgradeType>stormdynamo</UpgradeType>
+				  <Modifier>1</Modifier>
+				  <ModifierType>Additive</ModifierType>
+				</MyUpgradeModuleInfo>
+			</Upgrades><MirroringZ>Y</MirroringZ>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
+			<Id>
+				<TypeId>UpgradeModule</TypeId>
+				<SubtypeId>TurboEngineUpgrade</SubtypeId>
+			</Id>
+			<DisplayName>Turbocharger Engine Upgrade</DisplayName>
+			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Icon>Textures\Icons\Upgrades\TurboEngineUpgrade.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Upgrades\TurboEngineUpgrade.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10"/>
+			</Components>
+			<Upgrades>
+				<MyUpgradeModuleInfo>
+				  <UpgradeType>turbocharger</UpgradeType>
+				  <Modifier>1</Modifier>
+				  <ModifierType>Additive</ModifierType>
+				</MyUpgradeModuleInfo>
+			</Upgrades><MirroringZ>Y</MirroringZ>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_UpgradeModuleDefinition">
+			<Id>
+				<TypeId>UpgradeModule</TypeId>
+				<SubtypeId>SuperEngineUpgrade</SubtypeId>
+			</Id>
+			<DisplayName>Supercharger Engine Upgrade</DisplayName>
+			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Icon>Textures\Icons\Upgrades\SuperEngineUpgrade.png</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<Model>Models\Upgrades\SuperEngineUpgrade.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10"/>
+			</Components>
+			<Upgrades>
+				<MyUpgradeModuleInfo>
+				  <UpgradeType>supercharger</UpgradeType>
+				  <Modifier>1</Modifier>
+				  <ModifierType>Additive</ModifierType>
+				</MyUpgradeModuleInfo>
+			</Upgrades><MirroringZ>Y</MirroringZ>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+		</Definition>
+	</CubeBlocks>
+</Definitions>
