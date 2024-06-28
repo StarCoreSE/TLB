@@ -15,18 +15,18 @@
 			<ModelOffset x="0" y="0" z="0"/>
 			<Model>Models\Zeppelin\ZeppelinTankCorner.mwm</Model>
 			<Components>
-				<Component Subtype="SteelPlate" Count="300"/>
+				<Component Subtype="SteelPlate" Count="500"/>
 				<Component Subtype="Computer" Count="10"/>
 				<Component Subtype="SteelPlate" Count="300"/>
 			</Components>
 			<CriticalComponent Subtype="Computer" Index="0"/>
-			<BuildTimeSeconds>12</BuildTimeSeconds>
+			<BuildTimeSeconds>60</BuildTimeSeconds>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <Public>true</Public>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-			<GeneralDamageMultiplier>0.5</GeneralDamageMultiplier>
+			<GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
 		</Definition>
 		
         <Definition  xsi:type="MyObjectBuilder_PoweredCargoContainerDefinition">
@@ -43,18 +43,18 @@
 			<ModelOffset x="0" y="0" z="0"/>
 			<Model>Models\Zeppelin\ZeppelinTankSide.mwm</Model>
 			<Components>
-				<Component Subtype="SteelPlate" Count="300"/>
+				<Component Subtype="SteelPlate" Count="500"/>
 				<Component Subtype="Computer" Count="10"/>
 				<Component Subtype="SteelPlate" Count="300"/>
 			</Components>
 			<CriticalComponent Subtype="Computer" Index="0"/>
-			<BuildTimeSeconds>12</BuildTimeSeconds>
+			<BuildTimeSeconds>60</BuildTimeSeconds>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <Public>true</Public>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-			<GeneralDamageMultiplier>0.5</GeneralDamageMultiplier>
+			<GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
 		</Definition>	
 	</CubeBlocks>
 </Definitions>
