@@ -841,7 +841,6 @@ namespace SKY_PIRATES_CORE
 
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
-            base.Init(objectBuilder);
             _generator = (IMyGasGenerator)Entity;
             _terminalBlock = _generator as IMyTerminalBlock;
             _terminalBlock.AppendingCustomInfo += OnWriteToTerminal;
