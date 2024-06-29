@@ -232,7 +232,7 @@
                 <SubtypeId>Missile</SubtypeId>
             </Id>
             <BasicProperties>
-                <DesiredSpeed>800</DesiredSpeed>
+                <DesiredSpeed>1000</DesiredSpeed>
                 <SpeedVariance>0</SpeedVariance>
                 <MaxTrajectory>2000</MaxTrajectory>
                 <IsExplosive>true</IsExplosive>
@@ -244,8 +244,8 @@
                 <MissileMass>45</MissileMass>
                 <MissileExplosionRadius>4</MissileExplosionRadius>
                 <MissileModelName>Models\Weapons\Projectile_Missile.mwm</MissileModelName>
-                <MissileAcceleration>600</MissileAcceleration>
-                <MissileInitialSpeed>300</MissileInitialSpeed>
+                <MissileAcceleration>0</MissileAcceleration>
+                <MissileInitialSpeed>1000</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>500</MissileExplosionDamage>
                 <MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
@@ -313,21 +313,21 @@
                 <IsExplosive>true</IsExplosive>
                 <BackkickForce>150000</BackkickForce>
                 <PhysicalMaterial>LargeShell</PhysicalMaterial>
-                <ExplosiveDamageMultiplier>1.2</ExplosiveDamageMultiplier>
+                <ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
             </BasicProperties>
             <MissileProperties>
                 <MissileMass>800</MissileMass>
                 <MissileExplosionRadius>3</MissileExplosionRadius>
                 <MissileModelName>Models\Weapons\LargeCalibreShell.mwm</MissileModelName>
                 <MissileAcceleration>0</MissileAcceleration>
-                <MissileInitialSpeed>500</MissileInitialSpeed>
+                <MissileInitialSpeed>600</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>0</MissileExplosionDamage>
-                <MissileHealthPool>17000</MissileHealthPool>
+                <MissileHealthPool>60000</MissileHealthPool>
                 <MissileTrailEffect>LargeCalibreGun_Tracer</MissileTrailEffect>
                 <MissileGravityEnabled>true</MissileGravityEnabled>
-                <MissileRicochetAngle>70</MissileRicochetAngle>
-                <MissileRicochetDamage>7000</MissileRicochetDamage>
+                <MissileRicochetAngle>40</MissileRicochetAngle>
+                <MissileRicochetDamage>30000</MissileRicochetDamage>
                 <MissileRicochetProbability>0.5</MissileRicochetProbability>
             </MissileProperties>
         </Ammo>
@@ -351,10 +351,10 @@
                 <MissileExplosionRadius>2</MissileExplosionRadius>
                 <MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
                 <MissileAcceleration>0</MissileAcceleration>
-                <MissileInitialSpeed>500</MissileInitialSpeed>
+                <MissileInitialSpeed>2000</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>0</MissileExplosionDamage>
-                <MissileHealthPool>4000</MissileHealthPool>
+                <MissileHealthPool>20000</MissileHealthPool>
                 <MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
                 <MissileGravityEnabled>true</MissileGravityEnabled>
                 <MissileRicochetAngle>65</MissileRicochetAngle>
