@@ -322,7 +322,7 @@
                 <TypeId>WeaponDefinition</TypeId>
                 <SubtypeId>LargeGatlingTurret</SubtypeId>
             </Id>
-            <ProjectileAmmoData RateOfFire="2000" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="140" />
+            <ProjectileAmmoData RateOfFire="1600" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="140" />
             <ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
             <DeviateShotAngle>0.4</DeviateShotAngle>
             <DeviateShotAngleAiming>0.4</DeviateShotAngleAiming>
@@ -454,7 +454,7 @@
             <AmmoMagazines>
                 <AmmoMagazine Subtype="AutocannonClip" />
             </AmmoMagazines>
-            <ReloadTime>2500</ReloadTime>
+            <ReloadTime>0</ReloadTime>
         </Weapon>
 
 	    <Weapon>
@@ -477,7 +477,7 @@
 			<AmmoMagazines>
 				<AmmoMagazine Subtype="AutocannonClip" />
 			</AmmoMagazines>
-			<ReloadTime>4000</ReloadTime>
+			<ReloadTime>0</ReloadTime>
 		</Weapon>
 
         <Weapon>
@@ -500,7 +500,7 @@
             <AmmoMagazines>
                 <AmmoMagazine Subtype="AutocannonClip" />
             </AmmoMagazines>
-            <ReloadTime>4000</ReloadTime>
+            <ReloadTime>0</ReloadTime>
         </Weapon>
 
     </Weapons>

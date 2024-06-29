@@ -21,7 +21,7 @@
 			</Components>
 			<CriticalComponent Subtype="Computer" Index="0"/>
 			<BuildTimeSeconds>80</BuildTimeSeconds>
-			<DamageMultiplierExplosion>1</DamageMultiplierExplosion>
+			<DamageMultiplierExplosion>5</DamageMultiplierExplosion>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <Public>true</Public>
@@ -50,7 +50,7 @@
 			</Components>
 			<CriticalComponent Subtype="Computer" Index="0"/>
 			<BuildTimeSeconds>80</BuildTimeSeconds>
-			<DamageMultiplierExplosion>1</DamageMultiplierExplosion>
+			<DamageMultiplierExplosion>5</DamageMultiplierExplosion>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <Public>true</Public>
