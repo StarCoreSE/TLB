@@ -20,7 +20,8 @@
 				<Component Subtype="SteelPlate" Count="300"/>
 			</Components>
 			<CriticalComponent Subtype="Computer" Index="0"/>
-			<BuildTimeSeconds>60</BuildTimeSeconds>
+			<BuildTimeSeconds>120</BuildTimeSeconds>
+			<DamageMultiplierExplosion>1</DamageMultiplierExplosion>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <Public>true</Public>
@@ -48,7 +49,8 @@
 				<Component Subtype="SteelPlate" Count="300"/>
 			</Components>
 			<CriticalComponent Subtype="Computer" Index="0"/>
-			<BuildTimeSeconds>60</BuildTimeSeconds>
+			<BuildTimeSeconds>120</BuildTimeSeconds>
+			<DamageMultiplierExplosion>1</DamageMultiplierExplosion>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <Public>true</Public>
