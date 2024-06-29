@@ -20,14 +20,14 @@
 				<Component Subtype="SteelPlate" Count="300"/>
 			</Components>
 			<CriticalComponent Subtype="Computer" Index="0"/>
-			<BuildTimeSeconds>80</BuildTimeSeconds>
-			<DamageMultiplierExplosion>5</DamageMultiplierExplosion>
+			<BuildTimeSeconds>50</BuildTimeSeconds>
+			<DamageMultiplierExplosion>10</DamageMultiplierExplosion>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <Public>true</Public>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-			<GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+			<GeneralDamageMultiplier>0.35</GeneralDamageMultiplier>
 		</Definition>
 		
         <Definition  xsi:type="MyObjectBuilder_PoweredCargoContainerDefinition">
@@ -49,14 +49,14 @@
 				<Component Subtype="SteelPlate" Count="300"/>
 			</Components>
 			<CriticalComponent Subtype="Computer" Index="0"/>
-			<BuildTimeSeconds>80</BuildTimeSeconds>
-			<DamageMultiplierExplosion>5</DamageMultiplierExplosion>
+			<BuildTimeSeconds>50</BuildTimeSeconds>
+			<DamageMultiplierExplosion>10</DamageMultiplierExplosion>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <Public>true</Public>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-			<GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+			<GeneralDamageMultiplier>0.35</GeneralDamageMultiplier>
 		</Definition>	
 	</CubeBlocks>
 </Definitions>

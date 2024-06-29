@@ -196,7 +196,7 @@
             <ProjectileProperties>
                 <ProjectileTrailScale>0.15</ProjectileTrailScale>
                 <ProjectileHitImpulse>200</ProjectileHitImpulse>
-                <ProjectileMassDamage>400</ProjectileMassDamage>
+                <ProjectileMassDamage>200</ProjectileMassDamage>
                 <ProjectileHealthDamage>33</ProjectileHealthDamage>
                 <HeadShot>true</HeadShot>
             </ProjectileProperties>
@@ -323,7 +323,7 @@
                 <MissileInitialSpeed>600</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>0</MissileExplosionDamage>
-                <MissileHealthPool>76000</MissileHealthPool>
+                <MissileHealthPool>57000</MissileHealthPool>
                 <MissileTrailEffect>LargeCalibreGun_Tracer</MissileTrailEffect>
                 <MissileGravityEnabled>true</MissileGravityEnabled>
                 <MissileRicochetAngle>80</MissileRicochetAngle>
@@ -353,7 +353,7 @@
                 <MissileAcceleration>0</MissileAcceleration>
                 <MissileInitialSpeed>2000</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
-                <MissileExplosionDamage>7000</MissileExplosionDamage>
+                <MissileExplosionDamage>4000</MissileExplosionDamage>
                 <MissileHealthPool>2500</MissileHealthPool>
                 <MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
                 <MissileGravityEnabled>true</MissileGravityEnabled>

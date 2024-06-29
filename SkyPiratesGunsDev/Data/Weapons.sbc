@@ -271,7 +271,7 @@
                 <TypeId>WeaponDefinition</TypeId>
                 <SubtypeId>GatlingGun</SubtypeId>
             </Id>
-            <ProjectileAmmoData RateOfFire="1000" ShootSoundName="WepShipGatlingShot" ShotsInBurst="140" />
+            <ProjectileAmmoData RateOfFire="2000" ShootSoundName="WepShipGatlingShot" ShotsInBurst="140" />
             <ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
             <DeviateShotAngle>0.3</DeviateShotAngle>
             <DeviateShotAngleAiming>0.3</DeviateShotAngleAiming>
@@ -297,7 +297,7 @@
                 <TypeId>WeaponDefinition</TypeId>
                 <SubtypeId>GatlingGunWarfare</SubtypeId>
             </Id>
-            <ProjectileAmmoData RateOfFire="1000" ShootSoundName="WepShipGatlingShot" ShotsInBurst="140" />
+            <ProjectileAmmoData RateOfFire="2000" ShootSoundName="WepShipGatlingShot" ShotsInBurst="140" />
             <ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
             <DeviateShotAngle>0.3</DeviateShotAngle>
             <DeviateShotAngleAiming>0.3</DeviateShotAngleAiming>
@@ -322,7 +322,7 @@
                 <TypeId>WeaponDefinition</TypeId>
                 <SubtypeId>LargeGatlingTurret</SubtypeId>
             </Id>
-            <ProjectileAmmoData RateOfFire="1600" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="140" />
+            <ProjectileAmmoData RateOfFire="4000" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="140" />
             <ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
             <DeviateShotAngle>0.4</DeviateShotAngle>
             <DeviateShotAngleAiming>0.4</DeviateShotAngleAiming>
@@ -342,7 +342,7 @@
                 <TypeId>WeaponDefinition</TypeId>
                 <SubtypeId>SmallGatlingTurret</SubtypeId>
             </Id>
-            <ProjectileAmmoData RateOfFire="700" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="140" />
+            <ProjectileAmmoData RateOfFire="2000" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="140" />
             <ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
             <DeviateShotAngle>0.3</DeviateShotAngle>
             <DeviateShotAngleAiming>0.3</DeviateShotAngleAiming>
