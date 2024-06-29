@@ -65,7 +65,7 @@
                 <MissileExplosionRadius>4</MissileExplosionRadius>
                 <MissileModelName>Models\Ammo\SmallBomb.mwm</MissileModelName>
                 <MissileInitialSpeed>1</MissileInitialSpeed>
-                <MissileSkipAcceleration>true</MissileSkipAcceleration>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>600</MissileExplosionDamage>
 				<MissileGravityEnabled>true</MissileGravityEnabled>
 				<MissileAcceleration>0</MissileAcceleration>
@@ -92,7 +92,7 @@
                 <MissileExplosionRadius>6</MissileExplosionRadius>
                 <MissileModelName>Models\Ammo\MediumBomb.mwm</MissileModelName>
                 <MissileInitialSpeed>1</MissileInitialSpeed>
-                <MissileSkipAcceleration>true</MissileSkipAcceleration>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>1600</MissileExplosionDamage>
 				<MissileGravityEnabled>true</MissileGravityEnabled>
 				<MissileAcceleration>0</MissileAcceleration>
@@ -119,7 +119,7 @@
                 <MissileExplosionRadius>6</MissileExplosionRadius>
                 <MissileModelName>Models\Ammo\MediumBomb.mwm</MissileModelName>
                 <MissileInitialSpeed>50</MissileInitialSpeed>
-                <MissileSkipAcceleration>true</MissileSkipAcceleration>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>1600</MissileExplosionDamage>
 				<MissileGravityEnabled>false</MissileGravityEnabled>
 				<MissileAcceleration>0</MissileAcceleration>
@@ -146,7 +146,7 @@
                 <MissileExplosionRadius>10</MissileExplosionRadius>
                 <MissileModelName>Models\Ammo\LargeBomb.mwm</MissileModelName>
                 <MissileInitialSpeed>1</MissileInitialSpeed>
-                <MissileSkipAcceleration>true</MissileSkipAcceleration>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>4000</MissileExplosionDamage>
 				<MissileGravityEnabled>true</MissileGravityEnabled>
 				<MissileAcceleration>0</MissileAcceleration>
@@ -173,7 +173,7 @@
                 <MissileExplosionRadius>5</MissileExplosionRadius>
                 <MissileModelName>Models\Ammo\GlideBomb.mwm</MissileModelName>
                 <MissileInitialSpeed>20</MissileInitialSpeed>
-                <MissileSkipAcceleration>true</MissileSkipAcceleration>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>1200</MissileExplosionDamage>
 				<MissileGravityEnabled>false</MissileGravityEnabled>
 				<MissileTrailEffect></MissileTrailEffect>
@@ -246,7 +246,7 @@
                 <MissileModelName>Models\Weapons\Projectile_Missile.mwm</MissileModelName>
                 <MissileAcceleration>0</MissileAcceleration>
                 <MissileInitialSpeed>1000</MissileInitialSpeed>
-                <MissileSkipAcceleration>true</MissileSkipAcceleration>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>500</MissileExplosionDamage>
                 <MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
             </MissileProperties>
@@ -272,7 +272,7 @@
                 <MissileModelName>Models\Ammo\ElindisTorpedo.mwm</MissileModelName>
                 <MissileAcceleration>0</MissileAcceleration>
                 <MissileInitialSpeed>1000</MissileInitialSpeed>
-                <MissileSkipAcceleration>true</MissileSkipAcceleration>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
 				<MissileExplosionDamage>3000</MissileExplosionDamage>
                 <MissileTrailEffect>Trail_ElindisTorpedo</MissileTrailEffect>
             </MissileProperties>
@@ -319,9 +319,9 @@
                 <MissileMass>800</MissileMass>
                 <MissileExplosionRadius>3</MissileExplosionRadius>
                 <MissileModelName>Models\Weapons\LargeCalibreShell.mwm</MissileModelName>
-                <MissileAcceleration>100</MissileAcceleration>
+                <MissileAcceleration>0</MissileAcceleration>
                 <MissileInitialSpeed>600</MissileInitialSpeed>
-                <MissileSkipAcceleration>true</MissileSkipAcceleration>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>0</MissileExplosionDamage>
                 <MissileHealthPool>75000</MissileHealthPool>
                 <MissileTrailEffect>LargeCalibreGun_Tracer</MissileTrailEffect>
@@ -350,10 +350,10 @@
                 <MissileMass>300</MissileMass>
                 <MissileExplosionRadius>2</MissileExplosionRadius>
                 <MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
-                <MissileAcceleration>100</MissileAcceleration>
+                <MissileAcceleration>0</MissileAcceleration>
                 <MissileInitialSpeed>2000</MissileInitialSpeed>
-                <MissileSkipAcceleration>true</MissileSkipAcceleration>
-                <MissileExplosionDamage>10000</MissileExplosionDamage>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
+                <MissileExplosionDamage>7000</MissileExplosionDamage>
                 <MissileHealthPool>2500</MissileHealthPool>
                 <MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
                 <MissileGravityEnabled>true</MissileGravityEnabled>
@@ -381,9 +381,9 @@
                 <MissileMass>2000</MissileMass>
                 <MissileExplosionRadius>1</MissileExplosionRadius>
                 <MissileModelName>Models\Weapons\RailgunAmmoLarge.mwm</MissileModelName>
-                <MissileAcceleration>100</MissileAcceleration>
+                <MissileAcceleration>0</MissileAcceleration>
                 <MissileInitialSpeed>2000</MissileInitialSpeed>
-                <MissileSkipAcceleration>true</MissileSkipAcceleration>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>0</MissileExplosionDamage>
                 <MissileHealthPool>50000</MissileHealthPool>
                 <MissileTrailEffect>RailGunTrail</MissileTrailEffect>
@@ -409,9 +409,9 @@
                 <MissileMass>500</MissileMass>
                 <MissileExplosionRadius>0</MissileExplosionRadius>
                 <MissileModelName>Models\Weapons\RailgunAmmo.mwm</MissileModelName>
-                <MissileAcceleration>100</MissileAcceleration>
+                <MissileAcceleration>0</MissileAcceleration>
                 <MissileInitialSpeed>1000</MissileInitialSpeed>
-                <MissileSkipAcceleration>true</MissileSkipAcceleration>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>0</MissileExplosionDamage>
                 <MissileHealthPool>8000</MissileHealthPool>
                 <MissileTrailEffect>RailGunTrailSmall</MissileTrailEffect>
