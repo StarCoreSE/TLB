@@ -506,7 +506,7 @@
             <Description>Description_PassengerSeat</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
-            <Size x="3" y="3" z="3" />
+            <Size x="1" y="3" z="2" />
             <ModelOffset x="0" y="0" z="0.24" />
             <Model>Models\Cubes\Small\PassengerSeat.mwm</Model>
             <CharacterAnimationMale>Passengerseat_Small_Adjusted</CharacterAnimationMale>
