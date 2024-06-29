@@ -107,15 +107,15 @@ namespace SEBR_GITGAT
                     }
 
                     // make cargo and connectors ungovernable
-                    if((cubeDef.Id.SubtypeId.String.Contains("Container") || cubeDef.Id.SubtypeId.String.Contains("Connector")) && compList[i].Definition.Id.SubtypeId.String == "Computer")
-                    {
-                        //MyLog.Default.WriteLineAndConsole($"Removed computers from {cubeDef.Id.SubtypeId.String} at component index {i}.");
-                        compList.RemoveAt(i);
-                        i--;
-                        if (i <= cubeDef.CriticalGroup && cubeDef.CriticalGroup > 0)
-                            cubeDef.CriticalGroup--;
-                        continue;
-                    }
+                    //if((cubeDef.Id.SubtypeId.String.Contains("Container") || cubeDef.Id.SubtypeId.String.Contains("Connector")) && compList[i].Definition.Id.SubtypeId.String == "Computer")
+                    //{
+                    //    //MyLog.Default.WriteLineAndConsole($"Removed computers from {cubeDef.Id.SubtypeId.String} at component index {i}.");
+                    //    compList.RemoveAt(i);
+                    //    i--;
+                    //    if (i <= cubeDef.CriticalGroup && cubeDef.CriticalGroup > 0)
+                    //        cubeDef.CriticalGroup--;
+                    //    continue;
+                    //}
 
                     // Fix duplicate component stacks.
                     if (i > 0 && compList[i].Definition == compList[i - 1].Definition && (i != (int)cubeDef.CriticalGroup))
