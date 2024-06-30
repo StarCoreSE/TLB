@@ -20,8 +20,6 @@ namespace AntennaAlwaysOn
 
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
-            if (MyAPIGateway.Utilities.IsDedicated) return;
-
                 beacon = Entity as IMyRadioAntenna;
             if (beacon.Radius < rangeSmallGrid)
                 beacon.Radius = rangeSmallGrid;
