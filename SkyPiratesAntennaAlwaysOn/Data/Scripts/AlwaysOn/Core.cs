@@ -12,7 +12,7 @@ namespace AntennaAlwaysOn
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_RadioAntenna), true)]
     public class Core : MyGameLogicComponent
     {
-        public const float rangeSmallGrid = 25f;
+        public const float rangeSmallGrid = 1000f;
         public const float rangeLargeGrid = 100f;
 
         private IMyRadioAntenna beacon;
