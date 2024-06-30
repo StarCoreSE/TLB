@@ -225,7 +225,7 @@ namespace SKY_PIRATES_CORE
 
     public class Zeppelin
     {
-        public const double buoyancyConstant = 100000;
+        public const double buoyancyConstant = 150000;
         public const float burnDamage = 2000f;
 
         public IMyCubeGrid grid;
