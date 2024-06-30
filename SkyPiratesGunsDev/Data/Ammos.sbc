@@ -93,7 +93,7 @@
                 <MissileModelName>Models\Ammo\MediumBomb.mwm</MissileModelName>
                 <MissileInitialSpeed>1</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
-                <MissileExplosionDamage>1600</MissileExplosionDamage>
+                <MissileExplosionDamage>2000</MissileExplosionDamage>
 				<MissileGravityEnabled>true</MissileGravityEnabled>
 				<MissileAcceleration>0</MissileAcceleration>
 				<MissileTrailEffect></MissileTrailEffect>
@@ -120,7 +120,7 @@
                 <MissileModelName>Models\Ammo\MediumBomb.mwm</MissileModelName>
                 <MissileInitialSpeed>50</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
-                <MissileExplosionDamage>1600</MissileExplosionDamage>
+                <MissileExplosionDamage>2000</MissileExplosionDamage>
 				<MissileGravityEnabled>false</MissileGravityEnabled>
 				<MissileAcceleration>0</MissileAcceleration>
 				<MissileTrailEffect></MissileTrailEffect>
@@ -147,7 +147,7 @@
                 <MissileModelName>Models\Ammo\LargeBomb.mwm</MissileModelName>
                 <MissileInitialSpeed>1</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
-                <MissileExplosionDamage>4000</MissileExplosionDamage>
+                <MissileExplosionDamage>2200</MissileExplosionDamage>
 				<MissileGravityEnabled>true</MissileGravityEnabled>
 				<MissileAcceleration>0</MissileAcceleration>
 				<MissileTrailEffect></MissileTrailEffect>
@@ -174,7 +174,7 @@
                 <MissileModelName>Models\Ammo\GlideBomb.mwm</MissileModelName>
                 <MissileInitialSpeed>20</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
-                <MissileExplosionDamage>1200</MissileExplosionDamage>
+                <MissileExplosionDamage>2000</MissileExplosionDamage>
 				<MissileGravityEnabled>false</MissileGravityEnabled>
 				<MissileTrailEffect></MissileTrailEffect>
             </MissileProperties>
@@ -188,7 +188,7 @@
             <BasicProperties>
                 <DesiredSpeed>1000</DesiredSpeed>
                 <SpeedVariance>0</SpeedVariance>
-                <MaxTrajectory>1000</MaxTrajectory>
+                <MaxTrajectory>600</MaxTrajectory>
                 <BackkickForce>200</BackkickForce>
                 <PhysicalMaterial>GunBullet</PhysicalMaterial>
                 <ExplosiveDamageMultiplier>0.6</ExplosiveDamageMultiplier>
@@ -212,7 +212,7 @@
             <BasicProperties>
                 <DesiredSpeed>1200</DesiredSpeed>
                 <SpeedVariance>0</SpeedVariance>
-                <MaxTrajectory>1600</MaxTrajectory>
+                <MaxTrajectory>800</MaxTrajectory>
                 <BackkickForce>1000</BackkickForce>
                 <PhysicalMaterial>GunAutocannonBullet</PhysicalMaterial>
                 <ExplosiveDamageMultiplier>0.8</ExplosiveDamageMultiplier>
@@ -247,7 +247,7 @@
                 <MissileAcceleration>0</MissileAcceleration>
                 <MissileInitialSpeed>1000</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
-                <MissileExplosionDamage>500</MissileExplosionDamage>
+                <MissileExplosionDamage>4000</MissileExplosionDamage>
                 <MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
             </MissileProperties>
         </Ammo>
@@ -285,7 +285,7 @@
 			<BasicProperties>
 				<DesiredSpeed>2000</DesiredSpeed>
 				<SpeedVariance>0.4</SpeedVariance>
-				<MaxTrajectory>500</MaxTrajectory>
+				<MaxTrajectory>300</MaxTrajectory>
 				<BackkickForce>50000</BackkickForce>
 			</BasicProperties>
 			<ProjectileProperties>
@@ -323,7 +323,7 @@
                 <MissileInitialSpeed>600</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>0</MissileExplosionDamage>
-                <MissileHealthPool>52000</MissileHealthPool>
+                <MissileHealthPool>25000</MissileHealthPool>
                 <MissileTrailEffect>LargeCalibreGun_Tracer</MissileTrailEffect>
                 <MissileGravityEnabled>true</MissileGravityEnabled>
                 <MissileRicochetAngle>80</MissileRicochetAngle>
@@ -353,7 +353,7 @@
                 <MissileAcceleration>0</MissileAcceleration>
                 <MissileInitialSpeed>2000</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
-                <MissileExplosionDamage>25000</MissileExplosionDamage>
+                <MissileExplosionDamage>12500</MissileExplosionDamage>
                 <MissileHealthPool>500</MissileHealthPool>
                 <MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
                 <MissileGravityEnabled>true</MissileGravityEnabled>
