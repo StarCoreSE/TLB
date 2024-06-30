@@ -67,7 +67,15 @@ namespace AntennaAlwaysOn
         {
             if (MyAPIGateway.Multiplayer.IsServer)
             {
-                beacon.Enabled = true;
+                if (!beacon.Enabled) 
+                {
+                    beacon.Enabled = true;
+                }
+
+                if (!beacon.EnableBroadcasting) 
+                {
+                    beacon.EnableBroadcasting = true;
+                }
             }
         }
     }
