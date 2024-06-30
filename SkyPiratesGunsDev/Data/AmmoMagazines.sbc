@@ -43,7 +43,7 @@
             <Volume>24</Volume>
             <Model>Models\Weapons\AutoCanonShellBox.mwm</Model>
             <PhysicalMaterial>Ammo</PhysicalMaterial>
-            <Capacity>16</Capacity>
+            <Capacity>24</Capacity>
             <AmmoDefinitionId Subtype="AutocannonShell" />
 
             <MinimumOfferAmount>30</MinimumOfferAmount>
@@ -70,7 +70,7 @@
             <Volume>16</Volume>
             <Model>Models\Weapons\Ammo_Box.mwm</Model>
             <PhysicalMaterial>Ammo</PhysicalMaterial>
-            <Capacity>140</Capacity>
+            <Capacity>250</Capacity>
             <AmmoDefinitionId Subtype="LargeCaliber" />
 
             <MinimumOfferAmount>50</MinimumOfferAmount>
