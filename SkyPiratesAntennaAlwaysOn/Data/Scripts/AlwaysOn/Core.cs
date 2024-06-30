@@ -12,56 +12,50 @@ namespace AntennaAlwaysOn
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_RadioAntenna), true)]
     public class Core : MyGameLogicComponent
     {
-        public const float rangeSmallGrid = 1000f;
-        public const float rangeLargeGrid = 3000f;
+        public const float rangeSmallGrid = 25f;
+        public const float rangeLargeGrid = 100f;
 
         private IMyRadioAntenna beacon;
-
+        private bool waitframe = false;
 
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
-            beacon = Entity as IMyRadioAntenna;
+            if (MyAPIGateway.Utilities.IsDedicated) return;
+
+                beacon = Entity as IMyRadioAntenna;
             if (beacon.Radius < rangeSmallGrid)
                 beacon.Radius = rangeSmallGrid;
 
-            NeedsUpdate = MyEntityUpdateEnum.EACH_FRAME | MyEntityUpdateEnum.EACH_100TH_FRAME;
+            NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME | MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
         }
 
-        /// <summary>
-        /// Avoid crashes when block is removed by stopping any posible action
-        /// </summary>
-        public override void Close()
-        {
-            NeedsUpdate = MyEntityUpdateEnum.NONE;
-        }
 
-        /// <summary>
-        /// sets range minimums
-        /// </summary>
-        public override void UpdateBeforeSimulation()
+        public override void UpdateOnceBeforeFrame()
         {
-            if (!MyAPIGateway.Utilities.IsDedicated)
+            if (waitframe)
             {
-                List<IMyTerminalControl> controls;
-                MyAPIGateway.TerminalControls.GetControls<IMyRadioAntenna>(out controls);
+                waitframe = false;
+                NeedsUpdate |= MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
+                return;
+            }
 
-                foreach (IMyTerminalControl control in controls)
+            List<IMyTerminalControl> controls;
+            MyAPIGateway.TerminalControls.GetControls<IMyRadioAntenna>(out controls);
+
+            foreach (IMyTerminalControl control in controls)
+            {
+                if (control.Id == "Radius")
                 {
-                    if (control.Id == "Radius")
+                    if (beacon.CubeGrid.GridSizeEnum == VRage.Game.MyCubeSize.Small)
                     {
-                        if (beacon.CubeGrid.GridSizeEnum == VRage.Game.MyCubeSize.Small)
-                        {
-                            ((IMyTerminalControlSlider)control).SetLimits(rangeSmallGrid, 50000f);
-                        }
-                        else if (beacon.CubeGrid.GridSizeEnum == VRage.Game.MyCubeSize.Large)
-                        {
-                            ((IMyTerminalControlSlider)control).SetLimits(rangeLargeGrid, 50000f);
-                        }
-
-                        // stop running this logic but keep the always on check.
-                        NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
-                        break;
+                        ((IMyTerminalControlSlider)control).SetLimits(rangeSmallGrid, 50000f);
                     }
+                    else if (beacon.CubeGrid.GridSizeEnum == VRage.Game.MyCubeSize.Large)
+                    {
+                        ((IMyTerminalControlSlider)control).SetLimits(rangeLargeGrid, 50000f);
+                    }
+
+                    break;
                 }
             }
         }

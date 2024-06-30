@@ -448,6 +448,7 @@
 			<DeviateShotAngle>0.15</DeviateShotAngle>
 			<DeviateShotAngleAiming>0.15</DeviateShotAngleAiming>
 			<MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan>
+			<RangeMultiplier>1.333</RangeMultiplier>
 			<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
 			<SecondarySoundName></SecondarySoundName>
 

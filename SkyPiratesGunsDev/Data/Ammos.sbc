@@ -212,15 +212,15 @@
             <BasicProperties>
                 <DesiredSpeed>1200</DesiredSpeed>
                 <SpeedVariance>0</SpeedVariance>
-                <MaxTrajectory>800</MaxTrajectory>
+                <MaxTrajectory>1000</MaxTrajectory>
                 <BackkickForce>1000</BackkickForce>
                 <PhysicalMaterial>GunAutocannonBullet</PhysicalMaterial>
                 <ExplosiveDamageMultiplier>0.8</ExplosiveDamageMultiplier>
             </BasicProperties>
             <ProjectileProperties>
                 <ProjectileTrailScale>0.5</ProjectileTrailScale>
-                <ProjectileHitImpulse>1500</ProjectileHitImpulse>
-                <ProjectileMassDamage>90</ProjectileMassDamage>
+				<ProjectileHitImpulse>500</ProjectileHitImpulse>
+                <ProjectileMassDamage>400</ProjectileMassDamage>
                 <ProjectileHealthDamage>85</ProjectileHealthDamage>
                 <HeadShot>true</HeadShot>
             </ProjectileProperties>
@@ -232,9 +232,9 @@
                 <SubtypeId>Missile</SubtypeId>
             </Id>
             <BasicProperties>
-                <DesiredSpeed>1000</DesiredSpeed>
+                <DesiredSpeed>700</DesiredSpeed>
                 <SpeedVariance>0</SpeedVariance>
-                <MaxTrajectory>2000</MaxTrajectory>
+                <MaxTrajectory>1000</MaxTrajectory>
                 <IsExplosive>true</IsExplosive>
                 <BackkickForce>0</BackkickForce>
                 <PhysicalMaterial>Missile</PhysicalMaterial>
@@ -247,7 +247,7 @@
                 <MissileAcceleration>0</MissileAcceleration>
                 <MissileInitialSpeed>1000</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
-                <MissileExplosionDamage>4000</MissileExplosionDamage>
+                <MissileExplosionDamage>500</MissileExplosionDamage>
                 <MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
             </MissileProperties>
         </Ammo>
@@ -257,7 +257,7 @@
                 <SubtypeId>Torpedo</SubtypeId>
             </Id>
             <BasicProperties>
-                <DesiredSpeed>1000</DesiredSpeed>
+                <DesiredSpeed>500</DesiredSpeed>
                 <SpeedVariance>0</SpeedVariance>
                 <MaxTrajectory>2500</MaxTrajectory>
                 <IsExplosive>true</IsExplosive>
@@ -268,12 +268,12 @@
             <MissileProperties>
 			<!-- About 6x the damage of a 200mm missile -->
                 <MissileMass>150</MissileMass>
-                <MissileExplosionRadius>8</MissileExplosionRadius>
+                <MissileExplosionRadius>6</MissileExplosionRadius>
                 <MissileModelName>Models\Ammo\ElindisTorpedo.mwm</MissileModelName>
                 <MissileAcceleration>0</MissileAcceleration>
                 <MissileInitialSpeed>1000</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
-				<MissileExplosionDamage>3000</MissileExplosionDamage>
+				<MissileExplosionDamage>2000</MissileExplosionDamage>
                 <MissileTrailEffect>Trail_ElindisTorpedo</MissileTrailEffect>
             </MissileProperties>
         </Ammo>
