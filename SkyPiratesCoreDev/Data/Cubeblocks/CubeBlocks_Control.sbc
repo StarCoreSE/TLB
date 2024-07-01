@@ -506,7 +506,7 @@
             <Description>Description_PassengerSeat</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
-            <Size x="3" y="3" z="3" />
+            <Size x="1" y="3" z="2" />
             <ModelOffset x="0" y="0" z="0.24" />
             <Model>Models\Cubes\Small\PassengerSeat.mwm</Model>
             <CharacterAnimationMale>Passengerseat_Small_Adjusted</CharacterAnimationMale>
@@ -518,10 +518,7 @@
                 <Component Subtype="InteriorPlate" Count="10" />
             </Components>
             <CriticalComponent Subtype="InteriorPlate" Index="0" />
-            <MountPoints>
-                <MountPoint Side="Bottom" StartX="1" StartY="1" EndX="2" EndY="3" Default="true" />
-                <MountPoint Side="Back" StartX="1" StartY="0" EndX="2" EndY="2" />
-            </MountPoints>
+            
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\PassengerSeatConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\PassengerSeatConstruction_2.mwm" />
@@ -568,7 +565,7 @@
             <Description>Description_PassengerSeat</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
-            <Size x="3" y="3" z="2" />
+            <Size x="1" y="3" z="2" />
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\PassengerSeat.mwm</Model>
             <CharacterAnimationMale>Passengerseat_Small_Adjusted</CharacterAnimationMale>
@@ -580,10 +577,7 @@
                 <Component Subtype="InteriorPlate" Count="10" />
             </Components>
             <CriticalComponent Subtype="InteriorPlate" Index="0" />
-            <MountPoints>
-                <MountPoint Side="Bottom" StartX="1" StartY="0.5" EndX="2" EndY="2" Default="true" />
-                <MountPoint Side="Back" StartX="1" StartY="0" EndX="2" EndY="2" />
-            </MountPoints>
+            
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\PassengerSeatConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\PassengerSeatConstruction_2.mwm" />
