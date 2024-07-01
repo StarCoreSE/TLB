@@ -734,7 +734,7 @@ namespace SKY_PIRATES_CORE
             float altitudeModifier = 1f;
 
             if (nosinjector > 0f)
-                altitudeModifier += nosinjector * (1f - planet.GetAirDensity(grid.WorldMatrix.Translation)) / 4f;
+                altitudeModifier += nosinjector * (1f - planet.GetAirDensity(grid.WorldMatrix.Translation)) / 2f;
 
             return altitudeModifier;
         }
