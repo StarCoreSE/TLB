@@ -96,8 +96,8 @@ namespace TargetLeading
                     continue;
                 }
 
-                // Ignores grids that are probalby just trash
-                if (((MyCubeGrid)grid).BlocksCount <= 3) 
+                // Ignores grids that are probalby just trash or wheels
+                if (((MyCubeGrid)grid).BlocksCount <= 7) 
                 {
                     RemoveGPS(grid.EntityId);
                     continue;
