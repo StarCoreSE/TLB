@@ -11,7 +11,7 @@
 			</Id>
 			<DisplayName>V4 Gas Engine</DisplayName>
 			<Icon>Textures\GUI\Icons\Cubes\HydrogenEngineSmall.dds</Icon>
-			Description>Fuel consumption of 20.0L/s, Fuel to Engine power ratio of 2L/L, Total power of 40.00L/s</Description>
+			<Description>Hydrocarbon burning power plant for vehicles.</Description>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
 			<Size x="3" y="2" z="2" />
@@ -49,7 +49,7 @@
 			<EdgeType>Light</EdgeType>
 
 			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
-			<IceConsumptionPerSecond>20</IceConsumptionPerSecond>
+			<IceConsumptionPerSecond>10</IceConsumptionPerSecond>
             <InventoryMaxVolume>1</InventoryMaxVolume>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <InventorySize>
@@ -96,7 +96,7 @@
 			</Id>
 			<DisplayName>V2 Gas Engine</DisplayName>
 			<Icon>Textures\GUI\Icons\Cubes\HydrogenEngineSmall.dds</Icon>
-			<Description>Fuel consumption of 12.0L/s, Fuel to Engine power ratio (efficiency) of 1.66L/L, Total power of 20.00L/s</Description>
+			<Description>Hydrocarbon burning power plant for vehicles. Less efficient than its larger cousins.</Description>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
 			<Size x="3" y="2" z="1" />
@@ -134,7 +134,7 @@
 			<EdgeType>Light</EdgeType>
 
 			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
-			<IceConsumptionPerSecond>12</IceConsumptionPerSecond>
+			<IceConsumptionPerSecond>6</IceConsumptionPerSecond>
             <InventoryMaxVolume>1</InventoryMaxVolume>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <InventorySize>
@@ -181,7 +181,7 @@
 			</Id>
 			<DisplayName>V6 Gas Engine</DisplayName>
 			<Icon>Textures\Icons\BobEngine.dds</Icon>
-			<Description>Fuel consumption of 24.0L/s, Fuel to Engine power ratio (efficiency) of 2.5L/L, Total power of 60.00L/s</Description>
+			<Description>Hydrocarbon burning power plant for vehicles. Cumbersome to use, but more robust than its cousins.</Description>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
 			<Size x="3" y="3" z="3"/>
@@ -208,7 +208,7 @@
 			<BuildTimeSeconds>30</BuildTimeSeconds>
 			<EdgeType>Light</EdgeType>
 			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
-			<IceConsumptionPerSecond>24</IceConsumptionPerSecond>
+			<IceConsumptionPerSecond>12</IceConsumptionPerSecond>
             <InventoryMaxVolume>1</InventoryMaxVolume>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <InventorySize>
