@@ -313,6 +313,32 @@
         <AmmoMagazine>
             <Id>
                 <TypeId>AmmoMagazine</TypeId>
+                <SubtypeId>RadarMag</SubtypeId>
+            </Id>
+            <DisplayName>z RadarMag</DisplayName>
+            <Icon>Textures\GUI\Icons\ammo\LargeCalibreShell.dds</Icon>
+            <Size>
+                <X>1.2</X>
+                <Y>0.3</Y>
+                <Z>0.3</Z>
+            </Size>
+            <Mass>100</Mass>
+            <Volume>100</Volume>
+            <Model>Models\Weapons\LargeCalibreShell.mwm</Model>
+            <PhysicalMaterial>Ammo</PhysicalMaterial>
+            <Capacity>1</Capacity>
+            <AmmoDefinitionId Subtype="RadarAmmo" />
+
+            <MinimumOfferAmount>50</MinimumOfferAmount>
+            <MaximumOfferAmount>500</MaximumOfferAmount>
+            <MinimumOrderAmount>100</MinimumOrderAmount>
+            <MaximumOrderAmount>2000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </AmmoMagazine>
+
+        <AmmoMagazine>
+            <Id>
+                <TypeId>AmmoMagazine</TypeId>
                 <SubtypeId>MediumCalibreAmmo</SubtypeId>
             </Id>
             <DisplayName>Ammo Cannon</DisplayName>

@@ -99,10 +99,10 @@
         <Definition xsi:type="MyObjectBuilder_CockpitDefinition">
             <Id>
                 <TypeId>Cockpit</TypeId>
-                <SubtypeId>CockpitOpen</SubtypeId>
+                <SubtypeId>ZClassicCockpit</SubtypeId>
                 <!-- Flight seat -->
             </Id>
-            <DisplayName>DisplayName_Block_Cockpit3</DisplayName>
+            <DisplayName>Classic Zeppelin Controller</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\CockpitOpen.dds</Icon>
             <Description>Description_FlightSeat</Description>
             <CubeSize>Large</CubeSize>
@@ -146,7 +146,6 @@
                     <MinAllowed>0</MinAllowed>
                 </DynamicMode>
             </VoxelPlacement>
-            <BlockPairName>CockpitOpen</BlockPairName>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>30</BuildTimeSeconds>
             <MirroringZ>Y</MirroringZ>

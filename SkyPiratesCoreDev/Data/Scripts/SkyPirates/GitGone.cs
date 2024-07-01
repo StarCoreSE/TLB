@@ -102,6 +102,7 @@ namespace cleaner
         public List<string> whitelist = new List<string>(new string[] {
             "OpenCockpitSmall",
             "OpenCockpitLarge",
+            "ZClassicCockpit",
             "PassengerSeatSmallOffset",
             "PassengerSeatSmall",
             "PassengerSeatSmallNew",

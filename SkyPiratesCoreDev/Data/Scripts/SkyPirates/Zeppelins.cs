@@ -81,7 +81,6 @@ namespace SKY_PIRATES_CORE
         }
     }
 
-
     [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)]
     public class CellSession : MySessionComponentBase
     {
@@ -138,8 +137,6 @@ namespace SKY_PIRATES_CORE
                 return;
 
             IMyCubeGrid grid = entity as IMyCubeGrid;
-            grid.OnBlockAdded += HandleBlockAdded;
-            grid.OnBlockRemoved += HandleBlockRemoved;
 
             Zeppelin zepp = new Zeppelin(grid);
 
@@ -155,8 +152,11 @@ namespace SKY_PIRATES_CORE
             foreach (IMyCubeBlock block in grid.GetFatBlocks<IMyCockpit>())
             {
                 zepp.cocks.Add(block as IMyCockpit);
+                if (block.SlimBlock.BlockDefinition.Id.SubtypeId.String.Contains("ZeppelinClassic"))
+                    zepp.isClassic = true;
             }
 
+            grid.Physics.LinearVelocity = Vector3D.Zero;
             zepp.UpdateBuoyancyForce();
             zepp.ApplyBuoyancyForce();
             zepp.ApplyZeppelinTorque();
@@ -164,6 +164,9 @@ namespace SKY_PIRATES_CORE
 
             if (!grids.ContainsKey(entity.EntityId))
                 grids.Add(entity.EntityId, zepp);
+
+            grid.OnBlockAdded += HandleBlockAdded;
+            grid.OnBlockRemoved += HandleBlockRemoved;
         }
 
         private void HandleEntityRemoved(IMyEntity entity)
@@ -183,19 +186,21 @@ namespace SKY_PIRATES_CORE
                 return;
 
             IMyCubeGrid grid = slim.CubeGrid;
-
             Zeppelin zepp;
-            grids.TryGetValue(grid.EntityId, out zepp);
-            if (zepp != null && slim.BlockDefinition.Id.SubtypeId.String.Contains("Zeppelin"))
+            if(grids.TryGetValue(grid.EntityId, out zepp))
             {
-                (slim.FatBlock as IMyTerminalBlock).ShowInInventory = false;
-                zepp.cells.Add(slim.FatBlock as IMyFunctionalBlock);
-                zepp.UpdateBuoyancyForce();
-                grids[grid.EntityId] = zepp;
-            }
-            else if(zepp != null && slim.FatBlock is IMyCockpit)
-            {
-                zepp.cocks.Add(slim.FatBlock as IMyCockpit);
+                if (slim.BlockDefinition.Id.SubtypeId.String.Contains("Zeppelin"))
+                {
+                    (slim.FatBlock as IMyTerminalBlock).ShowInInventory = false;
+                    zepp.cells.Add(slim.FatBlock as IMyFunctionalBlock);
+                    zepp.UpdateBuoyancyForce();
+                }
+                else if (slim.FatBlock is IMyCockpit)
+                {
+                    zepp.cocks.Add(slim.FatBlock as IMyCockpit);
+                    if (slim.BlockDefinition.Id.SubtypeId.String == "ZClassicCockpit")
+                        zepp.isClassic = true;
+                }
                 grids[grid.EntityId] = zepp;
             }
         }
@@ -208,16 +213,26 @@ namespace SKY_PIRATES_CORE
             IMyCubeGrid grid = slim.CubeGrid;
 
             Zeppelin zepp;
-            grids.TryGetValue(grid.EntityId, out zepp);
-            if (zepp != null && slim.BlockDefinition.Id.SubtypeId.String.Contains("Zeppelin"))
+            if(grids.TryGetValue(grid.EntityId, out zepp))
             {
-                zepp.cells.Remove(slim.FatBlock as IMyFunctionalBlock);
-                zepp.UpdateBuoyancyForce();
-                grids[grid.EntityId] = zepp;
-            }
-            else if (zepp != null && slim.FatBlock is IMyCockpit)
-            {
-                zepp.cocks.Remove(slim.FatBlock as IMyCockpit);
+                if (slim.BlockDefinition.Id.SubtypeId.String.Contains("Zeppelin"))
+                {
+                    zepp.cells.Remove(slim.FatBlock as IMyFunctionalBlock);
+                    zepp.UpdateBuoyancyForce();
+                }
+                else if (slim.FatBlock is IMyCockpit)
+                {
+                    bool isClassic = false;
+                    zepp.cocks.Remove(slim.FatBlock as IMyCockpit);
+
+                    foreach (var cock in zepp.cocks)
+                    {
+                        if (slim.BlockDefinition.Id.SubtypeId.String == "ZClassicCockpit")
+                                zepp.isClassic = true;
+                        break;
+                    }
+                    zepp.isClassic = true;
+                }
                 grids[grid.EntityId] = zepp;
             }
         }
@@ -227,14 +242,18 @@ namespace SKY_PIRATES_CORE
     {
         public const double buoyancyConstant = 150000;
         public const float burnDamage = 2000f;
+        public const double updateRate = 0.01667d;
 
+        public bool isClassic = false;
         public IMyCubeGrid grid;
         public HashSet<IMyFunctionalBlock> cells = new HashSet<IMyFunctionalBlock>();
         public HashSet<IMyCockpit> cocks = new HashSet<IMyCockpit>();
         public double buoyancyForce = 0;
         public float mass = 0;
         public MyPlanet planet;
-        private PID pid = new PID(1, 0.01, 0.1);
+        private PID pitchPID = new PID(0.5, 0.0, 0.25);
+        private PID rollPID = new PID(0.5, 0.0, 0.25);
+        private PID buoyancyPID = new PID(1, 0.01, 0.1);
 
         public Zeppelin(IMyCubeGrid grid)
         {
@@ -294,10 +313,10 @@ namespace SKY_PIRATES_CORE
 
             if (force > mass && (grid as MyCubeGrid).DampenersEnabled && !isUndampedDirection)
             {
-                response = (float)pid.ControllerResponse(-verticalSpeed/5d, 0.01667d);
+                response = (float)buoyancyPID.ControllerResponse(-verticalSpeed/5d, updateRate);
             }
             else
-                pid.Reset();
+                buoyancyPID.Reset();
 
             if (force > mass)
                 force = mass;
@@ -315,7 +334,7 @@ namespace SKY_PIRATES_CORE
 
         public void ApplyZeppelinTorque()
         {
-            if (grid.Physics == null)
+            if (grid.Physics == null || grid.Physics.IsStatic)
                 return;
 
             Vector3 velocity = grid.Physics.LinearVelocity;
@@ -325,24 +344,70 @@ namespace SKY_PIRATES_CORE
             {
                 if (cockpit == null)
                     continue;
-                
-                Vector3 forward = cockpit.WorldMatrix.Forward;
-                Vector3 up = cockpit.WorldMatrix.Up;
-                float bank = -Vector3.Dot(up, Vector3.Normalize(gravity));
 
-                float minValue = 0.98f;
-
-                if(Math.Abs(bank) < minValue)
-                {
-                    Vector3D rightVector = Vector3D.Cross(gravity, up);
-                    //grid.Physics.AngularVelocity -= 2 * rightVector.Dot(grid.Physics.AngularVelocity) * rightVector;
-                    bank = 1.5f - bank * bank;
-                    Vector3D torque = 5 * grid.WorldAABB.Size.Length() * grid.Physics.Mass * rightVector * bank;
-                    grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
-                }
+                if (isClassic)
+                    ClassicZeppelinTorque(cockpit, gravity);
+                else
+                    NewZeppelinTorque(cockpit, gravity);
 
                 break;
             }
+        }
+
+        public void ClassicZeppelinTorque(IMyCockpit cock, Vector3D gravity)
+        {
+            var grid = cock.CubeGrid;
+
+            Vector3D forward = cock.WorldMatrix.Forward;
+            Vector3D right = cock.WorldMatrix.Right;
+            Vector3D up = cock.WorldMatrix.Up;
+
+            const double quarterCycle = Math.PI / 2;
+
+            //PID control for pitch and roll
+            //find the error for pitch and roll
+            double pitchError = VectorAngleBetween(forward, -gravity) - quarterCycle;
+            double rollError = VectorAngleBetween(right, -gravity) - quarterCycle;
+
+            //run the PID control
+            double pitchAccel = pitchPID.ControllerResponse(pitchError, updateRate);
+            double rollAccel = rollPID.ControllerResponse(-rollError, updateRate);
+
+            //apply angular acceelrations here
+            Vector3D angularVel = cock.CubeGrid.Physics.AngularVelocity;
+            angularVel += right * pitchAccel;
+            angularVel += forward * rollAccel;
+
+            grid.Physics.AngularVelocity = angularVel;
+        }
+
+        public void NewZeppelinTorque(IMyCockpit cock, Vector3D gravity)
+        {
+            Vector3 forward = cock.WorldMatrix.Forward;
+            Vector3 up = cock.WorldMatrix.Up;
+            float bank = -Vector3.Dot(up, Vector3.Normalize(gravity));
+            var grid = cock.CubeGrid;
+
+            float minValue = 0.98f;
+
+            if (Math.Abs(bank) < minValue)
+            {
+                Vector3D rightVector = Vector3D.Cross(gravity, up);
+                //grid.Physics.AngularVelocity -= 2 * rightVector.Dot(grid.Physics.AngularVelocity) * rightVector;
+                bank = 1.5f - bank * bank;
+                Vector3D torque = 5 * grid.WorldAABB.Size.Length() * grid.Physics.Mass * rightVector * bank;
+                grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
+            }
+        }
+
+        private double VectorAngleBetween(Vector3D a, Vector3D b)
+        { //returns radians
+          //Law of cosines to return the angle between two vectors.
+
+            if (a.LengthSquared() == 0 || b.LengthSquared() == 0)
+                return 0;
+            else
+                return Math.Acos(MathHelper.Clamp(a.Dot(b) / a.Length() / b.Length(), -1, 1));
         }
     }
 

@@ -85,7 +85,7 @@ namespace TargetLeading
             }
 
             float projectileSpeed = CurrentData.Ammo.DesiredSpeed;
-            float projectileRange = Math.Min(5000f, CurrentData.Ammo.MaxTrajectory + 100f);
+            float projectileRange = Math.Min(10000f, CurrentData.Ammo.MaxTrajectory + 100f);
             float projectileRangeSquared = projectileRange * projectileRange;
 
             foreach (IMyCubeGrid grid in _grids)
@@ -162,20 +162,22 @@ namespace TargetLeading
 
                 if (projectileInitSpeed < 30) // bob's shitty way
                 {
-                    if ((targetPos - shooterPos).Dot(shooterVel) < 0)
-                        timeToIntercept = 0;
+                    //if ((targetPos - shooterPos).Dot(shooterVel) < 0)
+                    //    timeToIntercept = 0;
 
-                    Color color = Color.Red;
+                    //Color color = Color.Red;
 
-                    Vector3D interceptHeading = (targetPos - shooterPos) / timeToIntercept + targetVel - 0.5 * targetGravity * timeToIntercept;
-                    double speed = interceptHeading.Length();
-                    Vector3D interceptPoint = (targetPos - shooterPos).Length() * Vector3D.Normalize(interceptHeading) + shooterPos;
-                    double targetDot = Vector3D.Normalize(shooterVel).Dot(Vector3D.Normalize(interceptHeading));
-                    double diffSpeed = Math.Abs(shooterVel.Length() - speed);
-                    if (diffSpeed < 10 && targetDot > 0.9)
-                        color = Color.Green;
+                    //Vector3D interceptHeading = (targetPos - shooterPos) / timeToIntercept + targetVel - 0.5 * targetGravity * timeToIntercept;
+                    //double speed = interceptHeading.Length();
+                    //Vector3D interceptPoint = (targetPos - shooterPos).Length() * Vector3D.Normalize(interceptHeading) + shooterPos;
+                    //double targetDot = Vector3D.Normalize(shooterVel).Dot(Vector3D.Normalize(interceptHeading));
+                    //double diffSpeed = Math.Abs(shooterVel.Length() - speed);
+                    //if (diffSpeed < 10 && targetDot > 0.9)
+                    //    color = Color.Green;
 
-                    AddGPS(grid.EntityId, interceptPoint, $"SPEED: {Math.Round(speed)}", color);
+                    //AddGPS(grid.EntityId, interceptPoint, $"SPEED: {Math.Round(speed)}", color);
+
+                    //donothing
 
                 }
                 else // whiplash's way

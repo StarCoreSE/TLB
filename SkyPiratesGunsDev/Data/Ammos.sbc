@@ -251,6 +251,8 @@
                 <MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
             </MissileProperties>
         </Ammo>
+		
+		
         <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
             <Id>
                 <TypeId>AmmoDefinition</TypeId>
@@ -329,6 +331,37 @@
                 <MissileRicochetAngle>80</MissileRicochetAngle>
                 <MissileRicochetDamage>20000</MissileRicochetDamage>
                 <MissileRicochetProbability>0.5</MissileRicochetProbability>
+            </MissileProperties>
+        </Ammo>
+
+        <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+            <Id>
+                <TypeId>AmmoDefinition</TypeId>
+                <SubtypeId>RadarAmmo</SubtypeId>
+            </Id>
+            <BasicProperties>
+                <DesiredSpeed>100000</DesiredSpeed>
+                <SpeedVariance>0</SpeedVariance>
+                <MaxTrajectory>7000</MaxTrajectory>
+                <IsExplosive>false</IsExplosive>
+                <BackkickForce>0</BackkickForce>
+                <PhysicalMaterial>LargeShell</PhysicalMaterial>
+                <ExplosiveDamageMultiplier>0</ExplosiveDamageMultiplier>
+            </BasicProperties>
+            <MissileProperties>
+                <MissileMass>0</MissileMass>
+                <MissileExplosionRadius>0</MissileExplosionRadius>
+                <MissileModelName>Models\Weapons\LargeCalibreShell.mwm</MissileModelName>
+                <MissileAcceleration>0</MissileAcceleration>
+                <MissileInitialSpeed>100000</MissileInitialSpeed>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
+                <MissileExplosionDamage>0</MissileExplosionDamage>
+                <MissileHealthPool>0</MissileHealthPool>
+                <MissileTrailEffect></MissileTrailEffect>
+                <MissileGravityEnabled>false</MissileGravityEnabled>
+                <MissileRicochetAngle>0</MissileRicochetAngle>
+                <MissileRicochetDamage>0</MissileRicochetDamage>
+                <MissileRicochetProbability>0</MissileRicochetProbability>
             </MissileProperties>
         </Ammo>
 

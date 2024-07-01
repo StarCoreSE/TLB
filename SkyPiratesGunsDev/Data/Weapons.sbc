@@ -4,6 +4,22 @@
 		<Weapon>
 			<Id>
 				<TypeId>WeaponDefinition</TypeId>
+				<SubtypeId>RadarWeapon</SubtypeId>
+			</Id>
+			<MissileAmmoData RateOfFire="1" ShootSoundName="WepPlayFlarePistolShot" FlightSoundName="FlareFlightSound" ShotsInBurst="1" />
+			<DeviateShotAngle>0</DeviateShotAngle>
+			<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
+			<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
+			<AmmoMagazines>
+				<AmmoMagazine Subtype="RadarMag" />
+			</AmmoMagazines>
+			<ReloadTime>60</ReloadTime>
+			<RangeMultiplier>20</RangeMultiplier>
+		</Weapon>
+	
+		<Weapon>
+			<Id>
+				<TypeId>WeaponDefinition</TypeId>
 				<SubtypeId>SmallMissileLauncher</SubtypeId>
 			</Id>
 			<MissileAmmoData RateOfFire="60" ShootSoundName="WepShipSmallMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="0" />
