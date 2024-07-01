@@ -92,7 +92,7 @@ namespace cleaner
             "SafeZoneBlock",
 
             "Small_Elevator_Straight",
-            
+            "Small_Rudder_Straight",
             "Small_Elevator_Straight_Centered",
             "Small_2x1_Control_Centered",
             "Small_2x1_Control_Flat",
