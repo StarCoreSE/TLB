@@ -307,6 +307,59 @@
             </TargetingGroups>
         </Definition>
 
+        <Definition xsi:type="MyObjectBuilder_GyroDefinition">
+            <Id>
+                <TypeId>Gyro</TypeId>
+                <SubtypeId>SmallBlockGyro</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_Gyroscope</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\gyro.dds</Icon>
+            <Description>Description_Gyroscope</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\gyroscope.mwm</Model>
+            <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
+            <Components>
+                <Component Subtype="SteelPlate" Count="15" />
+                <Component Subtype="Construction" Count="5" />
+                <Component Subtype="LargeTube" Count="1" />
+                <Component Subtype="Motor" Count="2" />
+                <Component Subtype="Computer" Count="3" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\GyroscopeConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\GyroscopeConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>Gyroscope</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <EdgeType>Light</EdgeType>
+            <PrimarySound>BlockGyroscope</PrimarySound>
+
+            <ResourceSinkGroup>Gyro</ResourceSinkGroup>
+            <ForceMagnitude>112000</ForceMagnitude>
+            <RequiredPowerInput>0.002</RequiredPowerInput>
+
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>50</PCU>
+            <IsAirTight>false</IsAirTight>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
+        </Definition>
+
         <Definition xsi:type="MyObjectBuilder_CockpitDefinition">
             <Id>
                 <TypeId>Cockpit</TypeId>
@@ -518,10 +571,7 @@
                 <Component Subtype="InteriorPlate" Count="10" />
             </Components>
             <CriticalComponent Subtype="InteriorPlate" Index="0" />
-            <MountPoints>
-                <MountPoint Side="Bottom" StartX="1" StartY="1" EndX="2" EndY="3" Default="true" />
-                <MountPoint Side="Back" StartX="1" StartY="0" EndX="2" EndY="2" />
-            </MountPoints>
+            
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\PassengerSeatConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\PassengerSeatConstruction_2.mwm" />
@@ -568,7 +618,7 @@
             <Description>Description_PassengerSeat</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
-            <Size x="3" y="3" z="2" />
+            <Size x="1" y="3" z="2" />
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\PassengerSeat.mwm</Model>
             <CharacterAnimationMale>Passengerseat_Small_Adjusted</CharacterAnimationMale>
@@ -580,10 +630,7 @@
                 <Component Subtype="InteriorPlate" Count="10" />
             </Components>
             <CriticalComponent Subtype="InteriorPlate" Index="0" />
-            <MountPoints>
-                <MountPoint Side="Bottom" StartX="1" StartY="0.5" EndX="2" EndY="2" Default="true" />
-                <MountPoint Side="Back" StartX="1" StartY="0" EndX="2" EndY="2" />
-            </MountPoints>
+            
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\PassengerSeatConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\PassengerSeatConstruction_2.mwm" />
@@ -676,7 +723,6 @@
             <PCU>15</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
-
 
     </CubeBlocks>
 </Definitions>

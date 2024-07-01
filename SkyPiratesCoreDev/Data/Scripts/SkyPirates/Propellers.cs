@@ -539,16 +539,31 @@ namespace SKY_PIRATES_CORE
                 foreach (IMyThrust prop in plane.props)
                 {
                     IMySlimBlock slim = prop.SlimBlock;
+
+                    if (slim == block.SlimBlock)
+                        continue;
+
                     Vector3I propellerPosition2 = FindPropellerTip(slim);
                     float manhattandistance = (float)Vector3I.DistanceManhattan(propellerPosition2, propellerPosition1);
-                    if (slim != block.SlimBlock && manhattandistance < 10)
+                    var perpendicularDistance = CalculatePerpendicularDistance(propellerPosition1, propellerPosition2, block.SlimBlock.Orientation.Forward);
+
+                    if (manhattandistance < 10)
                     {
-                        var perpendicularDistance = CalculatePerpendicularDistance(propellerPosition1, propellerPosition2, block.SlimBlock.Orientation.Forward);
                         var interference = (1.5f + prop.CurrentThrustPercentage) / (1f + (perpendicularDistance + manhattandistance) / 2);
                         interference = Math.Min(1f, interference);
 
                         interferenceModifier -= interference;
-                        interferenceProps.Add($"{interference:P2}, ({perpendicularDistance}) from {prop.CustomName}\n");
+                        interferenceProps.Add($"{interference:P2}, ({perpendicularDistance}) from {prop.CustomName} (too close!)\n");
+                        continue;
+                    }
+
+                    if(grid.GridSizeEnum == MyCubeSize.Small && perpendicularDistance < 5)
+                    {
+                        var interference = (1.5f + prop.CurrentThrustPercentage) / (1f + perpendicularDistance);
+                        interference = Math.Min(1f, interference);
+
+                        interferenceModifier -= interference;
+                        interferenceProps.Add($"{interference:P2}, ({perpendicularDistance}) from {prop.CustomName} (small props are inline!)\n");
                     }
                 }
             }
@@ -734,7 +749,7 @@ namespace SKY_PIRATES_CORE
             float altitudeModifier = 1f;
 
             if (nosinjector > 0f)
-                altitudeModifier += nosinjector * (1f - planet.GetAirDensity(grid.WorldMatrix.Translation)) / 4f;
+                altitudeModifier += nosinjector * (1f - planet.GetAirDensity(grid.WorldMatrix.Translation)) / 2f;
 
             return altitudeModifier;
         }
