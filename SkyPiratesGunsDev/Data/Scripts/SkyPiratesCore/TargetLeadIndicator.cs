@@ -96,6 +96,13 @@ namespace TargetLeading
                     continue;
                 }
 
+                // Ignores grids that are probalby just trash
+                if (((MyCubeGrid)grid).BlocksCount <= 3) 
+                {
+                    RemoveGPS(grid.EntityId);
+                    continue;
+                }
+
                 Vector3D gridLoc = grid.WorldAABB.Center;
 
                 if (grid.EntityId == CurrentData.EntityId
