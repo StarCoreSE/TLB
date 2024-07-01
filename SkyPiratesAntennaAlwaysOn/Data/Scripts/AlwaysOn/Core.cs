@@ -16,46 +16,11 @@ namespace AntennaAlwaysOn
         public const float rangeLargeGrid = 100f;
 
         private IMyRadioAntenna beacon;
-        private bool waitframe = false;
 
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
-                beacon = Entity as IMyRadioAntenna;
-            if (beacon.Radius < rangeSmallGrid)
-                beacon.Radius = rangeSmallGrid;
-
-            NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME | MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
-        }
-
-
-        public override void UpdateOnceBeforeFrame()
-        {
-            if (waitframe)
-            {
-                waitframe = false;
-                NeedsUpdate |= MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
-                return;
-            }
-
-            List<IMyTerminalControl> controls;
-            MyAPIGateway.TerminalControls.GetControls<IMyRadioAntenna>(out controls);
-
-            foreach (IMyTerminalControl control in controls)
-            {
-                if (control.Id == "Radius")
-                {
-                    if (beacon.CubeGrid.GridSizeEnum == VRage.Game.MyCubeSize.Small)
-                    {
-                        ((IMyTerminalControlSlider)control).SetLimits(rangeSmallGrid, 50000f);
-                    }
-                    else if (beacon.CubeGrid.GridSizeEnum == VRage.Game.MyCubeSize.Large)
-                    {
-                        ((IMyTerminalControlSlider)control).SetLimits(rangeLargeGrid, 50000f);
-                    }
-
-                    break;
-                }
-            }
+            beacon = Entity as IMyRadioAntenna;
+            NeedsUpdate = MyEntityUpdateEnum.EACH_100TH_FRAME;
         }
 
         /// <summary>
@@ -74,6 +39,22 @@ namespace AntennaAlwaysOn
                 {
                     beacon.EnableBroadcasting = true;
                 }
+
+                if (beacon.CubeGrid.GridSizeEnum == VRage.Game.MyCubeSize.Large)
+                {
+                    if (beacon.Radius < rangeSmallGrid) 
+                    {
+                        beacon.Radius = rangeSmallGrid;
+                    }
+                }
+                else if (beacon.CubeGrid.GridSizeEnum == VRage.Game.MyCubeSize.Large)
+                {
+                    if (beacon.Radius < rangeLargeGrid)
+                    {
+                        beacon.Radius = rangeLargeGrid;
+                    }
+                }
+
             }
         }
     }
