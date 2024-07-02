@@ -1189,7 +1189,7 @@
             <RotationSpeed>0.001</RotationSpeed>
             <ElevationSpeed>0.001 </ElevationSpeed>
             <EmissiveColorPreset>Default</EmissiveColorPreset>
-            <MinFov>0.01</MinFov>
+            <MinFov>0.001</MinFov>
             <MaxFov>1.04719755</MaxFov>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
@@ -1262,7 +1262,7 @@
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>40</BuildTimeSeconds>
             <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
-            <WeaponDefinitionId Subtype="LargeCalibreGun" />
+            <WeaponDefinitionId Subtype="SmallLargeCalibreGun" />
             <EnabledTargetingOptions>SmallShips LargeShips Stations Enemies</EnabledTargetingOptions>
             <HiddenTargetingOptions>Friends Asteroids Missiles</HiddenTargetingOptions>
             <InventoryMaxVolume>0.384</InventoryMaxVolume>

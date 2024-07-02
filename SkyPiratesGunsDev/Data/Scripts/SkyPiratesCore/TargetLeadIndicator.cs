@@ -85,7 +85,7 @@ namespace TargetLeading
             }
 
             float projectileSpeed = CurrentData.Ammo.DesiredSpeed;
-            float projectileRange = Math.Min(10000f, CurrentData.Ammo.MaxTrajectory + 100f);
+            float projectileRange = Math.Min(10000f, CurrentData.Ammo.MaxTrajectory * CurrentData.Weapon.RangeMultiplier + 100f);
             float projectileRangeSquared = projectileRange * projectileRange;
 
             foreach (IMyCubeGrid grid in _grids)
@@ -456,6 +456,7 @@ namespace TargetLeading
         public long EntityId;
         public long GridId;
         public MyAmmoDefinition Ammo = null;
+        public MyWeaponDefinition Weapon = null;
         public Vector3D Position = Vector3D.Zero;
         public Vector3D Velocity = Vector3D.Zero;
 
@@ -476,6 +477,7 @@ namespace TargetLeading
                         GridId = turret.CubeGrid.EntityId,
                         Position = turret.GetPosition(),
                         Velocity = turret.CubeGrid.Physics.LinearVelocity,
+                        Weapon = (turret as IMyGunObject<MyGunBase>).GunBase.WeaponDefinition,
                         Ammo = (turret as IMyGunObject<MyGunBase>).GunBase.CurrentAmmoDefinition
                     };
                 }
@@ -510,6 +512,7 @@ namespace TargetLeading
 
                                 if (data.Ammo == null)
                                 {
+                                    data.Weapon = (b.FatBlock as IMyGunObject<MyGunBase>).GunBase.WeaponDefinition;
                                     data.Ammo = (b.FatBlock as IMyGunObject<MyGunBase>).GunBase.CurrentAmmoDefinition;
                                 }   
                             }
@@ -519,6 +522,7 @@ namespace TargetLeading
                         else
                         {
                             data.offset = current.offset;
+                            data.Weapon = current.Weapon;
                             data.Ammo = current.Ammo;
                         }
                     }
