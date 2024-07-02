@@ -58,5 +58,98 @@
             <DestroySound>WepSmallWarheadExpl</DestroySound>
 			<GeneralDamageMultiplier>0.35</GeneralDamageMultiplier>
 		</Definition>	
+		
+		
+		        <Definition xsi:type="MyObjectBuilder_MotorAdvancedStatorDefinition">
+            <Id>
+                <TypeId>MotorAdvancedStator</TypeId>
+                <SubtypeId>LargeHinge</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_LargeHinge</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Hinge.dds</Icon>
+            <Description>Description_Hinge</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\Hinge.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="LargeTube" Count="4" />
+                <Component Subtype="Motor" Count="4" />
+                <Component Subtype="Computer" Count="2" />
+                <Component Subtype="SteelPlate" Count="6" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.8" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\HingeConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\HingeConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\HingeConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>LargeHinge</BlockPairName>
+            <BuildTimeSeconds>16</BuildTimeSeconds>
+            <UseModelIntersection>true</UseModelIntersection>
+            <RotorPart>LargeHingeHead</RotorPart>
+            <MirroringX>Y</MirroringX>
+            <MirroringY>X</MirroringY>
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <RequiredPowerInput>0.002</RequiredPowerInput>
+            <MaxForceMagnitude>1E9</MaxForceMagnitude>
+            <DangerousTorqueThreshold>3.36E+07</DangerousTorqueThreshold>
+            <RotorDisplacementMin>0</RotorDisplacementMin>
+            <RotorDisplacementMax>0</RotorDisplacementMax>
+            <RotorDisplacementMinSmall>0</RotorDisplacementMinSmall>
+            <RotorDisplacementMaxSmall>0</RotorDisplacementMaxSmall>
+            <RotorDisplacementInModel>0</RotorDisplacementInModel>
+            <MinAngleDeg>-90</MinAngleDeg>
+            <MaxAngleDeg>90</MaxAngleDeg>
+            <SafetyDetach>5</SafetyDetach>
+            <SafetyDetachMax>5</SafetyDetachMax>
+            <DamageEffectId>212</DamageEffectId>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <PrimarySound>BlockRotor</PrimarySound>
+            <RotorType>Hinge</RotorType>
+            <PCU>100</PCU>
+			<GeneralDamageMultiplier>0.01</GeneralDamageMultiplier>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>MotorAdvancedRotor</TypeId>
+                <SubtypeId>LargeHingeHead</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_LargeHingeHead</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\HingeHead.dds</Icon>
+            <Description>Description_HingeHead</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\HingeHead.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="8" />
+                <Component Subtype="LargeTube" Count="4" />
+                <Component Subtype="Construction" Count="8" />
+                <Component Subtype="SteelPlate" Count="4" />
+            </Components>
+            <CriticalComponent Subtype="LargeTube" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.8" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\HingeHeadConstruction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>LargeHingeHead</BlockPairName>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <UseModelIntersection>true</UseModelIntersection>
+            <MirroringX>Y</MirroringX>
+            <MirroringY>X</MirroringY>
+            <PCU>1</PCU>
+			<GeneralDamageMultiplier>0.01</GeneralDamageMultiplier>
+        </Definition>
 	</CubeBlocks>
 </Definitions>
