@@ -296,6 +296,10 @@ namespace SKY_PIRATES_CORE
             {
                 buoyancyForce *= planet.GetAirDensity(grid.WorldMatrix.Translation);
             }
+
+            // what in gods name
+            if (grid.CustomName.Contains("SkyWhale"))
+                buoyancyForce *= 3;
         }
 
         public void ApplyBuoyancyForce()
