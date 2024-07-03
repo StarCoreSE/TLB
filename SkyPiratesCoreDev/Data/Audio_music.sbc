@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Sounds>
+        <Sound>
+            <Id>
+                <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+                <SubtypeId>whale</SubtypeId>
+            </Id>
+            <Category>Music</Category>
+            <MaxDistance>10000</MaxDistance>
+            <Volume>20</Volume>
+            <Waves>
+                <Wave Type="D2">
+                    <Start>Audio\MUS\MusCalmAtmosphere\Whale\whale_sounds.xwm</Start>
+                </Wave>
+            </Waves>
+            <TransitionCategory>CalmAtmosphere</TransitionCategory>
+            <MusicCategory>Calm</MusicCategory>
+            <StreamSound>true</StreamSound>
+        </Sound>
+		<Sound>
+      <Id>
+        <TypeId>AudioDefinition</TypeId>
+        <SubtypeId>whale1</SubtypeId>
+      </Id>
+      <Category>Sb</Category>
+      <MaxDistance>10000</MaxDistance>
+      <Volume>20</Volume>
+      <Loopable>true</Loopable>
+	  <DistantSounds>
+        <DistantSound DistanceCrossfade="10" Distance="800" Sound="whalefar" />
+      </DistantSounds>
+      <Waves>
+        <Wave Type="D2">
+
+		  <Loop>Audio\MUS\MusCalmAtmosphere\Whale\whale_sounds.xwm</Loop>
+        </Wave>
+      </Waves>
+    </Sound>
+	
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>whalefar</SubtypeId>
+      </Id>
+      <Category>Sb</Category>
+      <MaxDistance>5000</MaxDistance>
+      <Volume>8.0</Volume>
+	  <VolumeVariation>0</VolumeVariation>
+      <PitchVariation>100</PitchVariation>
+	  <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\MUS\MusCalmAtmosphere\Whale\whale_sounds.xwm</Start>
+        </Wave>
+      </Waves>
+	</Sound>
+
+    </Sounds>
+</Definitions>
