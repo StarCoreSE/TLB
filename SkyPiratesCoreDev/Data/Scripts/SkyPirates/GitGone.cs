@@ -96,7 +96,9 @@ namespace cleaner
             "Small_Elevator_Straight_Centered",
             "Small_2x1_Control_Centered",
             "Small_2x1_Control_Flat",
-            "Small_Rudder_Straight_Flat",
+            
+	    "LargeCameraBlock",
+            "SmallCameraBlock",
             });
 
         public List<string> whitelist = new List<string>(new string[] {
