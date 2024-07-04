@@ -54,7 +54,7 @@ namespace bob
         {
             if (MyAPIGateway.Session.IsServer)
             {
-                MyVisualScriptLogicProvider.ClearAllToolbarSlots(playerId);
+               
                 MyDefinitionId reuse_def;
 
               
