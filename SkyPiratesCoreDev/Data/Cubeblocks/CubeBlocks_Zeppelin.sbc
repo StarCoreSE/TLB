@@ -27,7 +27,7 @@
             <Public>true</Public>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-			<GeneralDamageMultiplier>0.35</GeneralDamageMultiplier>
+			<GeneralDamageMultiplier>0.6</GeneralDamageMultiplier>
 		</Definition>
 		
         <Definition  xsi:type="MyObjectBuilder_PoweredCargoContainerDefinition">
@@ -56,7 +56,7 @@
             <Public>true</Public>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-			<GeneralDamageMultiplier>0.35</GeneralDamageMultiplier>
+			<GeneralDamageMultiplier>0.6</GeneralDamageMultiplier>
 		</Definition>	
 		
 		

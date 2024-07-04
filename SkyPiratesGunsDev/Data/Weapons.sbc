@@ -38,7 +38,7 @@
 			</Id>
 			<ProjectileAmmoData RateOfFire="100" ShootSoundName="WepMediumCalibreShot" ShotsInBurst="1" />
 			<ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
-			<DeviateShotAngle>1</DeviateShotAngle>
+			<DeviateShotAngle>1.5</DeviateShotAngle>
 			<DeviateShotAngleAiming>1</DeviateShotAngleAiming>
 			<MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan>
 			<Effects>
@@ -442,15 +442,15 @@
 			</Id>
 			<!-- RateOfFire is RPM. RPM of 20 means 3 seconds between shots.
 				 This gun fires 8.28 RPM. Damage is 5x vanilla, with double radius. -->
-			<MissileAmmoData RateOfFire="20" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="4" />
-			<DeviateShotAngle>0.05</DeviateShotAngle>
-			<DeviateShotAngleAiming>0.2</DeviateShotAngleAiming>
+			<MissileAmmoData RateOfFire="200" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="4" />
+			<DeviateShotAngle>0.3</DeviateShotAngle>
+			<DeviateShotAngleAiming>0.3</DeviateShotAngleAiming>
 			<MinimumTimeBetweenIdleRotationsMs>10000</MinimumTimeBetweenIdleRotationsMs>
 			<MaximumTimeBetweenIdleRotationsMs>15000</MaximumTimeBetweenIdleRotationsMs>
 			<AmmoMagazines>
 				<AmmoMagazine Subtype="Torpedo" />
 			</AmmoMagazines>
-			<ReloadTime>20000</ReloadTime>
+			<ReloadTime>60000</ReloadTime>
 		</Weapon>
 		<Weapon>
 			<Id>
@@ -476,7 +476,7 @@
 				<TypeId>WeaponDefinition</TypeId>
 				<SubtypeId>Autocannon</SubtypeId>
 			</Id>
-			<ProjectileAmmoData RateOfFire="300" ShootSoundName="WepShipAutocannonShot" ShotsInBurst="16" />
+			<ProjectileAmmoData RateOfFire="200" ShootSoundName="WepShipAutocannonShot" ShotsInBurst="16" />
 			<ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
 			<DeviateShotAngle>0.15</DeviateShotAngle>
 			<DeviateShotAngleAiming>0.15</DeviateShotAngleAiming>
@@ -503,7 +503,7 @@
 				<TypeId>WeaponDefinition</TypeId>
 				<SubtypeId>LargeAutocannonTurret</SubtypeId>
 			</Id>
-			<ProjectileAmmoData RateOfFire="400" ShootSoundName="WepShipAutocannonShot" ShotsInBurst="4" />
+			<ProjectileAmmoData RateOfFire="300" ShootSoundName="WepShipAutocannonShot" ShotsInBurst="4" />
 			<ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
 			<DeviateShotAngle>0.25</DeviateShotAngle>
 			<DeviateShotAngleAiming>0.25</DeviateShotAngleAiming>

@@ -106,6 +106,7 @@ namespace SEBR_GITGAT
                         }
                     }
 
+
                     // make cargo and connectors ungovernable
                     //if((cubeDef.Id.SubtypeId.String.Contains("Container") || cubeDef.Id.SubtypeId.String.Contains("Connector")) && compList[i].Definition.Id.SubtypeId.String == "Computer")
                     //{
@@ -145,6 +146,11 @@ namespace SEBR_GITGAT
                 //    compList.Add(component);
                 //}
 
+                if (cubeDef.CubeSize == MyCubeSize.Small)
+                {
+                    cubeDef.GeneralDamageMultiplier *= 1.5f;
+                }
+
                 // add armor to large light armor blocks
                 if (cubeDef.Id.SubtypeId.String.Contains("Decoy") && cubeDef.CubeSize == MyCubeSize.Large)
                 {
@@ -169,7 +175,7 @@ namespace SEBR_GITGAT
                 if (cockdef != null)
                 {
                     cockdef.TargetLockingEnabled = false;
-                    cubeDef.GeneralDamageMultiplier = 0.1f;
+                    cubeDef.GeneralDamageMultiplier = 0.5f;
 
                     MyComponentDefinition Girder;
                     compDefs.TryGetValue("Girder", out Girder);
