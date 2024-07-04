@@ -547,7 +547,7 @@ namespace SKY_PIRATES_CORE
                     float manhattandistance = (float)Vector3I.DistanceManhattan(propellerPosition2, propellerPosition1);
                     var perpendicularDistance = CalculatePerpendicularDistance(propellerPosition1, propellerPosition2, block.SlimBlock.Orientation.Forward);
 
-                    float maxDistance = 10;
+                    float maxDistance = 10f;
 
                     if (grid.GridSizeEnum == MyCubeSize.Large)
                         maxDistance = 6;
