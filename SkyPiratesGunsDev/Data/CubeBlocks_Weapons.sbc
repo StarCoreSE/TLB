@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <CubeBlocks>
         <Definition xsi:type="MyObjectBuilder_WarheadDefinition">
             <Id>
@@ -54,6 +55,7 @@
                 <string>Weapons</string>
             </TargetingGroups>
         </Definition>
+
         <Definition xsi:type="MyObjectBuilder_WarheadDefinition">
             <Id>
                 <TypeId>Warhead</TypeId>
@@ -1130,7 +1132,6 @@
             <ForwardCameraOffset>0.5</ForwardCameraOffset>
         </Definition>
 
-
         <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
@@ -1217,8 +1218,6 @@
             <UpCameraOffset>0.0</UpCameraOffset>
             <ForwardCameraOffset>0.0</ForwardCameraOffset>
         </Definition>
-
-
 
         <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
@@ -1307,6 +1306,7 @@
             <UpCameraOffset>1.0</UpCameraOffset>
             <ForwardCameraOffset>0.5</ForwardCameraOffset>
         </Definition>
+
         <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
@@ -1397,6 +1397,7 @@
             <UpCameraOffset>0.5</UpCameraOffset>
             <ForwardCameraOffset>2.75</ForwardCameraOffset>
         </Definition>
+
         <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
