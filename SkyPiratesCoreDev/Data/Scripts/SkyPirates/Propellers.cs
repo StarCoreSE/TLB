@@ -547,7 +547,12 @@ namespace SKY_PIRATES_CORE
                     float manhattandistance = (float)Vector3I.DistanceManhattan(propellerPosition2, propellerPosition1);
                     var perpendicularDistance = CalculatePerpendicularDistance(propellerPosition1, propellerPosition2, block.SlimBlock.Orientation.Forward);
 
-                    if (manhattandistance < 10)
+                    float maxDistance = 10;
+
+                    if (grid.GridSizeEnum == MyCubeSize.Large)
+                        maxDistance = 6;
+
+                    if (manhattandistance < maxDistance)
                     {
                         var interference = (1.5f + prop.CurrentThrustPercentage) / (1f + (perpendicularDistance + manhattandistance) / 2);
                         interference = Math.Min(1f, interference);
