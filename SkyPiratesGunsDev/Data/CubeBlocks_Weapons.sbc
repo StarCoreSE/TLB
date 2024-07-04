@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<CubeBlocks>
+    <CubeBlocks>
         <Definition xsi:type="MyObjectBuilder_WarheadDefinition">
             <Id>
                 <TypeId>Warhead</TypeId>
@@ -103,7 +103,7 @@
                 <SubtypeId>AutocannonBallTurret</SubtypeId>
             </Id>
             <DisplayName>Autocannon Ball Turret</DisplayName>
-			<Icon>Textures\Icons\AutocannonBallTurret.png</Icon>
+            <Icon>Textures\Icons\AutocannonBallTurret.png</Icon>
             <Description>Description_GatlingTurret</Description>
             <CubeSize>Small</CubeSize>
             <PlaceDecals>false</PlaceDecals>
@@ -151,7 +151,7 @@
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>20</BuildTimeSeconds>
             <OverlayTexture></OverlayTexture>
-			<WeaponDefinitionId Subtype="AutocannonTurret" />
+            <WeaponDefinitionId Subtype="AutocannonTurret" />
             <HiddenTargetingOptions>Friends</HiddenTargetingOptions>
             <InventoryMaxVolume>0.084</InventoryMaxVolume>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
@@ -164,7 +164,7 @@
             <RotationSpeed>0.002</RotationSpeed>
             <ElevationSpeed>0.002 </ElevationSpeed>
             <IdleRotation>false</IdleRotation>
-            <MaxRangeMeters>400</MaxRangeMeters>
+            <MaxRangeMeters>0</MaxRangeMeters>
             <MinFov>0.1</MinFov>
             <MaxFov>1.6</MaxFov>
             <EmissiveColorPreset>Default</EmissiveColorPreset>
@@ -189,7 +189,7 @@
                 <SubtypeId>GatlingBallTurret</SubtypeId>
             </Id>
             <DisplayName>Gatling Ball Turret</DisplayName>
-			<Icon>Textures\Icons\GatlingBallTurret.png</Icon>
+            <Icon>Textures\Icons\GatlingBallTurret.png</Icon>
             <Description>Description_GatlingTurret</Description>
             <CubeSize>Small</CubeSize>
             <PlaceDecals>false</PlaceDecals>
@@ -237,7 +237,7 @@
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>20</BuildTimeSeconds>
             <OverlayTexture></OverlayTexture>
-			<WeaponDefinitionId Subtype="SmallGatlingTurret" />
+            <WeaponDefinitionId Subtype="SmallGatlingTurret" />
             <HiddenTargetingOptions>Friends</HiddenTargetingOptions>
             <InventoryMaxVolume>0.084</InventoryMaxVolume>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
@@ -250,7 +250,7 @@
             <RotationSpeed>0.002</RotationSpeed>
             <ElevationSpeed>0.002 </ElevationSpeed>
             <IdleRotation>false</IdleRotation>
-            <MaxRangeMeters>400</MaxRangeMeters>
+            <MaxRangeMeters>0</MaxRangeMeters>
             <MinFov>0.1</MinFov>
             <MaxFov>1.6</MaxFov>
             <EmissiveColorPreset>Default</EmissiveColorPreset>
@@ -268,14 +268,14 @@
                 <string>Weapons</string>
             </TargetingGroups>
         </Definition>
-		
+
         <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeGatlingTurret</TypeId>
                 <SubtypeId/>
             </Id>
             <DisplayName>Large Gatling Turret</DisplayName>
-			<Icon>Textures\Icons\GatlingLargeTurret.png</Icon>
+            <Icon>Textures\Icons\GatlingLargeTurret.png</Icon>
             <Description>Description_GatlingTurret</Description>
             <CubeSize>Large</CubeSize>
             <PlaceDecals>false</PlaceDecals>
@@ -298,7 +298,7 @@
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\LargeTurret_BS1.mwm" />
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\LargeTurret_BS2.mwm" />
-				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeTurret_BS3.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeTurret_BS3.mwm" />
             </BuildProgressModels>
             <VoxelPlacement>
                 <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
@@ -313,13 +313,13 @@
                     <MinAllowed>0.01</MinAllowed>
                 </DynamicMode>
             </VoxelPlacement>
-			<BlockPairName>GatlingTurret</BlockPairName>
+            <BlockPairName>GatlingTurret</BlockPairName>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>20</BuildTimeSeconds>
             <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
-			<WeaponDefinitionId Subtype="LargeGatlingTurret" />
+            <WeaponDefinitionId Subtype="LargeGatlingTurret" />
             <HiddenTargetingOptions>Friends</HiddenTargetingOptions>
             <InventoryMaxVolume>0.084</InventoryMaxVolume>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
@@ -350,7 +350,7 @@
                 <string>Weapons</string>
             </TargetingGroups>
         </Definition>
-			
+
         <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
@@ -381,7 +381,7 @@
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\LargeTurret_BS1.mwm" />
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\LargeTurret_BS2.mwm" />
-				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeTurret_BS3.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeTurret_BS3.mwm" />
             </BuildProgressModels>
             <VoxelPlacement>
                 <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
@@ -436,7 +436,7 @@
             <UpCameraOffset>1.0</UpCameraOffset>
             <ForwardCameraOffset>0.5</ForwardCameraOffset>
         </Definition>
-	
+
         <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
             <Id>
                 <TypeId>SmallMissileLauncherReload</TypeId>
@@ -486,7 +486,7 @@
                 <string>Weapons</string>
             </TargetingGroups>
         </Definition>
-		
+
         <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
             <Id>
                 <TypeId>SmallMissileLauncherReload</TypeId>
@@ -536,7 +536,7 @@
                 <string>Weapons</string>
             </TargetingGroups>
         </Definition>
- 
+
         <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
             <Id>
                 <TypeId>SmallMissileLauncherReload</TypeId>
@@ -544,7 +544,7 @@
             </Id>
             <DisplayName>Mounted Medium Bomb</DisplayName>
             <Icon>Textures\Icons\MountedMediumBomb.png</Icon>
-            <Description>	</Description>
+            <Description></Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -578,15 +578,15 @@
                 <string>Weapons</string>
             </TargetingGroups>
         </Definition>
- 
-         <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
+
+        <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
             <Id>
                 <TypeId>SmallMissileLauncherReload</TypeId>
                 <SubtypeId>MountedLargeBomb</SubtypeId>
             </Id>
             <DisplayName>Mounted Large Bomb</DisplayName>
             <Icon>Textures\Icons\MountedLargeBomb.png</Icon>
-            <Description>	</Description>
+            <Description></Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -620,15 +620,15 @@
                 <string>Weapons</string>
             </TargetingGroups>
         </Definition>
-		
-		 <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
+
+        <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
             <Id>
                 <TypeId>SmallMissileLauncherReload</TypeId>
                 <SubtypeId>MountedGlideBomb</SubtypeId>
             </Id>
             <DisplayName>Mounted Glide Bomb</DisplayName>
             <Icon>Textures\Icons\MountedGlideBomb.png</Icon>
-            <Description>	</Description>
+            <Description></Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -662,15 +662,15 @@
                 <string>Weapons</string>
             </TargetingGroups>
         </Definition>
-  
-         <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
+
+        <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
             <Id>
                 <TypeId>SmallMissileLauncherReload</TypeId>
                 <SubtypeId>MountedMissile</SubtypeId>
             </Id>
             <DisplayName>Mounted Missile</DisplayName>
             <Icon>Textures\Icons\MountedMissile.png</Icon>
-            <Description>	</Description>
+            <Description></Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -759,7 +759,7 @@
                 <Z>1.5</Z>
             </DamageEffectOffset>
         </Definition>
-			
+
         <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
@@ -948,7 +948,7 @@
             <UpCameraOffset>1.0</UpCameraOffset>
             <ForwardCameraOffset>0.5</ForwardCameraOffset>
         </Definition>
-			
+
         <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
@@ -979,7 +979,7 @@
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\LargeTurret_BS1.mwm" />
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\LargeTurret_BS2.mwm" />
-				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeTurret_BS3.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeTurret_BS3.mwm" />
             </BuildProgressModels>
             <VoxelPlacement>
                 <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
@@ -1034,7 +1034,7 @@
             <UpCameraOffset>1.0</UpCameraOffset>
             <ForwardCameraOffset>0.5</ForwardCameraOffset>
         </Definition>
-		
+
         <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
@@ -1065,7 +1065,7 @@
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\LargeTurret_BS1.mwm" />
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\LargeTurret_BS2.mwm" />
-				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeTurret_BS3.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeTurret_BS3.mwm" />
             </BuildProgressModels>
             <VoxelPlacement>
                 <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
@@ -1122,7 +1122,7 @@
             <ForwardCameraOffset>0.5</ForwardCameraOffset>
         </Definition>
 
-		
+
         <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
@@ -1153,7 +1153,7 @@
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\LargeTurret_BS1.mwm" />
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\LargeTurret_BS2.mwm" />
-				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeTurret_BS3.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeTurret_BS3.mwm" />
             </BuildProgressModels>
             <VoxelPlacement>
                 <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
@@ -1210,8 +1210,8 @@
         </Definition>
 
 
-		
-		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+
+        <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
                 <SubtypeId>ArtilleryTurretSmall</SubtypeId>
@@ -1241,7 +1241,7 @@
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\LargeTurret_BS1.mwm" />
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\LargeTurret_BS2.mwm" />
-				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeTurret_BS3.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeTurret_BS3.mwm" />
             </BuildProgressModels>
             <VoxelPlacement>
                 <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
@@ -1274,7 +1274,7 @@
             <MinAzimuthDegrees>-30</MinAzimuthDegrees>
             <MaxAzimuthDegrees>30</MaxAzimuthDegrees>
             <IdleRotation>false</IdleRotation>
-            <MaxRangeMeters>1500</MaxRangeMeters>
+            <MaxRangeMeters>0</MaxRangeMeters>
             <RotationSpeed>0.001</RotationSpeed>
             <ElevationSpeed>0.001 </ElevationSpeed>
             <EmissiveColorPreset>Default</EmissiveColorPreset>
@@ -1297,7 +1297,7 @@
             <UpCameraOffset>1.0</UpCameraOffset>
             <ForwardCameraOffset>0.5</ForwardCameraOffset>
         </Definition>
-		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+        <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
                 <SubtypeId>ElindisTorpedoTurret</SubtypeId>
@@ -1386,22 +1386,22 @@
             <UpCameraOffset>0.5</UpCameraOffset>
             <ForwardCameraOffset>2.75</ForwardCameraOffset>
         </Definition>
-		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+        <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
-				<SubtypeId>R309_RailCannon</SubtypeId>
-			</Id>
-			<DisplayName>Railgun Turret</DisplayName>
-			<Description></Description>
-			<Icon>Textures\GUI\Icons\Cubes\R309_RailCannon.dds</Icon>
-			<CubeSize>Large</CubeSize>
-			<GuiVisible>false</GuiVisible>
+                <SubtypeId>R309_RailCannon</SubtypeId>
+            </Id>
+            <DisplayName>Railgun Turret</DisplayName>
+            <Description></Description>
+            <Icon>Textures\GUI\Icons\Cubes\R309_RailCannon.dds</Icon>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
             <PlaceDecals>false</PlaceDecals>
-			<BlockTopology>TriangleMesh</BlockTopology>
-			<Size x="5" y="3" z="5  "/>
-			<ModelOffset x="0" y="0" z="0"/>
-			<Model>Models\Cubes\Large\R309_RailCannon.mwm</Model>
-			<Components>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5" y="3" z="5  "/>
+            <ModelOffset x="0" y="0" z="0"/>
+            <Model>Models\Cubes\Large\R309_RailCannon.mwm</Model>
+            <Components>
                 <Component Subtype="SteelPlate" Count="150"/>
                 <Component Subtype="Construction" Count="315" />
                 <Component Subtype="Computer" Count="140" />
@@ -1411,12 +1411,12 @@
                 <Component Subtype="Superconductor" Count="150" />
                 <Component Subtype="Construction" Count="75" />
                 <Component Subtype="SteelPlate" Count="600" />
-			</Components>
-			<CriticalComponent Subtype="Superconductor" Index="0"/>
-			<MountPoints>
-				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="5.00" EndY="5.00"/>
-			</MountPoints>
-			<VoxelPlacement>
+            </Components>
+            <CriticalComponent Subtype="Superconductor" Index="0"/>
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="5.00" EndY="5.00"/>
+            </MountPoints>
+            <VoxelPlacement>
                 <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
                 <StaticMode>
                     <PlacementMode>OutsideVoxel</PlacementMode>
@@ -1429,10 +1429,10 @@
                     <MinAllowed>0.01</MinAllowed>
                 </DynamicMode>
             </VoxelPlacement>
-			<BlockPairName>R309_RailGun_Cannon</BlockPairName>
-			<MirroringY>Z</MirroringY>
+            <BlockPairName>R309_RailGun_Cannon</BlockPairName>
+            <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
-			<EdgeType>Light</EdgeType>
+            <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>120</BuildTimeSeconds>
             <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
             <EnabledTargetingOptions>SmallShips LargeShips Stations Enemies</EnabledTargetingOptions>
@@ -1442,7 +1442,7 @@
             <MinAzimuthDegrees>-180</MinAzimuthDegrees>
             <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
             <IdleRotation>false</IdleRotation>
-            <MaxRangeMeters>6000</MaxRangeMeters>
+            <MaxRangeMeters>0</MaxRangeMeters>
             <MinFov>0.1</MinFov>
             <MaxFov>1.4</MaxFov>
             <RotationSpeed>0.0004</RotationSpeed>
@@ -1470,6 +1470,6 @@
             </TargetingGroups>
             <UpCameraOffset>0.75</UpCameraOffset>
             <ForwardCameraOffset>15</ForwardCameraOffset>
-		</Definition>
-	</CubeBlocks>
+        </Definition>
+    </CubeBlocks>
 </Definitions>
