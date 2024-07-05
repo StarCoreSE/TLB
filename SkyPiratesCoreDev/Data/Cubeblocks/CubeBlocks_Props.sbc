@@ -55,7 +55,7 @@
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>25</BuildTimeSeconds>
       <ResourceSinkGroup>Thrust</ResourceSinkGroup>
-      <ForceMagnitude>1250000</ForceMagnitude> <!-- SP2 130000 -->
+      <ForceMagnitude>62500</ForceMagnitude> <!-- SP2 130000 -->
       <MaxPowerConsumption>1.0</MaxPowerConsumption>
       <MinPowerConsumption>0.000002</MinPowerConsumption>
       <SlowdownFactor>1</SlowdownFactor>
@@ -141,7 +141,7 @@
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>25</BuildTimeSeconds>
       <ResourceSinkGroup>Thrust</ResourceSinkGroup>
-      <ForceMagnitude>300000</ForceMagnitude> <!-- SP2 130000 -->
+      <ForceMagnitude>150000</ForceMagnitude> <!-- SP2 130000 -->
       <MaxPowerConsumption>0.4</MaxPowerConsumption>
       <MinPowerConsumption>0.000002</MinPowerConsumption>
       <SlowdownFactor>1</SlowdownFactor>
@@ -227,7 +227,7 @@
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>25</BuildTimeSeconds>
       <ResourceSinkGroup>Thrust</ResourceSinkGroup>
-      <ForceMagnitude>3500000</ForceMagnitude> <!-- SP2 130000 -->
+      <ForceMagnitude>1750000</ForceMagnitude> <!-- SP2 130000 -->
       <MaxPowerConsumption>3</MaxPowerConsumption>
       <MinPowerConsumption>0.000002</MinPowerConsumption>
       <SlowdownFactor>1</SlowdownFactor>
@@ -362,7 +362,7 @@
       <BuildTimeSeconds>25</BuildTimeSeconds>
 
       <ResourceSinkGroup>Thrust</ResourceSinkGroup>
-      <ForceMagnitude>200000</ForceMagnitude>
+      <ForceMagnitude>120000</ForceMagnitude>
             <FuelConverter>
                 <FuelId>
                     <TypeId>GasProperties</TypeId>
@@ -436,7 +436,7 @@
       <BuildTimeSeconds>25</BuildTimeSeconds>
 
       <ResourceSinkGroup>Thrust</ResourceSinkGroup>
-      <ForceMagnitude>180000</ForceMagnitude>
+      <ForceMagnitude>108000</ForceMagnitude>
             <FuelConverter>
                 <FuelId>
                     <TypeId>GasProperties</TypeId>
@@ -519,7 +519,7 @@
       <BuildTimeSeconds>25</BuildTimeSeconds>
 
       <ResourceSinkGroup>Thrust</ResourceSinkGroup>
-      <ForceMagnitude>160000</ForceMagnitude>
+      <ForceMagnitude>96000</ForceMagnitude>
             <FuelConverter>
                 <FuelId>
                     <TypeId>GasProperties</TypeId>
