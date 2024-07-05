@@ -555,6 +555,7 @@
             <Model>Models\Cubes\Small\MountedMediumBomb.mwm</Model>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
+			<MountPoint Side="Top" StartX="0" StartY="2" EndX="1" EndY="3" />
             </MountPoints>
             <Components>
                 <Component Subtype="Explosives" Count="2" />
@@ -597,6 +598,7 @@
             <Model>Models\Cubes\Small\MountedLargeBomb.mwm</Model>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
+			<MountPoint Side="Top" StartX="1" StartY="3" EndX="2" EndY="4" />
             </MountPoints>
             <Components>
                 <Component Subtype="Explosives" Count="10" />
