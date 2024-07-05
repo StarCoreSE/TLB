@@ -344,7 +344,7 @@
             <PrimarySound>BlockGyroscope</PrimarySound>
 
             <ResourceSinkGroup>Gyro</ResourceSinkGroup>
-            <ForceMagnitude>11200</ForceMagnitude>
+            <ForceMagnitude>22400</ForceMagnitude>
             <RequiredPowerInput>0.002</RequiredPowerInput>
 
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
