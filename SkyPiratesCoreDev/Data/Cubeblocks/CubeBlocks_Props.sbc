@@ -334,6 +334,7 @@
         <SubtypeId>Prop2B</SubtypeId>
       </Id>
       <DisplayName>2 Bladed Fighter Prop</DisplayName>
+	  <Description>Basic prop with excelent base thrust and efficiency. No upgrade module slots.</Description>
       <Icon>Textures\Icons\Props\Propeller_2_Blade.png</Icon>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -408,6 +409,7 @@
         <SubtypeId>Prop3B</SubtypeId>
       </Id>
       <DisplayName>3 Bladed Fighter Prop</DisplayName>
+	  <Description>Medium prop with average base thrust and efficiency. 4 upgrade module slots.</Description>
       <Icon>Textures\Icons\Props\Propeller_3_Blade.png</Icon>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
@@ -482,6 +484,7 @@
         <SubtypeId>Prop4B</SubtypeId>
       </Id>
       <DisplayName>4 Bladed Fighter Prop</DisplayName>
+	  <Description>Large prop with poor base thrust and efficiency. 8 upgrade module slots.</Description>
       <Icon>Textures\Icons\Props\Propeller_4_Blade.png</Icon>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>

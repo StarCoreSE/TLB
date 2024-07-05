@@ -7,7 +7,7 @@
 				<SubtypeId>OverclockerEngineUpgrade</SubtypeId>
 			</Id>
 			<DisplayName>Overclocker Engine Upgrade</DisplayName>
-			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Description>Doubles engine thrust with no additional fuel consumption, slowly destroys engine with an explosive finale.</Description>
 			<Icon>Textures\Icons\Upgrades\OverclockerEngineUpgrade.png</Icon>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
@@ -35,7 +35,7 @@
 				<SubtypeId>FuelInjectorEngineUpgrade</SubtypeId>
 			</Id>
 			<DisplayName>Fuel Injector Engine Upgrade</DisplayName>
-			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Description>Modestly increases thrust and fuel consumption, does not change efficiency.</Description>
 			<Icon>Textures\Icons\Upgrades\FuelInjectorEngineUpgrade.png</Icon>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
@@ -63,7 +63,7 @@
 				<SubtypeId>CarburetorEngineUpgrade</SubtypeId>
 			</Id>
 			<DisplayName>Carburetor Engine Upgrade</DisplayName>
-			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Description>Largely increases thrust and vastly increases fuel consumption at a loss in efficiency.</Description>
 			<Icon>Textures\Icons\Upgrades\CarburetorEngineUpgrade.png</Icon>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
@@ -90,7 +90,7 @@
 				<SubtypeId>NosEngineUpgrade</SubtypeId>
 			</Id>
 			<DisplayName>NOS Injector Engine Upgrade</DisplayName>
-			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Description>Reduces the adverse effects of high altitude on propeller thrust.</Description>
 			<Icon>Textures\Icons\Upgrades\NosEngineUpgrade.png</Icon>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
@@ -117,7 +117,7 @@
 				<SubtypeId>IntakeEngineUpgrade</SubtypeId>
 			</Id>
 			<DisplayName>Intake Engine Upgrade</DisplayName>
-			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Description>Reduces the adverse effects of high speed on propeller thrust.</Description>
 			<Icon>Textures\Icons\Upgrades\IntakeEngineUpgrade.png</Icon>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
@@ -144,7 +144,7 @@
 				<SubtypeId>SensorEngineUpgrade</SubtypeId>
 			</Id>
 			<DisplayName>Sensor Engine Upgrade</DisplayName>
-			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Description>Increases fuel efficiency modestly</Description>
 			<Icon>Textures\Icons\Upgrades\SensorEngineUpgrade.png</Icon>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
@@ -171,7 +171,7 @@
 				<SubtypeId>StormEngineUpgrade</SubtypeId>
 			</Id>
 			<DisplayName>Storm Dynamo Engine Upgrade</DisplayName>
-			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Description>Vastly increases thrust with no additional fuel consumption when close to the lower cloud layer.</Description>
 			<Icon>Textures\Icons\Upgrades\StormEngineUpgrade.png</Icon>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
@@ -198,7 +198,7 @@
 				<SubtypeId>TurboEngineUpgrade</SubtypeId>
 			</Id>
 			<DisplayName>Turbocharger Engine Upgrade</DisplayName>
-			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Description>Makes your propeller perform better at high speeds, but conversely worse at lower speeds and lower throttles.</Description>
 			<Icon>Textures\Icons\Upgrades\TurboEngineUpgrade.png</Icon>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
@@ -225,7 +225,7 @@
 				<SubtypeId>SuperEngineUpgrade</SubtypeId>
 			</Id>
 			<DisplayName>Supercharger Engine Upgrade</DisplayName>
-			<Description>{LOC:Description_GenericEngineUpgrade}</Description>
+			<Description>Makes your propeller perform better at low speeds, but conversely worse at higher speeds and higher throttles.</Description>
 			<Icon>Textures\Icons\Upgrades\SuperEngineUpgrade.png</Icon>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
