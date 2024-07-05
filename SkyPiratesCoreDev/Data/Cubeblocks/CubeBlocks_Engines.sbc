@@ -50,7 +50,7 @@
 
 			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
 			<IceConsumptionPerSecond>20</IceConsumptionPerSecond>
-            <InventoryMaxVolume>1</InventoryMaxVolume>
+            <InventoryMaxVolume>.1</InventoryMaxVolume>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <InventorySize>
                 <X>2</X>
@@ -58,10 +58,10 @@
                 <Z>2</Z>
             </InventorySize>
 
-            <InventoryFillFactorMin>0.3</InventoryFillFactorMin>
-            <InventoryFillFactorMax>0.6</InventoryFillFactorMax>
+            <InventoryFillFactorMin>0.5</InventoryFillFactorMin>
+            <InventoryFillFactorMax>0.7</InventoryFillFactorMax>
 
-            <FuelPullAmountFromConveyorInMinutes>2.75</FuelPullAmountFromConveyorInMinutes>
+            <FuelPullAmountFromConveyorInMinutes>5</FuelPullAmountFromConveyorInMinutes>
 
             <StandbyPowerConsumption>0</StandbyPowerConsumption>
             <OperationalPowerConsumption>0</OperationalPowerConsumption>
@@ -135,7 +135,7 @@
 
 			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
 			<IceConsumptionPerSecond>12</IceConsumptionPerSecond>
-            <InventoryMaxVolume>1</InventoryMaxVolume>
+            <InventoryMaxVolume>.1</InventoryMaxVolume>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <InventorySize>
                 <X>2</X>
@@ -143,10 +143,10 @@
                 <Z>2</Z>
             </InventorySize>
 
-            <InventoryFillFactorMin>0.3</InventoryFillFactorMin>
-            <InventoryFillFactorMax>0.6</InventoryFillFactorMax>
+            <InventoryFillFactorMin>0.6</InventoryFillFactorMin>
+            <InventoryFillFactorMax>0.8</InventoryFillFactorMax>
 
-            <FuelPullAmountFromConveyorInMinutes>2.75</FuelPullAmountFromConveyorInMinutes>
+            <FuelPullAmountFromConveyorInMinutes>5</FuelPullAmountFromConveyorInMinutes>
 
             <StandbyPowerConsumption>0</StandbyPowerConsumption>
             <OperationalPowerConsumption>0</OperationalPowerConsumption>
@@ -209,7 +209,7 @@
 			<EdgeType>Light</EdgeType>
 			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
 			<IceConsumptionPerSecond>24</IceConsumptionPerSecond>
-            <InventoryMaxVolume>1</InventoryMaxVolume>
+            <InventoryMaxVolume>.1</InventoryMaxVolume>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <InventorySize>
                 <X>2</X>
@@ -217,10 +217,10 @@
                 <Z>2</Z>
             </InventorySize>
 
-            <InventoryFillFactorMin>0.3</InventoryFillFactorMin>
-            <InventoryFillFactorMax>0.6</InventoryFillFactorMax>
+            <InventoryFillFactorMin>0.5</InventoryFillFactorMin>
+            <InventoryFillFactorMax>0.7</InventoryFillFactorMax>
 
-            <FuelPullAmountFromConveyorInMinutes>2.75</FuelPullAmountFromConveyorInMinutes>
+            <FuelPullAmountFromConveyorInMinutes>5</FuelPullAmountFromConveyorInMinutes>
 
             <StandbyPowerConsumption>0</StandbyPowerConsumption>
             <OperationalPowerConsumption>0</OperationalPowerConsumption>
@@ -293,7 +293,7 @@
 			<ResourceSinkGroup>Generators</ResourceSinkGroup>
 			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
 			<IceConsumptionPerSecond>16</IceConsumptionPerSecond>
-            <InventoryMaxVolume>1</InventoryMaxVolume>
+            <InventoryMaxVolume>.3</InventoryMaxVolume>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <InventorySize>
                 <X>2</X>
@@ -301,10 +301,10 @@
                 <Z>2</Z>
             </InventorySize>
 
-            <InventoryFillFactorMin>0.3</InventoryFillFactorMin>
-            <InventoryFillFactorMax>0.6</InventoryFillFactorMax>
+            <InventoryFillFactorMin>0.5</InventoryFillFactorMin>
+            <InventoryFillFactorMax>0.7</InventoryFillFactorMax>
 
-            <FuelPullAmountFromConveyorInMinutes>2.75</FuelPullAmountFromConveyorInMinutes>
+            <FuelPullAmountFromConveyorInMinutes>5</FuelPullAmountFromConveyorInMinutes>
 
             <StandbyPowerConsumption>0</StandbyPowerConsumption>
             <OperationalPowerConsumption>0</OperationalPowerConsumption>
