@@ -638,8 +638,11 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\MountedGlideBomb.mwm</Model>
             <CriticalComponent Subtype="Computer" Index="0" />
-            <MountPoints>
+            
+			<MountPoints>
+                <MountPoint Side="Top" StartX="2" StartY="2" EndX="3" EndY="3" />
             </MountPoints>
+         
             <Components>
                 <Component Subtype="Explosives" Count="2" />
                 <Component Subtype="MetalGrid" Count="2" />
