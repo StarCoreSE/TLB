@@ -276,13 +276,13 @@
             <MissileProperties>
 			<!-- About 6x the damage of a 200mm missile -->
                 <MissileMass>150</MissileMass>
-                <MissileExplosionRadius>4</MissileExplosionRadius>
+                <MissileExplosionRadius>6</MissileExplosionRadius>
                 <MissileModelName>Models\Ammo\ElindisTorpedo.mwm</MissileModelName>
                 <MissileAcceleration>0</MissileAcceleration>
                 <MissileInitialSpeed>500</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
 				<MissileHealthPool>5000</MissileHealthPool>
-				<MissileExplosionDamage>1500</MissileExplosionDamage>
+				<MissileExplosionDamage>2000</MissileExplosionDamage>
                 <MissileTrailEffect>Trail_ElindisTorpedo</MissileTrailEffect>
             </MissileProperties>
         </Ammo>
