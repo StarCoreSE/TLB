@@ -53,7 +53,7 @@
       <MirroringZ>Y</MirroringZ>
       <MirroringY>Z</MirroringY>
       <EdgeType>Light</EdgeType>
-      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <BuildTimeSeconds>45</BuildTimeSeconds>
       <ResourceSinkGroup>Thrust</ResourceSinkGroup>
       <ForceMagnitude>62500</ForceMagnitude> <!-- SP2 130000 -->
       <MaxPowerConsumption>1.0</MaxPowerConsumption>
@@ -139,7 +139,7 @@
       <MirroringZ>Y</MirroringZ>
       <MirroringY>Z</MirroringY>
       <EdgeType>Light</EdgeType>
-      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <BuildTimeSeconds>30</BuildTimeSeconds>
       <ResourceSinkGroup>Thrust</ResourceSinkGroup>
       <ForceMagnitude>150000</ForceMagnitude> <!-- SP2 130000 -->
       <MaxPowerConsumption>0.4</MaxPowerConsumption>
@@ -225,7 +225,7 @@
       <MirroringZ>Y</MirroringZ>
       <MirroringY>Z</MirroringY>
       <EdgeType>Light</EdgeType>
-      <BuildTimeSeconds>25</BuildTimeSeconds>
+      <BuildTimeSeconds>75</BuildTimeSeconds>
       <ResourceSinkGroup>Thrust</ResourceSinkGroup>
       <ForceMagnitude>1750000</ForceMagnitude> <!-- SP2 130000 -->
       <MaxPowerConsumption>3</MaxPowerConsumption>
