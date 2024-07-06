@@ -13,7 +13,7 @@
                 <Y>0.2</Y>
                 <Z>0.1</Z>
             </Size>
-            <Mass>500</Mass>
+            <Mass>50</Mass>
             <Volume>2</Volume>
             <Model>Models\Components\ExplosivesComponent.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>

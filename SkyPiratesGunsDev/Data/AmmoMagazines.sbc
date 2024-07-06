@@ -117,7 +117,7 @@
                 <Y>0.3</Y>
                 <Z>0.3</Z>
             </Size>
-            <Mass>500</Mass>
+            <Mass>50</Mass>
             <Volume>100</Volume>
             <Model>Models\Ammo\SmallBomb.mwm</Model>
             <PhysicalMaterial>Ammo</PhysicalMaterial>
@@ -169,7 +169,7 @@
                 <Y>0.3</Y>
                 <Z>0.3</Z>
             </Size>
-            <Mass>1327</Mass>
+            <Mass>130</Mass>
             <Volume>300</Volume>
             <Model>Models\Ammo\MediumBomb.mwm</Model>
             <PhysicalMaterial>Ammo</PhysicalMaterial>
