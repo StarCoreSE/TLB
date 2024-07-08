@@ -99,6 +99,8 @@ namespace cleaner
             
 	    "LargeCameraBlock",
             "SmallCameraBlock",
+			"LargeCameraTopMounted",
+			"SmallCameraTopMounted",
             });
 
         public List<string> whitelist = new List<string>(new string[] {
