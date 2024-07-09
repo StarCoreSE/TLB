@@ -7,9 +7,11 @@ using VRage.Game.ModAPI;
 
 namespace hydrorefiller
 {
-
+    /// <summary>
+    /// it uhh refills your hydro man. trust.
+    /// </summary>
     [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation  )]
-    public class Bession : MySessionComponentBase
+    public class Bigredbession : MySessionComponentBase
     {
         public double tock = 0;
         public int delay = 30;
@@ -30,31 +32,34 @@ namespace hydrorefiller
 
             foreach (var player in playerlist)
             {
-                float hydro = MyVisualScriptLogicProvider.GetPlayersHydrogenLevel(player.Identity.IdentityId);
-
-                var UpdatedDictionary = new Dictionary<long, long>();
-                bool nohydro = hydro <= 0f;
-                // add to list if they are not in the list and they dotn have hydro
-                if (!playerdictionary.ContainsKey(player.Identity.IdentityId) && nohydro)
+                if (player.Controller?.ControlledEntity?.Entity is IMyCharacter)
                 {
-                    UpdatedDictionary[player.Identity.IdentityId] = 0;
-                }
-                else if (playerdictionary.ContainsKey(player.Identity.IdentityId))
-                {
+                    float hydro = MyVisualScriptLogicProvider.GetPlayersHydrogenLevel(player.Identity.IdentityId);
 
-                    var elapsedTime = playerdictionary[player.Identity.IdentityId] + 1;
-                    if (elapsedTime > delay)
+                    var UpdatedDictionary = new Dictionary<long, long>();
+                    bool nohydro = hydro <= 0f;
+                    // add to list if they are not in the list and they dotn have hydro
+                    if (!playerdictionary.ContainsKey(player.Identity.IdentityId) && nohydro)
                     {
-                        MyVisualScriptLogicProvider.SetPlayersHydrogenLevel(player.Identity.IdentityId, 1f);
-
+                        UpdatedDictionary[player.Identity.IdentityId] = 0;
                     }
-                    else
+                    else if (playerdictionary.ContainsKey(player.Identity.IdentityId))
                     {
-                        UpdatedDictionary[player.Identity.IdentityId] = elapsedTime;
-                    }
-                }
 
-                playerdictionary = UpdatedDictionary;
+                        var elapsedTime = playerdictionary[player.Identity.IdentityId] + 1;
+                        if (elapsedTime > delay)
+                        {
+                            MyVisualScriptLogicProvider.SetPlayersHydrogenLevel(player.Identity.IdentityId, 1f);
+
+                        }
+                        else
+                        {
+                            UpdatedDictionary[player.Identity.IdentityId] = elapsedTime;
+                        }
+                    }
+
+                    playerdictionary = UpdatedDictionary;
+                }
             }
 
         }
