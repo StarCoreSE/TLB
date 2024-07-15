@@ -15,6 +15,9 @@ using System;
 using System.Text;
 using System.Linq;
 using VRage.Utils;
+using VRage.ModAPI;
+using VRage.Game;
+using VRage;
 
 namespace SKY_PIRATES_CORE
 {
@@ -114,7 +117,7 @@ namespace SKY_PIRATES_CORE
                 PropellerGrid plane;
                 if (PropellerSession.instance.grids.TryGetValue(grid.EntityId, out plane))
                 {
-                    CurrentValue = (float)(int)(plane.totalFuel / plane.consumption / 60);
+                    CurrentValue = (float)(int)(plane.totalFuel / plane.consumption * 0.016666f);
                     if (plane.totalFuel < 1)
                         CurrentValue = 0;
 
@@ -382,8 +385,8 @@ namespace SKY_PIRATES_CORE
                 stringBuilder.Clear(); // fuck you, keen
                 stringBuilder.Append(
                     $"Note: Max Input value above is incorrect...\n" +
-                    $"Current Efficiency: {(thruster.CurrentThrust / currentFuelUsage / 1000):0.##} kNs/L\n" +
-                    $"Current Thrust: {(int)(thruster.CurrentThrust / 1000)} kN\n" +
+                    $"Current Efficiency: {(thruster.CurrentThrust / currentFuelUsage * 0.001f):0.##} kNs/L\n" +
+                    $"Current Thrust: {(int)(thruster.CurrentThrust * 0.001f)} kN\n" +
                     $"Current H2 Input: {(int)currentFuelUsage} L/s\n" +
                     $"Total Power Multiplier: {thruster.PowerConsumptionMultiplier:0.##}\n" +
                     $"Total Thrust Multiplier: {(thruster.ThrustMultiplier * planet.GetAirDensity(grid.WorldMatrix.Translation)):0.##}\n"
@@ -422,7 +425,7 @@ namespace SKY_PIRATES_CORE
             }
             Vector3D dirn = position - cylinderCenterPosition;
             double height = Vector3D.Dot(dirn, cylinderAxis);
-            if (Math.Abs(height) > cylinderHeight * 0.5)
+            if (Math.Abs(height) > cylinderHeight * 0.5f)
             {
                 return false;
             }
@@ -453,7 +456,7 @@ namespace SKY_PIRATES_CORE
             if (thruster.CurrentThrust == 0 || thruster.MaxEffectiveThrust == 0)
                 return;
 
-           (block as IMyTerminalBlock).RefreshCustomInfo();
+           block.RefreshCustomInfo();
 
             if(!(block.SlimBlock.BlockDefinition.Id.SubtypeId.String.Contains("Small") && grid.GridSizeEnum == MyCubeSize.Large) && !isNPC)
                 UpdateObstructions();
@@ -467,7 +470,7 @@ namespace SKY_PIRATES_CORE
             {
                 for (int j = -3; j < 4; j++)
                 {
-                    Vector3I location = (Vector3I)block.LocalMatrix.Right * i + (Vector3I)block.LocalMatrix.Up * j;
+                    Vector3I location = (Vector3I)(block.LocalMatrix.Right * i + block.LocalMatrix.Up * j);
 
                     location += FindPropellerTip(slim);
 
@@ -485,11 +488,14 @@ namespace SKY_PIRATES_CORE
 
         private Vector3I FindPropellerTip(IMySlimBlock slim)
         {
+            Vector3I mid;
+            int midLength;
             if (grid.GridSizeEnum == MyCubeSize.Small)
             {
-                Vector3I mid = (slim.Max - slim.Min);
-                if (mid.Length() > 1)
-                    return mid / 2 + (Vector3I)block.LocalMatrix.Backward * mid.Length() / 2 + slim.Min;
+                mid = (slim.Max - slim.Min);
+                midLength = mid.Length();
+                if (midLength > 1)
+                    return (Vector3I)(mid * 0.5f + block.LocalMatrix.Backward * midLength * 0.5f + slim.Min);
                 else if (mid == block.LocalMatrix.Backward)
                     return slim.Max;
                 else
@@ -497,16 +503,15 @@ namespace SKY_PIRATES_CORE
             }
             else
             {
-                Vector3I mid = (slim.Min - slim.Max);
-                if (mid.Length() > 1)
-                    return mid / 2 + (Vector3I)block.LocalMatrix.Forward * mid.Length() / 2 + slim.Max;
+                mid = (slim.Min - slim.Max);
+                midLength = mid.Length();
+                if (midLength > 1)
+                    return (Vector3I)(mid * 0.5f + block.LocalMatrix.Forward * mid.Length() * 0.5f + slim.Max);
                 else if (mid == block.LocalMatrix.Forward)
                     return slim.Min;
                 else
                     return slim.Max;
             }
-
-            return Vector3I.Zero;
         }
 
         private int CalculatePerpendicularDistance(Vector3I propellerPosition1, Vector3I propellerPosition2, Base6Directions.Direction flowDirection)
@@ -545,7 +550,7 @@ namespace SKY_PIRATES_CORE
 
                     Vector3I propellerPosition2 = FindPropellerTip(slim);
                     float manhattandistance = (float)Vector3I.DistanceManhattan(propellerPosition2, propellerPosition1);
-                    var perpendicularDistance = CalculatePerpendicularDistance(propellerPosition1, propellerPosition2, block.SlimBlock.Orientation.Forward);
+                    int perpendicularDistance = CalculatePerpendicularDistance(propellerPosition1, propellerPosition2, block.SlimBlock.Orientation.Forward);
 
                     float maxDistance = 10f;
 
@@ -554,7 +559,7 @@ namespace SKY_PIRATES_CORE
 
                     if (manhattandistance < maxDistance)
                     {
-                        var interference = (1.5f + prop.CurrentThrustPercentage) / (1f + (perpendicularDistance + manhattandistance) / 2);
+                        var interference = (1.5f + prop.CurrentThrustPercentage) / (1f + (perpendicularDistance + manhattandistance) * 0.5f);
                         interference = Math.Min(1f, interference);
 
                         interferenceModifier -= interference;
@@ -585,21 +590,21 @@ namespace SKY_PIRATES_CORE
             return null;
         }
 
-        public override void UpdateBeforeSimulation()
-        {
-            if (!isNPC)
-                return;
+        //public override void UpdateBeforeSimulation()
+        //{
+        //    if (!isNPC)
+        //        return;
 
-            if (grid.Physics == null || block == null || !block.Enabled || !block.IsFunctional)
-                return;
+        //    if (grid.Physics == null || block == null || !block.Enabled || !block.IsFunctional)
+        //        return;
 
-            return;
-            MyAPIGateway.Utilities.ShowNotification("eee", 16);
+        //    return;
+        //    MyAPIGateway.Utilities.ShowNotification("eee", 16);
 
-            thrustVector = thruster.WorldMatrix.Backward;
-            thruster.ThrustOverridePercentage = 1f;
-            grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, thrustVector * thruster.MaxEffectiveThrust * 3f, grid.Physics.CenterOfMassWorld, null);
-        }
+        //    thrustVector = thruster.WorldMatrix.Backward;
+        //    thruster.ThrustOverridePercentage = 1f;
+        //    grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, thrustVector * thruster.MaxEffectiveThrust * 3f, grid.Physics.CenterOfMassWorld, null);
+        //}
 
 
         public override void UpdateBeforeSimulation10()
@@ -692,11 +697,11 @@ namespace SKY_PIRATES_CORE
         {
             float modifier = 1f;
 
-            modifier += fuelinjector / 4f;
+            modifier += fuelinjector * 0.25f;
             modifier += carburetor;
             modifier *= (float)Math.Pow(0.8, (double)enginesensor);
-            modifier += turbocharger / 2f;
-            modifier += supercharger / 2f;
+            modifier += turbocharger * 0.5f;
+            modifier += supercharger * 0.5f;
 
             return modifier;
         }
@@ -705,9 +710,9 @@ namespace SKY_PIRATES_CORE
         {
             float modifier = 1f;
 
-            modifier += fuelinjector / 4f;
+            modifier += fuelinjector * 0.25f;
             modifier += overclocker;
-            modifier += carburetor / 2f;
+            modifier += carburetor * 0.5f;
 
             return modifier;
         }
@@ -716,7 +721,7 @@ namespace SKY_PIRATES_CORE
         {
             float compressorModifier = 1f;
 
-            compressorModifier += Math.Max((-1f + 5 * throttle) * turbocharger * speed / 600f,-0.25f) + Math.Max(3 * supercharger * (1f - speed / 100f), -0.25f);
+            compressorModifier += Math.Max((-1f + 5 * throttle) * turbocharger * speed * 0.001666f, -0.25f) + Math.Max(3 * supercharger * (1f - speed * 0.01f), -0.25f);
 
             return compressorModifier;
         }
@@ -754,7 +759,7 @@ namespace SKY_PIRATES_CORE
             float altitudeModifier = 1f;
 
             if (nosinjector > 0f)
-                altitudeModifier += nosinjector * (1f - planet.GetAirDensity(grid.WorldMatrix.Translation)) / 2f;
+                altitudeModifier += nosinjector * (1f - planet.GetAirDensity(grid.WorldMatrix.Translation)) * 0.5f;
 
             return altitudeModifier;
         }
