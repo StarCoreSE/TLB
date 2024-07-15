@@ -1,52 +1,32 @@
 ﻿using Sandbox.Definitions;
-using Sandbox.Game;
-using Sandbox.Game.AI.Pathfinding;
-using Sandbox.Game.Entities;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using VRage;
-using VRage.FileSystem;
-using VRage.Game;
-using VRage.Game.Definitions;
-using VRage.Game.ObjectBuilders.ComponentSystem;
-using VRage.Generics;
-using VRage.Network;
-using VRage.ObjectBuilders;
-using VRage.Utils;
-using VRageMath;
-using VRageRender;
-using Sandbox.ModAPI;
-using VRage.Game.Definitions;
-using VRage.Game.ObjectBuilders.Definitions;
 
+using VRage.Game.Components;
+using VRage.Game;
+using VRage.Utils;
+using VRage.Game.ModAPI;
+
+using Sandbox.ModAPI;
+using System.Runtime.CompilerServices;
 
 namespace cleaner
 {
 	[MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)]
     public class BlockRemover : MySessionComponentBase
     {
-        public string Model = @"Models\Toedisgay.mwm";
-		
-		public string[] Icons = {@"Textures\FAKE.dds"};
-		
-		public float Mass = 0f;
+        private readonly string DUMMY_MODEL = @"Models\Toedisgay.mwm";
+        private readonly string[] DUMMY_ICON = {@"Textures\FAKE.dds"};
+        private readonly float DUMMY_MASS = 0f;
+        private readonly string ADMIN_TAG = "ADMIN";
+        private readonly bool DEBUG = false;
 
-        private bool isInit = false;
+        public HashSet<string> weapon_def_hashset = new HashSet<string>();
+        public HashSet<string> cockpit_def_hashset = new HashSet<string>();
+        public HashSet<string> power_def_hashset = new HashSet<string>();
+        public HashSet<string> logistics_def_hashset = new HashSet<string>();
+        public HashSet<string> mobility_def_hashset = new HashSet<string>();
 
-        public HashSet<string> weaponhash = new HashSet<string>();
-        public HashSet<string> cockpithash = new HashSet<string>();
-        public HashSet<string> powerhash = new HashSet<string>();
-        public HashSet<string> logistics = new HashSet<string>();
-        public HashSet<string> mobility = new HashSet<string>();
-
-        public int cancelled = 0;
-        public string strings = "";
-
-        public List<string> cats = new List<string>(new string[] {
+        public List<string> categories = new List<string>(new string[] {
             "Large",
             "All",
             "Small",
@@ -58,22 +38,24 @@ namespace cleaner
             "mobility",
             "onsumable",
             "motes"
-            });
+        });
 
-        public List<string> blacklist = new List<string>(new string[] {
+        public List<string> category_blacklist = new List<string>(new string[] {
             "category",
             "Blocks",
-            });
+        });
 
-        public List<string> bannedids = new List<string>(new string[] {
-            "Thrust",
-            "Cockpit",
-            "Reactor",
-            "BatteryBlock",
-            "OxygenTank",
-            "OxygenGenerator",
-            "HydrogenEngine",
+        public List<string> block_type_id_blacklist = new List<string>(new string[] {
+            "MyObjectBuilder_Thrust",
+            "MyObjectBuilder_Cockpit",
+            "MyObjectBuilder_Reactor",
+            "MyObjectBuilder_BatteryBlock",
+            "MyObjectBuilder_OxygenTank",
+            "MyObjectBuilder_OxygenGenerator",
+            "MyObjectBuilder_HydrogenEngine",
+        });
 
+        public List<string> block_subtype_id_blacklist = new List<string>(new string[] {
             "LargeRailgun",
             "SmallRailgun",
             "SmallBlockMediumCalibreTurret",
@@ -86,24 +68,23 @@ namespace cleaner
             "GravityGeneratorSphere",
             "VirtualMassLarge",
             "RotatingLightLarge",
-            "RotatingLightSmall", 
+            "RotatingLightSmall",
             "StoreBlock",
             "AtmBlock",
             "SafeZoneBlock",
 
             "Small_Elevator_Straight",
-            
             "Small_Elevator_Straight_Centered",
             "Small_2x1_Control_Centered",
             "Small_2x1_Control_Flat",
-            
-	    "LargeCameraBlock",
-            "SmallCameraBlock",
-			"LargeCameraTopMounted",
-			"SmallCameraTopMounted",
-            });
 
-        public List<string> whitelist = new List<string>(new string[] {
+            "LargeCameraBlock",
+            "SmallCameraBlock",
+            "LargeCameraTopMounted",
+            "SmallCameraTopMounted",
+        });
+
+        public List<string> block_subtype_id_whitelist = new List<string>(new string[] {
             "OpenCockpitSmall",
             "OpenCockpitLarge",
             "ZClassicCockpit",
@@ -128,80 +109,77 @@ namespace cleaner
             "LargeHydrogenEngine"
         });
 
-        private void DoWork()
+        private void ApplyGitGoneFilters()
         {
             foreach (MyDefinitionBase def in MyDefinitionManager.Static.GetAllDefinitions())
             {
-                MyCubeBlockDefinition blockDef = def as MyCubeBlockDefinition;
+                MyCubeBlockDefinition block_def = def as MyCubeBlockDefinition;
 
-                if (blockDef == null) continue;
+                if (block_def == null) continue;
+
+                string subtype_id = block_def.Id.SubtypeName;
+                string type_id = block_def.Id.TypeId.ToString();
+
+                bool is_banned = block_type_id_blacklist.Contains(type_id) && !block_subtype_id_whitelist.Contains(subtype_id) || block_subtype_id_blacklist.Contains(subtype_id);
+                bool is_admin = subtype_id.Contains(ADMIN_TAG);
+
+                if (DEBUG)
+                {
+                    MyLog.Default.WriteLine($"[TLB-GG] DEBUG: {type_id}/{subtype_id}, bn: {is_banned}, adm: {is_admin}");
+                }
+
+                // deprecated code to kill dlcs
 
                 //if (def.DLCs != null)
-                //{
-                //    blockDef.Public = false;
-                //    blockDef.GuiVisible = false;
-                //    //eviscerate(blockDef);
-                //}
+                //    EviscerateBlockDefinition(blockDef);
 
-                foreach (string subtypeid in bannedids)
-                {
-                    if (whitelist.Contains(blockDef.Id.SubtypeName))
-                        continue;
+                if (is_admin)
+                    GatekeepBlock(block_def);
 
-                    if (blockDef.Id.SubtypeName == subtypeid)
-                    {
-                        eviscerate(blockDef);
-                    } else if (blockDef.Id.TypeId.ToString().Contains(subtypeid))
-                        eviscerate(blockDef);
+                if (is_banned)
+                    EviscerateBlockDefinition(block_def);
 
-                }
             }
         }
 
-        private void eviscerate(MyCubeBlockDefinition blockDef)
+        private void SortBlockCategories()
         {
-            //blockDef.DisplayName == "DoNotUse";
-            blockDef.Model = Model;
-            blockDef.HasPhysics = false;
-            blockDef.Mass = Mass;
-            blockDef.MountPoints = null;
-            blockDef.Public = false;
-            blockDef.GuiVisible = false;
-            blockDef.Icons = Icons;
-        }
-
-        public override void BeforeStart()
-        {
-
-            DoWork();
-
             foreach (MyDefinitionBase def in MyDefinitionManager.Static.GetAllDefinitions())
             {
-                var checkdef = def as MyCubeBlockDefinition;
-                if (checkdef == null)
+                var block_def = def as MyCubeBlockDefinition;
+                if (block_def == null)
                     continue;
 
-                if (def.Id.SubtypeName.Contains("ZeppelinTank"))
+                string subtype_id = block_def.Id.SubtypeName;
+                string type_id = block_def.Id.TypeId.ToString();
+
+                if (subtype_id.Contains("ZeppelinTank"))
                 {
-                    mobility.Add(def.Id.TypeId.ToString() + "/" + def.Id.SubtypeName);
+                    mobility_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
                 }
 
                 /*------------------------------------------WEAPONS---------------------------------------*/
 
-                var turretDef = def as MyLargeTurretBaseDefinition;
-                var warheaddef = def as MyWarheadDefinition;
-                var fixdef = def as MyWeaponBlockDefinition;
-                if (turretDef != null || fixdef != null || warheaddef != null)
+                var turret_def = def as MyLargeTurretBaseDefinition;
+                var warhead_def = def as MyWarheadDefinition;
+                var fixed_weapon_def = def as MyWeaponBlockDefinition;
+                if (turret_def != null || fixed_weapon_def != null || warhead_def != null)
                 {
-                    if (def.Id.SubtypeName.Contains("pellant"))
+                    if (subtype_id.Contains("pellant"))
                     {
-                        mobility.Add(def.Id.TypeId.ToString() + "/" + def.Id.SubtypeName);
+                        mobility_def_hashset.Add(type_id + "/" + subtype_id);
                         continue;
                     }
-                    if (def.Id.SubtypeName.Contains("halfmin") || def.Id.SubtypeName.Contains("insurgent"))
-                        continue;
-                    weaponhash.Add(def.Id.TypeId.ToString() + "/" + def.Id.SubtypeName);
+
+                    // from weapon ai remover - thanks fire and jp
+                    if (turret_def != null && !subtype_id.Contains(ADMIN_TAG))
+                    {
+                        turret_def.AiEnabled = false;
+                        turret_def.MaxRangeMeters = 0f;
+                    }
+
+                    weapon_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
                 }
 
@@ -210,7 +188,7 @@ namespace cleaner
                 var cockdef = def as MyCockpitDefinition;
                 if (cockdef != null)
                 {
-                    cockpithash.Add(def.Id.TypeId.ToString() + "/" + def.Id.SubtypeName);
+                    cockpit_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
                 }
 
@@ -224,7 +202,7 @@ namespace cleaner
                 var generatordef = def as MyOxygenGeneratorDefinition;
                 if (generatordef != null || winddef != null || solardef != null || reactordef != null || batterydef != null || enginedef != null)
                 {
-                    powerhash.Add(def.Id.TypeId.ToString() + "/" + def.Id.SubtypeName);
+                    power_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
                 }
 
@@ -238,13 +216,13 @@ namespace cleaner
                 var mergedef = def as MyMergeBlockDefinition;
                 if (cargodef != null || tankdef != null || sorterdef != null || connectordef != null || mergedef != null)
                 {
-                    logistics.Add(def.Id.TypeId.ToString() + "/" + def.Id.SubtypeName);
-                    if(connectordef == null)
+                    logistics_def_hashset.Add(type_id + "/" + subtype_id);
+                    if (connectordef == null)
                         continue;
                 }
-                if (def.Id.TypeId.ToString().Contains("Conveyor"))
+                if (type_id.Contains("Conveyor"))
                 {
-                    logistics.Add(def.Id.TypeId.ToString() + "/" + def.Id.SubtypeName);
+                    logistics_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
                 }
 
@@ -259,72 +237,111 @@ namespace cleaner
                 var gyrodef = def as MyGyroDefinition;
                 if (suspensiondef != null || balldef != null || mechdef != null || thrusterdef != null || gyrodef != null)
                 {
-                    mobility.Add(def.Id.TypeId.ToString() + "/" + def.Id.SubtypeName);
+                    mobility_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
                 }
 
                 if (def.DisplayNameString != null && def.DisplayNameString.Contains("Control Surface"))
                 {
-                    mobility.Add(def.Id.TypeId.ToString() + "/" + def.Id.SubtypeName);
+                    mobility_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
                 }
             }
 
             foreach (var entry in MyDefinitionManager.Static.GetCategories())
             {
-                var categorydef = entry.Value as MyGuiBlockCategoryDefinition;
-                if (categorydef != null)
+                var category_def = entry.Value as MyGuiBlockCategoryDefinition;
+                if (category_def != null)
                 {
-                    bool okie = false;
-                    strings = strings + " : " + categorydef.Name;
-                    foreach (string name in cats)
+                    bool is_valid_category = false;
+                    foreach (string name in categories)
                     {
-                        if (categorydef.Name.Contains(name))
-                            okie = true;
+                        if (category_def.Name.Contains(name))
+                            is_valid_category = true;
                     }
-                    if (okie == false)
+
+                    if (!is_valid_category)
                     {
-                        categorydef.Public = false;
-                        categorydef.ShowInCreative = false;
-                        categorydef.ItemIds.Clear();
+                        EviscerateBlockCategory(category_def);
                     }
-                    foreach (string name in blacklist)
+
+                    foreach (string blacklisted_cat in category_blacklist)
                     {
-                        if (categorydef.Name.Contains(name))
+                        if (category_def.Name.Contains(blacklisted_cat))
                         {
-                            categorydef.Public = false;
-                            categorydef.ShowInCreative = false;
+                            EviscerateBlockCategory(category_def);
                         }
                     }
 
-
-                    if (categorydef.Name.Contains("Weapons"))
+                    if (category_def.Name.Contains("Weapons"))
                     {
-                        foreach (string block in weaponhash)
-                            categorydef.ItemIds.Add(block);
+                        foreach (string block in weapon_def_hashset)
+                            category_def.ItemIds.Add(block);
                     }
-                    if (categorydef.Name.Contains("bobcockpit"))
+                    if (category_def.Name.Contains("bobcockpit"))
                     {
-                        foreach (string block in cockpithash)
-                            categorydef.ItemIds.Add(block);
+                        foreach (string block in cockpit_def_hashset)
+                            category_def.ItemIds.Add(block);
                     }
-                    if (categorydef.Name.Contains("logistics"))
+                    if (category_def.Name.Contains("logistics"))
                     {
-                        foreach (string block in logistics)
-                            categorydef.ItemIds.Add(block);
+                        foreach (string block in logistics_def_hashset)
+                            category_def.ItemIds.Add(block);
                     }
-                    if (categorydef.Name.Contains("bobpower"))
+                    if (category_def.Name.Contains("bobpower"))
                     {
-                        foreach (string block in powerhash)
-                            categorydef.ItemIds.Add(block);
+                        foreach (string block in power_def_hashset)
+                            category_def.ItemIds.Add(block);
                     }
-                    if (categorydef.Name.Contains("mobility"))
+                    if (category_def.Name.Contains("mobility"))
                     {
-                        foreach (string block in mobility)
-                            categorydef.ItemIds.Add(block);
+                        foreach (string block in mobility_def_hashset)
+                            category_def.ItemIds.Add(block);
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Removes access to admin blocks for subhumans. Reload game if u still dont have access. thx
+        /// </summary>
+        /// <param name="def"></param>
+        private void GatekeepBlock(MyCubeBlockDefinition def)
+        {
+            bool is_promoted = MyAPIGateway.Session.PromoteLevel >= MyPromoteLevel.SpaceMaster;
+            bool is_host = MyAPIGateway.Session.OnlineMode == MyOnlineModeEnum.OFFLINE || MyAPIGateway.Multiplayer.IsServer || MyAPIGateway.Utilities.IsDedicated;
+
+            if (!is_promoted && !is_host)
+            {
+                def.Public = false;
+                def.GuiVisible = false;
+                def.Icons = DUMMY_ICON;
+            }
+        }
+
+        private void EviscerateBlockDefinition(MyCubeBlockDefinition def)
+        {
+            //blockDef.DisplayName == "DoNotUse";
+            def.Model = DUMMY_MODEL;
+            def.HasPhysics = false;
+            def.Mass = DUMMY_MASS;
+            def.MountPoints = null;
+            def.Public = false;
+            def.GuiVisible = false;
+            def.Icons = DUMMY_ICON;
+        }
+
+        private void EviscerateBlockCategory(MyGuiBlockCategoryDefinition def)
+        {
+            def.Public = false;
+            def.ShowInCreative = false;
+            def.ItemIds?.Clear();
+        }
+
+        public override void BeforeStart()
+        {
+            ApplyGitGoneFilters();
+            SortBlockCategories();            
         }
     }
 }
