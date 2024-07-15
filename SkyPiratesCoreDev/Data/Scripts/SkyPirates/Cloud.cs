@@ -11,27 +11,27 @@ using VRage.Game.Components;
 using VRage.Game.Entity;
 using VRage.Game.ModAPI;
 using VRageMath;
+using VRage.ModAPI;
+using Sandbox.Common.ObjectBuilders;
+using VRage.ObjectBuilders;
 
 namespace SKY_PIRATES_CORE
 {
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenTank), false, "ZeppelinCloud")]
     public class Cloud : MyGameLogicComponent
     {
+        IMyCubeGrid grid;
         IMyGasTank cloud;
 
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
-            base.Init(objectBuilder);
-            NeedsUpdate = MyEntityUpdateEnum.EACH_FRAME;
             cloud = Entity as IMyGasTank;
+            grid = cloud.CubeGrid;
+            NeedsUpdate = MyEntityUpdateEnum.EACH_FRAME;
         }
 
         public override void UpdateBeforeSimulation()
         {
-            if (cloud == null)
-                return;
-
-            IMyCubeGrid grid = (cloud as IMyCubeBlock).CubeGrid;
             Vector3 gravity = grid.Physics.Gravity;
             Vector3 up = cloud.WorldMatrix.Up;
             float bank = -Vector3.Dot(up, Vector3.Normalize(gravity));
