@@ -14,6 +14,8 @@ using System.Diagnostics;
 using System;
 using System.Linq;
 using VRage.Utils;
+using VRage.ModAPI;
+using VRage.Game;
 
 namespace SKY_PIRATES_CORE
 {
@@ -243,6 +245,7 @@ namespace SKY_PIRATES_CORE
         public const double buoyancyConstant = 150000;
         public const float burnDamage = 2000f;
         public const double updateRate = 0.01667d;
+        public const double quarterCycle = Math.PI * 0.5f;
 
         public bool isClassic = false;
         public IMyCubeGrid grid;
@@ -317,7 +320,7 @@ namespace SKY_PIRATES_CORE
 
             if (force > mass && (grid as MyCubeGrid).DampenersEnabled && !isUndampedDirection)
             {
-                response = (float)buoyancyPID.ControllerResponse(-verticalSpeed/5d, updateRate);
+                response = (float)buoyancyPID.ControllerResponse(-verticalSpeed*0.2f, updateRate);
             }
             else
                 buoyancyPID.Reset();
@@ -326,14 +329,14 @@ namespace SKY_PIRATES_CORE
                 force = mass;
 
             if (cockpit != null)
-                force *= 1f + cockpit.MoveIndicator.Y / 3f * (float)buoyancyForce / mass;
+                force *= 1f + cockpit.MoveIndicator.Y * 0.3333f * (float)buoyancyForce / mass;
 
             force *= 1f + response;
 
             force = Math.Min((float)buoyancyForce, force);
 
             // + Dark's shitty little vertical drag.
-            grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, Vector3D.Transform(-grid.Physics.Gravity * force * (1 - (float)verticalSpeed / 50f), MatrixD.Transpose(grid.WorldMatrix.GetOrientation())), null, null);
+            grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, Vector3D.Transform(-grid.Physics.Gravity * force * (1 - (float)verticalSpeed * 0.02f), MatrixD.Transpose(grid.WorldMatrix.GetOrientation())), null, null);
         }
 
         public void ApplyZeppelinTorque()
@@ -366,8 +369,6 @@ namespace SKY_PIRATES_CORE
             Vector3D right = cock.WorldMatrix.Right;
             Vector3D up = cock.WorldMatrix.Up;
 
-            const double quarterCycle = Math.PI / 2;
-
             //PID control for pitch and roll
             //find the error for pitch and roll
             double pitchError = VectorAngleBetween(forward, -gravity) - quarterCycle;
@@ -387,18 +388,17 @@ namespace SKY_PIRATES_CORE
 
         public void NewZeppelinTorque(IMyCockpit cock, Vector3D gravity)
         {
-            Vector3 forward = cock.WorldMatrix.Forward;
             Vector3 up = cock.WorldMatrix.Up;
             float bank = -Vector3.Dot(up, Vector3.Normalize(gravity));
-            var grid = cock.CubeGrid;
-
             float minValue = 0.98f;
 
             if (Math.Abs(bank) < minValue)
             {
-                Vector3D rightVector = Vector3D.Cross(gravity, up);
-                //grid.Physics.AngularVelocity -= 2 * rightVector.Dot(grid.Physics.AngularVelocity) * rightVector;
                 bank = 1.5f - bank * bank;
+
+                IMyCubeGrid grid = cock.CubeGrid;
+                Vector3D rightVector = Vector3D.Cross(gravity, up);
+
                 Vector3D torque = 5 * grid.WorldAABB.Size.Length() * grid.Physics.Mass * rightVector * bank;
                 grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
             }
