@@ -25,7 +25,6 @@ namespace SKY_PIRATES_CORE
         IMyShipController controller;
         IMyCubeGrid grid;
 
-        float speed = 70f;
         Vector3D aabbSize;
         double aabbSizeLength;
 
@@ -49,20 +48,21 @@ namespace SKY_PIRATES_CORE
                 Vector3 up = cockpit.WorldMatrix.Up;
 
                 float velocityLength = velocity.Length();
-                Vector3 velocityNorm = velocity / velocityLength;
-                float mismatch = -Vector3.Dot(forward, velocityNorm);
-
-                if (aabbSize != grid.WorldAABB.Size) 
+                if (velocityLength < 70f) 
                 {
-                    aabbSize = grid.WorldAABB.Size;
-                    aabbSizeLength = aabbSize.Length();
+                    Vector3 velocityNorm = velocity / velocityLength;
+                    float mismatch = -Vector3.Dot(forward, velocityNorm);
+                    if (mismatch > -0.96f) 
+                    {
+                        if (aabbSize != grid.WorldAABB.Size)
+                        {
+                            aabbSize = grid.WorldAABB.Size;
+                            aabbSizeLength = aabbSize.Length();
+                        }
 
-                }
-
-                if (mismatch > -0.96f && velocityLength < speed)
-                {
-                    Vector3D torque = grid.WorldAABB.Size.Length() * grid.Physics.Mass * Vector3D.Cross(velocity, -forward) * Math.Min(velocityLength, speed) * (0.49f + mismatch * mismatch * 0.1f) * 0.0003f;
-                    grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
+                        Vector3D torque = aabbSizeLength * grid.Physics.Mass * Vector3D.Cross(velocity, -forward) * Math.Min(velocityLength, 70f) * (0.49f + mismatch * mismatch * 0.1f) * 0.0003f;
+                        grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
+                    }
                 }
             }
             /*
