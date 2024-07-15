@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System;
 using VRage.Utils;
+using VRage.Game;
 
 namespace SKY_PIRATES_CORE
 {
@@ -23,6 +24,10 @@ namespace SKY_PIRATES_CORE
         IMyCockpit cockpit;
         IMyShipController controller;
         IMyCubeGrid grid;
+
+        float speed = 70f;
+        Vector3D aabbSize;
+        double aabbSizeLength;
 
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
@@ -37,17 +42,26 @@ namespace SKY_PIRATES_CORE
             if (grid.Physics == null || controller.IsUnderControl == false || controller.CanControlShip == false)
                 return;
 
-            Vector3 velocity = grid.Physics.LinearVelocity;
-            Vector3 forward = cockpit.WorldMatrix.Forward;
-            Vector3 up = cockpit.WorldMatrix.Up;
-
             if (grid.GridSizeEnum == MyCubeSize.Small)
             {
-                float mismatch = -Vector3.Dot(forward, Vector3.Normalize(velocity));
+                Vector3 velocity = grid.Physics.LinearVelocity;
+                Vector3 forward = cockpit.WorldMatrix.Forward;
+                Vector3 up = cockpit.WorldMatrix.Up;
 
-                if (mismatch > -0.96f && velocity.Length() < 70)
+                float velocityLength = velocity.Length();
+                Vector3 velocityNorm = velocity / velocityLength;
+                float mismatch = -Vector3.Dot(forward, velocityNorm);
+
+                if (aabbSize != grid.WorldAABB.Size) 
                 {
-                    Vector3D torque = grid.WorldAABB.Size.Length() * grid.Physics.Mass * Vector3D.Cross(velocity, -forward) * Math.Min(velocity.Length(), 70) * (0.49f + mismatch * mismatch / 10f) / 3000f;
+                    aabbSize = grid.WorldAABB.Size;
+                    aabbSizeLength = aabbSize.Length();
+
+                }
+
+                if (mismatch > -0.96f && velocityLength < speed)
+                {
+                    Vector3D torque = grid.WorldAABB.Size.Length() * grid.Physics.Mass * Vector3D.Cross(velocity, -forward) * Math.Min(velocityLength, speed) * (0.49f + mismatch * mismatch * 0.1f) * 0.0003f;
                     grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
                 }
             }
