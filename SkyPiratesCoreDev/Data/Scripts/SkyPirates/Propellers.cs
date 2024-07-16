@@ -300,7 +300,6 @@ namespace SKY_PIRATES_CORE
         float damage;
         float keenPlanetaryInfluence;
 
-        bool isNPC = false;
         bool is_propeller_dirty = true;
         bool is_obstructed = false;
         string obstruction_name = "";
@@ -378,10 +377,15 @@ namespace SKY_PIRATES_CORE
         {
             try
             {
-                float currentPowerUsage = def.MinPowerConsumption + ((def.MaxPowerConsumption - def.MinPowerConsumption) * (thruster.CurrentThrust / thruster.MaxThrust));
-                float currentFuelUsage = currentPowerUsage * thruster.PowerConsumptionMultiplier / (0.001f * def.FuelConverter.Efficiency);
-
                 stringBuilder.Clear(); // fuck you, keen (DOESNT WORK)
+
+                if(plane.is_npc)
+                {
+                    stringBuilder.Append(
+                        "This thruster is owned by an NPC.\n"
+                    );
+                    return;
+                }
 
                 if(is_obstructed)
                 {
@@ -391,6 +395,9 @@ namespace SKY_PIRATES_CORE
                     );
                     return;
                 }
+
+                float currentPowerUsage = def.MinPowerConsumption + ((def.MaxPowerConsumption - def.MinPowerConsumption) * (thruster.CurrentThrust / thruster.MaxThrust));
+                float currentFuelUsage = currentPowerUsage * thruster.PowerConsumptionMultiplier / (0.001f * def.FuelConverter.Efficiency);
 
                 stringBuilder.Append(
                     $"Note: Max Input value above is incorrect...\n" +
@@ -455,10 +462,8 @@ namespace SKY_PIRATES_CORE
 
         public override void UpdateBeforeSimulation100()
         {
-            if (grid.Physics == null || block == null)
+            if (grid.Physics == null || block == null || plane == null)
                 return;
-
-            if (block.GetOwnerFactionTag() == PIRATE_TAG) { isNPC = true; }
 
             if (!block.IsFunctional)
             {
@@ -470,19 +475,19 @@ namespace SKY_PIRATES_CORE
             block.RefreshCustomInfo();
             is_propeller_dirty = true;
 
-            if (thruster.CurrentThrust == 0 || thruster.MaxEffectiveThrust == 0 || !block.Enabled)
+            if (thruster.CurrentThrust == 0 || thruster.MaxEffectiveThrust == 0 || !block.Enabled || plane.is_npc)
                 return;
 
             // if we are obstructed, check at 100 rate that we are unbstrcted. otherwise check nly if block added/remove at max rate of 100
             if (is_obstructed || interferenceEffects > 0)
                 // if we are an npc or the small large prop skip
-                if (!(block.SlimBlock.BlockDefinition.Id.SubtypeId.String.Contains("Small") && grid.GridSizeEnum == MyCubeSize.Large) && !isNPC)
+                if (!(block.SlimBlock.BlockDefinition.Id.SubtypeId.String.Contains("Small") && grid.GridSizeEnum == MyCubeSize.Large))
                     UpdateDirtyPropeller();
         }
 
         private void UpdateDirtyPropeller(IMySlimBlock changed_slim = null)
         {
-            if (is_propeller_dirty == false)
+            if (is_propeller_dirty == false || plane == null || plane.is_npc)
                 return;
 
             interferenceEffects = UpdateInterference();
@@ -528,7 +533,6 @@ namespace SKY_PIRATES_CORE
 
         private float UpdateInterference()
         {
-            if (isNPC) { return 1f; }
 
             PropellerGrid plane;
             float interferenceModifier = 1f;
@@ -672,6 +676,14 @@ namespace SKY_PIRATES_CORE
 
         private void UpdateModifiers()
         {
+
+            if(plane.is_npc)
+            {
+                thruster.ThrustMultiplier = 5f;
+                thruster.PowerConsumptionMultiplier = 0.1f;
+                return;
+            }
+
             gravVector = Vector3.Normalize(grid.Physics.Gravity);
             thrustVector = thruster.WorldMatrix.Backward;
 
@@ -790,7 +802,6 @@ namespace SKY_PIRATES_CORE
             return stormModifier;
         }
 
-
         private void UpdateKeenInfluence()
         {
             // CalculatePlanetaryInfluenceForceModKeen
@@ -833,8 +844,6 @@ namespace SKY_PIRATES_CORE
 
         private float CalculateStallEffects()
         {
-            if (isNPC) { return 1f; }
-
             float inclination = Vector3.Dot(gravVector, -thrustVector);
 
             if (grid.GridSizeEnum == MyCubeSize.Large)
@@ -852,6 +861,8 @@ namespace SKY_PIRATES_CORE
         public IMyCubeGrid grid;
         public MyPlanet planet;
         public float air_density = 0f;
+
+        public bool is_npc = false;
 
         public float hydrogen_consumption = 0f;
         public float hydrogen_production = 0f;
@@ -877,6 +888,7 @@ namespace SKY_PIRATES_CORE
                 return;
             }
             air_density = planet.GetAirDensity(grid.WorldMatrix.Translation);
+            is_npc = CheckNpc();
 
         }
 
@@ -884,6 +896,21 @@ namespace SKY_PIRATES_CORE
         {
             UpdateFuel();
             UpdateThrustAndProduction();
+        }
+
+        public bool CheckNpc()
+        {
+            var owners = grid.BigOwners;
+            if (owners != null && owners.Count > 0)
+            {
+                long firstOwner = owners[0];
+                IMyFaction faction = MyAPIGateway.Session.Factions.TryGetPlayerFaction(firstOwner);
+                if (faction != null && faction.IsEveryoneNpc())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void UpdateFuel()

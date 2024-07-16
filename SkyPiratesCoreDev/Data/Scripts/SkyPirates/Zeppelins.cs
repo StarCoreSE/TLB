@@ -158,6 +158,10 @@ namespace SKY_PIRATES_CORE
                     zepp.isClassic = true;
             }
 
+            if(zepp.is_npc)
+                foreach (IMyCubeBlock block in grid.GetFatBlocks<IMyThrust>())
+                    zepp.props.Add(block as IMyThrust);
+
             grid.Physics.LinearVelocity = Vector3D.Zero;
             zepp.UpdateBuoyancyForce();
             zepp.ApplyBuoyancyForce();
@@ -251,8 +255,11 @@ namespace SKY_PIRATES_CORE
         public IMyCubeGrid grid;
         public HashSet<IMyFunctionalBlock> cells = new HashSet<IMyFunctionalBlock>();
         public HashSet<IMyCockpit> cocks = new HashSet<IMyCockpit>();
+        public HashSet<IMyThrust> props = new HashSet<IMyThrust>();
+
         public double buoyancyForce = 0;
         public float mass = 0;
+        public bool is_npc = false;
         public MyPlanet planet;
         private PID pitchPID = new PID(0.5, 0.0, 0.25);
         private PID rollPID = new PID(0.5, 0.0, 0.25);
@@ -261,10 +268,43 @@ namespace SKY_PIRATES_CORE
         public Zeppelin(IMyCubeGrid grid)
         {
             this.grid = grid;
+            is_npc = CheckNpc();
+        }
+
+        public bool CheckNpc()
+        {
+            var owners = grid.BigOwners;
+            if (owners != null && owners.Count > 0)
+            {
+                long firstOwner = owners[0];
+                IMyFaction faction = MyAPIGateway.Session.Factions.TryGetPlayerFaction(firstOwner);
+                if (faction != null && faction.IsEveryoneNpc())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public double GetVerticalThrustDirectionForNpcs(Vector3D up)
+        {
+            if(props.Count == 0)
+                return 0;
+
+            Vector3D sum = Vector3D.Zero;
+
+            foreach (IMyThrust thrust in props)
+                if (thrust != null && thrust.IsWorking)
+                    sum += thrust.WorldMatrix.Backward * thrust.CurrentThrust;
+
+            return -Vector3D.Dot(up, sum.Normalized());
         }
 
         public void UpdateBuoyancyForce()
         {
+
+            is_npc = CheckNpc();
+
             buoyancyForce = 0;
 
             if (grid.IsStatic || cells.ToList().Count == 0)
@@ -316,9 +356,10 @@ namespace SKY_PIRATES_CORE
 
             var player = MyAPIGateway.Players.GetPlayerControllingEntity(grid);
             var cockpit = player?.Controller.ControlledEntity as IMyShipController;
+
             bool isUndampedDirection = (verticalSpeed < 0 && cockpit?.MoveIndicator.Dot(Vector3.Down) > 0) || (verticalSpeed > 0 && cockpit?.MoveIndicator.Dot(Vector3.Up) > 0);
 
-            if (force > mass && (grid as MyCubeGrid).DampenersEnabled && !isUndampedDirection)
+            if (force > mass && (grid as MyCubeGrid).DampenersEnabled && !isUndampedDirection && !is_npc)
             {
                 response = (float)buoyancyPID.ControllerResponse(-verticalSpeed*0.2f, updateRate);
             }
@@ -330,6 +371,12 @@ namespace SKY_PIRATES_CORE
 
             if (cockpit != null)
                 force *= 1f + cockpit.MoveIndicator.Y * 0.3333f * (float)buoyancyForce / mass;
+            //else if(is_npc)
+            //{
+            //    float vertical_direction_thrust = (float)GetVerticalThrustDirectionForNpcs(-Vector3D.Normalize(grid.Physics.Gravity));
+            //    force *= 1f + vertical_direction_thrust * 0.3333f * (float)buoyancyForce / mass;
+            //    MyAPIGateway.Utilities.ShowNotification($"{vertical_direction_thrust}");
+            //}
 
             force *= 1f + response;
 
