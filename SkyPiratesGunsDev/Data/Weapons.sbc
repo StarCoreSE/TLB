@@ -79,7 +79,7 @@
 				<TypeId>WeaponDefinition</TypeId>
 				<SubtypeId>SmallBombBay</SubtypeId>
 			</Id>
-			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="" ShotsInBurst="9" />
+			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="bomb_whistle_small" ShotsInBurst="9" />
 			<DeviateShotAngle>0</DeviateShotAngle>
 			<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
 			<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
@@ -94,7 +94,7 @@
 				<TypeId>WeaponDefinition</TypeId>
 				<SubtypeId>MediumBombBay</SubtypeId>
 			</Id>
-			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="" ShotsInBurst="4" />
+			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="bomb_whistle_small" ShotsInBurst="4" />
 			<DeviateShotAngle>0</DeviateShotAngle>
 			<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
 			<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
@@ -109,7 +109,7 @@
 				<TypeId>WeaponDefinition</TypeId>
 				<SubtypeId>MediumBombBayCheat</SubtypeId>
 			</Id>
-			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="" ShotsInBurst="4" />
+			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="bomb_whistle_small" ShotsInBurst="4" />
 			<DeviateShotAngle>0</DeviateShotAngle>
 			<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
 			<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
@@ -124,7 +124,7 @@
 				<TypeId>WeaponDefinition</TypeId>
 				<SubtypeId>LargeBombBay</SubtypeId>
 			</Id>
-			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="" ShotsInBurst="1" />
+			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="bomb_whistle_large" ShotsInBurst="1" />
 			<DeviateShotAngle>0</DeviateShotAngle>
 			<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
 			<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
@@ -139,7 +139,7 @@
 				<TypeId>WeaponDefinition</TypeId>
 				<SubtypeId>GlideBombBay</SubtypeId>
 			</Id>
-			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="" ShotsInBurst="1" />
+			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="bomb_whistle_small" ShotsInBurst="1" />
 			<DeviateShotAngle>0</DeviateShotAngle>
 			<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
 			<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
