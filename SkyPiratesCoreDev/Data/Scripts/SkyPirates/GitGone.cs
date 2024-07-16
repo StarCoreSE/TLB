@@ -106,7 +106,9 @@ namespace cleaner
             "SmallDieselEngine",
             "TinyDieselEngine",
             "MediumDieselEngine",
-            "LargeHydrogenEngine"
+            "LargeHydrogenEngine",
+            "LargeAlternator",
+            "SmallAlternator"
         });
 
         private void ApplyGitGoneFilters()
@@ -134,11 +136,13 @@ namespace cleaner
                 //    EviscerateBlockDefinition(blockDef);
 
                 if (is_admin)
+                {
                     GatekeepBlock(block_def);
+                    continue;
+                }
 
                 if (is_banned)
                     EviscerateBlockDefinition(block_def);
-
             }
         }
 
@@ -153,7 +157,15 @@ namespace cleaner
                 string subtype_id = block_def.Id.SubtypeName;
                 string type_id = block_def.Id.TypeId.ToString();
 
+                /*----------------------------------------SKY PIRATES--------------------------------------*/
+
                 if (subtype_id.Contains("ZeppelinTank"))
+                {
+                    mobility_def_hashset.Add(type_id + "/" + subtype_id);
+                    continue;
+                }
+
+                if (def.DisplayNameString != null && def.DisplayNameString.Contains("Control Surface"))
                 {
                     mobility_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
@@ -185,8 +197,8 @@ namespace cleaner
 
                 /*------------------------------------------COCKPITS---------------------------------------*/
 
-                var cockdef = def as MyCockpitDefinition;
-                if (cockdef != null)
+                var cock_def = def as MyCockpitDefinition;
+                if (cock_def != null)
                 {
                     cockpit_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
@@ -194,13 +206,13 @@ namespace cleaner
 
                 /*------------------------------------------POWER---------------------------------------*/
 
-                var batterydef = def as MyBatteryBlockDefinition;
-                var reactordef = def as MyReactorDefinition;
-                var solardef = def as MyWeaponBlockDefinition;
-                var winddef = def as MyWindTurbineDefinition;
-                var enginedef = def as MyHydrogenEngineDefinition;
-                var generatordef = def as MyOxygenGeneratorDefinition;
-                if (generatordef != null || winddef != null || solardef != null || reactordef != null || batterydef != null || enginedef != null)
+                var battery_def = def as MyBatteryBlockDefinition;
+                var reactor_def = def as MyReactorDefinition;
+                var solar_def = def as MyWeaponBlockDefinition;
+                var wind_def = def as MyWindTurbineDefinition;
+                var engine_def = def as MyHydrogenEngineDefinition;
+                var generator_def = def as MyOxygenGeneratorDefinition;
+                if (generator_def != null || wind_def != null || solar_def != null || reactor_def != null || battery_def != null || engine_def != null)
                 {
                     power_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
@@ -209,15 +221,15 @@ namespace cleaner
 
                 /*------------------------------------------LOGISTICS---------------------------------------*/
 
-                var cargodef = def as MyCargoContainerDefinition;
-                var tankdef = def as MyGasTankDefinition;
-                var sorterdef = def as MyConveyorSorterDefinition;
-                var connectordef = def as MyShipConnectorDefinition;
-                var mergedef = def as MyMergeBlockDefinition;
-                if (cargodef != null || tankdef != null || sorterdef != null || connectordef != null || mergedef != null)
+                var cargo_def = def as MyCargoContainerDefinition;
+                var tank_def = def as MyGasTankDefinition;
+                var sorter_def = def as MyConveyorSorterDefinition;
+                var connector_def = def as MyShipConnectorDefinition;
+                var merge_def = def as MyMergeBlockDefinition;
+                if (cargo_def != null || tank_def != null || sorter_def != null || connector_def != null || merge_def != null)
                 {
                     logistics_def_hashset.Add(type_id + "/" + subtype_id);
-                    if (connectordef == null)
+                    if (connector_def == null)
                         continue;
                 }
                 if (type_id.Contains("Conveyor"))
@@ -230,18 +242,12 @@ namespace cleaner
                 /*------------------------------------------MOBILITY---------------------------------------*/
 
 
-                var suspensiondef = def as MyMotorSuspensionDefinition;
-                var balldef = def as MySpaceBallDefinition;
-                var mechdef = def as MyMechanicalConnectionBlockBaseDefinition;
-                var thrusterdef = def as MyThrustDefinition;
-                var gyrodef = def as MyGyroDefinition;
-                if (suspensiondef != null || balldef != null || mechdef != null || thrusterdef != null || gyrodef != null)
-                {
-                    mobility_def_hashset.Add(type_id + "/" + subtype_id);
-                    continue;
-                }
-
-                if (def.DisplayNameString != null && def.DisplayNameString.Contains("Control Surface"))
+                var susp_def = def as MyMotorSuspensionDefinition;
+                var ball_def = def as MySpaceBallDefinition;
+                var mech_def = def as MyMechanicalConnectionBlockBaseDefinition;
+                var thrust_def = def as MyThrustDefinition;
+                var gyro_def = def as MyGyroDefinition;
+                if (susp_def != null || ball_def != null || mech_def != null || thrust_def != null || gyro_def != null)
                 {
                     mobility_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
