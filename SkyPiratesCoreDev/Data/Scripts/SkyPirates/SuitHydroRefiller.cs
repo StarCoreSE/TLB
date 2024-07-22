@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using VRage.Game.Components;
 //using Sandbox.ModAPI.Ingame;
 using VRage.Game.ModAPI;
+using static VRage.Game.MyObjectBuilder_ControllerSchemaDefinition;
 
 namespace hydrorefiller
 {
@@ -14,7 +15,7 @@ namespace hydrorefiller
     public class Bigredbession : MySessionComponentBase
     {
         public double tock = 0;
-        public int delay = 30;
+        public int delay = 10;
         public static Dictionary<long, long> playerdictionary = new Dictionary<long, long>();
 
         public override void UpdateBeforeSimulation()
@@ -30,13 +31,13 @@ namespace hydrorefiller
             List<IMyPlayer> playerlist = new List<IMyPlayer>();
             MyAPIGateway.Players.GetPlayers(playerlist);
 
+            var UpdatedDictionary = new Dictionary<long, long>();
             foreach (var player in playerlist)
             {
-                if (player.Controller?.ControlledEntity?.Entity is IMyCharacter)
+                IMyCharacter character = player.Controller?.ControlledEntity?.Entity as IMyCharacter; 
+                if (character != null && !character.IsDead)
                 {
                     float hydro = MyVisualScriptLogicProvider.GetPlayersHydrogenLevel(player.Identity.IdentityId);
-
-                    var UpdatedDictionary = new Dictionary<long, long>();
                     bool nohydro = hydro <= 0f;
                     // add to list if they are not in the list and they dotn have hydro
                     if (!playerdictionary.ContainsKey(player.Identity.IdentityId) && nohydro)
