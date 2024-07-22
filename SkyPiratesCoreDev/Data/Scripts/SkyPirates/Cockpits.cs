@@ -1,25 +1,19 @@
 ﻿using VRage.Game.Components;
 using Sandbox.Common.ObjectBuilders;
-using System.Collections.Generic;
-using VRage.Game.Entity;
-using Sandbox.Definitions;
+using VRage.Game;
 using VRage.ObjectBuilders;
 using VRage.Game.ModAPI;
 using Sandbox.ModAPI;
 using VRageMath;
-using Sandbox.Game.Entities;
-using Sandbox.Game.EntityComponents;
-using System.Threading.Tasks;
-using System.Diagnostics;
 using System;
-using VRage.Utils;
-using VRage.Game;
 
 namespace SKY_PIRATES_CORE
 {
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Cockpit), false)]
     public class CockpitControllers : MyGameLogicComponent
     {
+
+        private const double MIN_STALL_SPEED = 70;
 
         IMyCockpit cockpit;
         IMyShipController controller;
@@ -38,43 +32,28 @@ namespace SKY_PIRATES_CORE
 
         public override void UpdateBeforeSimulation()
         {
-            if (grid.Physics == null || controller.IsUnderControl == false || controller.CanControlShip == false)
+            if (grid.Physics == null || grid.GridSizeEnum == MyCubeSize.Large || controller.IsUnderControl == false || controller.CanControlShip == false)
                 return;
 
-            if (grid.GridSizeEnum == MyCubeSize.Small)
+            ApplyStallTorque();
+        }
+
+        /// <summary>
+        /// Method to stall small grid fighter planes. Could use improvement.
+        /// </summary>
+        private void ApplyStallTorque()
+        {
+            Vector3 velocity = grid.Physics.LinearVelocity;
+            Vector3 forward = cockpit.WorldMatrix.Forward;
+            Vector3 up = cockpit.WorldMatrix.Up;
+
+            float mismatch = -Vector3.Dot(forward, Vector3.Normalize(velocity));
+
+            if (mismatch > -0.96f && velocity.Length() < MIN_STALL_SPEED)
             {
-                Vector3 velocity = grid.Physics.LinearVelocity;
-                Vector3 forward = cockpit.WorldMatrix.Forward;
-                Vector3 up = cockpit.WorldMatrix.Up;
-
-                float velocityLength = velocity.Length();
-                if (velocityLength < 70f) 
-                {
-                    Vector3 velocityNorm = velocity / velocityLength;
-                    float mismatch = -Vector3.Dot(forward, velocityNorm);
-                    if (mismatch > -0.96f) 
-                    {
-                        if (aabbSize != grid.WorldAABB.Size)
-                        {
-                            aabbSize = grid.WorldAABB.Size;
-                            aabbSizeLength = aabbSize.Length();
-                        }
-
-                        Vector3D torque = aabbSizeLength * grid.Physics.Mass * Vector3D.Cross(velocity, -forward) * Math.Min(velocityLength, 70f) * (0.49f + mismatch * mismatch * 0.1f) * 0.0003f;
-                        grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
-                    }
-                }
-            }
-            /*
-            else if(!grid.IsStatic) // this is zeppelin controller behaviour
-            {
-                Vector3 gravity = grid.Physics.Gravity;
-                float bank = -Vector3.Dot(up, Vector3.Normalize(gravity));
-
-                Vector3D torque = grid.WorldAABB.Size.Length() * grid.Physics.Mass * Vector3D.Cross(gravity, up) * (bank * bank);
+                Vector3D torque = grid.WorldAABB.Size.Length() * grid.Physics.Mass * Vector3D.Cross(velocity, -forward) * Math.Min(velocity.Length(), MIN_STALL_SPEED) * (0.49f + mismatch * mismatch / 10f) / 3000f;
                 grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
             }
-            */
         }
     }
 }

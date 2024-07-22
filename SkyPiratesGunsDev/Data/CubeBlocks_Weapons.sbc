@@ -54,6 +54,7 @@
                 <string>Weapons</string>
             </TargetingGroups>
         </Definition>
+
         <Definition xsi:type="MyObjectBuilder_WarheadDefinition">
             <Id>
                 <TypeId>Warhead</TypeId>
@@ -1129,7 +1130,6 @@
             <ForwardCameraOffset>0.5</ForwardCameraOffset>
         </Definition>
 
-		
         <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
@@ -1216,8 +1216,6 @@
             <ForwardCameraOffset>0.0</ForwardCameraOffset>
         </Definition>
 
-
-		
 		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
@@ -1304,6 +1302,7 @@
             <UpCameraOffset>1.0</UpCameraOffset>
             <ForwardCameraOffset>0.5</ForwardCameraOffset>
         </Definition>
+
 		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>
@@ -1393,6 +1392,7 @@
             <UpCameraOffset>0.5</UpCameraOffset>
             <ForwardCameraOffset>2.75</ForwardCameraOffset>
         </Definition>
+
 		<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
             <Id>
                 <TypeId>LargeMissileTurret</TypeId>

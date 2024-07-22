@@ -1,7 +1,6 @@
 ﻿using VRage.Game.Components;
 using Sandbox.Common.ObjectBuilders;
 using System.Collections.Generic;
-using VRage.Game.Entity;
 using Sandbox.Definitions;
 using VRage.ObjectBuilders;
 using VRage.Game.ModAPI;
@@ -9,8 +8,6 @@ using Sandbox.ModAPI;
 using VRageMath;
 using Sandbox.Game.Entities;
 using Sandbox.Game.EntityComponents;
-using System.Threading.Tasks;
-using System.Diagnostics;
 using System;
 using System.Text;
 using System.Linq;
@@ -18,6 +15,7 @@ using VRage.Utils;
 using VRage.ModAPI;
 using VRage.Game;
 using VRage;
+using SpaceEngineers.Game.Entities.Blocks;
 
 namespace SKY_PIRATES_CORE
 {
@@ -62,9 +60,7 @@ namespace SKY_PIRATES_CORE
                 PropellerGrid plane;
                 if(PropellerSession.instance.grids.TryGetValue(grid.EntityId, out plane))
                 {
-                    CurrentValue = (float)(int)(100f - (plane.production - plane.thrust) / plane.production * 100f);
-                    if (plane.production < 1)
-                        CurrentValue = 0;
+                    CurrentValue = (int)MathHelper.Clamp(plane.ice_fuel_consumed_per_second / plane.ice_fuel_consumed_per_second_max * 100f, 0f, 100f);
                 }
             }
         }
@@ -117,11 +113,11 @@ namespace SKY_PIRATES_CORE
                 PropellerGrid plane;
                 if (PropellerSession.instance.grids.TryGetValue(grid.EntityId, out plane))
                 {
-                    CurrentValue = (float)(int)(plane.totalFuel / plane.consumption * 0.016666f);
+                    CurrentValue = (float)(int)(plane.totalFuel / plane.ice_fuel_consumed_per_second * 0.016666f);
                     if (plane.totalFuel < 1)
                         CurrentValue = 0;
 
-                    if (plane.consumption < 1)
+                    if (plane.ice_fuel_consumed_per_second < 1)
                         CurrentValue = -1f;
                 }
             }
@@ -163,8 +159,8 @@ namespace SKY_PIRATES_CORE
             {
                 MyAPIGateway.Parallel.ForEach(grids.Values.ToList(), plane =>
                 {
-                    plane.UpdateThrustAndProduction();
-                    plane.UpdateFuel();
+                    plane.Update();
+                    plane.UpdateStats();
                 });
                 tick = 0;
             }
@@ -198,8 +194,7 @@ namespace SKY_PIRATES_CORE
                 plane.cargs.Add(block);
             }
 
-            plane.UpdateThrustAndProduction();
-            plane.UpdateFuel();
+            plane.Update();
 
             if(!grids.ContainsKey(entity.EntityId))
                 grids.Add(entity.EntityId, plane);
@@ -228,18 +223,15 @@ namespace SKY_PIRATES_CORE
             if (plane == null)
                 return;
 
-
             if(slim.FatBlock is IMyGasGenerator)
             {
                 plane.engis.Add(slim.FatBlock as IMyGasGenerator);
                 plane.cargs.Add(slim.FatBlock as IMyCubeBlock);
-                plane.UpdateThrustAndProduction();
                 grids[grid.EntityId] = plane;
             }
             else if(slim.FatBlock is IMyThrust)
             {
                 plane.props.Add(slim.FatBlock as IMyThrust);
-                plane.UpdateThrustAndProduction();
                 grids[grid.EntityId] = plane;
             }
             else if (slim.FatBlock is IMyCargoContainer)
@@ -265,20 +257,19 @@ namespace SKY_PIRATES_CORE
             {
                 plane.engis.Remove(slim.FatBlock as IMyGasGenerator);
                 plane.cargs.Remove(slim.FatBlock as IMyCubeBlock);
-                plane.UpdateFuel();
-                plane.UpdateThrustAndProduction();
+                plane.UpdateStats();
                 grids[grid.EntityId] = plane;
             }
             else if (slim.FatBlock is IMyThrust)
             {
                 plane.props.Remove(slim.FatBlock as IMyThrust);
-                plane.UpdateThrustAndProduction();
+                plane.UpdateStats();
                 grids[grid.EntityId] = plane;
             }
             else if (slim.FatBlock is IMyCargoContainer)
             {
                 plane.cargs.Remove(slim.FatBlock as IMyCubeBlock);
-                plane.UpdateFuel();
+                plane.UpdateStats();
                 grids[grid.EntityId] = plane;
             }
         }
@@ -307,15 +298,18 @@ namespace SKY_PIRATES_CORE
         float altitude;
         float speed;
         float damage;
+        float keenPlanetaryInfluence;
 
         bool isNPC = false;
+        bool is_propeller_dirty = true;
+        bool is_obstructed = false;
+        string obstruction_name = "";
 
         // MODAPI
         IMyThrust thruster;
         IMyFunctionalBlock block;
         IMyCubeGrid grid;
         MyThrustDefinition def;
-        MyPlanet planet;
 
         // upgrade values
         float intake = 0f;
@@ -331,8 +325,10 @@ namespace SKY_PIRATES_CORE
         float simpleUpgradeThrustEffects = 1f;
         float simpleUpgradePowerEffects = 1f;
 
+        PropellerGrid plane;
         List<string> interferenceProps = new List<string>();
 
+        float throttleEffects = 1f;
         float compressorEffects = 1f;
         float velocityEffects = 1f;
         float altitudeEffects = 1f;
@@ -358,6 +354,8 @@ namespace SKY_PIRATES_CORE
             thruster.AddUpgradeValue("nosinjector", 0f);
 
             thruster.OnUpgradeValuesChanged += OnUpgradeValuesChangedUpgrade;
+            grid.OnBlockAdded += UpdateDirtyPropeller;
+            grid.OnBlockRemoved += UpdateDirtyPropeller;
             (Entity as IMyTerminalBlock).AppendingCustomInfo += OnWriteToTerminal;
 
             if (grid.GridSizeEnum == MyCubeSize.Large)
@@ -372,26 +370,38 @@ namespace SKY_PIRATES_CORE
         {
             thruster.OnUpgradeValuesChanged -= OnUpgradeValuesChangedUpgrade;
             (Entity as IMyTerminalBlock).AppendingCustomInfo -= OnWriteToTerminal;
+            grid.OnBlockAdded -= UpdateDirtyPropeller;
+            grid.OnBlockRemoved -= UpdateDirtyPropeller;
         }
 
         public void OnWriteToTerminal(IMyTerminalBlock terminalBlock, StringBuilder stringBuilder)
         {
             try
             {
-                MyThrustDefinition thrustInternal = block.SlimBlock.BlockDefinition as MyThrustDefinition;
-                float currentPowerUsage = thrustInternal.MinPowerConsumption + ((thrustInternal.MaxPowerConsumption - thrustInternal.MinPowerConsumption) * (thruster.CurrentThrust / thruster.MaxThrust));
-                float currentFuelUsage = currentPowerUsage * thruster.PowerConsumptionMultiplier / (0.001f * thrustInternal.FuelConverter.Efficiency);
+                float currentPowerUsage = def.MinPowerConsumption + ((def.MaxPowerConsumption - def.MinPowerConsumption) * (thruster.CurrentThrust / thruster.MaxThrust));
+                float currentFuelUsage = currentPowerUsage * thruster.PowerConsumptionMultiplier / (0.001f * def.FuelConverter.Efficiency);
 
-                stringBuilder.Clear(); // fuck you, keen
+                stringBuilder.Clear(); // fuck you, keen (DOESNT WORK)
+
+                if(is_obstructed)
+                {
+                    stringBuilder.Append(
+                        "Propeller is obstructed by a block in the 7x7x1 box at the propeller tip.\n" +
+                        $"Obstructing block: {obstruction_name}"
+                    );
+                    return;
+                }
+
                 stringBuilder.Append(
                     $"Note: Max Input value above is incorrect...\n" +
                     $"Current Efficiency: {(thruster.CurrentThrust / currentFuelUsage * 0.001f):0.##} kNs/L\n" +
                     $"Current Thrust: {(int)(thruster.CurrentThrust * 0.001f)} kN\n" +
                     $"Current H2 Input: {(int)currentFuelUsage} L/s\n" +
                     $"Total Power Multiplier: {thruster.PowerConsumptionMultiplier:0.##}\n" +
-                    $"Total Thrust Multiplier: {(thruster.ThrustMultiplier * planet.GetAirDensity(grid.WorldMatrix.Translation)):0.##}\n"
+                    $"Total Thrust Multiplier: {(thruster.ThrustMultiplier * keenPlanetaryInfluence):0.##}\n"
                     );
-                stringBuilder.Append($"Altitude Modifier: {(altitudeEffects * planet.GetAirDensity(grid.WorldMatrix.Translation)):0.##}\n");
+                stringBuilder.Append($"Throttle Modifier: {throttleEffects:0.##}\n");
+                stringBuilder.Append($"Altitude Modifier: {(altitudeEffects * keenPlanetaryInfluence):0.##}\n");
                 stringBuilder.Append($"Velocity Modifier: {velocityEffects:0.##}\n");
                 stringBuilder.Append($"Stall Modifier: {stallEffects:0.##}\n");
 
@@ -419,6 +429,10 @@ namespace SKY_PIRATES_CORE
 
         public static bool IsPositionInCylinder(Vector3D position, Vector3D cylinderCenterPosition, Vector3D cylinderAxis, double cylinderHeight, double cylinderRadius)
         {
+            // quick radius check
+            if ((position - cylinderCenterPosition).LengthSquared() > cylinderRadius * cylinderRadius * 1.05)
+                return false;
+
             if (!Vector3D.IsUnit(ref cylinderAxis))
             {
                 cylinderAxis = Vector3D.Normalize(cylinderAxis);
@@ -441,7 +455,7 @@ namespace SKY_PIRATES_CORE
 
         public override void UpdateBeforeSimulation100()
         {
-            if (grid.Physics == null || block == null || !block.Enabled)
+            if (grid.Physics == null || block == null)
                 return;
 
             if (block.GetOwnerFactionTag() == PIRATE_TAG) { isNPC = true; }
@@ -453,18 +467,35 @@ namespace SKY_PIRATES_CORE
                 return;
             }
 
-            if (thruster.CurrentThrust == 0 || thruster.MaxEffectiveThrust == 0)
+            block.RefreshCustomInfo();
+            is_propeller_dirty = true;
+
+            if (thruster.CurrentThrust == 0 || thruster.MaxEffectiveThrust == 0 || !block.Enabled)
                 return;
 
-           block.RefreshCustomInfo();
+            // if we are obstructed, check at 100 rate that we are unbstrcted. otherwise check nly if block added/remove at max rate of 100
+            if (is_obstructed || interferenceEffects > 0)
+                // if we are an npc or the small large prop skip
+                if (!(block.SlimBlock.BlockDefinition.Id.SubtypeId.String.Contains("Small") && grid.GridSizeEnum == MyCubeSize.Large) && !isNPC)
+                    UpdateDirtyPropeller();
+        }
 
-            if(!(block.SlimBlock.BlockDefinition.Id.SubtypeId.String.Contains("Small") && grid.GridSizeEnum == MyCubeSize.Large) && !isNPC)
-                UpdateObstructions();
+        private void UpdateDirtyPropeller(IMySlimBlock changed_slim = null)
+        {
+            if (is_propeller_dirty == false)
+                return;
+
+            interferenceEffects = UpdateInterference();
+            UpdateObstructions();
+
+            is_propeller_dirty = false;
         }
 
         private void UpdateObstructions()
         {
+
             IMySlimBlock slim = block.SlimBlock;
+            Vector3I propeller_tip = FindPropellerTip(slim);
 
             for (int i = -3; i < 4; i++)
             {
@@ -472,18 +503,86 @@ namespace SKY_PIRATES_CORE
                 {
                     Vector3I location = (Vector3I)(block.LocalMatrix.Right * i + block.LocalMatrix.Up * j);
 
-                    location += FindPropellerTip(slim);
+                    location += propeller_tip;
 
                     IMySlimBlock slimFound = LocationIsObstructed(slim, location);
                     if (slimFound != null)
                     {
-                        slim.DoDamage(damage, MyDamageType.Bullet, true);
-                        slimFound.DoDamage(damage, MyDamageType.Bullet, true);
+                        //slim.DoDamage(damage, MyDamageType.Bullet, true);
+                        //slimFound.DoDamage(damage, MyDamageType.Bullet, true);
+                        is_propeller_dirty = false;
                         block.Enabled = false;
+                        is_obstructed = true;
+                        obstruction_name = slimFound.BlockDefinition.DisplayNameString;
                         return;
                     }
                 }
             }
+
+            if (is_obstructed && !block.Enabled)
+                block.Enabled = true;
+
+            obstruction_name = "";
+            is_obstructed = false;
+        }
+
+        private float UpdateInterference()
+        {
+            if (isNPC) { return 1f; }
+
+            PropellerGrid plane;
+            float interferenceModifier = 1f;
+            Vector3I propellerPosition1 = FindPropellerTip(block.SlimBlock);
+            if (PropellerSession.instance.grids.TryGetValue(grid.EntityId, out plane))
+            {
+                interferenceProps.Clear();
+                foreach (IMyThrust prop in plane.props)
+                {
+                    IMySlimBlock slim = prop.SlimBlock;
+
+                    if (slim == block.SlimBlock)
+                        continue;
+
+                    Vector3I propellerPosition2 = FindPropellerTip(slim);
+                    float manhattandistance = (float)Vector3I.DistanceManhattan(propellerPosition2, propellerPosition1);
+                    int perpendicularDistance = CalculatePerpendicularDistance(propellerPosition1, propellerPosition2, block.SlimBlock.Orientation.Forward);
+
+                    float maxDistance = 10f;
+
+                    if (grid.GridSizeEnum == MyCubeSize.Large)
+                        maxDistance = 6;
+
+                    if (manhattandistance < maxDistance)
+                    {
+                        var interference = 1.5f / (1f + (perpendicularDistance + manhattandistance) * 0.5f);
+                        interference = Math.Min(1f, interference);
+
+                        interferenceModifier -= interference;
+                        interferenceProps.Add($"{interference:P2}, ({perpendicularDistance}) from {prop.CustomName} (too close!)\n");
+                        continue;
+                    }
+
+                    if (grid.GridSizeEnum == MyCubeSize.Small && perpendicularDistance < 5)
+                    {
+                        var interference = 1.5f / (1f + perpendicularDistance);
+                        interference = Math.Min(1f, interference);
+
+                        interferenceModifier -= interference;
+                        interferenceProps.Add($"{interference:P2}, ({perpendicularDistance}) from {prop.CustomName} (small props are inline!)\n");
+                    }
+                }
+            }
+            // MyAPIGateway.Utilities.ShowNotification($"interference: {Math.Min(0f, interference)}");
+            return Math.Max(0f, interferenceModifier);
+        }
+
+        private IMySlimBlock LocationIsObstructed(IMySlimBlock slim, Vector3I location)
+        {
+            IMySlimBlock slimFound = grid.GetCubeBlock(location);
+            if (slimFound != null && slimFound != slim)
+                return slimFound;
+
+            return null;
         }
 
         private Vector3I FindPropellerTip(IMySlimBlock slim)
@@ -531,100 +630,8 @@ namespace SKY_PIRATES_CORE
             return Math.Abs(perpendicularDiff.X) + Math.Abs(perpendicularDiff.Y) + Math.Abs(perpendicularDiff.Z);
         }
 
-        private float CalculatePropellerInterference()
+        private void SwatSuits()
         {
-            if (isNPC) { return 1f; }
-
-            PropellerGrid plane;
-            float interferenceModifier = 1f;
-            Vector3I propellerPosition1 = FindPropellerTip(block.SlimBlock);
-            if (PropellerSession.instance.grids.TryGetValue(grid.EntityId, out plane))
-            {
-                interferenceProps.Clear();
-                foreach (IMyThrust prop in plane.props)
-                {
-                    IMySlimBlock slim = prop.SlimBlock;
-
-                    if (slim == block.SlimBlock)
-                        continue;
-
-                    Vector3I propellerPosition2 = FindPropellerTip(slim);
-                    float manhattandistance = (float)Vector3I.DistanceManhattan(propellerPosition2, propellerPosition1);
-                    int perpendicularDistance = CalculatePerpendicularDistance(propellerPosition1, propellerPosition2, block.SlimBlock.Orientation.Forward);
-
-                    float maxDistance = 10f;
-
-                    if (grid.GridSizeEnum == MyCubeSize.Large)
-                        maxDistance = 6;
-
-                    if (manhattandistance < maxDistance)
-                    {
-                        var interference = (1.5f + prop.CurrentThrustPercentage) / (1f + (perpendicularDistance + manhattandistance) * 0.5f);
-                        interference = Math.Min(1f, interference);
-
-                        interferenceModifier -= interference;
-                        interferenceProps.Add($"{interference:P2}, ({perpendicularDistance}) from {prop.CustomName} (too close!)\n");
-                        continue;
-                    }
-
-                    if(grid.GridSizeEnum == MyCubeSize.Small && perpendicularDistance < 5)
-                    {
-                        var interference = (1.5f + prop.CurrentThrustPercentage) / (1f + perpendicularDistance);
-                        interference = Math.Min(1f, interference);
-
-                        interferenceModifier -= interference;
-                        interferenceProps.Add($"{interference:P2}, ({perpendicularDistance}) from {prop.CustomName} (small props are inline!)\n");
-                    }
-                }
-            }
-            // MyAPIGateway.Utilities.ShowNotification($"interference: {Math.Min(0f, interference)}");
-            return Math.Max(0f, interferenceModifier);
-        }
-
-        private IMySlimBlock LocationIsObstructed(IMySlimBlock slim, Vector3I location)
-        {
-            IMySlimBlock slimFound = grid.GetCubeBlock(location);
-            if (slimFound != null && slimFound != slim)
-                return slimFound;
-
-            return null;
-        }
-
-        //public override void UpdateBeforeSimulation()
-        //{
-        //    if (!isNPC)
-        //        return;
-
-        //    if (grid.Physics == null || block == null || !block.Enabled || !block.IsFunctional)
-        //        return;
-
-        //    return;
-        //    MyAPIGateway.Utilities.ShowNotification("eee", 16);
-
-        //    thrustVector = thruster.WorldMatrix.Backward;
-        //    thruster.ThrustOverridePercentage = 1f;
-        //    grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, thrustVector * thruster.MaxEffectiveThrust * 3f, grid.Physics.CenterOfMassWorld, null);
-        //}
-
-
-        public override void UpdateBeforeSimulation10()
-        {
-            if (grid.Physics == null || block == null || !block.Enabled || !block.IsFunctional || thruster.CurrentThrust == 0 || thruster.MaxEffectiveThrust == 0)
-                return;
-
-            if (planet == null)
-            {
-                planet = MyGamePruningStructure.GetClosestPlanet(block.WorldMatrix.Translation);
-                return;
-            }
-
-            gravVector = Vector3.Normalize(grid.Physics.Gravity);
-            thrustVector = thruster.WorldMatrix.Backward;
-
-            throttle = thruster.CurrentThrust / thruster.MaxThrust;
-            altitude = (float)Vector3D.Distance(block.WorldMatrix.Translation, planet.PositionComp.GetPosition());
-            speed = (float)Vector3D.Dot(thrustVector, grid.Physics.LinearVelocity);
-
             //dgaf about 2 blade props
             if (grid.GridSizeEnum == MyCubeSize.Large && !block.SlimBlock.BlockDefinition.Id.SubtypeId.String.Contains("Small"))
             {
@@ -646,24 +653,50 @@ namespace SKY_PIRATES_CORE
                     }
                 });
             }
+        }
 
-            if(overclocker >= 1.0)
-                block.SlimBlock.DoDamage(throttle * (2f + (float)Math.Pow(overclocker,1.5f)), MyDamageType.Bullet, true);
+        public override void UpdateBeforeSimulation10()
+        {
+            if (grid.Physics == null || block == null || !block.Enabled || !block.IsFunctional || thruster.CurrentThrust == 0 || thruster.MaxEffectiveThrust == 0)
+                return;
+
+            if(plane == null)
+            {
+                if(!PropellerSession.instance.grids.TryGetValue(grid.EntityId, out plane))
+                    return;
+            }
+
+            SwatSuits();
+            UpdateModifiers();
+        }
+
+        private void UpdateModifiers()
+        {
+            gravVector = Vector3.Normalize(grid.Physics.Gravity);
+            thrustVector = thruster.WorldMatrix.Backward;
+
+            throttle = thruster.CurrentThrust / thruster.MaxThrust;
+            altitude = (float)Vector3D.Distance(block.WorldMatrix.Translation, plane.planet.PositionComp.GetPosition());
+            speed = (float)Vector3D.Dot(thrustVector, grid.Physics.LinearVelocity);
+
+            if (overclocker >= 1.0)
+                block.SlimBlock.DoDamage(throttle * (2f + (float)Math.Pow(overclocker, 1.5f)), MyDamageType.Bullet, true);
 
             // instead of a linear curve for thrust, we have an exponential that starts efficient and gets more inefficient.
-            float thrustModifier = (float)Math.Pow(throttle, 0.5);
-            float powerModifier = throttle;
+            float thrustModifier = 1f;  
+            float powerModifier = 1f; 
 
             simpleUpgradeThrustEffects = CalculateSimpleThrustModifiers();
             simpleUpgradePowerEffects = CalculateSimplePowerModifiers();
 
+            throttleEffects = (float)Math.Pow(throttle, 0.5);
             compressorEffects = CalculateCompressorEffects();
             velocityEffects = CalculateVelocityEffects();
             altitudeEffects = CalculateAltitudeEffects();
             stallEffects = CalculateStallEffects();
-            interferenceEffects = CalculatePropellerInterference();
             stormEffects = CalculateStormEffects();
 
+            thrustModifier *= throttleEffects;
             thrustModifier *= simpleUpgradeThrustEffects;
             thrustModifier *= compressorEffects;
             thrustModifier *= velocityEffects;
@@ -672,6 +705,10 @@ namespace SKY_PIRATES_CORE
             thrustModifier *= interferenceEffects;
             thrustModifier *= stormEffects;
 
+            if (is_obstructed)
+                thrustModifier *= 0;
+
+            powerModifier *= throttle;
             powerModifier *= simpleUpgradePowerEffects;
             powerModifier *= 1f + (1f - interferenceEffects);
             powerModifier *= 1 / stormEffects;
@@ -745,21 +782,51 @@ namespace SKY_PIRATES_CORE
         {
             float stormModifier = 1f;
 
-            if (altitude < planet.MinimumRadius * 1.016f)
+            if (altitude < plane.planet.MinimumRadius * 1.016f)
             {
-                stormModifier += 105 * stormdynamo * (planet.MinimumRadius * 1.03f / altitude - 1f); // magic numbers go yeet
+                stormModifier += 105 * stormdynamo * (plane.planet.MinimumRadius * 1.03f / altitude - 1f); // magic numbers go yeet
             }
 
             return stormModifier;
         }
 
+
+        private void UpdateKeenInfluence()
+        {
+            // CalculatePlanetaryInfluenceForceModKeen
+            float result = 1f;
+            if (def.NeedsAtmosphereForInfluence && plane.air_density <= 0)
+            {
+                result = def.EffectivenessAtMinInfluence;
+            }
+            else if (def.MaxPlanetaryInfluence != def.MinPlanetaryInfluence)
+            {
+                float value = (plane.air_density - def.MinPlanetaryInfluence) * def.InvDiffMinMaxPlanetaryInfluence;
+
+                result = MathHelper.Lerp(def.EffectivenessAtMinInfluence, def.EffectivenessAtMaxInfluence, MathHelper.Clamp(value, 0f, 1f));
+            }
+            keenPlanetaryInfluence = result;
+        }
+
         // ingame does fine but we have things that work off them
         private float CalculateAltitudeEffects()
         {
+            UpdateKeenInfluence();
+
             float altitudeModifier = 1f;
 
+            // planetaryInfluenceForceMod
+            float x = (float)plane.air_density;
+            float z = (float)keenPlanetaryInfluence;
+            float y = (float)def.EffectivenessAtMinInfluence;
+            float v = (float)def.EffectivenessAtMaxInfluence;
+
+            // jp's gross lil fnuction
             if (nosinjector > 0f)
-                altitudeModifier += nosinjector * (1f - planet.GetAirDensity(grid.WorldMatrix.Translation)) * 0.5f;
+            {
+                altitudeModifier = -nosinjector * (float)Math.Log((double)x) * x * (x - 1f) * (x - 1f) + y + v * x;
+                altitudeModifier /= z;
+            }
 
             return altitudeModifier;
         }
@@ -783,19 +850,40 @@ namespace SKY_PIRATES_CORE
     public class PropellerGrid
     {
         public IMyCubeGrid grid;
-        public float thrust = 0f;
-        public float production = 0f;
-        public float consumption = 0f;
+        public MyPlanet planet;
+        public float air_density = 0f;
+
+        public float hydrogen_consumption = 0f;
+        public float hydrogen_production = 0f;
+        public float ice_fuel_consumed_per_second = 0f;
+        public float ice_fuel_consumed_per_second_max = 0f;
+
         public float totalFuel = 0f;
 
         public HashSet<IMyThrust> props = new HashSet<IMyThrust>();
         public HashSet<IMyGasGenerator> engis = new HashSet<IMyGasGenerator>();
         public HashSet<IMyCubeBlock> cargs = new HashSet<IMyCubeBlock>();
-        private PID pid = new PID(1, 0.01, 0.1);
 
         public PropellerGrid(IMyCubeGrid grid)
         {
             this.grid = grid;
+        }
+
+        public void Update()
+        {
+            if (planet == null)
+            {
+                planet = MyGamePruningStructure.GetClosestPlanet(grid.WorldMatrix.Translation);
+                return;
+            }
+            air_density = planet.GetAirDensity(grid.WorldMatrix.Translation);
+
+        }
+
+        public void UpdateStats()
+        {
+            UpdateFuel();
+            UpdateThrustAndProduction();
         }
 
         public void UpdateFuel()
@@ -818,13 +906,14 @@ namespace SKY_PIRATES_CORE
 
         public void UpdateThrustAndProduction()
         {
-            var lastThrust = thrust;
+            var lastThrust = hydrogen_consumption;
 
             //MyAPIGateway.Utilities.ShowNotification($"engis: {engis.Count}\nprops: {props.Count}", 160);
 
-            thrust = 0f;
-            production = 0f;
-            consumption = 0f;
+            hydrogen_consumption = 0f;
+            hydrogen_production = 0f;
+            ice_fuel_consumed_per_second = 0f;
+            ice_fuel_consumed_per_second_max = 0f;
 
             foreach (IMyGasGenerator engi in engis.ToList())
             {
@@ -835,21 +924,13 @@ namespace SKY_PIRATES_CORE
 
                 if (source != null)
                 {
-                    production += source.MaxOutput;
-                    consumption += source.CurrentOutput / source.MaxOutput * (engi.SlimBlock.BlockDefinition as MyOxygenGeneratorDefinition).IceConsumptionPerSecond;
+                    hydrogen_production += source.MaxOutput;
+                    ice_fuel_consumed_per_second += source.CurrentOutput / source.MaxOutput * (engi.SlimBlock.BlockDefinition as MyOxygenGeneratorDefinition).IceConsumptionPerSecond;
+                    ice_fuel_consumed_per_second_max += (engi.SlimBlock.BlockDefinition as MyOxygenGeneratorDefinition).IceConsumptionPerSecond;
                 }
             }
-            foreach (IMyThrust prop in props.ToList())
-            {
-                if (prop == null)
-                    continue;
-
-                MyResourceSinkComponent sink = (prop as MyThrust).Components.Get<MyResourceSinkComponent>();
-                if(sink != null)
-                {
-                    thrust += sink.CurrentInput;
-                }
-            }
+            //MyAPIGateway.Utilities.ShowNotification($"ice_fuel_consumed_per_second:  {ice_fuel_consumed_per_second}", 1600);
+            //MyAPIGateway.Utilities.ShowNotification($"ice_fuel_consumed_per_second_max:  {ice_fuel_consumed_per_second_max}", 1600);
         }
     }
 

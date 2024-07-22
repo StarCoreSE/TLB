@@ -20,12 +20,14 @@ namespace Digi
         private IMyFunctionalBlock block;
         private IMyGunObject<MyGunBase> gun;
         private long lastShotTime;
- 
+        bool is_host;
+
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
             NeedsUpdate = MyEntityUpdateEnum.BEFORE_NEXT_FRAME | MyEntityUpdateEnum.EACH_FRAME;
+            is_host = MyAPIGateway.Session?.OnlineMode == MyOnlineModeEnum.OFFLINE || MyAPIGateway.Multiplayer.IsServer || MyAPIGateway.Utilities.IsDedicated;
         }
- 
+
         public override void UpdateOnceBeforeFrame()
         {
             block = (IMyFunctionalBlock)Entity;
@@ -44,7 +46,9 @@ namespace Digi
             if(shotTime > lastShotTime && !MyAPIGateway.Session.CreativeMode)
             {
                 lastShotTime = shotTime;
-                block.CubeGrid.RazeBlock(block.SlimBlock.Position);
+
+                if (is_host);
+                    block.CubeGrid.RazeBlock(block.SlimBlock.Position);
             }
 
         }
