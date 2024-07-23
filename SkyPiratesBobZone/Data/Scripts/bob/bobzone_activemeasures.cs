@@ -288,8 +288,8 @@ namespace bobzone
             {
                 double angle1 = i * angleStep;
                 double angle2 = (i + 1) * angleStep;
-                Vector3D start = blockMatrix.Translation + blockMatrix.Right * radius * Math.Cos(angle1) + blockMatrix.Up * radius * Math.Sin(angle1);
-                Vector3D end = blockMatrix.Translation + blockMatrix.Right * radius * Math.Cos(angle2) + blockMatrix.Up * radius * Math.Sin(angle2);
+                Vector3D start = blockMatrix.Translation + blockMatrix.Right * radius * Math.Cos(angle1) + blockMatrix.Forward * radius * Math.Sin(angle1);
+                Vector3D end = blockMatrix.Translation + blockMatrix.Right * radius * Math.Cos(angle2) + blockMatrix.Forward * radius * Math.Sin(angle2);
                 Vector4 colorVector = color.ToVector4();
                 MySimpleObjectDraw.DrawLine(start, end, MyStringId.GetOrCompute("Square"), ref colorVector, 1f);
             }
