@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<PluginManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>AutoPromoTorchFixed</Name>
+  <Guid>101346db-9ab8-4e09-a52a-345dc52d7525</Guid>
+  <Repository>AutoPromoTorchFixed</Repository>
+  <Version>v1.0.0</Version>
+</PluginManifest>
