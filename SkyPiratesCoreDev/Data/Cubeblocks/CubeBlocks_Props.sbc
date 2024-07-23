@@ -263,9 +263,9 @@
 	<Definition xsi:type="MyObjectBuilder_ThrustDefinition">
       <Id>
         <TypeId>Thrust</TypeId>
-        <SubtypeId>CheaterProp</SubtypeId>
+        <SubtypeId>ADMIN_cheatprop</SubtypeId>
       </Id>
-      <DisplayName>CheaterProp</DisplayName>
+      <DisplayName>ADMIN small grid prop</DisplayName>
       <Icon>Textures\Icons\Props\Propeller_Cheater.png</Icon>
       <CubeSize>Small</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
