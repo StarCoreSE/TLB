@@ -215,7 +215,7 @@
                 <SubtypeId>AutocannonShell</SubtypeId>
             </Id>
             <BasicProperties>
-                <DesiredSpeed>1200</DesiredSpeed>
+                <DesiredSpeed>1600</DesiredSpeed>
                 <SpeedVariance>0</SpeedVariance>
                 <MaxTrajectory>1000</MaxTrajectory>
                 <BackkickForce>1000</BackkickForce>
@@ -225,7 +225,7 @@
             <ProjectileProperties>
                 <ProjectileTrailScale>0.5</ProjectileTrailScale>
 				<ProjectileHitImpulse>500</ProjectileHitImpulse>
-                <ProjectileMassDamage>300</ProjectileMassDamage>
+                <ProjectileMassDamage>400</ProjectileMassDamage>
                 <ProjectileHealthDamage>85</ProjectileHealthDamage>
                 <HeadShot>true</HeadShot>
             </ProjectileProperties>
