@@ -3,102 +3,71 @@ using System.Collections.Generic;
 using NLog;
 using Sandbox;
 using Sandbox.Game;
-using Sandbox.Common.ObjectBuilders;
 using Sandbox.Game.World;
 using Sandbox.ModAPI;
 using Torch;
 using Torch.API;
+using VRage.Game;
 using VRage.Game.Components;
 using VRage.Game.ModAPI;
-using VRage.ObjectBuilders;
+using VRage.ModAPI;
+using VRage.Utils;
+using VRageMath;
+
 
 namespace BobAdminZone
 {
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Beacon), false, "ADMIN_Zone_Beacon")]
-    public class BobAdminZoneBlock : MyGameLogicComponent
+    
+    public static class AdminZoneData
     {
-        IMyBeacon beacon;
-        public override void Init(MyObjectBuilder_EntityBase objectBuilder)
-        {
-            beacon = Entity as IMyBeacon;
-            BobAdminZone.instance.beacons.Add(beacon);
-        }
+        public static List<IMyBeacon> AdminBeacons = new List<IMyBeacon>();
+    }
 
-        public override void Close()
+    [MySessionComponentDescriptor(MyUpdateOrder.AfterSimulation)]
+    public class AdminZoneSessionComponent : MySessionComponentBase
+    {
+        private int updateCounter = 0;
+
+        public override void UpdateAfterSimulation()
         {
-            BobAdminZone.instance.beacons.Remove(beacon);
+            try
+            {
+                if (!MyAPIGateway.Session.IsServer) return;
+
+                updateCounter++;
+                if (updateCounter % 100 != 0) return; // Every ~1.6 seconds
+
+                MyVisualScriptLogicProvider.SendChatMessage("FUCK");
+
+                AdminZoneData.AdminBeacons.Clear();
+
+                HashSet<IMyEntity> entities = new HashSet<IMyEntity>();
+                MyAPIGateway.Entities.GetEntities(entities, e => e is IMyBeacon);
+
+                foreach (IMyEntity entity in entities)
+                {
+                    IMyBeacon beacon = entity as IMyBeacon;
+                    if (beacon != null && beacon.BlockDefinition.SubtypeName == "ADMIN_Zone_Beacon" && beacon.IsWorking)
+                    {
+                        AdminZoneData.AdminBeacons.Add(beacon);
+                    }
+                }
+
+                // In-game logging (will appear in SpaceEngineers log)
+                MyLog.Default.Info($"[AdminZone] Found {AdminZoneData.AdminBeacons.Count} admin beacons");
+            }
+            catch (Exception ex)
+            {
+                MyLog.Default.Error($"[AdminZone] Error updating beacons: {ex.Message}");
+            }
         }
     }
 
-
     public class BobAdminZone : TorchPluginBase
     {
-        public static BobAdminZone instance;
-        public List<IMyBeacon> beacons = new List<IMyBeacon>();
-
-        private DateTime lastPromotionTime = DateTime.MinValue;
         public static readonly Logger Log = LogManager.GetCurrentClassLogger();
-        private List<IMyPlayer> all_players = new List<IMyPlayer>();
-        private List<IMyPlayer> temporary_admins = new List<IMyPlayer>();
-
-        public override void Init(ITorchBase torch)
-        {
-            base.Init(torch);
-            instance = this;
-            torch.GameStateChanged += new TorchGameStateChangedDel(this.Torch_GameStateChanged);
-        }
-
-        private void Torch_GameStateChanged(MySandboxGame game, TorchGameState newState)
-        {
-            if (newState == TorchGameState.Loaded)
-            {
-                if (MyAPIGateway.Session != null && MyAPIGateway.Session.IsServer)
-                {
-                    // Initialize any loaded state-specific logic here
-                }
-            }
-            else if (newState == TorchGameState.Unloading && MyAPIGateway.Session != null && MyAPIGateway.Session.IsServer)
-            {
-                // Cleanup any unloading state-specific logic here
-            }
-        }
-
-        private void PromotePlayers()
-        {
-            all_players.Clear();
-            MyAPIGateway.Multiplayer.Players.GetPlayers(all_players, null);
-            foreach (IMyPlayer myPlayer in all_players)
-            {
-                bool shouldPromote = false;
-                foreach(IMyBeacon beacon in beacons)
-                {
-                    double distanceSquared = (myPlayer.GetPosition() - beacon.WorldMatrix.Translation).LengthSquared();
-                    if(distanceSquared < beacon.Radius * beacon.Radius)
-                        shouldPromote = true;
-                }
-
-                if (shouldPromote && myPlayer.PromoteLevel != MyPromoteLevel.SpaceMaster && myPlayer.PromoteLevel != MyPromoteLevel.Admin)
-                {
-                    MySession mySession = MyAPIGateway.Session as MySession;
-                    if (mySession != null && !temporary_admins.Contains(myPlayer))
-                    {
-                        mySession.SetUserPromoteLevel(myPlayer.SteamUserId, MyPromoteLevel.Admin);
-                        Log.Info($"Promoted {myPlayer.DisplayName} to {myPlayer.PromoteLevel}");
-                        temporary_admins.Add(myPlayer);
-                    }
-                } 
-                else if (!shouldPromote && myPlayer.PromoteLevel == MyPromoteLevel.SpaceMaster)
-                {
-                    MySession mySession = MyAPIGateway.Session as MySession;
-                    if (mySession != null && temporary_admins.Contains(myPlayer))
-                    {
-                        mySession.SetUserPromoteLevel(myPlayer.SteamUserId, MyPromoteLevel.None);
-                        Log.Info($"Demoted {myPlayer.DisplayName} to {myPlayer.PromoteLevel}");
-                        temporary_admins.Remove(myPlayer);
-                    }
-                }
-            }
-        }
+        private DateTime lastPromotionTime = DateTime.MinValue;
+        private List<IMyPlayer> allPlayers = new List<IMyPlayer>();
 
         public override void Update()
         {
@@ -106,14 +75,45 @@ namespace BobAdminZone
 
             if ((DateTime.Now - lastPromotionTime).TotalSeconds >= 10)
             {
-                PromotePlayers();
+                ProcessAdminZones();
                 lastPromotionTime = DateTime.Now;
             }
         }
 
-        public override void Dispose()
+        private void ProcessAdminZones()
         {
-            base.Dispose();
+            Log.Info($"Processing admin zones. Found {AdminZoneData.AdminBeacons.Count} admin beacons");
+
+            allPlayers.Clear();
+            MyAPIGateway.Players.GetPlayers(allPlayers);
+
+            foreach (IMyPlayer player in allPlayers)
+            {
+                bool inAdminZone = false;
+                foreach (IMyBeacon beacon in AdminZoneData.AdminBeacons)
+                {
+                    Vector3D playerPos = player.GetPosition();
+                    Vector3D beaconPos = beacon.GetPosition();
+                    double distanceSquared = Vector3D.DistanceSquared(playerPos, beaconPos);
+
+                    if (distanceSquared <= beacon.Radius * beacon.Radius)
+                    {
+                        inAdminZone = true;
+                        break;
+                    }
+                }
+
+                if (inAdminZone && player.PromoteLevel != MyPromoteLevel.Admin)
+                {
+                    MySession.Static.SetUserPromoteLevel(player.SteamUserId, MyPromoteLevel.Admin);
+                    Log.Info($"Promoted {player.DisplayName} to Admin");
+                }
+                else if (!inAdminZone && player.PromoteLevel == MyPromoteLevel.Admin)
+                {
+                    MySession.Static.SetUserPromoteLevel(player.SteamUserId, MyPromoteLevel.None);
+                    Log.Info($"Demoted {player.DisplayName} to Player");
+                }
+            }
         }
     }
 }
