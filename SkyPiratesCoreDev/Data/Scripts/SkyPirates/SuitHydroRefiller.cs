@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using VRage.Game.Components;
 //using Sandbox.ModAPI.Ingame;
 using VRage.Game.ModAPI;
-using static VRage.Game.MyObjectBuilder_ControllerSchemaDefinition;
 
 namespace hydrorefiller
 {
