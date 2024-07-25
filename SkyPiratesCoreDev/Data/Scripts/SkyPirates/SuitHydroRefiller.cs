@@ -4,19 +4,18 @@ using System.Collections.Generic;
 using VRage.Game.Components;
 //using Sandbox.ModAPI.Ingame;
 using VRage.Game.ModAPI;
-using static VRage.Game.MyObjectBuilder_ControllerSchemaDefinition;
 
 namespace hydrorefiller
 {
     /// <summary>
     /// it uhh refills your hydro man. trust.
     /// </summary>
-    [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation  )]
+    [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)]
     public class Bigredbession : MySessionComponentBase
     {
         public double tock = 0;
-        public int delay = 10;
-        public static Dictionary<long, long> playerdictionary = new Dictionary<long, long>();
+        public int delay = 6;
+        public static Dictionary<long, int> playerToDelay = new Dictionary<long, int>();
 
         public override void UpdateBeforeSimulation()
         {
@@ -30,24 +29,23 @@ namespace hydrorefiller
 
             List<IMyPlayer> playerlist = new List<IMyPlayer>();
             MyAPIGateway.Players.GetPlayers(playerlist);
-
-            var UpdatedDictionary = new Dictionary<long, long>();
+            
+            Dictionary<long, int> UpdatedDictionary = new Dictionary<long, int>();
             foreach (var player in playerlist)
             {
                 IMyCharacter character = player.Controller?.ControlledEntity?.Entity as IMyCharacter; 
                 if (character != null && !character.IsDead)
                 {
                     float hydro = MyVisualScriptLogicProvider.GetPlayersHydrogenLevel(player.Identity.IdentityId);
-                    bool nohydro = hydro <= 0f;
-                    // add to list if they are not in the list and they dotn have hydro
-                    if (!playerdictionary.ContainsKey(player.Identity.IdentityId) && nohydro)
-                    {
-                        UpdatedDictionary[player.Identity.IdentityId] = 0;
-                    }
-                    else if (playerdictionary.ContainsKey(player.Identity.IdentityId))
-                    {
+                    bool needsRefill = hydro <= 1f;
 
-                        var elapsedTime = playerdictionary[player.Identity.IdentityId] + 1;
+                    if (!playerToDelay.ContainsKey(player.Identity.IdentityId) && needsRefill)
+                    {
+                        UpdatedDictionary.Add(player.Identity.IdentityId, 0);
+                    }
+                    else if (playerToDelay.ContainsKey(player.Identity.IdentityId))
+                    {
+                        int elapsedTime = playerToDelay[player.Identity.IdentityId] + 1;
                         if (elapsedTime > delay)
                         {
                             MyVisualScriptLogicProvider.SetPlayersHydrogenLevel(player.Identity.IdentityId, 1f);
@@ -55,11 +53,11 @@ namespace hydrorefiller
                         }
                         else
                         {
-                            UpdatedDictionary[player.Identity.IdentityId] = elapsedTime;
+                            UpdatedDictionary.Add(player.Identity.IdentityId, elapsedTime);
                         }
                     }
 
-                    playerdictionary = UpdatedDictionary;
+                    playerToDelay = UpdatedDictionary;
                 }
             }
 
