@@ -24,9 +24,15 @@ namespace Shrapnel
             IMySlimBlock slim = target as IMySlimBlock;
             if (slim == null) return;
 
+            if (info.Type == MyDamageType.Deformation && slim.CubeGrid.GridSizeEnum == MyCubeSize.Large) 
+            {
+                info.Amount = 0;
+                return;
+            }
+
             if (info.Type == MyDamageType.Bullet || info.Type == MyDamageType.Rocket)
             {
-                MyLog.Default.Info($"Amount: {info.Amount}, Integrity: {slim.Integrity}, Overkill: {info.Amount - slim.Integrity}");
+                //MyLog.Default.Info($"Amount: {info.Amount}, Integrity: {slim.Integrity}, Overkill: {info.Amount - slim.Integrity}");
 
                 if (slim.Integrity >= info.Amount) return;
 
@@ -64,7 +70,7 @@ namespace Shrapnel
                 ShrapnelData data = queue.Dequeue();
                 float count = 1f / data.Neighbours.Count;
 
-                MyLog.Default.Info($"queue: {queue.Count}, neighbour: {tasks}, overkill: {data.OverKill}, spread: {data.OverKill * count}");
+                //MyLog.Default.Info($"queue: {queue.Count}, neighbour: {tasks}, overkill: {data.OverKill}, spread: {data.OverKill * count}");
                 foreach (IMySlimBlock neighbour in data.Neighbours)
                 {
                     if (neighbour == null) continue;
