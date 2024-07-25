@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using NLog;
 using Sandbox;
+using Sandbox.Game;
 using Sandbox.Game.World;
 using Sandbox.ModAPI;
 using Torch;
@@ -38,33 +39,99 @@ namespace BobAdminZone
         }
     }
     */
-    [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)]
+    [MySessionComponentDescriptor(MyUpdateOrder.AfterSimulation)]
     public class BobAdminZoneSession : MySessionComponentBase
     {
+        int timer = 0;
+        bool initd =  false;
+
         public BobAdminZoneSession()
         {
             MyLog.Default.WriteLineAndConsole("FUCK");
         }
-        public override void LoadData()
+        public void init()
         {
             MyAPIGateway.Entities.OnEntityAdd += HandleEntityAdded;
             MyAPIGateway.Entities.OnEntityRemove += HandleEntityRemoved;
+
+            HashSet<IMyEntity> entities = new HashSet<IMyEntity>();
+            MyAPIGateway.Entities.GetEntities(entities, Search);
+
+            initd = true;
+        }
+
+        private bool Search(IMyEntity entity)
+        {
+            if(entity is IMyBeacon && (entity as IMyBeacon).SlimBlock.BlockDefinition.Id.SubtypeName.Contains("ADMIN"))
+            {
+                BobAdminZone.instance.beacons.Add(entity as IMyBeacon); 
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public override void UpdateAfterSimulation()
+        {
+            if(!initd)
+                init();
         }
 
         private void HandleEntityAdded(IMyEntity entity)
         {
-            if (entity != null && entity is IMyBeacon && (entity as IMyCubeBlock).SlimBlock.BlockDefinition.Id.SubtypeId.String.Contains("ADMIN"))
+            if (!(entity is IMyCubeGrid) || entity.Physics == null)
+                return;
+
+            IMyCubeGrid grid = entity as IMyCubeGrid;
+
+            foreach (IMyCubeBlock block in grid.GetFatBlocks<IMyBeacon>())
             {
-                MyLog.Default.WriteLineAndConsole("beaky added");
-                BobAdminZone.instance.beacons.Add(entity as IMyBeacon);
+                if (block.SlimBlock.BlockDefinition.Id.SubtypeName.Contains("ADMIN"))
+                {
+                    MyLog.Default.WriteLineAndConsole($"{grid.EntityId} beacon added");
+                    BobAdminZone.instance.beacons.Add(block as IMyBeacon);
+                }
             }
+
+            grid.OnBlockAdded += HandleBlockAdded;
+            grid.OnBlockRemoved += HandleBlockRemoved;
         }
 
         private void HandleEntityRemoved(IMyEntity entity)
         {
-            if (entity != null && entity is IMyBeacon && (entity as IMyCubeBlock).SlimBlock.BlockDefinition.Id.SubtypeId.String.Contains("ADMIN"))
+            if (!(entity is IMyCubeGrid) || entity.Physics == null)
+                return;
+
+            IMyCubeGrid grid = entity as IMyCubeGrid;
+
+            foreach (IMyCubeBlock block in grid.GetFatBlocks<IMyBeacon>())
             {
-                BobAdminZone.instance.beacons.Remove(entity as IMyBeacon);
+                if (block.SlimBlock.BlockDefinition.Id.SubtypeName.Contains("ADMIN"))
+                {
+                    MyLog.Default.WriteLineAndConsole($"{grid.EntityId} beacon rmd");
+                    BobAdminZone.instance.beacons.Remove(block as IMyBeacon);
+                }
+            }
+
+            grid.OnBlockAdded -= HandleBlockAdded;
+            grid.OnBlockRemoved -= HandleBlockRemoved;
+        }
+
+        private void HandleBlockAdded(IMySlimBlock slim)
+        {
+            if (slim != null && slim.FatBlock is IMyBeacon && slim.BlockDefinition.Id.SubtypeName.Contains("ADMIN"))
+            {
+                MyLog.Default.WriteLineAndConsole($"{slim.FatBlock.CubeGrid.EntityId} beacon added");
+                BobAdminZone.instance.beacons.Add(slim.FatBlock as IMyBeacon);
+            }
+        }
+
+        private void HandleBlockRemoved(IMySlimBlock slim)
+        {
+            if (slim != null && slim.FatBlock is IMyBeacon && slim.BlockDefinition.Id.SubtypeName.Contains("ADMIN"))
+            {
+                MyLog.Default.WriteLineAndConsole($"{slim.FatBlock.CubeGrid.EntityId} beacon rmd");
+                BobAdminZone.instance.beacons.Remove(slim.FatBlock as IMyBeacon);
             }
         }
 
@@ -72,6 +139,7 @@ namespace BobAdminZone
         {
             MyAPIGateway.Entities.OnEntityAdd -= HandleEntityAdded;
             MyAPIGateway.Entities.OnEntityRemove -= HandleEntityRemoved;
+            initd = true;
         }
     }
 
@@ -119,6 +187,7 @@ namespace BobAdminZone
         {
             all_players.Clear();
             MyAPIGateway.Multiplayer.Players.GetPlayers(all_players, null);
+            MyLog.Default.WriteLineAndConsole($"player conut: {all_players.Count}");
             foreach (IMyPlayer myPlayer in all_players)
             {
                 bool shouldPromote = false;
