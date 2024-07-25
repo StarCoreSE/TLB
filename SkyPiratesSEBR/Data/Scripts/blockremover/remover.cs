@@ -148,7 +148,7 @@ namespace SEBR_GITGAT
 
                 if (cubeDef.CubeSize == MyCubeSize.Small)
                 {
-                    cubeDef.GeneralDamageMultiplier *= 5f;
+                    cubeDef.GeneralDamageMultiplier *= 3f;
                 }
 
                 // add armor to large light armor blocks
