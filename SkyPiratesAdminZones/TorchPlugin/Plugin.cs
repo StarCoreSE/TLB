@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using NLog;
 using Sandbox;
 using Sandbox.Game.World;
@@ -10,6 +11,7 @@ using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRage.ModAPI;
 using VRage.ObjectBuilders;
+using VRage.Utils;
 
 namespace BobAdminZone
 {
@@ -36,9 +38,13 @@ namespace BobAdminZone
         }
     }
     */
-
+    [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)]
     public class BobAdminZoneSession : MySessionComponentBase
     {
+        public BobAdminZoneSession()
+        {
+            MyLog.Default.WriteLineAndConsole("FUCK");
+        }
         public override void LoadData()
         {
             MyAPIGateway.Entities.OnEntityAdd += HandleEntityAdded;
@@ -49,6 +55,7 @@ namespace BobAdminZone
         {
             if (entity != null && entity is IMyBeacon && (entity as IMyCubeBlock).SlimBlock.BlockDefinition.Id.SubtypeId.String.Contains("ADMIN"))
             {
+                MyLog.Default.WriteLineAndConsole("beaky added");
                 BobAdminZone.instance.beacons.Add(entity as IMyBeacon);
             }
         }
@@ -91,8 +98,15 @@ namespace BobAdminZone
             {
                 if (MyAPIGateway.Session != null && MyAPIGateway.Session.IsServer)
                 {
-                    BobAdminZoneSession sesh = new BobAdminZoneSession();
-                    MySession.Static.RegisterComponent(sesh, MyUpdateOrder.BeforeSimulation, 99);
+                    // Getting the current executing assembly
+                    Assembly[] assemblies = new Assembly[1];
+                    assemblies[0] = Assembly.GetExecutingAssembly();
+
+                    // Assuming these are mod assemblies; change this to false if they are not
+                    bool isModAssembly = true;
+
+                    // Registering the components from the assembly
+                    MySession.Static.RegisterComponentsFromAssembly(assemblies, isModAssembly, null);
                 }
             }
             else if (newState == TorchGameState.Unloading && MyAPIGateway.Session != null && MyAPIGateway.Session.IsServer)
