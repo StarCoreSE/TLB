@@ -43,7 +43,7 @@ namespace BobAdminZone
     public class BobAdminZoneSession : MySessionComponentBase
     {
         int timer = 0;
-        bool initd =  false;
+        bool initd = false;
 
         public BobAdminZoneSession()
         {
@@ -55,25 +55,20 @@ namespace BobAdminZone
             MyAPIGateway.Entities.OnEntityRemove += HandleEntityRemoved;
 
             HashSet<IMyEntity> entities = new HashSet<IMyEntity>();
-            MyAPIGateway.Entities.GetEntities(entities, Search);
+            MyAPIGateway.Entities.GetEntities(entities);
+
+            foreach (IMyEntity entity in entities)
+            {
+                if (entity is IMyCubeGrid)
+                    HandleEntityAdded
+            }
 
             initd = true;
         }
 
-        private bool Search(IMyEntity entity)
-        {
-            if(entity is IMyBeacon && (entity as IMyBeacon).SlimBlock.BlockDefinition.Id.SubtypeName.Contains("ADMIN"))
-            {
-                BobAdminZone.instance.beacons.Add(entity as IMyBeacon); 
-                return true;
-            }
-            else
-                return false;
-        }
-
         public override void UpdateAfterSimulation()
         {
-            if(!initd)
+            if (!initd)
                 init();
         }
 
@@ -187,12 +182,15 @@ namespace BobAdminZone
         {
             all_players.Clear();
             MyAPIGateway.Multiplayer.Players.GetPlayers(all_players, null);
-            MyLog.Default.WriteLineAndConsole($"player conut: {all_players.Count}");
+            MyLog.Default.WriteLineAndConsole($"player conut: {all_players.Count}, beaky counut: {beacons.Count}");
             foreach (IMyPlayer myPlayer in all_players)
             {
                 bool shouldPromote = false;
                 foreach (IMyBeacon beacon in beacons)
                 {
+                    if (!beacon.Enabled || !beacon.IsFunctional)
+                        continue;
+
                     double distanceSquared = (myPlayer.GetPosition() - beacon.WorldMatrix.Translation).LengthSquared();
                     if (distanceSquared < beacon.Radius * beacon.Radius)
                         shouldPromote = true;
@@ -203,7 +201,8 @@ namespace BobAdminZone
                     MySession mySession = MyAPIGateway.Session as MySession;
                     if (mySession != null && !temporary_admins.Contains(myPlayer))
                     {
-                        mySession.SetUserPromoteLevel(myPlayer.SteamUserId, MyPromoteLevel.Admin);
+                        mySession.SetUserPromoteLevel(myPlayer.SteamUserId, MyPromoteLevel.SpaceMaster);
+                        mySession.EnableCreativeTools(myPlayer.SteamUserId, true);
                         Log.Info($"Promoted {myPlayer.DisplayName} to {myPlayer.PromoteLevel}");
                         temporary_admins.Add(myPlayer);
                     }
@@ -214,6 +213,7 @@ namespace BobAdminZone
                     if (mySession != null && temporary_admins.Contains(myPlayer))
                     {
                         mySession.SetUserPromoteLevel(myPlayer.SteamUserId, MyPromoteLevel.None);
+                        mySession.EnableCreativeTools(myPlayer.SteamUserId, false);
                         Log.Info($"Demoted {myPlayer.DisplayName} to {myPlayer.PromoteLevel}");
                         temporary_admins.Remove(myPlayer);
                     }
