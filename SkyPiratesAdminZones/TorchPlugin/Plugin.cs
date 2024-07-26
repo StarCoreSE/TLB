@@ -146,16 +146,16 @@ namespace BobAdminZone
         public static BobAdminZone instance;
         public List<IMyBeacon> beacons = new List<IMyBeacon>();
 
-        private DateTime lastPromotionTime = DateTime.MinValue;
+        private DateTime lastCheckTime = DateTime.MinValue;
         public static readonly Logger Log = LogManager.GetCurrentClassLogger();
         private List<IMyPlayer> all_players = new List<IMyPlayer>();
-        private List<long> temporary_admins = new List<long>();
+        private HashSet<long> playersInRange = new HashSet<long>();
 
         public override void Init(ITorchBase torch)
         {
             base.Init(torch);
             instance = this;
-            torch.GameStateChanged += new TorchGameStateChangedDel(this.Torch_GameStateChanged);
+            torch.GameStateChanged += Torch_GameStateChanged;
         }
 
         private void Torch_GameStateChanged(MySandboxGame game, TorchGameState newState)
@@ -164,125 +164,101 @@ namespace BobAdminZone
             {
                 if (MyAPIGateway.Session != null && MyAPIGateway.Session.IsServer)
                 {
-                    // Getting the current executing assembly
-                    Assembly[] assemblies = new Assembly[1];
-                    assemblies[0] = Assembly.GetExecutingAssembly();
-
-                    // Assuming these are mod assemblies; change this to false if they are not
+                    Assembly[] assemblies = new Assembly[1] { Assembly.GetExecutingAssembly() };
                     bool isModAssembly = true;
-
-                    // Registering the components from the assembly
                     MySession.Static.RegisterComponentsFromAssembly(assemblies, isModAssembly, null);
-
-                    // Initialize temporary admins from current session
-                    InitializeTemporaryAdmins();
                 }
             }
             else if (newState == TorchGameState.Unloading && MyAPIGateway.Session != null && MyAPIGateway.Session.IsServer)
             {
-                // Cleanup any unloading state-specific logic here
+                ClearPlayersInRange();
             }
         }
 
-        public void InitializeTemporaryAdmins()
+        private void ClearPlayersInRange()
         {
-            all_players.Clear();
-            MyAPIGateway.Multiplayer.Players.GetPlayers(all_players);
-
-            foreach (var player in all_players)
-            {
-                if (player.PromoteLevel == MyPromoteLevel.SpaceMaster || player.PromoteLevel == MyPromoteLevel.Admin)
-                {
-                    if (!temporary_admins.Contains((long)player.SteamUserId))
-                    {
-                        temporary_admins.Add((long)player.SteamUserId);
-                        Log.Info($"Added preexisting admin: {player.DisplayName} to temporary admins list.");
-                    }
-                }
-            }
+            Log.Info($"Clearing {playersInRange.Count} players in range.");
+            playersInRange.Clear();
         }
 
-
-        private void PromotePlayers()
+        private void CheckPlayersInRange()
         {
             all_players.Clear();
             MyAPIGateway.Multiplayer.Players.GetPlayers(all_players, null);
 
-            foreach (IMyPlayer myPlayer in all_players)
+            HashSet<long> newPlayersInRange = new HashSet<long>();
+
+            foreach (IMyPlayer player in all_players)
             {
-                bool shouldPromote = false;
+                bool isWithinRange = IsPlayerWithinRange(player);
 
-                foreach (IMyBeacon beacon in beacons)
+                if (isWithinRange)
                 {
-                    if (!beacon.Enabled || !beacon.IsFunctional)
-                        continue;
-
-                    double distanceSquared = (myPlayer.GetPosition() - beacon.WorldMatrix.Translation).LengthSquared();
-                    if (distanceSquared < beacon.Radius * beacon.Radius)
+                    newPlayersInRange.Add(player.IdentityId);
+                    if (!playersInRange.Contains(player.IdentityId))
                     {
-                        shouldPromote = true;
-                        break; // Ensures we stop checking once a valid beacon is found.
+                        PromotePlayer(player);
                     }
                 }
-
-                if (shouldPromote && myPlayer.PromoteLevel != MyPromoteLevel.SpaceMaster && myPlayer.PromoteLevel != MyPromoteLevel.Admin)
+                else if (player.PromoteLevel == MyPromoteLevel.SpaceMaster)
                 {
-                    PromotePlayer(myPlayer);
-                }
-                else if (!shouldPromote && myPlayer.PromoteLevel == MyPromoteLevel.SpaceMaster)
-                {
-                    DemotePlayer(myPlayer);
+                    DemotePlayer(player);
                 }
             }
+
+            playersInRange = newPlayersInRange;
         }
 
-        private void PromotePlayer(IMyPlayer myPlayer)
+        private bool IsPlayerWithinRange(IMyPlayer player)
+        {
+            foreach (IMyBeacon beacon in beacons)
+            {
+                if (beacon.Enabled && beacon.IsFunctional)
+                {
+                    double distanceSquared = Vector3D.DistanceSquared(player.GetPosition(), beacon.WorldMatrix.Translation);
+                    if (distanceSquared < beacon.Radius * beacon.Radius)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private void PromotePlayer(IMyPlayer player)
         {
             MySession mySession = MyAPIGateway.Session as MySession;
-            if (mySession != null && !temporary_admins.Contains(myPlayer.IdentityId))
+            if (mySession != null && player.PromoteLevel != MyPromoteLevel.SpaceMaster && player.PromoteLevel != MyPromoteLevel.Admin)
             {
-                mySession.SetUserPromoteLevel(myPlayer.SteamUserId, MyPromoteLevel.SpaceMaster);
-                mySession.EnableCreativeTools(myPlayer.SteamUserId, true);
-                Log.Info($"Promoted {myPlayer.DisplayName} to SpaceMaster");
+                mySession.SetUserPromoteLevel(player.SteamUserId, MyPromoteLevel.SpaceMaster);
+                mySession.EnableCreativeTools(player.SteamUserId, true);
+                Log.Info($"Promoted {player.DisplayName} to SpaceMaster");
 
-                // Assuming `nearestBeacon` is the beacon causing the promotion
                 var nearestBeacon = beacons.FirstOrDefault(beacon =>
-                    Vector3D.DistanceSquared(myPlayer.GetPosition(), beacon.WorldMatrix.Translation) < beacon.Radius * beacon.Radius);
+                    Vector3D.DistanceSquared(player.GetPosition(), beacon.WorldMatrix.Translation) < beacon.Radius * beacon.Radius);
 
                 if (nearestBeacon != null)
                 {
                     string beaconName = nearestBeacon.CustomName ?? "a beacon";
                     MyVisualScriptLogicProvider.SendChatMessageColored(
                         $"You have been promoted to SpaceMaster because you are within range of {beaconName}.",
-                        Color.Green, "Server", myPlayer.IdentityId, "White");
+                        Color.Green, "Server", player.IdentityId, "White");
                 }
-
-                temporary_admins.Add(myPlayer.IdentityId); // Track this user as promoted
             }
         }
 
-        private void DemotePlayer(IMyPlayer myPlayer)
+        private void DemotePlayer(IMyPlayer player)
         {
             MySession mySession = MyAPIGateway.Session as MySession;
-            if (mySession != null && temporary_admins.Contains(myPlayer.IdentityId))
+            if (mySession != null && player.PromoteLevel == MyPromoteLevel.SpaceMaster)
             {
-                mySession.SetUserPromoteLevel(myPlayer.SteamUserId, MyPromoteLevel.None);
-                mySession.EnableCreativeTools(myPlayer.SteamUserId, false);
-                Log.Info($"Demoted {myPlayer.DisplayName} to None");
+                mySession.SetUserPromoteLevel(player.SteamUserId, MyPromoteLevel.None);
+                mySession.EnableCreativeTools(player.SteamUserId, false);
+                Log.Info($"Demoted {player.DisplayName} to None");
 
-                // Assuming you want to mention the beacon they moved away from
-                var farBeacon = beacons.FirstOrDefault(beacon =>
-                    Vector3D.DistanceSquared(myPlayer.GetPosition(), beacon.WorldMatrix.Translation) >= beacon.Radius * beacon.Radius);
-
-                if (farBeacon != null)
-                {
-                    string beaconName = farBeacon.CustomName ?? "a beacon";
-                    MyVisualScriptLogicProvider.SendChatMessageColored(
-                        $"You have been demoted to regular player status because you moved out of range of {beaconName}.",
-                        Color.Red, "Server", myPlayer.IdentityId, "White");
-                }
-
-                temporary_admins.Remove(myPlayer.IdentityId); // Remove from the tracking list
+                MyVisualScriptLogicProvider.SendChatMessageColored(
+                    $"You have been demoted to regular player status because you moved out of range of all admin beacons.",
+                    Color.Red, "Server", player.IdentityId, "White");
             }
         }
 
@@ -290,15 +266,16 @@ namespace BobAdminZone
         {
             base.Update();
 
-            if ((DateTime.Now - lastPromotionTime).TotalSeconds >= 10)
+            if ((DateTime.Now - lastCheckTime).TotalSeconds >= 10)
             {
-                PromotePlayers();
-                lastPromotionTime = DateTime.Now;
+                CheckPlayersInRange();
+                lastCheckTime = DateTime.Now;
             }
         }
 
         public override void Dispose()
         {
+            ClearPlayersInRange();
             base.Dispose();
         }
     }
