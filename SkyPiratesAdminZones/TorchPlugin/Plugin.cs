@@ -47,8 +47,9 @@ namespace BobAdminZone
 
         public BobAdminZoneSession()
         {
-            MyLog.Default.WriteLineAndConsole("FUCK");
+            //MyLog.Default.WriteLineAndConsole("FUCK");
         }
+
         public void init()
         {
             MyAPIGateway.Entities.OnEntityAdd += HandleEntityAdded;
@@ -60,7 +61,7 @@ namespace BobAdminZone
             foreach (IMyEntity entity in entities)
             {
                 if (entity is IMyCubeGrid)
-                    HandleEntityAdded
+                    HandleEntityAdded(entity);
             }
 
             initd = true;
@@ -182,7 +183,7 @@ namespace BobAdminZone
         {
             all_players.Clear();
             MyAPIGateway.Multiplayer.Players.GetPlayers(all_players, null);
-            MyLog.Default.WriteLineAndConsole($"player conut: {all_players.Count}, beaky counut: {beacons.Count}");
+            // MyLog.Default.WriteLineAndConsole($"player conut: {all_players.Count}, beaky counut: {beacons.Count}");
             foreach (IMyPlayer myPlayer in all_players)
             {
                 bool shouldPromote = false;
