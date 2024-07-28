@@ -19,7 +19,6 @@ namespace hydrorefiller
 
         public override void UpdateBeforeSimulation()
         {
-
             tock++;
             if (tock <= 60)
             {
@@ -29,38 +28,40 @@ namespace hydrorefiller
 
             List<IMyPlayer> playerlist = new List<IMyPlayer>();
             MyAPIGateway.Players.GetPlayers(playerlist);
-            
-            Dictionary<long, int> UpdatedDictionary = new Dictionary<long, int>();
+
+            Dictionary<long, int> updatedDictionary = new Dictionary<long, int>();
             foreach (var player in playerlist)
             {
-                IMyCharacter character = player.Controller?.ControlledEntity?.Entity as IMyCharacter; 
+                var character = player?.Controller?.ControlledEntity?.Entity as IMyCharacter;
                 if (character != null && !character.IsDead)
                 {
                     float hydro = MyVisualScriptLogicProvider.GetPlayersHydrogenLevel(player.Identity.IdentityId);
                     bool needsRefill = hydro <= 1f;
 
-                    if (!playerToDelay.ContainsKey(player.Identity.IdentityId) && needsRefill)
+                    if (needsRefill)
                     {
-                        UpdatedDictionary.Add(player.Identity.IdentityId, 0);
-                    }
-                    else if (playerToDelay.ContainsKey(player.Identity.IdentityId))
-                    {
-                        int elapsedTime = playerToDelay[player.Identity.IdentityId] + 1;
-                        if (elapsedTime > delay)
+                        if (!playerToDelay.ContainsKey(player.Identity.IdentityId))
                         {
-                            MyVisualScriptLogicProvider.SetPlayersHydrogenLevel(player.Identity.IdentityId, 1f);
-
+                            updatedDictionary.Add(player.Identity.IdentityId, 0);
                         }
                         else
                         {
-                            UpdatedDictionary.Add(player.Identity.IdentityId, elapsedTime);
+                            int elapsedTime = playerToDelay[player.Identity.IdentityId] + 1;
+                            if (elapsedTime > delay)
+                            {
+                                MyVisualScriptLogicProvider.SetPlayersHydrogenLevel(player.Identity.IdentityId, 1f);
+                                updatedDictionary.Add(player.Identity.IdentityId, 0);
+                            }
+                            else
+                            {
+                                updatedDictionary.Add(player.Identity.IdentityId, elapsedTime);
+                            }
                         }
                     }
-
-                    playerToDelay = UpdatedDictionary;
                 }
             }
 
+            playerToDelay = updatedDictionary;
         }
     }
 }
