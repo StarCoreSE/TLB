@@ -1,8 +1,10 @@
 using Sandbox.Game;
+using Sandbox.Game.Entities.Character.Components;
 using Sandbox.ModAPI;
 using System.Collections.Generic;
+using VRage.Game;
 using VRage.Game.Components;
-//using Sandbox.ModAPI.Ingame;
+using VRage.Game.Components.Session;
 using VRage.Game.ModAPI;
 
 namespace hydrorefiller
@@ -11,57 +13,64 @@ namespace hydrorefiller
     /// it uhh refills your hydro man. trust.
     /// </summary>
     [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)]
-    public class Bigredbession : MySessionComponentBase
+    public class hydrosuitgogoodly : MySessionComponentBase
     {
-        public double tock = 0;
-        public int delay = 6;
-        public static Dictionary<long, int> playerToDelay = new Dictionary<long, int>();
+
+        private int ticks;
+        private List<IMyPlayer> players = new List<IMyPlayer>();
+        private float newfuel;
+        private float fillAmount = 1f;
 
         public override void UpdateBeforeSimulation()
         {
-            tock++;
-            if (tock <= 60)
+            players.Clear();
+            MyAPIGateway.Players.GetPlayers(players);
+
+            unchecked
             {
-                return;
+                ticks++;
             }
-            tock = 0;
 
-            List<IMyPlayer> playerlist = new List<IMyPlayer>();
-            MyAPIGateway.Players.GetPlayers(playerlist);
-
-            Dictionary<long, int> updatedDictionary = new Dictionary<long, int>();
-            foreach (var player in playerlist)
+            if (ticks % 900 == 0)
             {
-                var character = player?.Controller?.ControlledEntity?.Entity as IMyCharacter;
-                if (character != null && !character.IsDead)
+                foreach (IMyPlayer player in players)
                 {
-                    float hydro = MyVisualScriptLogicProvider.GetPlayersHydrogenLevel(player.Identity.IdentityId);
-                    bool needsRefill = hydro <= 1f;
+                    if (player.Character == null)
+                        continue;
 
-                    if (needsRefill)
+                    var jetpack = player.Character.Components.Get<MyCharacterJetpackComponent>();
+
+                    if (jetpack == null)
+                        continue;
+
+                    if (!jetpack.Running || jetpack.FinalThrust.LengthSquared() == 0)
                     {
-                        if (!playerToDelay.ContainsKey(player.Identity.IdentityId))
+                        var oxyComp = player.Character.Components.Get<MyCharacterOxygenComponent>();
+
+                        float fuel = oxyComp.GetGasFillLevel(MyCharacterOxygenComponent.HydrogenId);
+
+                        if (fuel < 1)
                         {
-                            updatedDictionary.Add(player.Identity.IdentityId, 0);
-                        }
-                        else
-                        {
-                            int elapsedTime = playerToDelay[player.Identity.IdentityId] + 1;
-                            if (elapsedTime > delay)
+                            if (fuel < 1 - fillAmount)
                             {
-                                MyVisualScriptLogicProvider.SetPlayersHydrogenLevel(player.Identity.IdentityId, 1f);
-                                updatedDictionary.Add(player.Identity.IdentityId, 0);
+                                newfuel = fuel + fillAmount;
                             }
                             else
                             {
-                                updatedDictionary.Add(player.Identity.IdentityId, elapsedTime);
+                                newfuel = 1;
                             }
+
+                            var hydrogenId = MyCharacterOxygenComponent.HydrogenId;
+
+                            oxyComp.UpdateStoredGasLevel(ref hydrogenId, newfuel);
                         }
+
                     }
+
                 }
+
             }
 
-            playerToDelay = updatedDictionary;
         }
     }
 }
