@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Sounds>
+      <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>WepPlayFlamethrowerShot</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <Volume>0.65</Volume>
+      <MaxDistance>30</MaxDistance>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>      
+	  <PreventSynchronization>3</PreventSynchronization>
+      <RealisticFilter>realShipFilter</RealisticFilter>
+      <RealisticVolumeChange>0.45</RealisticVolumeChange>
+      <Waves>
+        <Wave Type="D3">
+		  <Start>Audio\\Flamethrower1.wav</Start>
+        </Wave>
+        <Wave Type="D3">
+		  <Start>Audio\Flamethrower2.wav</Start>
+        </Wave>
+        <Wave Type="D3">
+		  <Start>Audio\Flamethrower3.wav</Start>
+        </Wave>
+        <Wave Type="D3">
+		  <Start>Audio\Flamethrower4.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+	  <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_SoundDefinition</TypeId>
+        <SubtypeId>gruntBirthday</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>200</MaxDistance>
+	  <DistantSound>
+      <!--<DistantSound DistanceCrossfade="50" Distance="500" Sound="AutoCannonFire" />-->
+      </DistantSound>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>1</Volume>
+	  <VolumeVariation>0</VolumeVariation>
+      <PitchVariation>100</PitchVariation>
+	  <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\gruntBirthday.wav</Start>
+        </Wave>
+      </Waves>
+	</Sound>
+  <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_SoundDefinition</TypeId>
+        <SubtypeId>thumpyhumpyhuffman</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>1000</MaxDistance>
+	  <DistantSound>
+      <!--<DistantSound DistanceCrossfade="50" Distance="500" Sound="AutoCannonFire" />-->
+      </DistantSound>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>1</Volume>
+	  <VolumeVariation>0</VolumeVariation>
+      <PitchVariation>100</PitchVariation>
+	  <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\thumpyhumpyhuffman.wav</Start>
+        </Wave>
+      </Waves>
+	</Sound>
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_SoundDefinition</TypeId>
+        <SubtypeId>buzzz</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>100</MaxDistance>
+      <DistantSound>
+        <!--<DistantSound DistanceCrossfade="50" Distance="500" Sound="AutoCannonFire" />-->
+      </DistantSound>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>1</DynamicMusicAmount>
+      <Volume>15</Volume>
+      <VolumeVariation>0</VolumeVariation>
+      <PitchVariation>100</PitchVariation>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\buzz.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_SoundDefinition</TypeId>
+        <SubtypeId>thunkk</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>100</MaxDistance>
+      <DistantSound>
+        <!--<DistantSound DistanceCrossfade="50" Distance="500" Sound="AutoCannonFire" />-->
+      </DistantSound>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>3</DynamicMusicAmount>
+      <Volume>1</Volume>
+      <VolumeVariation>0</VolumeVariation>
+      <PitchVariation>100</PitchVariation>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\thunk.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+  </Sounds>
+</Definitions>

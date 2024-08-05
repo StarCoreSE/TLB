@@ -1,0 +1,794 @@
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">      <Size x="1" y="1" z="1" />
+  <CubeBlocks>
+    <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+      <Id>
+        <TypeId>LargeMissileTurret</TypeId>
+        <SubtypeId>Minigun_Large</SubtypeId>
+      </Id>
+      <DisplayName>Minigun</DisplayName>
+      <Icon>Textures\Icons\Turrets\RifleTurret.png</Icon>
+      <Description>A basic turret that uses Minigun ammo. Almost free.</Description>
+      <CubeSize>Large</CubeSize>
+      <GuiVisible>true</GuiVisible>
+      <PlaceDecals>false</PlaceDecals>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+	  <ModelOffset x="0" y="-0.275" z="0" />
+      <Model>Models\Cubes\RifleTurret.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="Motor" Count="6" />
+        <Component Subtype="Computer" Count="6" />
+        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="SteelPlate" Count="101" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GenericTurret_BS1.mwm" />
+        <Model BuildPercentUpperBound="0.67" File="Models\Cubes\GenericTurret_BS2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\GenericTurret_BS3.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0.50" StartY="0.50" EndX="4.50" EndY="4.50" />
+      </MountPoints>
+      <VoxelPlacement>
+        
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>10</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="MinigunWep" />
+      <InventoryMaxVolume>0.3</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-15</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <RotationSpeed>0.001</RotationSpeed>
+      <ElevationSpeed>0.001 </ElevationSpeed>
+      <IdleRotation>false</IdleRotation>
+      <MaxRangeMeters>0</MaxRangeMeters>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>225</PCU>
+    </Definition> 
+    
+    <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+      <Id>
+        <TypeId>LargeGatlingTurret</TypeId>
+        <SubtypeId>Maxigun_Large</SubtypeId>
+      </Id>
+      <DisplayName>Maxigun</DisplayName>
+      <Icon>Textures\Icons\Turrets\RB_CompactTurretGatlingT4.dds</Icon>
+      <Description>An advanced turret that uses Maxigun ammo. BRRT.</Description>
+      <CubeSize>Large</CubeSize>
+      <GuiVisible>true</GuiVisible>
+      <PlaceDecals>false</PlaceDecals>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="-0.5" z="0" />
+      <Model>Models\Cubes\RB_CompactTurretGatlingT4_Small.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="Motor" Count="30" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="SteelPlate" Count="102" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+	  <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GenericTurret_BS1.mwm" />
+        <Model BuildPercentUpperBound="0.67" File="Models\Cubes\GenericTurret_BS2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\GenericTurret_BS3.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0.50" StartY="0.50" EndX="4.50" EndY="4.50" />
+      </MountPoints>
+      <VoxelPlacement>
+        
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>RB_CompactTurretGatlingT4</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>10</BuildTimeSeconds>
+      <IdleRotation>false</IdleRotation>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="MaxigunWep" />
+      <InventoryMaxVolume>0.3</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-15</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <RotationSpeed>0.001</RotationSpeed>
+      <ElevationSpeed>0.001 </ElevationSpeed>
+      <IdleRotation>false</IdleRotation>
+      <MaxRangeMeters>0</MaxRangeMeters>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>225</PCU>
+
+      <GuiVisible>false</GuiVisible>
+
+    </Definition> 
+
+    <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+      <Id>
+        <TypeId>LargeGatlingTurret</TypeId>
+        <SubtypeId>Autocannon_Large</SubtypeId>
+      </Id>
+      <DisplayName>Autocannon</DisplayName>
+      <Icon>Textures\Icons\Turrets\RB_CompactTurretGatlingT1.dds</Icon>
+      <Description>An intermediate turret that uses Autocannon ammo. Decent DPS and long ranged.</Description>
+      <CubeSize>Large</CubeSize>
+      <GuiVisible>true</GuiVisible>
+      <PlaceDecals>false</PlaceDecals>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="-0.5" z="0" />
+      <Model>Models\Cubes\RB_CompactTurretGatlingT1_Small.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="Motor" Count="12" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="SteelPlate" Count="101" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GenericTurret_BS1.mwm" />
+        <Model BuildPercentUpperBound="0.67" File="Models\Cubes\GenericTurret_BS2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\GenericTurret_BS3.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0.50" StartY="0.50" EndX="4.50" EndY="4.50" />
+      </MountPoints>
+      <VoxelPlacement>
+        
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>RB_CompactTurretGatlingT1</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>10</BuildTimeSeconds>
+      <IdleRotation>false</IdleRotation>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="AutocannonWep" />
+      <InventoryMaxVolume>0.4</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-15</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <RotationSpeed>0.001</RotationSpeed>
+      <ElevationSpeed>0.001 </ElevationSpeed>
+      <IdleRotation>false</IdleRotation>
+      <MaxRangeMeters>1000</MaxRangeMeters>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <AiEnabled>false</AiEnabled>
+      <PCU>225</PCU>
+
+    </Definition> 
+
+    <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+      <Id>
+        <TypeId>LargeMissileTurret</TypeId>
+        <SubtypeId>Missile_Large</SubtypeId>
+      </Id>
+      <DisplayName>Missile Launcher</DisplayName>
+      <Icon>Textures\Icons\Turrets\RB_CompactTurretMissile.dds</Icon>
+      <Description>An intermediate turret that uses Missile ammo. Long range, high damage, AOE.</Description>
+      <CubeSize>Large</CubeSize>
+      <GuiVisible>true</GuiVisible>
+      <PlaceDecals>false</PlaceDecals>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="-0.5" z="0" />
+      <Model>Models\Cubes\RB_CompactTurretMissile_Small.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+		  <Component Subtype="MetalGrid" Count="50" />
+		  <Component Subtype="Motor" Count="6" />
+		  <Component Subtype="Computer" Count="10" />
+		  <Component Subtype="MetalGrid" Count="50" />
+		  <Component Subtype="SteelPlate" Count="101" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GenericTurret_BS1.mwm" />
+        <Model BuildPercentUpperBound="0.67" File="Models\Cubes\GenericTurret_BS2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\GenericTurret_BS3.mwm" />
+      </BuildProgressModels>
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0.50" StartY="0.50" EndX="4.50" EndY="4.50" />
+      </MountPoints>
+      <VoxelPlacement>
+        
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>RB_CompactTurretMissile</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>12</BuildTimeSeconds>
+      <IdleRotation>false</IdleRotation>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="MissileWep" />
+      <InventoryMaxVolume>0.24</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-15</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>false</IdleRotation>
+      <MaxRangeMeters>0</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+
+    </Definition> 
+	  
+	  <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+		  <Id>
+			  <TypeId>LargeMissileTurret</TypeId>
+			  <SubtypeId>Railgun_Large</SubtypeId>
+		  </Id>
+		  <DisplayName>Railgun</DisplayName>
+		  <Icon>Textures\Icons\Turrets\RailgunTurret.png</Icon>
+		  <Description>An advanced turret that uses Railgun ammo. Long range, fast projectile speed.</Description>
+		  <CubeSize>Large</CubeSize>
+		  <GuiVisible>false</GuiVisible>
+		  <PlaceDecals>false</PlaceDecals>
+		  <BlockTopology>TriangleMesh</BlockTopology>
+		  <Size x="1" y="1" z="1" />
+		  <ModelOffset x="0" y="-0.275" z="0" />
+		  <Model>Models\Cubes\RailgunTurret.mwm</Model>
+		  <UseModelIntersection>true</UseModelIntersection>
+		  <Components>
+			  <Component Subtype="MetalGrid" Count="50" />
+			  <Component Subtype="Motor" Count="6" />
+			  <Component Subtype="Computer" Count="30" />
+			  <Component Subtype="MetalGrid" Count="50" />
+			  <Component Subtype="SteelPlate" Count="101" />
+		  </Components>
+		  <CriticalComponent Subtype="Computer" Index="0" />
+		  <MountPoints>
+			  <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="5" Default="true" />
+			  <MountPoint Side="Right" StartX="1" StartY="0" EndX="4" EndY="1" />
+			  <MountPoint Side="Back" StartX="1" StartY="0" EndX="4" EndY="1" />
+			  <MountPoint Side="Left" StartX="1" StartY="0" EndX="4" EndY="1" />
+			  <MountPoint Side="Front" StartX="1" StartY="0" EndX="4" EndY="1" />
+		  </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GenericTurret_BS1.mwm" />
+        <Model BuildPercentUpperBound="0.67" File="Models\Cubes\GenericTurret_BS2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\GenericTurret_BS3.mwm" />
+      </BuildProgressModels>
+		  <VoxelPlacement>
+			  
+			  <StaticMode>
+				  <PlacementMode>OutsideVoxel</PlacementMode>
+				  <MaxAllowed>0.2</MaxAllowed>
+				  <MinAllowed>0</MinAllowed>
+			  </StaticMode>
+			  <DynamicMode>
+				  <PlacementMode>OutsideVoxel</PlacementMode>
+				  <MaxAllowed>0.2</MaxAllowed>
+				  <MinAllowed>0.01</MinAllowed>
+			  </DynamicMode>
+		  </VoxelPlacement>
+		  <MirroringY>Z</MirroringY>
+		  <MirroringZ>Y</MirroringZ>
+		  <EdgeType>Light</EdgeType>
+		  <BuildTimeSeconds>12</BuildTimeSeconds>
+		  <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+		  <WeaponDefinitionId Subtype="RailgunWep" />
+		  <InventoryMaxVolume>0.12</InventoryMaxVolume>
+		  <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+		  <DamagedSound>ParticleWeapExpl</DamagedSound>
+		  <ResourceSinkGroup>Defense</ResourceSinkGroup>
+		  <MinElevationDegrees>-8</MinElevationDegrees>
+		  <MaxElevationDegrees>180</MaxElevationDegrees>
+		  <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+		  <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+		  <IdleRotation>true</IdleRotation>
+		  <MaxRangeMeters>0</MaxRangeMeters>
+		  <RotationSpeed>0.002</RotationSpeed>
+		  <ElevationSpeed>0.002 </ElevationSpeed>
+		  <EmissiveColorPreset>Default</EmissiveColorPreset>
+		  <MinFov>0.1</MinFov>
+		  <MaxFov>1.04719755</MaxFov>
+		  <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+		  <DestroySound>WepSmallWarheadExpl</DestroySound>
+		  <PCU>100</PCU>
+		  <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+		  <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+		  <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+		  <TieredUpdateTimes>
+			  <unsignedInt>10</unsignedInt>
+			  <unsignedInt>0</unsignedInt>
+		  </TieredUpdateTimes>
+	  </Definition> 
+
+    <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+      <Id>
+        <TypeId>LargeMissileTurret</TypeId>
+        <SubtypeId>Grenade_Large</SubtypeId>
+      </Id>
+      <DisplayName>Grenade Launcher</DisplayName>
+      <Icon>Textures\Icons\Turrets\GrenadeTurret.png</Icon>
+      <Description>A basic turret that chucks Grenade ammo. Thunk.</Description>
+      <CubeSize>Large</CubeSize>
+      <GuiVisible>false</GuiVisible>
+      <PlaceDecals>false</PlaceDecals>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="-0.275" z="0" />
+      <Model>Models\Cubes\GrenadeLauncher.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+		  <Component Subtype="MetalGrid" Count="50" />
+		  <Component Subtype="Motor" Count="6" />
+		  <Component Subtype="Computer" Count="10" />
+		  <Component Subtype="MetalGrid" Count="50" />
+		  <Component Subtype="SteelPlate" Count="101" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="5" Default="true" />
+        <MountPoint Side="Right" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Back" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Left" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Front" StartX="1" StartY="0" EndX="4" EndY="1" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GenericTurret_BS1.mwm" />
+        <Model BuildPercentUpperBound="0.67" File="Models\Cubes\GenericTurret_BS2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\GenericTurret_BS3.mwm" />
+      </BuildProgressModels>
+      <VoxelPlacement>
+        
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>12</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="GrenadeWep" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>0</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+      <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+      <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+      <TieredUpdateTimes>
+        <unsignedInt>10</unsignedInt>
+        <unsignedInt>0</unsignedInt>
+      </TieredUpdateTimes>
+    </Definition> 
+
+    <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+      <Id>
+        <TypeId>LargeMissileTurret</TypeId>
+        <SubtypeId>CannonTurret_Large</SubtypeId>
+      </Id>
+      <DisplayName>Cannon</DisplayName>
+      <Icon>Textures\Icons\Turrets\CannonTurret.png</Icon>
+      <Description>An advanced turret that shoots Cannon Ammo. Long range, high damage.</Description>
+      <CubeSize>Large</CubeSize>
+      <GuiVisible>true</GuiVisible>
+      <PlaceDecals>false</PlaceDecals>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="-0.275" z="0" />
+      <Model>Models\Cubes\CannonTurret.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+		  <Component Subtype="MetalGrid" Count="50" />
+		  <Component Subtype="Motor" Count="6" />
+		  <Component Subtype="Computer" Count="20" />
+		  <Component Subtype="MetalGrid" Count="50" />
+		  <Component Subtype="SteelPlate" Count="101" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="5" Default="true" />
+        <MountPoint Side="Right" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Back" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Left" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Front" StartX="1" StartY="0" EndX="4" EndY="1" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GenericTurret_BS1.mwm" />
+        <Model BuildPercentUpperBound="0.67" File="Models\Cubes\GenericTurret_BS2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\GenericTurret_BS3.mwm" />
+      </BuildProgressModels>
+      <VoxelPlacement>
+        
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>12</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="CannonWep" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>0</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+      <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+      <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+      <TieredUpdateTimes>
+        <unsignedInt>10</unsignedInt>
+        <unsignedInt>0</unsignedInt>
+      </TieredUpdateTimes>
+    </Definition> 
+
+    <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+      <Id>
+        <TypeId>LargeMissileTurret</TypeId>
+        <SubtypeId>Shotgun_Large</SubtypeId>
+      </Id>
+      <DisplayName>Shotgun</DisplayName>
+      <Icon>Textures\Icons\Turrets\ShotgunTurret.png</Icon>
+      <Description>A basic turret that uses shotgun ammo. Low range, low accuracy, high damage.</Description>
+      <CubeSize>Large</CubeSize>
+      <GuiVisible>false</GuiVisible>
+      <PlaceDecals>false</PlaceDecals>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="-0.275" z="0" />
+      <Model>Models\Cubes\ShotgunTurret.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+		  <Component Subtype="MetalGrid" Count="50" />
+		  <Component Subtype="Motor" Count="6" />
+		  <Component Subtype="Computer" Count="10" />
+		  <Component Subtype="MetalGrid" Count="50" />
+		  <Component Subtype="SteelPlate" Count="101" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="5" Default="true" />
+        <MountPoint Side="Right" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Back" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Left" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Front" StartX="1" StartY="0" EndX="4" EndY="1" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GenericTurret_BS1.mwm" />
+        <Model BuildPercentUpperBound="0.67" File="Models\Cubes\GenericTurret_BS2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\GenericTurret_BS3.mwm" />
+      </BuildProgressModels>
+      <VoxelPlacement>
+        
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>12</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="ShotgunWep" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>0</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+      <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+      <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+      <TieredUpdateTimes>
+        <unsignedInt>10</unsignedInt>
+        <unsignedInt>0</unsignedInt>
+      </TieredUpdateTimes>
+    </Definition> 
+    
+    <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+      <Id>
+        <TypeId>LargeMissileTurret</TypeId>
+        <SubtypeId>Laser_Large</SubtypeId>
+      </Id>
+      <DisplayName>Laser</DisplayName>
+      <Icon>Textures\Icons\Turrets\LaserTurret.png</Icon>
+      <Description>An advanced turret that uses Laser ammo. Hit scan. Pew pew.</Description>
+      <CubeSize>Large</CubeSize>
+      <GuiVisible>false</GuiVisible>
+      <PlaceDecals>false</PlaceDecals>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="-0.275" z="0" />
+      <Model>Models\Cubes\LaserTurret.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+		  <Component Subtype="MetalGrid" Count="50" />
+		  <Component Subtype="Motor" Count="6" />
+		  <Component Subtype="Computer" Count="50" />
+		  <Component Subtype="MetalGrid" Count="50" />
+		  <Component Subtype="SteelPlate" Count="101" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="5" Default="true" />
+        <MountPoint Side="Right" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Back" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Left" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Front" StartX="1" StartY="0" EndX="4" EndY="1" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GenericTurret_BS1.mwm" />
+        <Model BuildPercentUpperBound="0.67" File="Models\Cubes\GenericTurret_BS2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\GenericTurret_BS3.mwm" />
+      </BuildProgressModels>
+      <VoxelPlacement>
+        
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>12</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="LaserWep" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <RequiredPowerInput>10</RequiredPowerInput>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>0</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+      <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+      <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+      <TieredUpdateTimes>
+        <unsignedInt>10</unsignedInt>
+        <unsignedInt>0</unsignedInt>
+      </TieredUpdateTimes>
+    </Definition> 
+
+    <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+      <Id>
+        <TypeId>LargeMissileTurret</TypeId>
+        <SubtypeId>Flamer_Large</SubtypeId>
+      </Id>
+      <DisplayName>Flamer</DisplayName>
+      <Icon>Textures\Icons\Turrets\FlamerTurret.png</Icon>
+      <Description>An intermediate turret that uses Flamer ammo. I can still hear the screams.</Description>
+      <CubeSize>Large</CubeSize>
+      <GuiVisible>false</GuiVisible>
+      <PlaceDecals>false</PlaceDecals>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="-0.275" z="0" />
+      <Model>Models\Cubes\FlamerTurret.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+		  <Component Subtype="MetalGrid" Count="50" />
+		  <Component Subtype="Motor" Count="6" />
+		  <Component Subtype="Computer" Count="10" />
+		  <Component Subtype="MetalGrid" Count="50" />
+		  <Component Subtype="SteelPlate" Count="101" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="5" Default="true" />
+        <MountPoint Side="Right" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Back" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Left" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Front" StartX="1" StartY="0" EndX="4" EndY="1" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\GenericTurret_BS1.mwm" />
+        <Model BuildPercentUpperBound="0.67" File="Models\Cubes\GenericTurret_BS2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\GenericTurret_BS3.mwm" />
+      </BuildProgressModels>
+      <VoxelPlacement>
+        
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>12</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="FlamerWep" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>true</IdleRotation>
+      <MaxRangeMeters>0</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+      <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+      <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+      <TieredUpdateTimes>
+        <unsignedInt>10</unsignedInt>
+        <unsignedInt>0</unsignedInt>
+      </TieredUpdateTimes>
+    </Definition> 
+
+  </CubeBlocks>
+</Definitions>

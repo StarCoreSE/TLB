@@ -1,0 +1,30 @@
+<?xml version="1.0"  encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CategoryClasses>   
+
+        <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+            <Id>
+                <TypeId>GuiBlockCategoryDefinition</TypeId>
+                <SubtypeId/>
+            </Id>
+            <DisplayName>DisplayName_Category_CharacterWeapons</DisplayName>
+            <Name>CharacterWeapons</Name>
+            <SearchBlocks>false</SearchBlocks>
+            <IsToolCategory>true</IsToolCategory>
+            <ItemIds>
+                <string>SemiAutoPistolItem</string>
+                <string>FullAutoPistolItem</string>
+                <string>ElitePistolItem</string>
+                <string>AutomaticRifleItem</string>
+                <string>RapidFireAutomaticRifleItem</string>
+                <string>PreciseAutomaticRifleItem</string>
+                <string>UltimateAutomaticRifleItem</string>
+                <string>BasicHandHeldLauncherItem</string>
+                <string>AdvancedHandHeldLauncherItem</string>
+				
+				<string>BFG_physical_item</string>			
+            </ItemIds>
+        </Category>
+
+  </CategoryClasses>
+</Definitions>
