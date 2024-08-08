@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Weapons>
+      
+		<!-- turrets !!-->
+		<Weapon>
+			<Id>
+				<TypeId>WeaponDefinition</TypeId>
+				<SubtypeId>GrenadeWep</SubtypeId>
+			</Id>
+			<MissileAmmoData RateOfFire="200" ShootSoundName="thumpyhumpyhuffman" FlightSoundName="" ShotsInBurst="4" />
+			<DeviateShotAngle>0.5</DeviateShotAngle>
+			<DeviateShotAngleAiming>0.5</DeviateShotAngleAiming>
+			<MinimumTimeBetweenIdleRotationsMs>7000</MinimumTimeBetweenIdleRotationsMs>
+			<MaximumTimeBetweenIdleRotationsMs>10000</MaximumTimeBetweenIdleRotationsMs>
+			<AmmoMagazines>
+				<AmmoMagazine Subtype="GrenadeMag" />
+			</AmmoMagazines>
+			<ReloadTime>6000</ReloadTime>
+			<Effects>
+				<Effect Action="Shoot" Dummy="muzzle_missile_001" Particle="Muzzle_Flash_Autocannon" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-1.6"/>
+				<Effect Action="Shoot" Dummy="muzzle_missile_001" Particle="Smoke_Autocannon" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-1.6"
+				ParticleBirthStart="1" ParticleBirthMin="1" ParticleBirthMax="2" ParticleBirthDecrease="1" ParticleBirthIncrease="1" />			</Effects>
+		</Weapon> <!--gren-->
+        <Weapon>
+            <Id>
+                <TypeId>WeaponDefinition</TypeId>
+                <SubtypeId>CannonWep</SubtypeId>
+            </Id>
+            <MissileAmmoData RateOfFire="200" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" ShotsInBurst="1" />
+            <DeviateShotAngle>0.5</DeviateShotAngle>
+            <DeviateShotAngleAiming>0.5</DeviateShotAngleAiming>
+            <MinimumTimeBetweenIdleRotationsMs>7000</MinimumTimeBetweenIdleRotationsMs>
+            <MaximumTimeBetweenIdleRotationsMs>10000</MaximumTimeBetweenIdleRotationsMs>
+            <AmmoMagazines>
+                <AmmoMagazine Subtype="CannonMag" />
+            </AmmoMagazines>
+            <ReloadTime>3000</ReloadTime>
+            <Effects>
+                <Effect Action="Shoot" Dummy="muzzle_missile_001" Particle="Muzzle_Flash_MediumCalibre" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0.08" OffsetZ="-2.2" />
+            </Effects>
+        </Weapon> <!--cann-->
+        <Weapon>
+            <Id>
+                <TypeId>WeaponDefinition</TypeId>
+                <SubtypeId>MissileWep</SubtypeId>
+            </Id>
+            <MissileAmmoData RateOfFire="90" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="2" />
+            <DeviateShotAngle>0.5</DeviateShotAngle>
+            <DeviateShotAngleAiming>0.5</DeviateShotAngleAiming>
+            <AmmoMagazines>
+                <AmmoMagazine Subtype="MissileMag" />
+            </AmmoMagazines>
+            <ReloadTime>6000</ReloadTime>
+        </Weapon> <!--miss-->
+        <Weapon>
+            <Id>
+                <TypeId>WeaponDefinition</TypeId>
+                <SubtypeId>MinigunWep</SubtypeId>
+            </Id>
+            <ProjectileAmmoData RateOfFire="700" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="140" />
+            <ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
+            <DeviateShotAngle>0.3</DeviateShotAngle>
+            <DeviateShotAngleAiming>0.3</DeviateShotAngleAiming>
+            <MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan><Effects>
+                <Effect Action="Shoot" Dummy="muzzle_projectile" Particle="Muzzle_Flash_Large" Loop="true" InstantStop="true" OffsetX="0" OffsetY="0" OffsetZ="-0.9"/>
+                <Effect Action="Shoot" Dummy="None" Particle="Smoke_LargeGunShot" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-0.9" 
+				ParticleBirthStart="1" ParticleBirthMin="1" ParticleBirthMax="2" ParticleBirthDecrease="1" ParticleBirthIncrease="1" />
+            </Effects>
+            <AmmoMagazines>
+                <AmmoMagazine Subtype="MinigunMag" />
+            </AmmoMagazines>
+            <ReloadTime>6000</ReloadTime>
+        </Weapon> <!--mini-->
+		<Weapon>
+			<Id>
+				<TypeId>WeaponDefinition</TypeId>
+				<SubtypeId>ShotgunWep</SubtypeId>
+			</Id>
+			<ProjectileAmmoData RateOfFire="300" ShootSoundName="WepMediumCalibreShot" ShotsInBurst="1" />
+			<ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
+			<DeviateShotAngle>1</DeviateShotAngle>
+			<DeviateShotAngleAiming>1</DeviateShotAngleAiming>
+			<MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan>
+			<Effects>
+				<Effect Action="Shoot" Dummy="muzzle_missile_001" Particle="Muzzle_Flash_Autocannon" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-1.6"/>
+				<Effect Action="Shoot" Dummy="muzzle_missile_001" Particle="Smoke_Autocannon" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-1.6"
+				ParticleBirthStart="1" ParticleBirthMin="1" ParticleBirthMax="2" ParticleBirthDecrease="1" ParticleBirthIncrease="1" />
+			</Effects>
+			<AmmoMagazines>
+				<AmmoMagazine Subtype="ShotgunMag" />
+			</AmmoMagazines>
+			<ReloadTime>1000</ReloadTime>
+		</Weapon> <!--shot-->
+		<Weapon>
+			<Id>
+				<TypeId>WeaponDefinition</TypeId>
+				<SubtypeId>MaxigunWep</SubtypeId>
+			</Id>
+			<ProjectileAmmoData RateOfFire="3000" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="140" />
+			<ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
+			<DeviateShotAngle>0.3</DeviateShotAngle>
+			<DeviateShotAngleAiming>0.3</DeviateShotAngleAiming>
+			<MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan>
+			<Effects>
+				<Effect Action="Shoot" Dummy="None" Particle="Muzzle_Flash_Large" Loop="true" InstantStop="true" OffsetX="0" OffsetY="0" OffsetZ="-3"/>
+				<Effect Action="Shoot" Dummy="None" Particle="Smoke_LargeGunShot" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-3"
+				ParticleBirthStart="1" ParticleBirthMin="1" ParticleBirthMax="2" ParticleBirthDecrease="1" ParticleBirthIncrease="1" />
+			</Effects>
+			<AmmoMagazines>
+				<AmmoMagazine Subtype="MaxigunMag" />
+			</AmmoMagazines>
+			<ReloadTime>6000</ReloadTime>
+		</Weapon> <!--maxi-->
+		<Weapon>
+			<Id>
+				<TypeId>WeaponDefinition</TypeId>
+				<SubtypeId>FlamerWep</SubtypeId>
+			</Id>
+			<MissileAmmoData RateOfFire="2000" ShootSoundName="WepPlayFlamethrowerShot" FlightSoundName="" ShotsInBurst="50" />
+			<!--<ProjectileAmmoData RateOfFire="2000" ShootSoundName="WepPlayFlamethrowerShot" ShotsInBurst="140" />-->
+			<ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
+			<DeviateShotAngle>0.3</DeviateShotAngle>
+			<DeviateShotAngleAiming>0.3</DeviateShotAngleAiming>
+			<MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan>
+			<Effects>
+				<Effect Action="Shoot" Dummy="muzzle_projectile" Particle="Muzzle_Flash_Large" Loop="true" InstantStop="true" OffsetX="0" OffsetY="0" OffsetZ="-0.9"/>
+				<Effect Action="Shoot" Dummy="None" Particle="Smoke_LargeGunShot" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-0.9"
+				ParticleBirthStart="1" ParticleBirthMin="1" ParticleBirthMax="2" ParticleBirthDecrease="1" ParticleBirthIncrease="1" />
+			</Effects>
+			<AmmoMagazines>
+				<AmmoMagazine Subtype="FlamerMag" />
+			</AmmoMagazines>
+			<ReloadTime>6000</ReloadTime>
+		</Weapon> <!--flam-->
+        <Weapon>
+            <Id>
+                <TypeId>WeaponDefinition</TypeId>
+                <SubtypeId>RailgunWep</SubtypeId>
+            </Id>
+            <MissileAmmoData RateOfFire="5" ShootSoundName="WepRailgunSmallShot" PreShotSoundName="WepRailgunSmallCharge" FlightSoundName="MediumShellFlightSound" ShotsInBurst="1" />
+            <DeviateShotAngle>0</DeviateShotAngle>
+            <ShotDelay>500</ShotDelay>
+            <DeviateShotAngleAiming>0</DeviateShotAngleAiming>
+            <NoAmmoSoundName>WepShipRailgunNoAmmo</NoAmmoSoundName>
+            <AmmoMagazines>
+                <AmmoMagazine Subtype="RailgunMag" />
+            </AmmoMagazines>
+            <ReloadTime>4000</ReloadTime>
+            <Effects>
+                <Effect Action="BeforeShoot" Dummy="barrel_001" Particle="Muzzle_Flash_RailgunSmall" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0.1" OffsetZ="-1.8"/>
+            </Effects>
+        </Weapon> <!--rail-->
+        <Weapon>
+            <Id>
+                <TypeId>WeaponDefinition</TypeId>
+                <SubtypeId>AutocannonWep</SubtypeId>
+            </Id>
+            <ProjectileAmmoData RateOfFire="150" ShootSoundName="WepShipAutocannonShot" ShotsInBurst="16" />
+            <ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
+            <DeviateShotAngle>0.25</DeviateShotAngle>
+            <DeviateShotAngleAiming>0.25</DeviateShotAngleAiming>
+            <MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan>
+            <NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
+            <SecondarySoundName></SecondarySoundName>
+            <Effects>
+                <Effect Action="Shoot" Dummy="muzzle_projectile" Particle="Muzzle_Flash_Autocannon" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-1.6"/>
+                <Effect Action="Shoot" Dummy="None" Particle="Smoke_Autocannon" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-1.6"
+				ParticleBirthStart="1" ParticleBirthMin="1" ParticleBirthMax="2" ParticleBirthDecrease="1" ParticleBirthIncrease="1" />
+            </Effects>
+            <AmmoMagazines>
+                <AmmoMagazine Subtype="AutocannonMag" />
+            </AmmoMagazines>
+            <ReloadTime>4000</ReloadTime>
+        </Weapon> <!--auto-->
+		<Weapon>
+			<Id>
+				<TypeId>WeaponDefinition</TypeId>
+				<SubtypeId>LaserWep</SubtypeId>
+			</Id>
+			<ProjectileAmmoData RateOfFire="100" ShootSoundName="" ShotsInBurst="1" />
+			<ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
+			<DeviateShotAngle>20</DeviateShotAngle>
+			<MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan>
+			<NoAmmoSoundName>WepShipRailgunNoAmmo</NoAmmoSoundName>
+			<AmmoMagazines>
+				<AmmoMagazine Subtype="LaserMag" />
+			</AmmoMagazines>
+			<ReloadTime>4500</ReloadTime>
+		</Weapon> <!--lase-->
+  
+    </Weapons>
+</Definitions>
