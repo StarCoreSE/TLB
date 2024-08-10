@@ -11,7 +11,7 @@
     <GuiVisible>true</GuiVisible>
     <PlaceDecals>false</PlaceDecals>
     <BlockTopology>TriangleMesh</BlockTopology>
-    <Size x="5" y="3" z="5" />
+    <Size x="3" y="3" z="3" />
     <ModelOffset x="0" y="0" z="0" />
     <Model>Models\Cubes\RifleTurret.mwm</Model>
     <UseModelIntersection>true</UseModelIntersection>
@@ -32,7 +32,7 @@
       <MountPoint Side="Bottom" StartX="0.50" StartY="0.50" EndX="4.50" EndY="4.50" />
     </MountPoints>
     <VoxelPlacement>
-
+      <BlockPairName>MinigunTurret</BlockPairName>
       <StaticMode>
         <PlacementMode>OutsideVoxel</PlacementMode>
         <MaxAllowed>0.2</MaxAllowed>

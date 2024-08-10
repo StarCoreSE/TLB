@@ -32,7 +32,7 @@
       <MountPoint Side="Bottom" StartX="0.50" StartY="0.50" EndX="4.50" EndY="4.50" />
     </MountPoints>
     <VoxelPlacement>
-
+      <BlockPairName>MinigunTurret</BlockPairName>
       <StaticMode>
         <PlacementMode>OutsideVoxel</PlacementMode>
         <MaxAllowed>0.2</MaxAllowed>
