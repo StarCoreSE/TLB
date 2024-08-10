@@ -173,21 +173,6 @@
             </AmmoMagazines>
             <ReloadTime>4000</ReloadTime>
         </Weapon> <!--auto-->
-		<Weapon>
-			<Id>
-				<TypeId>WeaponDefinition</TypeId>
-				<SubtypeId>LaserWep</SubtypeId>
-			</Id>
-			<ProjectileAmmoData RateOfFire="100" ShootSoundName="" ShotsInBurst="1" />
-			<ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
-			<DeviateShotAngle>20</DeviateShotAngle>
-			<MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan>
-			<NoAmmoSoundName>WepShipRailgunNoAmmo</NoAmmoSoundName>
-			<AmmoMagazines>
-				<AmmoMagazine Subtype="LaserMag" />
-			</AmmoMagazines>
-			<ReloadTime>4500</ReloadTime>
-		</Weapon> <!--lase-->
   
     </Weapons>
 </Definitions>

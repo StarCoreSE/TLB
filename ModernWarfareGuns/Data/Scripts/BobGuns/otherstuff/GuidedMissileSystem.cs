@@ -46,6 +46,18 @@ namespace Cython.GuidedMissiles
 
 
             #region Vector Math Functions
+
+            private double VectorAngleBetween(Vector3D a, Vector3D b)
+            { //returns radians
+              //Law of cosines to return the angle between two vectors.
+
+                if (a.LengthSquared() == 0 || b.LengthSquared() == 0)
+                    return 0;
+                else
+                    return Math.Acos(MathHelper.Clamp(a.Dot(b) / a.Length() / b.Length(), -1, 1));
+            }
+
+
             public static class VectorMath
             {
                 public static Vector3D SafeNormalize(Vector3D a)
@@ -153,15 +165,6 @@ namespace Cython.GuidedMissiles
                 UpdateVelocity();
             }
 
-            private double VectorAngleBetween(Vector3D a, Vector3D b)
-            { //returns radians
-              //Law of cosines to return the angle between two vectors.
-
-                if (a.LengthSquared() == 0 || b.LengthSquared() == 0)
-                    return 0;
-                else
-                    return Math.Acos(MathHelper.Clamp(a.Dot(b) / a.Length() / b.Length(), -1, 1));
-            }
 
             public Vector3 GetTargetPrediction()
             {
@@ -362,7 +365,7 @@ namespace Cython.GuidedMissiles
                 return;
             }
 
-            if (!IsMissile(missile))
+            if (!IsHoming(missile))
                 return;
 
             IMyEntity target = null;
@@ -439,10 +442,10 @@ namespace Cython.GuidedMissiles
             return false;
         }
 
-        private bool IsMissile(IMyMissile missile)
+        private bool IsHoming(IMyMissile missile)
         {
             //MyAPIGateway.Utilities.ShowNotification($"ismissile : {missile.AmmoDefinition.Id.SubtypeName} : {missile.AmmoDefinition.Id.SubtypeName.Contains("Missile")}");
-            if (missile.AmmoDefinition.Id.SubtypeName.Contains("Missile"))
+            if (missile.AmmoDefinition.Id.SubtypeName.Contains("Homing"))
                 return true;
 
             return false;
