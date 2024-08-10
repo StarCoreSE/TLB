@@ -52,7 +52,7 @@
       <BuildTimeSeconds>12</BuildTimeSeconds>
       <IdleRotation>false</IdleRotation>
       <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
-      <WeaponDefinitionId Subtype="MissileWep" />
+      <WeaponDefinitionId Subtype="BeamRiderMissileWep" />
       <InventoryMaxVolume>0.24</InventoryMaxVolume>
       <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
       <DamagedSound>ParticleWeapExpl</DamagedSound>
