@@ -290,6 +290,10 @@ namespace Cython.GuidedMissiles
                 float speed = Math.Min(ammo.MissileInitialSpeed + ammo.MissileAcceleration * time, ammo.DesiredSpeed);
                 velocity = direction * speed;
 
+                // yuck
+                if(isBeamRider && ammo.MissileGravityEnabled)
+                    velocity = missile.Physics.LinearVelocity * 0.25f + direction * (missile.Physics.LinearVelocity.Length() * 0.75f + ammo.MissileAcceleration * 0.01667f) + missile.Physics.Gravity * 0.01667f * 0.5f;
+
                 if (missile.Physics != null)
                     missile.Physics.LinearVelocity = velocity;
             }
