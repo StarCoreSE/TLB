@@ -192,11 +192,11 @@ namespace MODERN_WARFARE_GUNS
 
                         double distsq = (ammoRack.GetPosition() - GetExtentOfBlockWorld(block, false)).LengthSquared();
 
-                        Vector4 red = Color.Red.ToVector4();
-                        Vector4 blu = Color.Blue.ToVector4();
+                        //Vector4 red = Color.Red.ToVector4();
+                        //Vector4 blu = Color.Blue.ToVector4();
 
-                        MySimpleObjectDraw.DrawLine(ammoRack.GetPosition(), GetExtentOfBlockWorld(block, false), VRage.Utils.MyStringId.GetOrCompute("Square"), ref red, 0.1f);
-                        MySimpleObjectDraw.DrawLine(GetExtentOfBlockWorld(block, true), GetExtentOfBlockWorld(block, false), VRage.Utils.MyStringId.GetOrCompute("Square"), ref blu, 0.1f);
+                        //MySimpleObjectDraw.DrawLine(ammoRack.GetPosition(), GetExtentOfBlockWorld(block, false), VRage.Utils.MyStringId.GetOrCompute("Square"), ref red, 0.1f);
+                        //MySimpleObjectDraw.DrawLine(GetExtentOfBlockWorld(block, true), GetExtentOfBlockWorld(block, false), VRage.Utils.MyStringId.GetOrCompute("Square"), ref blu, 0.1f);
 
                         //MyAPIGateway.Utilities.ShowNotification($"distsq {distsq}", 16);
 
