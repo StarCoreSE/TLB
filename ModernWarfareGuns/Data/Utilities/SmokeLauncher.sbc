@@ -1,36 +1,36 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<CubeBlocks>
+  <CubeBlocks>
     <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
       <Id>
-        <TypeId>LargeMissileTurret</TypeId>
-        <SubtypeId>BombardLauncher</SubtypeId>
+        <TypeId>SmallMissileLauncher</TypeId>
+        <SubtypeId>TLBSmallSmokeLauncher</SubtypeId>
       </Id>
-      <DisplayName>Bombard</DisplayName>
-      <Icon>Textures\Icons\Turrets\GrenadeTurret.png</Icon>
-      <Description>A basic turret that chucks Grenade ammo. Thunk.</Description>
+      <DisplayName>Small Smoke Launcher</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\FlareLauncherSmall.dds</Icon>
+      <Description>smoke</Description>
       <CubeSize>Small</CubeSize>
       <GuiVisible>false</GuiVisible>
       <PlaceDecals>false</PlaceDecals>
       <BlockTopology>TriangleMesh</BlockTopology>
-      <Size x="3" y="3" z="7" />
+      <Size x="1" y="1" z="1" />
       <ModelOffset x="0" y="0" z="0" />
-      <Model>Models\Cubes\GuidedBombBayLauncher.mwm</Model>
+      <Model>Models\Cubes\Small\FlareLauncher.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
-        <Component Subtype="MetalGrid" Count="50" />
-        <Component Subtype="Motor" Count="6" />
-        <Component Subtype="Computer" Count="10" />
-        <Component Subtype="MetalGrid" Count="50" />
-        <Component Subtype="SteelPlate" Count="101" />
+        <Component Subtype="SteelPlate" Count="1" />
+        <Component Subtype="Construction" Count="1" />
+        <Component Subtype="LargeTube" Count="3" />
+        <Component Subtype="Computer" Count="1" />
+        <Component Subtype="SteelPlate" Count="1" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <MountPoints>
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="5" Default="true" />
-        <MountPoint Side="Right" StartX="1" StartY="0" EndX="4" EndY="1" />
-        <MountPoint Side="Back" StartX="1" StartY="0" EndX="4" EndY="1" />
-        <MountPoint Side="Left" StartX="1" StartY="0" EndX="4" EndY="1" />
-        <MountPoint Side="Front" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.1" StartY="0.5" EndX="0.9" EndY="1.0" />
+        <MountPoint Side="Top" StartX="0.1" StartY="0" EndX="0.9" EndY="0.5" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+        <MountPoint Side="Right" StartX="0" StartY="0.1" EndX="0.5" EndY="0.9" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0.1" EndX="1.0" EndY="0.9" />
       </MountPoints>
       <BuildProgressModels>
       </BuildProgressModels>
@@ -51,7 +51,7 @@
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>12</BuildTimeSeconds>
       <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
-      <WeaponDefinitionId Subtype="BombardWep" />
+      <WeaponDefinitionId Subtype="TLBSmokeWep" />
       <InventoryMaxVolume>0.12</InventoryMaxVolume>
       <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
       <DamagedSound>ParticleWeapExpl</DamagedSound>
@@ -78,79 +78,82 @@
         <unsignedInt>0</unsignedInt>
       </TieredUpdateTimes>
     </Definition>
-	</CubeBlocks>
-    <Weapons>
-	<Weapon>
-		<Id>
-			<TypeId>WeaponDefinition</TypeId>
-			<SubtypeId>BombardWep</SubtypeId>
-		</Id>
-		<MissileAmmoData RateOfFire="300" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="4" />
-		<DeviateShotAngle>2.0</DeviateShotAngle>
-		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
-		<AmmoMagazines>
-			<AmmoMagazine Subtype="BombardMag" />
-		</AmmoMagazines>
-		<ReloadTime>10000</ReloadTime>
-	</Weapon> <!--gren-->
-	</Weapons>
-	<AmmoMagazines>
-	<AmmoMagazine>
-	<Id>
-		<TypeId>AmmoMagazine</TypeId>
-		<SubtypeId>BombardMag</SubtypeId>
-	</Id>
-	<DisplayName>Ammo Bombard</DisplayName>
-	<Icon>Textures\Icons\Magazines\GrenadeCrate.png</Icon>
-	<Size>
-		<X>0.25</X>
-		<Y>0.2</Y>
-		<Z>0.2</Z>
-	</Size><Health>999999</Health>
-	<Mass>60</Mass>
-	<Volume>30</Volume>
-	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
-	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>3</Capacity>
-	<AmmoDefinitionId Subtype="BombardAmmo_BeamRider" />
+  </CubeBlocks>
+  <Weapons>
+    <Weapon>
+      <Id>
+        <TypeId>WeaponDefinition</TypeId>
+        <SubtypeId>TLBSmokeWep</SubtypeId>
+      </Id>
+      <MissileAmmoData RateOfFire="300" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="4" />
+      <DeviateShotAngle>2.0</DeviateShotAngle>
+      <DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
+      <AmmoMagazines>
+        <AmmoMagazine Subtype="TLBSmokeMag" />
+      </AmmoMagazines>
+      <ReloadTime>10000</ReloadTime>
+    </Weapon>
+    <!--Smoke-->
+  </Weapons>
+  <AmmoMagazines>
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>TLBSmokeMag</SubtypeId>
+      </Id>
+      <DisplayName>Ammo Smoke</DisplayName>
+      <Icon>Textures\Icons\Magazines\GrenadeCrate.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+      <Health>999999</Health>
+      <Mass>60</Mass>
+      <Volume>30</Volume>
+      <Model>Models\Magazines\GrenadeCrate.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>3</Capacity>
+      <AmmoDefinitionId Subtype="TLBSmokeAmmo" />
 
-	<MinimumOfferAmount>100</MinimumOfferAmount>
-	<MaximumOfferAmount>1000</MaximumOfferAmount>
-	<MinimumOrderAmount>100</MinimumOrderAmount>
-	<MaximumOrderAmount>2000</MaximumOrderAmount>
-	<CanPlayerOrder>true</CanPlayerOrder>
-	</AmmoMagazine> <!--gren-->
-	</AmmoMagazines>
-	<Ammos>
-	<Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
-		<Id>
-			<TypeId>AmmoDefinition</TypeId>
-			<SubtypeId>BombardAmmo_BeamRider</SubtypeId>
-		</Id>
-		<BasicProperties>
-			<DesiredSpeed>10000</DesiredSpeed>
-			<SpeedVariance>0</SpeedVariance>
-			<MaxTrajectory>5000</MaxTrajectory>
-			<IsExplosive>true</IsExplosive>
-			<BackkickForce>1</BackkickForce>
-			<PhysicalMaterial>MediumShell</PhysicalMaterial>
-			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
-		</BasicProperties>
-		<MissileProperties>
-			<MissileMass>300</MissileMass>
-			<MissileExplosionRadius>3</MissileExplosionRadius>
-			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
-			<MissileAcceleration>0</MissileAcceleration>
-			<MissileInitialSpeed>10</MissileInitialSpeed>
-			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>500</MissileExplosionDamage>
-			<MissileHealthPool>500</MissileHealthPool>
-			<MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
-			<MissileGravityEnabled>true</MissileGravityEnabled>
-			<MissileRicochetAngle>30</MissileRicochetAngle>
-			<MissileRicochetDamage>2000</MissileRicochetDamage>
-			<MissileRicochetProbability>0</MissileRicochetProbability>
-		</MissileProperties>
-	</Ammo>
-	</Ammos>
+      <MinimumOfferAmount>100</MinimumOfferAmount>
+      <MaximumOfferAmount>1000</MaximumOfferAmount>
+      <MinimumOrderAmount>100</MinimumOrderAmount>
+      <MaximumOrderAmount>2000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </AmmoMagazine>
+    <!--gren-->
+  </AmmoMagazines>
+  <Ammos>
+    <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>TLBSmokeAmmo</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>10000</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>5000</MaxTrajectory>
+        <IsExplosive>true</IsExplosive>
+        <BackkickForce>1</BackkickForce>
+        <PhysicalMaterial>MediumShell</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <MissileProperties>
+        <MissileMass>300</MissileMass>
+        <MissileExplosionRadius>3</MissileExplosionRadius>
+        <MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
+        <MissileAcceleration>0</MissileAcceleration>
+        <MissileInitialSpeed>10</MissileInitialSpeed>
+        <MissileSkipAcceleration>false</MissileSkipAcceleration>
+        <MissileExplosionDamage>500</MissileExplosionDamage>
+        <MissileHealthPool>500</MissileHealthPool>
+        <MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
+        <MissileGravityEnabled>true</MissileGravityEnabled>
+        <MissileRicochetAngle>30</MissileRicochetAngle>
+        <MissileRicochetDamage>2000</MissileRicochetDamage>
+        <MissileRicochetProbability>0</MissileRicochetProbability>
+      </MissileProperties>
+    </Ammo>
+  </Ammos>
 </Definitions>
