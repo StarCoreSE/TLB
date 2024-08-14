@@ -85,13 +85,13 @@
         <TypeId>WeaponDefinition</TypeId>
         <SubtypeId>TLBSmokeWep</SubtypeId>
       </Id>
-      <MissileAmmoData RateOfFire="300" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="4" />
+      <MissileAmmoData RateOfFire="300" ShootSoundName="thunkk" FlightSoundName="MissileFlightSound" ShotsInBurst="3" />
       <DeviateShotAngle>2.0</DeviateShotAngle>
       <DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
       <AmmoMagazines>
         <AmmoMagazine Subtype="TLBSmokeMag" />
       </AmmoMagazines>
-      <ReloadTime>10000</ReloadTime>
+      <ReloadTime>60000</ReloadTime>
     </Weapon>
     <!--Smoke-->
   </Weapons>
@@ -131,28 +131,34 @@
         <SubtypeId>TLBSmokeAmmo</SubtypeId>
       </Id>
       <BasicProperties>
-        <DesiredSpeed>10000</DesiredSpeed>
+        <DesiredSpeed>35</DesiredSpeed>
         <SpeedVariance>0</SpeedVariance>
-        <MaxTrajectory>5000</MaxTrajectory>
+        <MaxTrajectory>5</MaxTrajectory>
         <IsExplosive>true</IsExplosive>
-        <BackkickForce>1</BackkickForce>
-        <PhysicalMaterial>MediumShell</PhysicalMaterial>
-        <ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+        <BackkickForce>0</BackkickForce>
+        <PhysicalMaterial>FireworksRainbow</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>0.1</ExplosiveDamageMultiplier>
+        <EndOfLifeSound>WepFireworkExplosion</EndOfLifeSound>
+        <EndOfLifeEffect>TLB_SmokeParticle</EndOfLifeEffect>
+        <DeathMessage>CauseOfDeath_LightWeapons</DeathMessage>
       </BasicProperties>
       <MissileProperties>
-        <MissileMass>300</MissileMass>
+        <MissileMass>1</MissileMass>
         <MissileExplosionRadius>3</MissileExplosionRadius>
-        <MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
+        <MissileModelName>Models\Weapons\FlareAmmo.mwm</MissileModelName>
         <MissileAcceleration>0</MissileAcceleration>
-        <MissileInitialSpeed>10</MissileInitialSpeed>
+        <MissileInitialSpeed>30</MissileInitialSpeed>
         <MissileSkipAcceleration>false</MissileSkipAcceleration>
-        <MissileExplosionDamage>500</MissileExplosionDamage>
-        <MissileHealthPool>500</MissileHealthPool>
-        <MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
+        <MissileExplosionDamage>0</MissileExplosionDamage>
+        <MissileHealthPool>3</MissileHealthPool>
+        <MissileTrailEffect>Smoke_Firework</MissileTrailEffect>
         <MissileGravityEnabled>true</MissileGravityEnabled>
-        <MissileRicochetAngle>30</MissileRicochetAngle>
-        <MissileRicochetDamage>2000</MissileRicochetDamage>
-        <MissileRicochetProbability>0</MissileRicochetProbability>
+        <MissileMinRicochetAngle>0</MissileMinRicochetAngle>
+        <MissileMaxRicochetAngle>80</MissileMaxRicochetAngle>
+        <MissileMinRicochetProbability>0.5</MissileMinRicochetProbability>
+        <MissileMaxRicochetProbability>1</MissileMaxRicochetProbability>
+        <MissileRicochetDamage>1</MissileRicochetDamage>
+        <ExplosionFlags>AFFECT_VOXELS APPLY_FORCE_AND_DAMAGE CREATE_DECALS CREATE_SHRAPNELS APPLY_DEFORMATION FORCE_CUSTOM_END_OF_LIFE_EFFECT</ExplosionFlags>
       </MissileProperties>
     </Ammo>
   </Ammos>
