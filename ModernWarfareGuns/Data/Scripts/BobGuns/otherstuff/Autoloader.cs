@@ -136,7 +136,7 @@ namespace MODERN_WARFARE_GUNS
             Vector3I span = block.SlimBlock.Max - block.SlimBlock.Min;
 
             float blockSize = block.CubeGrid.GridSize * (float)Math.Max(Math.Abs(span.X), Math.Max(Math.Abs(span.Y), Math.Abs(span.Z))) * 0.5f;
-            MyAPIGateway.Utilities.ShowNotification($"bz {blockSize}", 16);
+            // MyAPIGateway.Utilities.ShowNotification($"bz {blockSize}", 16);
 
             if (front)
                 return block.GetPosition() + (block.WorldMatrix.Forward * blockSize);
