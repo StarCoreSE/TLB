@@ -1,0 +1,145 @@
+<?xml version="1.0" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+		<Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
+			<Id>
+				<TypeId>MotorSuspension</TypeId>
+				<SubtypeId>SmallSuspensionFat</SubtypeId>
+			</Id>
+			<DisplayName>Fat Wheel Suspension</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\WheelSuspension3x3Right.dds</Icon>
+			<Description>Description_Suspension</Description>
+			<CubeSize>Small</CubeSize>
+			<Public>true</Public>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\small\FatSuspension.mwm</Model>
+			<UseModelIntersection>true</UseModelIntersection>
+			<SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
+			<DeformationRatio>0.1</DeformationRatio>
+			<UsesDeformation>false</UsesDeformation>
+			<Components>
+				<Component Subtype="SteelPlate" Count="5" />
+				<Component Subtype="Construction" Count="7" />
+				<Component Subtype="SmallTube" Count="2" />
+				<Component Subtype="Motor" Count="1" />
+				<Component Subtype="SteelPlate" Count="3" />
+			</Components>
+			<CriticalComponent Subtype="Motor" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Left" StartX="0.25" StartY="0" EndX="0.75" EndY="0.83" />
+				<MountPoint Side="Right" StartX="0.25" StartY="0" EndX="0.75" EndY="0.83" />
+				<MountPoint Side="Front" StartX="0.25" StartY="0" EndX="0.75" EndY="0.83" />
+				<MountPoint Side="Back" StartX="0.25" StartY="0" EndX="0.75" EndY="0.83" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Small\MotorSuspensionConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="1" File="Models\Cubes\Small\MotorSuspensionConstruction_2.mwm" />
+			</BuildProgressModels>
+			<VoxelPlacement>
+				<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+				<StaticMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</StaticMode>
+				<DynamicMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0.01</MinAllowed>
+				</DynamicMode>
+			</VoxelPlacement>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<PrimarySound>BlockWheel3x3</PrimarySound>
+			<ResourceSinkGroup>Utility</ResourceSinkGroup>
+			<RequiredPowerInput>0.2</RequiredPowerInput>
+			<RequiredIdlePowerInput>0.002</RequiredIdlePowerInput>
+			<MaxForceMagnitude>1E9</MaxForceMagnitude>
+			<DangerousTorqueThreshold>3.36E+07</DangerousTorqueThreshold>
+			<RotorPart>FatWheel</RotorPart>
+			<PropulsionForce>1920</PropulsionForce>
+			<MinHeight>-0.32</MinHeight>
+			<MaxHeight>0.26</MaxHeight>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<SafetyDetach>5</SafetyDetach>
+			<SafetyDetachMax>5</SafetyDetachMax>
+			<AxleFriction>20000</AxleFriction>
+			<SteeringSpeed>0.015</SteeringSpeed>
+			<AirShockMinSpeed>10</AirShockMinSpeed>
+			<AirShockMaxSpeed>25</AirShockMaxSpeed>
+			<AirShockActivationDelay>60</AirShockActivationDelay>
+			<DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+			<PCU>50</PCU>
+			<TargetingGroups>
+				<string>Propulsion</string>
+			</TargetingGroups>
+		</Definition>
+		<Definition>
+			<Id>
+				<TypeId>Wheel</TypeId>
+				<SubtypeId>FatWheel</SubtypeId>
+			</Id>
+			<Public>true</Public>
+			<DisplayName>Fat Wheel</DisplayName>
+			<Icon>Textures\GUI\Icons\AstronautBackpack.dds</Icon>
+			<Description>Description_Wheel</Description>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\small\FatWheel.mwm</Model>
+			<UseModelIntersection>true</UseModelIntersection>
+			<PhysicalMaterial>Wheel</PhysicalMaterial>
+			<Components>
+				<Component Subtype="SteelPlate" Count="3" />
+				<Component Subtype="Construction" Count="15" />
+				<Component Subtype="LargeTube" Count="3" />
+				<Component Subtype="SteelPlate" Count="5" />
+			</Components>
+			<CriticalComponent Subtype="LargeTube" Index="0" />
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Small\WheelSuspension3x3Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1" File="Models\Cubes\Small\WheelSuspension3x3Construction_2.mwm" />
+			</BuildProgressModels>
+			<VoxelPlacement>
+				<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+				<StaticMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</StaticMode>
+				<DynamicMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0.01</MinAllowed>
+				</DynamicMode>
+			</VoxelPlacement>
+			<MountPoints>
+			<BlockPairName>FatWheel</BlockPairName>
+			</MountPoints>
+			<UsesDeformation>false</UsesDeformation>
+			<DeformationRatio>0.3</DeformationRatio>
+			<EdgeType>Light</EdgeType>
+			<Public>true</Public>
+			<BuildTimeSeconds>15</BuildTimeSeconds>
+			<InventorySize>
+				<X>2.5</X>
+				<Y>2.5</Y>
+				<Z>2.5</Z>
+			</InventorySize>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<DestroyEffect>BlockDestroyed_Small</DestroyEffect>
+			<DestroySound>PoofExplosionCat1</DestroySound>
+			<PCU>25</PCU>
+			<IsAirTight>false</IsAirTight>
+		</Definition>
+	</CubeBlocks>
+</Definitions>

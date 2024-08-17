@@ -51,7 +51,7 @@ namespace Shrapnel
                 if (slim.BlockDefinition.Id.SubtypeName.Contains("AmmoRack"))
                 {
                     CreateExplosion(slim.FatBlock.GetPosition(), 1500f, 1f);
-                    info.Amount = 0;
+                    info.Amount = slim.Integrity;
                 }
 
 
@@ -74,11 +74,15 @@ namespace Shrapnel
                 CreateExplosion(slim.FatBlock.GetPosition() + slim.FatBlock.WorldMatrix.Up, 1000f, 0.5f);
                 info.Amount = slim.Integrity;
             }
+            else if(slim.BlockDefinition.Id.SubtypeName.Contains("Heavy"))
+            {
+                info.Amount = (float)Math.Max(info.Amount - 200f * slim.Integrity / slim.MaxIntegrity, 0f);
+            }
 
             if (slim.IsFullIntegrity)
             {
                 // heavy armor and ceramic at full hp takes less small arms damage
-                if ((slim.BlockDefinition.Id.SubtypeName.Contains("Heavy") || slim.BlockDefinition.Id.SubtypeName.Contains("Ceramic")) && info.Amount < slim.Integrity * 0.75f)
+                if (slim.BlockDefinition.Id.SubtypeName.Contains("Ceramic") && info.Amount < slim.Integrity * 0.75f)
                 {
                     info.Amount = (float)Math.Max(info.Amount - 400f, 0f);
                 }
@@ -86,8 +90,7 @@ namespace Shrapnel
             // compromised ceramic, but will not shrapnel
             else if (slim.BlockDefinition.Id.SubtypeName.Contains("Ceramic"))
             {
-                float invertedRatio = 1f - slim.DamageRatio;
-                info.Amount = (float)Math.Max(info.Amount / invertedRatio, slim.Integrity);
+                info.Amount = (float)Math.Max(info.Amount * slim.MaxIntegrity / slim.Integrity, slim.Integrity);
             }
         }
 
