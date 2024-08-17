@@ -19,7 +19,7 @@
       <Loopable>false</Loopable>
       <Waves>
         <Wave Type="D3">
-          <Start>Audio\bomb_separate.xwm</Start>
+          <Start>Audio\bomb_separate.wav</Start>
         </Wave>
       </Waves>
     </Sound>
@@ -41,7 +41,7 @@
       <Loopable>true</Loopable>
       <Waves>
         <Wave Type="D3">
-          <Start>Audio\bomb_whistle.xwm</Start>
+          <Start>Audio\bomb_whistle.wav</Start>
         </Wave>
       </Waves>
     </Sound>
@@ -63,7 +63,7 @@
       <Loopable>true</Loopable>
       <Waves>
         <Wave Type="D3">
-          <Start>Audio\bomb_whistle.xwm</Start>
+          <Start>Audio\bomb_whistle.wav</Start>
         </Wave>
       </Waves>
     </Sound>

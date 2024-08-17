@@ -53,6 +53,58 @@
       <CanPlayerOrder>true</CanPlayerOrder>
     </AmmoMagazine>
 
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>LargeBombMag</SubtypeId>
+      </Id>
+      <DisplayName>Ammo Bomb Large</DisplayName>
+      <Icon>Textures\Icons\LargeBomb.png</Icon>
+      <Size>
+        <X>1.2</X>
+        <Y>0.3</Y>
+        <Z>0.3</Z>
+      </Size>
+      <Mass>0</Mass>
+      <Volume>0</Volume>
+      <Model>Models\Ammo\LargeBomb.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="LargeBomb" />
+
+      <MinimumOfferAmount>50</MinimumOfferAmount>
+      <MaximumOfferAmount>500</MaximumOfferAmount>
+      <MinimumOrderAmount>100</MinimumOrderAmount>
+      <MaximumOrderAmount>2000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </AmmoMagazine>
+
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>GlideBombMag</SubtypeId>
+      </Id>
+      <DisplayName>Ammo Bomb Glide</DisplayName>
+      <Icon>Textures\Icons\GlideBomb.png</Icon>
+      <Size>
+        <X>1.2</X>
+        <Y>0.3</Y>
+        <Z>0.3</Z>
+      </Size>
+      <Mass>0</Mass>
+      <Volume>0</Volume>
+      <Model>Models\Ammo\GlideBomb.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="GlideBomb" />
+
+      <MinimumOfferAmount>50</MinimumOfferAmount>
+      <MaximumOfferAmount>500</MaximumOfferAmount>
+      <MinimumOrderAmount>100</MinimumOrderAmount>
+      <MaximumOrderAmount>2000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </AmmoMagazine>
+
 
   </AmmoMagazines>
 </Definitions>
