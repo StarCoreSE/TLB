@@ -6,7 +6,7 @@
 			<TypeId>SmallMissileLauncher</TypeId>
 			<SubtypeId>BasiliskGunBlock</SubtypeId>
 		</Id>
-		<DisplayName>Basilisk Launcher</DisplayName>
+		<DisplayName>Basilisk Missile</DisplayName>
 		<Icon>Textures\Icons\Turrets\BasiliskIcon.png</Icon>
 		<Description></Description>
 		<CubeSize>Small</CubeSize>

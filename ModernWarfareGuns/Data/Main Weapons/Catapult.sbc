@@ -6,7 +6,7 @@
 			<TypeId>SmallMissileLauncher</TypeId>
 			<SubtypeId>CatapultGunBlock</SubtypeId>
 		</Id>
-		<DisplayName>Catapult Launcher</DisplayName>
+		<DisplayName>Catapult Cannon</DisplayName>
 		<Icon>Textures\Icons\Turrets\CatapultIcon.dds</Icon>
 		<Description></Description>
 		<CubeSize>Small</CubeSize>
@@ -89,28 +89,31 @@
 			<SubtypeId>CatapultAmmo</SubtypeId>
 		</Id>
 		<BasicProperties>
-			<DesiredSpeed>1000</DesiredSpeed>
+			<DesiredSpeed>500</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
-			<MaxTrajectory>1400</MaxTrajectory>
+			<MaxTrajectory>2000</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
-			<BackkickForce>1</BackkickForce>
-			<PhysicalMaterial>MediumShell</PhysicalMaterial>
-			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+			<BackkickForce>150000</BackkickForce>
+			<PhysicalMaterial>LargeShell</PhysicalMaterial>
+			<ExplosiveDamageMultiplier>1.2</ExplosiveDamageMultiplier>
+			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
-			<MissileMass>300</MissileMass>
+			<MissileMass>0</MissileMass>
 			<MissileExplosionRadius>3</MissileExplosionRadius>
-			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
+			<MissileModelName>Models\Weapons\LargeCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
-			<MissileInitialSpeed>1000</MissileInitialSpeed>
+			<MissileInitialSpeed>500</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>500</MissileExplosionDamage>
-			<MissileHealthPool>500</MissileHealthPool>
-			<MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
+			<MissileExplosionDamage>0</MissileExplosionDamage>
+			<MissileHealthPool>6000</MissileHealthPool>
+			<MissileTrailEffect>LargeCalibreGun_Tracer</MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
-			<MissileRicochetAngle>30</MissileRicochetAngle>
-			<MissileRicochetDamage>2000</MissileRicochetDamage>
-			<MissileRicochetProbability>0</MissileRicochetProbability>
+			<MissileMinRicochetAngle>50</MissileMinRicochetAngle>
+			<MissileMaxRicochetAngle>80</MissileMaxRicochetAngle>
+			<MissileMinRicochetProbability>0.25</MissileMinRicochetProbability>
+			<MissileMaxRicochetProbability>0.85</MissileMaxRicochetProbability>
+			<MissileRicochetDamage>7000</MissileRicochetDamage>
 		</MissileProperties>
 	</Ammo>
 	</Ammos>

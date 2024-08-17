@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsd=" http://www.w3.org/2001/XMLSchema" xmlns:xsi=" http://www.w3.org/2001/XMLSchema-instance">
+  <Sounds>
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>planepropeller</SubtypeId>
+      </Id>
+      <Category>BLOCK</Category>
+      <MaxDistance>600</MaxDistance>
+      <VolumeCurve>Poly2</VolumeCurve>
+      <Volume>0.2</Volume>
+      <VolumeVariation>0</VolumeVariation>
+      <PitchVariation>0.3</PitchVariation>
+      <SoundLimit>4</SoundLimit>
+      <Loopable>true</Loopable>
+		<RealisticFilter>realShipFilter</RealisticFilter>
+		<RealisticVolumeChange>0.6</RealisticVolumeChange>
+      <Waves>
+        <Wave Type="D3">
+          <!--<Start>Audio\on.xwm</Start>-->
+          <Loop>Audio\idle.xwm</Loop>
+          <!--<End>Audio\off.xwm</End>-->
+        </Wave>
+      </Waves>
+    </Sound>
+    
+  </Sounds>
+</Definitions>

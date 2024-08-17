@@ -6,7 +6,7 @@
         <TypeId>LargeMissileTurret</TypeId>
         <SubtypeId>BombardLauncher</SubtypeId>
       </Id>
-      <DisplayName>Bombard</DisplayName>
+      <DisplayName>Bombard Bay</DisplayName>
       <Icon>Textures\Icons\Turrets\GrenadeTurret.png</Icon>
       <Description>A basic turret that chucks Grenade ammo. Thunk.</Description>
       <CubeSize>Small</CubeSize>
