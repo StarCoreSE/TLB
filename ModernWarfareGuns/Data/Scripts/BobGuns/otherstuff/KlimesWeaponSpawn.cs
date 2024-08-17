@@ -38,7 +38,7 @@ namespace bob
         {
             if (MyAPIGateway.Session.IsServer)
             {
-                //MyVisualScriptLogicProvider.PlayerSpawned += PlayerSpawned;
+                //MyVisualScriptLogicProvider.PlayerSpawned += PlayerSpawned; //
             }
         }
 
