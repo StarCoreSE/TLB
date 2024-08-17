@@ -1,0 +1,80 @@
+﻿<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Weapons>
+		<Weapon>
+			<Id>
+				<TypeId>WeaponDefinition</TypeId>
+				<SubtypeId>SmallBombBay</SubtypeId>
+			</Id>
+			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="bomb_whistle_small" ShotsInBurst="9" />
+			<DeviateShotAngle>0</DeviateShotAngle>
+			<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
+			<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
+			<AmmoMagazines>
+				<AmmoMagazine Subtype="SmallBombMag" />
+			</AmmoMagazines>
+			<ReloadTime>30000</ReloadTime>
+		</Weapon>
+
+		<Weapon>
+			<Id>
+				<TypeId>WeaponDefinition</TypeId>
+				<SubtypeId>MediumBombBay</SubtypeId>
+			</Id>
+			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="bomb_whistle_small" ShotsInBurst="4" />
+			<DeviateShotAngle>0</DeviateShotAngle>
+			<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
+			<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
+			<AmmoMagazines>
+				<AmmoMagazine Subtype="MediumBombMag" />
+			</AmmoMagazines>
+			<ReloadTime>30000</ReloadTime>
+		</Weapon>
+
+		<Weapon>
+			<Id>
+				<TypeId>WeaponDefinition</TypeId>
+				<SubtypeId>MediumBombBayCheat</SubtypeId>
+			</Id>
+			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="bomb_whistle_small" ShotsInBurst="4" />
+			<DeviateShotAngle>0</DeviateShotAngle>
+			<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
+			<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
+			<AmmoMagazines>
+				<AmmoMagazine Subtype="MediumBombMagCheat" />
+			</AmmoMagazines>
+			<ReloadTime>30000</ReloadTime>
+		</Weapon>
+
+		<Weapon>
+			<Id>
+				<TypeId>WeaponDefinition</TypeId>
+				<SubtypeId>LargeBombBay</SubtypeId>
+			</Id>
+			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="bomb_whistle_large" ShotsInBurst="1" />
+			<DeviateShotAngle>0</DeviateShotAngle>
+			<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
+			<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
+			<AmmoMagazines>
+				<AmmoMagazine Subtype="LargeBombMag" />
+			</AmmoMagazines>
+			<ReloadTime>30000</ReloadTime>
+		</Weapon>
+
+		<Weapon>
+			<Id>
+				<TypeId>WeaponDefinition</TypeId>
+				<SubtypeId>GlideBombBay</SubtypeId>
+			</Id>
+			<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="bomb_whistle_small" ShotsInBurst="1" />
+			<DeviateShotAngle>0</DeviateShotAngle>
+			<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
+			<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
+			<AmmoMagazines>
+				<AmmoMagazine Subtype="GlideBombMag" />
+			</AmmoMagazines>
+			<ReloadTime>30000</ReloadTime>
+		</Weapon>
+  </Weapons>
+
+</Definitions>
