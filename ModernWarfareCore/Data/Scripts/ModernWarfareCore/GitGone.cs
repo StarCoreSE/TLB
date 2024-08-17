@@ -100,7 +100,6 @@ namespace cleaner
             "MainHelicopterRotor",
             "TailHelicopterRotor",
 
-
             "JetEngineIntake",
             "SmallDieselEngine",
             "TinyDieselEngine",
