@@ -78,8 +78,8 @@ namespace cleaner
             "Small_2x1_Control_Centered",
             "Small_2x1_Control_Flat",
 
-            "LargeCameraBlock",
-            "SmallCameraBlock",
+            //"LargeCameraBlock",
+            //"SmallCameraBlock",
             "LargeCameraTopMounted",
             "SmallCameraTopMounted",
         });

@@ -46,12 +46,15 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>BallistaWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="1000" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="32" />
-		<DeviateShotAngle>2.0</DeviateShotAngle>
-		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
+		<MissileAmmoData RateOfFire="120" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="5" />
+		<DeviateShotAngle>0.2</DeviateShotAngle>
+		<DeviateShotAngleAiming>0.2</DeviateShotAngleAiming>
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="BallistaMag" />
 		</AmmoMagazines>
+		<Effects>
+			<Effect Action="Shoot" Dummy="Muzzle_Missile" Particle="Muzzle_Flash_MediumCalibre" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-2"/>
+		</Effects>
 		<ReloadTime>10000</ReloadTime>
 	</Weapon> <!--gren-->
 	</Weapons>

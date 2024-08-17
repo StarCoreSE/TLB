@@ -46,40 +46,44 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>CatapultWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="1000" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="32" />
-		<DeviateShotAngle>2.0</DeviateShotAngle>
-		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
+		<MissileAmmoData RateOfFire="80" ShootSoundName="WepLargeCalibreShot" FlightSoundName="HeavyShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="1" />
+		<DeviateShotAngle>0.15</DeviateShotAngle>
+		<DeviateShotAngleAiming>0.15</DeviateShotAngleAiming>
+		<NoAmmoSoundName>WepPlayRifleNoAmmo</NoAmmoSoundName>
 		<AmmoMagazines>
-			<AmmoMagazine Subtype="CatapultMag" />
+			<AmmoMagazine Subtype="LargeCalibreAmmo" />
 		</AmmoMagazines>
-		<ReloadTime>10000</ReloadTime>
+		<ReloadTime>12000</ReloadTime>
+		<Effects>
+			<Effect Action="Shoot" Dummy="Muzzle_Missile" Particle="Muzzle_Flash_LargeCalibre" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-3.5"/>
+		</Effects>
 	</Weapon> <!--gren-->
 	</Weapons>
 	<AmmoMagazines>
 	<AmmoMagazine>
-	<Id>
-		<TypeId>AmmoMagazine</TypeId>
-		<SubtypeId>CatapultMag</SubtypeId>
-	</Id>
-	<DisplayName>Ammo Catapult</DisplayName>
-	<Icon>Textures\Icons\Magazines\GrenadeCrate.png</Icon>
-	<Size>
-		<X>0.25</X>
-		<Y>0.2</Y>
-		<Z>0.2</Z>
-	</Size><Health>999999</Health>
-	<Mass>60</Mass>
-	<Volume>30</Volume>
-	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
-	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>3</Capacity>
-	<AmmoDefinitionId Subtype="CatapultAmmo" />
+		<Id>
+			<TypeId>AmmoMagazine</TypeId>
+			<SubtypeId>CatapultMag</SubtypeId>
+		</Id>
+		<DisplayName>Ammo Catapult</DisplayName>
+		<Icon>Textures\Icons\Magazines\GrenadeCrate.png</Icon>
+		<Size>
+			<X>0.25</X>
+			<Y>0.2</Y>
+			<Z>0.2</Z>
+		</Size><Health>999999</Health>
+		<Mass>60</Mass>
+		<Volume>30</Volume>
+		<Model>Models\Magazines\GrenadeCrate.mwm</Model>
+		<PhysicalMaterial>Ammo</PhysicalMaterial>
+		<Capacity>3</Capacity>
+		<AmmoDefinitionId Subtype="CatapultAmmo" />
 
-	<MinimumOfferAmount>100</MinimumOfferAmount>
-	<MaximumOfferAmount>1000</MaximumOfferAmount>
-	<MinimumOrderAmount>100</MinimumOrderAmount>
-	<MaximumOrderAmount>2000</MaximumOrderAmount>
-	<CanPlayerOrder>true</CanPlayerOrder>
+		<MinimumOfferAmount>100</MinimumOfferAmount>
+		<MaximumOfferAmount>1000</MaximumOfferAmount>
+		<MinimumOrderAmount>100</MinimumOrderAmount>
+		<MaximumOrderAmount>2000</MaximumOrderAmount>
+		<CanPlayerOrder>true</CanPlayerOrder>
 	</AmmoMagazine> <!--gren-->
 	</AmmoMagazines>
 	<Ammos>
@@ -93,27 +97,27 @@
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>2000</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
-			<BackkickForce>150000</BackkickForce>
+			<BackkickForce>15000</BackkickForce>
 			<PhysicalMaterial>LargeShell</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>1.2</ExplosiveDamageMultiplier>
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
-			<MissileMass>0</MissileMass>
+			<MissileMass>80</MissileMass>
 			<MissileExplosionRadius>3</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\LargeCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
 			<MissileInitialSpeed>500</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
 			<MissileExplosionDamage>0</MissileExplosionDamage>
-			<MissileHealthPool>6000</MissileHealthPool>
+			<MissileHealthPool>7000</MissileHealthPool>
 			<MissileTrailEffect>LargeCalibreGun_Tracer</MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
 			<MissileMinRicochetAngle>50</MissileMinRicochetAngle>
 			<MissileMaxRicochetAngle>80</MissileMaxRicochetAngle>
 			<MissileMinRicochetProbability>0.25</MissileMinRicochetProbability>
 			<MissileMaxRicochetProbability>0.85</MissileMaxRicochetProbability>
-			<MissileRicochetDamage>7000</MissileRicochetDamage>
+			<MissileRicochetDamage>3000</MissileRicochetDamage>
 		</MissileProperties>
 	</Ammo>
 	</Ammos>

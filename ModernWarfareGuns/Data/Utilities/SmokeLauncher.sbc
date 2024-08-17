@@ -133,7 +133,7 @@
       <BasicProperties>
         <DesiredSpeed>35</DesiredSpeed>
         <SpeedVariance>0</SpeedVariance>
-        <MaxTrajectory>5</MaxTrajectory>
+        <MaxTrajectory>0.1</MaxTrajectory>
         <IsExplosive>true</IsExplosive>
         <BackkickForce>0</BackkickForce>
         <PhysicalMaterial>FireworksRainbow</PhysicalMaterial>

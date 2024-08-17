@@ -139,9 +139,9 @@ namespace MODERN_WARFARE_GUNS
             // MyAPIGateway.Utilities.ShowNotification($"bz {blockSize}", 16);
 
             if (front)
-                return block.GetPosition() + (block.WorldMatrix.Forward * blockSize);
+                return block.GetPosition() + (block.WorldMatrix.Forward * (blockSize + 0.5));
             else
-                return block.GetPosition() - (block.WorldMatrix.Forward * blockSize);
+                return block.GetPosition() - (block.WorldMatrix.Forward * (blockSize + 0.5));
         }
 
         public override void UpdateBeforeSimulation()
@@ -164,7 +164,7 @@ namespace MODERN_WARFARE_GUNS
                 foreach (IMyGunObject<MyGunBase> weapon in weapons)
                 {
 
-                    if (weapon == null || !(weapon as IMyFunctionalBlock).IsFunctional || weapon.GunBase.CurrentAmmo > 0)
+                    if (weapon == null || !(weapon as IMyFunctionalBlock).IsFunctional || !(weapon as IMyCubeBlock).IsWorking || weapon.GunBase.CurrentAmmo > 0)
                         continue;
                     //return;
 
@@ -189,8 +189,8 @@ namespace MODERN_WARFARE_GUNS
                         }
 
                         //MyAPIGateway.Utilities.ShowNotification($"eek4", 16);
-
-                        double distsq = (ammoRack.GetPosition() - GetExtentOfBlockWorld(block, false)).LengthSquared();
+                        Vector3D difference = ammoRack.GetPosition() - GetExtentOfBlockWorld(block, false);
+                        double distsq = difference.LengthSquared();
 
                         //Vector4 red = Color.Red.ToVector4();
                         //Vector4 blu = Color.Blue.ToVector4();
@@ -198,12 +198,10 @@ namespace MODERN_WARFARE_GUNS
                         //MySimpleObjectDraw.DrawLine(ammoRack.GetPosition(), GetExtentOfBlockWorld(block, false), VRage.Utils.MyStringId.GetOrCompute("Square"), ref red, 0.1f);
                         //MySimpleObjectDraw.DrawLine(GetExtentOfBlockWorld(block, true), GetExtentOfBlockWorld(block, false), VRage.Utils.MyStringId.GetOrCompute("Square"), ref blu, 0.1f);
 
-                        //MyAPIGateway.Utilities.ShowNotification($"distsq {distsq}", 16);
+                        MyAPIGateway.Utilities.ShowNotification($"distsq {distsq}", 16);
 
-                        if (distsq < 1.51f && (VectorAngleBetween(ammoRack.WorldMatrix.Forward, block.WorldMatrix.Forward) < 0.3 || VectorAngleBetween(ammoRack.WorldMatrix.Backward, block.WorldMatrix.Forward) < 0.3))
+                        if (distsq < 0.51f && (VectorAngleBetween(ammoRack.WorldMatrix.Forward, block.WorldMatrix.Forward) < 0.3 || VectorAngleBetween(ammoRack.WorldMatrix.Backward, block.WorldMatrix.Forward) < 0.3))
                         {
-                            // ammoRack.CubeGrid.RazeBlock(ammoRack.SlimBlock.Position);
-                            //MyAPIGateway.Utilities.ShowNotification($"eek5", 16);
                             usedRacks.Add(ammoRack);
                             weapon.GunBase.CurrentAmmo = weapon.GunBase.CurrentAmmoMagazineDefinition.Capacity;
                             break;
@@ -224,36 +222,4 @@ namespace MODERN_WARFARE_GUNS
             tick++;
         }
     }
-    /*
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_GunBase), false)]
-    public class GunGetter : MyGameLogicComponent
-    {
-
-        public override void Init(MyObjectBuilder_EntityBase objectBuilder)
-        {
-            (Entity as IMyGunObject<MyGunBase>).GunBase.CurrentAmmo = (Entity as IMyGunObject<MyGunBase>).GunBase.CurrentAmmoMagazineDefinition.Capacity;
-            AutoloaderSession.instance.weapons.Add(Entity as IMyGunObject<MyGunBase>);
-        }
-
-        public override void Close()
-        {
-            AutoloaderSession.instance.weapons.Remove(Entity as IMyGunObject<MyGunBase>);
-        }
-    }
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_MergeBlock), false)]
-    public class MergeGetter : MyGameLogicComponent
-    {
-
-        public override void Init(MyObjectBuilder_EntityBase objectBuilder)
-        {
-            if(Entity is IMyShipMergeBlock)
-                AutoloaderSession.instance.ammoRacks.Add(Entity as IMyShipMergeBlock);
-        }
-
-        public override void Close()
-        {
-            if (Entity is IMyShipMergeBlock)
-                AutoloaderSession.instance.ammoRacks.Remove(Entity as IMyShipMergeBlock);
-        }
-    }*/
 }

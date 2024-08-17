@@ -74,10 +74,10 @@ namespace Shrapnel
                 CreateExplosion(slim.FatBlock.GetPosition() + slim.FatBlock.WorldMatrix.Up, 1000f, 0.5f);
                 info.Amount = slim.Integrity;
             }
-            else if(slim.BlockDefinition.Id.SubtypeName.Contains("Heavy"))
-            {
-                info.Amount = (float)Math.Max(info.Amount - 200f * slim.Integrity / slim.MaxIntegrity, 0f);
-            }
+            //else if(slim.BlockDefinition.Id.SubtypeName.Contains("Heavy"))
+            //{
+            //    info.Amount = (float)Math.Max(info.Amount - 200f * slim.Integrity / slim.MaxIntegrity, 0f);
+            //}
 
             if (slim.IsFullIntegrity)
             {
