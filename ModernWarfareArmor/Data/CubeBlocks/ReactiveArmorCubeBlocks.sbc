@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>ReactiveArmorFull</SubtypeId>
+			</Id>
+			<DisplayName>Explosive Reactive Armor Full</DisplayName>
+			<Description></Description>
+			<Icon>Textures\GUI\Icons\Cubes\ReactiveArmorFull.dds</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<GeneralDamageMultiplier>0.05</GeneralDamageMultiplier>
+			<Model>Models\Cubes\small\ReactiveArmorFull.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="1"/>
+				<Component Subtype="Explosives" Count="1"/>
+				<Component Subtype="MetalGrid" Count="4"/>
+			</Components>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+		</Definition>
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>ReactiveArmorHalf</SubtypeId>
+			</Id>
+			<DisplayName>Explosive Reactive Armor Half</DisplayName>
+			<Description></Description>
+			<Icon>Textures\GUI\Icons\Cubes\ReactiveArmorFull.dds</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<GeneralDamageMultiplier>0.1</GeneralDamageMultiplier>
+			<Model>Models\Cubes\small\ReactiveArmorHalf.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="1"/>
+				<Component Subtype="Explosives" Count="1"/>
+				<Component Subtype="MetalGrid" Count="4"/>
+			</Components>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+		</Definition>
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>ReactiveArmorSlope</SubtypeId>
+			</Id>
+			<DisplayName>Explosive Reactive Armor Slope</DisplayName>
+			<Description></Description>
+			<Icon>Textures\GUI\Icons\Cubes\ReactiveArmorFull.dds</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<GeneralDamageMultiplier>0.1</GeneralDamageMultiplier>
+			<Model>Models\Cubes\small\ReactiveArmorSlope.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="1"/>
+				<Component Subtype="Explosives" Count="1"/>
+				<Component Subtype="MetalGrid" Count="4"/>
+			</Components>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+		</Definition>
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>ReactiveArmorHalfSlopeBase</SubtypeId>
+			</Id>
+			<DisplayName>Explosive Reactive Armor Half Slope Base</DisplayName>
+			<Description></Description>
+			<Icon>Textures\GUI\Icons\Cubes\ReactiveArmorFull.dds</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<GeneralDamageMultiplier>0.1</GeneralDamageMultiplier>
+			<Model>Models\Cubes\small\ReactiveArmorHalfSlopeBase.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="1"/>
+				<Component Subtype="Explosives" Count="1"/>
+				<Component Subtype="MetalGrid" Count="4"/>
+			</Components>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+		</Definition>
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>ReactiveArmorHalfSlopeTip</SubtypeId>
+			</Id>
+			<DisplayName>Explosive Reactive Armor Half Slope Tip</DisplayName>
+			<Description></Description>
+			<Icon>Textures\GUI\Icons\Cubes\ReactiveArmorFull.dds</Icon>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1"/>
+			<ModelOffset x="0" y="0" z="0"/>
+			<GeneralDamageMultiplier>0.1</GeneralDamageMultiplier>
+			<Model>Models\Cubes\small\ReactiveArmorHalfSlopeTip.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="1"/>
+				<Component Subtype="Explosives" Count="1"/>
+				<Component Subtype="MetalGrid" Count="4"/>
+			</Components>
+			<CriticalComponent Subtype="SteelPlate" Index="0"/>
+		</Definition>
+	</CubeBlocks>
+</Definitions>

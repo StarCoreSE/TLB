@@ -6,7 +6,7 @@
 			<TypeId>SmallMissileLauncher</TypeId>
 			<SubtypeId>BallistaGunBlock</SubtypeId>
 		</Id>
-		<DisplayName>Ballista Launcher</DisplayName>
+		<DisplayName>Ballista Cannon</DisplayName>
 		<Icon>Textures\GUI\Icons\Cubes\MediumCaliberGun.dds</Icon>
 		<Description></Description>
 		<CubeSize>Small</CubeSize>
@@ -89,28 +89,31 @@
 			<SubtypeId>BallistaAmmo</SubtypeId>
 		</Id>
 		<BasicProperties>
-			<DesiredSpeed>1000</DesiredSpeed>
+			<DesiredSpeed>500</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>1400</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
-			<BackkickForce>1</BackkickForce>
+			<BackkickForce>50000</BackkickForce>
 			<PhysicalMaterial>MediumShell</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
 			<MissileMass>300</MissileMass>
-			<MissileExplosionRadius>3</MissileExplosionRadius>
+			<MissileExplosionRadius>0.4</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
-			<MissileInitialSpeed>1000</MissileInitialSpeed>
+			<MissileInitialSpeed>500</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>500</MissileExplosionDamage>
-			<MissileHealthPool>500</MissileHealthPool>
+			<MissileExplosionDamage>2000</MissileExplosionDamage>
+			<MissileHealthPool>2000</MissileHealthPool>
 			<MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
-			<MissileRicochetAngle>30</MissileRicochetAngle>
+			<MissileMinRicochetAngle>40</MissileMinRicochetAngle>
+			<MissileMaxRicochetAngle>70</MissileMaxRicochetAngle>
+			<MissileMinRicochetProbability>0.25</MissileMinRicochetProbability>
+			<MissileMaxRicochetProbability>0.85</MissileMaxRicochetProbability>
 			<MissileRicochetDamage>2000</MissileRicochetDamage>
-			<MissileRicochetProbability>0</MissileRicochetProbability>
 		</MissileProperties>
 	</Ammo>
 	</Ammos>
