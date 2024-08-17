@@ -16,7 +16,7 @@
       <RealisticVolumeChange>0.45</RealisticVolumeChange>
       <Waves>
         <Wave Type="D3">
-		  <Start>Audio\\Flamethrower1.wav</Start>
+		  <Start>Audio\Flamethrower1.wav</Start>
         </Wave>
         <Wave Type="D3">
 		  <Start>Audio\Flamethrower2.wav</Start>
@@ -114,6 +114,72 @@
       <Waves>
         <Wave Type="D3">
           <Start>Audio\thunk.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_SoundDefinition</TypeId>
+        <SubtypeId>bomb_drop</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>100</MaxDistance>
+      <DistantSound>
+        <!--<DistantSound DistanceCrossfade="50" Distance="500" Sound="AutoCannonFire" />-->
+      </DistantSound>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>1</DynamicMusicAmount>
+      <Volume>1</Volume>
+      <VolumeVariation>0</VolumeVariation>
+      <PitchVariation>100</PitchVariation>
+      <Loopable>false</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\bomb_separate.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_SoundDefinition</TypeId>
+        <SubtypeId>bomb_whistle_large</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>300</MaxDistance>
+      <DistantSound>
+        <!--<DistantSound DistanceCrossfade="50" Distance="500" Sound="AutoCannonFire" />-->
+      </DistantSound>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>1</DynamicMusicAmount>
+      <Volume>0.4</Volume>
+      <VolumeVariation>0</VolumeVariation>
+      <PitchVariation>100</PitchVariation>
+      <Loopable>true</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\bomb_whistle.wav</Start>
+        </Wave>
+      </Waves>
+    </Sound>
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_SoundDefinition</TypeId>
+        <SubtypeId>bomb_whistle_small</SubtypeId>
+      </Id>
+      <Category>SHOT</Category>
+      <MaxDistance>300</MaxDistance>
+      <DistantSound>
+        <!--<DistantSound DistanceCrossfade="50" Distance="500" Sound="AutoCannonFire" />-->
+      </DistantSound>
+      <DynamicMusicCategory>HeavyFight</DynamicMusicCategory>
+      <DynamicMusicAmount>1</DynamicMusicAmount>
+      <Volume>0.1</Volume>
+      <VolumeVariation>0</VolumeVariation>
+      <PitchVariation>100</PitchVariation>
+      <Loopable>true</Loopable>
+      <Waves>
+        <Wave Type="D3">
+          <Start>Audio\bomb_whistle.wav</Start>
         </Wave>
       </Waves>
     </Sound>

@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Ammos>
+    
+    <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>SmallBomb</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>10000</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>10000</MaxTrajectory>
+        <IsExplosive>true</IsExplosive>
+        <BackkickForce>0</BackkickForce>
+        <PhysicalMaterial>LargeShell</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>1.2</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <MissileProperties>
+        <MissileMass>500</MissileMass>
+        <MissileExplosionRadius>6</MissileExplosionRadius>
+        <MissileModelName>Models\Ammo\SmallBomb.mwm</MissileModelName>
+        <MissileInitialSpeed>1</MissileInitialSpeed>
+        <MissileSkipAcceleration>false</MissileSkipAcceleration>
+        <MissileHealthPool>600</MissileHealthPool>
+        <MissileExplosionDamage>600</MissileExplosionDamage>
+        <MissileGravityEnabled>true</MissileGravityEnabled>
+        <MissileAcceleration>0</MissileAcceleration>
+        <MissileTrailEffect></MissileTrailEffect>
+      </MissileProperties>
+    </Ammo>
+
+    <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>MediumBomb</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>10000</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>10000</MaxTrajectory>
+        <IsExplosive>true</IsExplosive>
+        <BackkickForce>0</BackkickForce>
+        <PhysicalMaterial>LargeShell</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>1.2</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <MissileProperties>
+        <MissileMass>1327</MissileMass>
+        <MissileExplosionRadius>6</MissileExplosionRadius>
+        <MissileModelName>Models\Ammo\MediumBomb.mwm</MissileModelName>
+        <MissileInitialSpeed>1</MissileInitialSpeed>
+        <MissileSkipAcceleration>false</MissileSkipAcceleration>
+        <MissileHealthPool>1000</MissileHealthPool>
+        <MissileExplosionDamage>1000</MissileExplosionDamage>
+        <MissileGravityEnabled>true</MissileGravityEnabled>
+        <MissileAcceleration>0</MissileAcceleration>
+        <MissileTrailEffect></MissileTrailEffect>
+      </MissileProperties>
+    </Ammo>
+
+    <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>LargeBomb</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>10000</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>10000</MaxTrajectory>
+        <IsExplosive>true</IsExplosive>
+        <BackkickForce>0</BackkickForce>
+        <PhysicalMaterial>LargeShell</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <MissileProperties>
+        <MissileMass>5000</MissileMass>
+        <MissileExplosionRadius>6</MissileExplosionRadius>
+        <MissileModelName>Models\Ammo\LargeBomb.mwm</MissileModelName>
+        <MissileInitialSpeed>1</MissileInitialSpeed>
+        <MissileSkipAcceleration>false</MissileSkipAcceleration>
+        <MissileHealthPool>5000</MissileHealthPool>
+        <MissileExplosionDamage>5000</MissileExplosionDamage>
+        <MissileGravityEnabled>true</MissileGravityEnabled>
+        <MissileAcceleration>0</MissileAcceleration>
+        <MissileTrailEffect></MissileTrailEffect>
+      </MissileProperties>
+    </Ammo>
+
+    <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>GlideBomb</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>10000</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>5000</MaxTrajectory>
+        <IsExplosive>true</IsExplosive>
+        <BackkickForce>0</BackkickForce>
+        <PhysicalMaterial>LargeShell</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <MissileProperties>
+        <MissileMass>1327</MissileMass>
+        <MissileExplosionRadius>5</MissileExplosionRadius>
+        <MissileModelName>Models\Ammo\GlideBomb.mwm</MissileModelName>
+        <MissileInitialSpeed>20</MissileInitialSpeed>
+        <MissileSkipAcceleration>false</MissileSkipAcceleration>
+        <MissileHealthPool>700</MissileHealthPool>
+        <MissileExplosionDamage>700</MissileExplosionDamage>
+        <MissileGravityEnabled>false</MissileGravityEnabled>
+        <MissileTrailEffect></MissileTrailEffect>
+      </MissileProperties>
+    </Ammo>
+
+
+  </Ammos>
+</Definitions>
