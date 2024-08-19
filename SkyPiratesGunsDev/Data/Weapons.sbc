@@ -48,7 +48,7 @@
 			<AmmoMagazines>
 				<AmmoMagazine Subtype="ShotgunMag" />
 			</AmmoMagazines>
-			<ReloadTime>1000</ReloadTime>
+			<ReloadTime>700</ReloadTime>
 		</Weapon>
 		<!--shot-->
 
@@ -70,7 +70,7 @@
 			<AmmoMagazines>
 				<AmmoMagazine Subtype="ShotgunMag" />
 			</AmmoMagazines>
-			<ReloadTime>1000</ReloadTime>
+			<ReloadTime>700</ReloadTime>
 		</Weapon>
 		<!--shot-->
 
@@ -230,7 +230,7 @@
 			<Effects>
 				<Effect Action="Shoot" Dummy="muzzle_missile_001" Particle="Muzzle_Flash_LargeCalibre" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-3.5"/>
 			</Effects>
-			<RangeMultiplier>0.5</RangeMultiplier>
+			<!--<RangeMultiplier>0.5</RangeMultiplier>-->
 		</Weapon>
 
 		<Weapon>
@@ -238,7 +238,7 @@
 				<TypeId>WeaponDefinition</TypeId>
 				<SubtypeId>MediumCalibreTurret</SubtypeId>
 			</Id>
-			<MissileAmmoData RateOfFire="180" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" ShotsInBurst="2" />
+			<MissileAmmoData RateOfFire="240" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" ShotsInBurst="2" />
 			<DeviateShotAngle>0.35</DeviateShotAngle>
 			<DeviateShotAngleAiming>0.35</DeviateShotAngleAiming>
 			<MinimumTimeBetweenIdleRotationsMs>10000</MinimumTimeBetweenIdleRotationsMs>
@@ -246,7 +246,7 @@
 			<AmmoMagazines>
 				<AmmoMagazine Subtype="MediumCalibreAmmo" />
 			</AmmoMagazines>
-			<ReloadTime>6000</ReloadTime>
+			<ReloadTime>4000</ReloadTime>
 			<Effects>
 				<Effect Action="Shoot" Dummy="Muzzle_Missile_Left" Particle="Muzzle_Flash_MediumCalibre" Loop="false" InstantStop="false" DisplayOnlyOnDummyFiring="true"/>
 				<Effect Action="Shoot" Dummy="Muzzle_Missile_Right" Particle="Muzzle_Flash_MediumCalibre" Loop="false" InstantStop="false" DisplayOnlyOnDummyFiring="true"/>
@@ -277,7 +277,7 @@
 				<TypeId>WeaponDefinition</TypeId>
 				<SubtypeId>SmallMediumCalibreGun</SubtypeId>
 			</Id>
-			<MissileAmmoData RateOfFire="200" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" ShotsInBurst="1" />
+			<MissileAmmoData RateOfFire="240" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" ShotsInBurst="1" />
 			<DeviateShotAngle>0.2</DeviateShotAngle>
 			<DeviateShotAngleAiming>0.2</DeviateShotAngleAiming>
 			<AmmoMagazines>
@@ -440,9 +440,7 @@
 				<TypeId>WeaponDefinition</TypeId>
 				<SubtypeId>ElindisTorpedoTurret</SubtypeId>
 			</Id>
-			<!-- RateOfFire is RPM. RPM of 20 means 3 seconds between shots.
-				 This gun fires 8.28 RPM. Damage is 5x vanilla, with double radius. -->
-			<MissileAmmoData RateOfFire="200" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="4" />
+			<MissileAmmoData RateOfFire="200" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="8" />
 			<DeviateShotAngle>0.3</DeviateShotAngle>
 			<DeviateShotAngleAiming>0.3</DeviateShotAngleAiming>
 			<MinimumTimeBetweenIdleRotationsMs>10000</MinimumTimeBetweenIdleRotationsMs>

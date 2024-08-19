@@ -378,7 +378,7 @@
                 <SubtypeId>MediumCalibreShell</SubtypeId>
             </Id>
             <BasicProperties>
-                <DesiredSpeed>2000</DesiredSpeed>
+                <DesiredSpeed>2250</DesiredSpeed>
                 <SpeedVariance>0</SpeedVariance>
                 <MaxTrajectory>2500</MaxTrajectory>
                 <IsExplosive>true</IsExplosive>
@@ -391,7 +391,7 @@
                 <MissileExplosionRadius>3</MissileExplosionRadius>
                 <MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
                 <MissileAcceleration>0</MissileAcceleration>
-                <MissileInitialSpeed>2000</MissileInitialSpeed>
+                <MissileInitialSpeed>2250</MissileInitialSpeed>
                 <MissileSkipAcceleration>false</MissileSkipAcceleration>
                 <MissileExplosionDamage>500</MissileExplosionDamage>
                 <MissileHealthPool>4000</MissileHealthPool>
