@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+    <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
+      <Id>
+        <TypeId>LargeMissileTurret</TypeId>
+        <SubtypeId>APSTurret</SubtypeId>
+      </Id>
+      <DisplayName>APS Turret</DisplayName>
+	  <Icon>Textures\Icons\Turrets\APSTurretIcon.png</Icon>
+      <Description>A basic turret that chucks Grenade ammo. Thunk.</Description>
+      <CubeSize>Small</CubeSize>
+      <GuiVisible>false</GuiVisible>
+      <PlaceDecals>false</PlaceDecals>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="3" y="3" z="3" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\APSTurret.mwm</Model>
+      <UseModelIntersection>true</UseModelIntersection>
+      <Components>
+        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="Motor" Count="6" />
+        <Component Subtype="Computer" Count="10" />
+        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="SteelPlate" Count="101" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="5" Default="true" />
+        <MountPoint Side="Right" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Back" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Left" StartX="1" StartY="0" EndX="4" EndY="1" />
+        <MountPoint Side="Front" StartX="1" StartY="0" EndX="4" EndY="1" />
+      </MountPoints>
+      <BuildProgressModels>
+      </BuildProgressModels>
+      <VoxelPlacement>
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0.01</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>12</BuildTimeSeconds>
+      <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
+      <WeaponDefinitionId Subtype="APSWep" />
+      <InventoryMaxVolume>0.12</InventoryMaxVolume>
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <MinElevationDegrees>-8</MinElevationDegrees>
+      <MaxElevationDegrees>180</MaxElevationDegrees>
+      <MinAzimuthDegrees>-180</MinAzimuthDegrees>
+      <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
+      <IdleRotation>false</IdleRotation>
+      <MaxRangeMeters>0</MaxRangeMeters>
+      <RotationSpeed>0.002</RotationSpeed>
+      <ElevationSpeed>0.002 </ElevationSpeed>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <MinFov>0.1</MinFov>
+      <MaxFov>1.04719755</MaxFov>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+      <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+      <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+      <TieredUpdateTimes>
+        <unsignedInt>10</unsignedInt>
+        <unsignedInt>0</unsignedInt>
+      </TieredUpdateTimes>
+    </Definition>
+	</CubeBlocks>
+    <Weapons>
+	<Weapon>
+		<Id>
+			<TypeId>WeaponDefinition</TypeId>
+			<SubtypeId>APSWep</SubtypeId>
+		</Id>
+		<MissileAmmoData RateOfFire="1000" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="4" />
+		<DeviateShotAngle>2.0</DeviateShotAngle>
+		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
+		<AmmoMagazines>
+			<AmmoMagazine Subtype="APSMag" />
+		</AmmoMagazines>
+		<Effects>
+			<Effect Action="Shoot" Dummy="Muzzle_Missile" Particle="Muzzle_Flash_MediumCalibre" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-2"/>
+		</Effects>
+		<ReloadTime>10000</ReloadTime>
+	</Weapon> <!--gren-->
+	</Weapons>
+	<AmmoMagazines>
+	<AmmoMagazine>
+	<Id>
+		<TypeId>AmmoMagazine</TypeId>
+		<SubtypeId>APSMag</SubtypeId>
+	</Id>
+	<DisplayName>Ammo APS</DisplayName>
+	<Icon>Textures\Icons\Magazines\GrenadeCrate.png</Icon>
+	<Size>
+		<X>0.25</X>
+		<Y>0.2</Y>
+		<Z>0.2</Z>
+	</Size><Health>999999</Health>
+	<Mass>60</Mass>
+	<Volume>30</Volume>
+	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
+	<PhysicalMaterial>Ammo</PhysicalMaterial>
+	<Capacity>4</Capacity>
+	<AmmoDefinitionId Subtype="APSAmmo" />
+
+	<MinimumOfferAmount>100</MinimumOfferAmount>
+	<MaximumOfferAmount>1000</MaximumOfferAmount>
+	<MinimumOrderAmount>100</MinimumOrderAmount>
+	<MaximumOrderAmount>2000</MaximumOrderAmount>
+	<CanPlayerOrder>true</CanPlayerOrder>
+	</AmmoMagazine> <!--gren-->
+	</AmmoMagazines>
+	<Ammos>
+	<Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+		<Id>
+			<TypeId>AmmoDefinition</TypeId>
+			<SubtypeId>APSAmmo</SubtypeId>
+		</Id>
+		<BasicProperties>
+			<DesiredSpeed>200</DesiredSpeed>
+			<SpeedVariance>0</SpeedVariance>
+			<MaxTrajectory>20</MaxTrajectory>
+			<IsExplosive>true</IsExplosive>
+			<BackkickForce>50000</BackkickForce>
+			<PhysicalMaterial>MediumShell</PhysicalMaterial>
+			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
+		</BasicProperties>
+		<MissileProperties>
+			<MissileMass>300</MissileMass>
+			<MissileExplosionRadius>0.2</MissileExplosionRadius>
+			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
+			<MissileAcceleration>0</MissileAcceleration>
+			<MissileInitialSpeed>3000</MissileInitialSpeed>
+			<MissileSkipAcceleration>false</MissileSkipAcceleration>
+			<MissileExplosionDamage>500</MissileExplosionDamage>
+			<MissileHealthPool>500</MissileHealthPool>
+			<MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
+			<MissileGravityEnabled>false</MissileGravityEnabled>
+			<MissileMinRicochetAngle>40</MissileMinRicochetAngle>
+			<MissileMaxRicochetAngle>70</MissileMaxRicochetAngle>
+			<MissileMinRicochetProbability>0.25</MissileMinRicochetProbability>
+			<MissileMaxRicochetProbability>0.85</MissileMaxRicochetProbability>
+			<MissileRicochetDamage>2000</MissileRicochetDamage>
+		</MissileProperties>
+	</Ammo>
+	</Ammos>
+</Definitions>

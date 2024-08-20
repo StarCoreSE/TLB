@@ -46,13 +46,16 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>TrebuchetWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="1000" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="32" />
+		<MissileAmmoData RateOfFire="80" ShootSoundName="WepLargeCalibreShot" FlightSoundName="HeavyShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="1" />
 		<DeviateShotAngle>2.0</DeviateShotAngle>
 		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="TrebuchetMag" />
 		</AmmoMagazines>
 		<ReloadTime>10000</ReloadTime>
+		<Effects>
+			<Effect Action="Shoot" Dummy="muzzle_missile_1" Particle="Muzzle_Flash_LargeCalibre" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-3.5"/>
+		</Effects>
 	</Weapon> <!--gren-->
 	</Weapons>
 	<AmmoMagazines>

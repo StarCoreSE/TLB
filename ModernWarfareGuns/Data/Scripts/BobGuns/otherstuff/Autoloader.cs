@@ -198,7 +198,7 @@ namespace MODERN_WARFARE_GUNS
                         //MySimpleObjectDraw.DrawLine(ammoRack.GetPosition(), GetExtentOfBlockWorld(block, false), VRage.Utils.MyStringId.GetOrCompute("Square"), ref red, 0.1f);
                         //MySimpleObjectDraw.DrawLine(GetExtentOfBlockWorld(block, true), GetExtentOfBlockWorld(block, false), VRage.Utils.MyStringId.GetOrCompute("Square"), ref blu, 0.1f);
 
-                        MyAPIGateway.Utilities.ShowNotification($"distsq {distsq}", 16);
+                        //  MyAPIGateway.Utilities.ShowNotification($"distsq {distsq}", 16);
 
                         if (distsq < 0.51f && (VectorAngleBetween(ammoRack.WorldMatrix.Forward, block.WorldMatrix.Forward) < 0.3 || VectorAngleBetween(ammoRack.WorldMatrix.Backward, block.WorldMatrix.Forward) < 0.3))
                         {

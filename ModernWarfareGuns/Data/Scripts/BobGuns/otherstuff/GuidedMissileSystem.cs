@@ -17,12 +17,106 @@ using VRage.Game;
 using VRage.Game.ModAPI;
 using System.Collections.Concurrent;
 using Sandbox.Game.EntityComponents;
+using Sandbox.Game.Weapons;
+using Sandbox.Game.Lights;
+using Sandbox.Common.ObjectBuilders;
+using VRageRender.Lights;
+using System.Reflection;
 
-namespace Cython.GuidedMissiles
+namespace StolenGuidedMissiles
 {
+    public static class VectorMath
+    {
+        public static Vector3D SafeNormalize(Vector3D a)
+        {
+            if (Vector3D.IsZero(a)) return Vector3D.Zero;
+            if (Vector3D.IsUnit(ref a)) return a;
+            return Vector3D.Normalize(a);
+        }
+        public static Vector3D Rejection(Vector3D a, Vector3D b)
+        {
+            if (Vector3D.IsZero(a) || Vector3D.IsZero(b)) return Vector3D.Zero;
+            return a - a.Dot(b) / b.LengthSquared() * b;
+        }
+        public static double AngleBetween(Vector3D a, Vector3D b)
+        {
+            if (Vector3D.IsZero(a) || Vector3D.IsZero(b))
+                return 0;
+            else
+                return Math.Acos(MathHelper.Clamp(
+                    a.Dot(b) / Math.Sqrt(a.LengthSquared() * b.LengthSquared()), -1, 1));
+        }
+        public static double CosBetween(Vector3D a, Vector3D b)
+        {
+            if (Vector3D.IsZero(a) || Vector3D.IsZero(b))
+                return 0;
+            else
+                return MathHelper.Clamp(
+                    a.Dot(b) / Math.Sqrt(a.LengthSquared() * b.LengthSquared()), -1, 1);
+        }
+        public static bool IsDotProductWithinTolerance(Vector3D a, Vector3D b,
+                                                       double tolerance)
+        {
+            double dot = Vector3D.Dot(a, b);
+            double num =
+                a.LengthSquared() * b.LengthSquared() * tolerance * Math.Abs(tolerance);
+            return Math.Abs(dot) * dot > num;
+        }
+
+        public static Vector3D VectorAzimuthElevation(IMyLargeTurretBase turret)
+        {
+            double el = turret.Elevation;
+            double az = turret.Azimuth;
+            Vector3D targetDirection;
+            Vector3D.CreateFromAzimuthAndElevation(az, el, out targetDirection);
+            return Vector3D.TransformNormal(targetDirection, turret.WorldMatrix);
+        }
+
+        public static void GetRotationAngles(ref Vector3D targetVector, ref MatrixD matrix, out double yaw, out double pitch)
+        {
+            MatrixD matrixTpose;
+            MatrixD.Transpose(ref matrix, out matrixTpose);
+            Vector3D localTargetVector;
+            Vector3D.TransformNormal(ref targetVector, ref matrixTpose, out localTargetVector);
+            Vector3D flattenedTargetVector = new Vector3D(localTargetVector.X, 0, localTargetVector.Z);
+            yaw = VectorMath.AngleBetween(Vector3D.Forward, flattenedTargetVector) * Math.Sign(localTargetVector.X); // left is positive
+            if (Math.Abs(yaw) < 1E-6 && localTargetVector.Z > 0)  // check for straight back case
+                yaw = Math.PI;
+            if (Vector3D.IsZero(flattenedTargetVector))  // check for straight up case
+                pitch = MathHelper.PiOver2 * Math.Sign(localTargetVector.Y);
+            else
+                pitch = VectorMath.AngleBetween(localTargetVector, flattenedTargetVector) * Math.Sign(localTargetVector.Y);  // up is positive
+        }
+
+        public static void GetAzimuthAngle(ref Vector3D targetVector, ref MatrixD matrix, out double azimuth)
+        {
+            MatrixD matrixTpose;
+            MatrixD.Transpose(ref matrix, out matrixTpose);
+            Vector3D localTargetVector;
+            Vector3D.TransformNormal(ref targetVector, ref matrixTpose, out localTargetVector);
+            var flattenedTargetVector = new Vector3D(localTargetVector.X, 0, localTargetVector.Z);
+            azimuth = VectorMath.AngleBetween(Vector3D.Forward, flattenedTargetVector) * Math.Sign(localTargetVector.X); // left is positive
+            if (Math.Abs(azimuth) < 1E-6 && localTargetVector.Z > 0)  // check for straight back case
+                azimuth = Math.PI;
+        }
+
+        public static void GetElevationAngle(ref Vector3D targetVector, ref MatrixD matrix, out double pitch)
+        {
+            MatrixD matrixTpose;
+            MatrixD.Transpose(ref matrix, out matrixTpose);
+            Vector3D localTargetVector;
+            Vector3D.TransformNormal(ref targetVector, ref matrixTpose, out localTargetVector);
+            var flattenedTargetVector = new Vector3D(localTargetVector.X, 0, localTargetVector.Z);
+            if (Vector3D.IsZero(flattenedTargetVector))  // check for straight up case
+                pitch = MathHelper.PiOver2 * Math.Sign(localTargetVector.Y);
+            else
+                pitch = VectorMath.AngleBetween(localTargetVector, flattenedTargetVector) * Math.Sign(localTargetVector.Y);  // up is positive
+        }
+    }
+
     [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation | MyUpdateOrder.AfterSimulation | MyUpdateOrder.Simulation)]
-	public class GuidedMissileSystem: MySessionComponentBase
-	{
+    public class GuidedMissileSystem : MySessionComponentBase
+    {
         private class MissileGuider
         {
             public IMyMissile missile;
@@ -43,109 +137,6 @@ namespace Cython.GuidedMissiles
             Vector3 lastTargetPosition = Vector3.Zero;
 
             Vector3 position = Vector3.Zero;
-
-
-            #region Vector Math Functions
-
-            private double VectorAngleBetween(Vector3D a, Vector3D b)
-            { //returns radians
-              //Law of cosines to return the angle between two vectors.
-
-                if (a.LengthSquared() == 0 || b.LengthSquared() == 0)
-                    return 0;
-                else
-                    return Math.Acos(MathHelper.Clamp(a.Dot(b) / a.Length() / b.Length(), -1, 1));
-            }
-
-
-            public static class VectorMath
-            {
-                public static Vector3D SafeNormalize(Vector3D a)
-                {
-                    if (Vector3D.IsZero(a)) return Vector3D.Zero;
-                    if (Vector3D.IsUnit(ref a)) return a;
-                    return Vector3D.Normalize(a);
-                }
-                public static Vector3D Rejection(Vector3D a, Vector3D b)
-                {
-                    if (Vector3D.IsZero(a) || Vector3D.IsZero(b)) return Vector3D.Zero;
-                    return a - a.Dot(b) / b.LengthSquared() * b;
-                }
-                public static double AngleBetween(Vector3D a, Vector3D b)
-                {
-                    if (Vector3D.IsZero(a) || Vector3D.IsZero(b))
-                        return 0;
-                    else
-                        return Math.Acos(MathHelper.Clamp(
-                            a.Dot(b) / Math.Sqrt(a.LengthSquared() * b.LengthSquared()), -1, 1));
-                }
-                public static double CosBetween(Vector3D a, Vector3D b)
-                {
-                    if (Vector3D.IsZero(a) || Vector3D.IsZero(b))
-                        return 0;
-                    else
-                        return MathHelper.Clamp(
-                            a.Dot(b) / Math.Sqrt(a.LengthSquared() * b.LengthSquared()), -1, 1);
-                }
-                public static bool IsDotProductWithinTolerance(Vector3D a, Vector3D b,
-                                                               double tolerance)
-                {
-                    double dot = Vector3D.Dot(a, b);
-                    double num =
-                        a.LengthSquared() * b.LengthSquared() * tolerance * Math.Abs(tolerance);
-                    return Math.Abs(dot) * dot > num;
-                }
-            }
-            public static Vector3D VectorAzimuthElevation(IMyLargeTurretBase turret)
-            {
-                double el = turret.Elevation;
-                double az = turret.Azimuth;
-                Vector3D targetDirection;
-                Vector3D.CreateFromAzimuthAndElevation(az, el, out targetDirection);
-                return Vector3D.TransformNormal(targetDirection, turret.WorldMatrix);
-            }
-
-            protected static void GetRotationAngles(ref Vector3D targetVector, ref MatrixD matrix, out double yaw, out double pitch)
-            {
-                MatrixD matrixTpose;
-                MatrixD.Transpose(ref matrix, out matrixTpose);
-                Vector3D localTargetVector;
-                Vector3D.TransformNormal(ref targetVector, ref matrixTpose, out localTargetVector);
-                Vector3D flattenedTargetVector = new Vector3D(localTargetVector.X, 0, localTargetVector.Z);
-                yaw = VectorMath.AngleBetween(Vector3D.Forward, flattenedTargetVector) * Math.Sign(localTargetVector.X); // left is positive
-                if (Math.Abs(yaw) < 1E-6 && localTargetVector.Z > 0)  // check for straight back case
-                    yaw = Math.PI;
-                if (Vector3D.IsZero(flattenedTargetVector))  // check for straight up case
-                    pitch = MathHelper.PiOver2 * Math.Sign(localTargetVector.Y);
-                else
-                    pitch = VectorMath.AngleBetween(localTargetVector, flattenedTargetVector) * Math.Sign(localTargetVector.Y);  // up is positive
-            }
-
-            protected static void GetAzimuthAngle(ref Vector3D targetVector, ref MatrixD matrix, out double azimuth)
-            {
-                MatrixD matrixTpose;
-                MatrixD.Transpose(ref matrix, out matrixTpose);
-                Vector3D localTargetVector;
-                Vector3D.TransformNormal(ref targetVector, ref matrixTpose, out localTargetVector);
-                var flattenedTargetVector = new Vector3D(localTargetVector.X, 0, localTargetVector.Z);
-                azimuth = VectorMath.AngleBetween(Vector3D.Forward, flattenedTargetVector) * Math.Sign(localTargetVector.X); // left is positive
-                if (Math.Abs(azimuth) < 1E-6 && localTargetVector.Z > 0)  // check for straight back case
-                    azimuth = Math.PI;
-            }
-
-            protected static void GetElevationAngle(ref Vector3D targetVector, ref MatrixD matrix, out double pitch)
-            {
-                MatrixD matrixTpose;
-                MatrixD.Transpose(ref matrix, out matrixTpose);
-                Vector3D localTargetVector;
-                Vector3D.TransformNormal(ref targetVector, ref matrixTpose, out localTargetVector);
-                var flattenedTargetVector = new Vector3D(localTargetVector.X, 0, localTargetVector.Z);
-                if (Vector3D.IsZero(flattenedTargetVector))  // check for straight up case
-                    pitch = MathHelper.PiOver2 * Math.Sign(localTargetVector.Y);
-                else
-                    pitch = VectorMath.AngleBetween(localTargetVector, flattenedTargetVector) * Math.Sign(localTargetVector.Y);  // up is positive
-            }
-            #endregion
 
             public MissileGuider(IMyMissile missile, IMyEntity target, GuidedMissileSystem system, bool isBeamRider = false)
             {
@@ -175,11 +166,11 @@ namespace Cython.GuidedMissiles
 
                 Vector3 missilePosition = missile.GetPosition();
                 Vector3 missileVelocity = velocity;
-                
+
                 foreach (IMyMissile flare in system.flares.Values)
                 {
                     Vector3 dist = flare.GetPosition() - missilePosition;
-                    double flareAngle = VectorAngleBetween(Vector3.Normalize(dist), direction);
+                    double flareAngle = VectorMath.AngleBetween(Vector3.Normalize(dist), direction);
                     //MyAPIGateway.Utilities.ShowNotification($"dist : {dist.Length()}", 1);
                     //Vector4 red = Color.Red.ToVector4();
                     //MySimpleObjectDraw.DrawLine(flare.GetPosition(), missilePosition, VRage.Utils.MyStringId.GetOrCompute("MiningBeam"), ref red, 1f);
@@ -195,7 +186,7 @@ namespace Cython.GuidedMissiles
 
                 Vector3 deltaPosition = targetPosition - missilePosition;
 
-                double angle = VectorAngleBetween(Vector3.Normalize(deltaPosition), direction);
+                double angle = VectorMath.AngleBetween(Vector3.Normalize(deltaPosition), direction);
                 if (angle > 1.00)
                 {
                     MyAPIGateway.Utilities.ShowNotification($"ang : {angle}", 1);
@@ -229,7 +220,7 @@ namespace Cython.GuidedMissiles
 
                 return leadPosition;
             }
-    
+
 
             public Vector3 GetBeamRiderPrediction()
             {
@@ -250,7 +241,7 @@ namespace Cython.GuidedMissiles
                 // MySimpleObjectDraw.DrawLine(shooterPosition, shooterPosition + shootingDirection * 1000, VRage.Utils.MyStringId.GetOrCompute("MiningBeam"), ref red, 1f);
 
                 // Calculate the forward vector based on azimuth and elevation
-                Vector3D shootingDirection = VectorAzimuthElevation(turret);
+                Vector3D shootingDirection = VectorMath.VectorAzimuthElevation(turret);
 
                 Vector3D shooterPosition = turret.GetPosition();
 
@@ -291,7 +282,7 @@ namespace Cython.GuidedMissiles
                 velocity = direction * speed;
 
                 // yuck
-                if(isBeamRider && ammo.MissileGravityEnabled)
+                if (isBeamRider && ammo.MissileGravityEnabled)
                     velocity = missile.Physics.LinearVelocity * 0.25f + direction * (missile.Physics.LinearVelocity.Length() * 0.75f + ammo.MissileAcceleration * 0.01667f) + missile.Physics.Gravity * 0.01667f * 0.5f;
 
                 if (missile.Physics != null)
@@ -315,7 +306,7 @@ namespace Cython.GuidedMissiles
                 Vector3 rotationAxis = Vector3.Cross(direction, predictionDirection);
                 rotationAxis.Normalize();
 
-                if(isBeamRider || (target != null && !target.MarkedForClose && target.Parent != null))
+                if (isBeamRider || (target != null && !target.MarkedForClose && target.Parent != null))
                 {
                     Matrix rotationMatrix = Matrix.CreateFromQuaternion(Quaternion.CreateFromAxisAngle(rotationAxis, (float)(Math.Max(Math.Min(angle, 0.02), -0.02))));
                     direction = Vector3.Transform(direction, rotationMatrix);
@@ -337,13 +328,17 @@ namespace Cython.GuidedMissiles
             }
         }
 
+        public static GuidedMissileSystem instance;
+
         Dictionary<long, MissileGuider> missileGuiders = new Dictionary<long, MissileGuider>();
-        Dictionary<long, IMyMissile> flares = new Dictionary<long, IMyMissile>();
+        public Dictionary<long, IMyMissile> flares = new Dictionary<long, IMyMissile>();
+        public HashSet<IMyMissile> all_missiles = new HashSet<IMyMissile>();
 
         public override void BeforeStart()
         {
             MyAPIGateway.Missiles.OnMissileAdded += OnMissileAdded;
             MyAPIGateway.Missiles.OnMissileRemoved += OnMissileRemoved;
+            instance = this;
         }
 
         protected override void UnloadData()
@@ -354,7 +349,9 @@ namespace Cython.GuidedMissiles
 
         private void OnMissileAdded(IMyMissile missile)
         {
-            if(IsFlare(missile))
+            all_missiles.Add(missile);
+
+            if (IsFlare(missile))
             {
                 flares.Add(missile.EntityId, missile);
             }
@@ -377,7 +374,7 @@ namespace Cython.GuidedMissiles
             List<IMyPlayer> myPlayers = new List<IMyPlayer>();
             MyAPIGateway.Players.GetPlayers(myPlayers, (player) => player.IdentityId == missile.Owner || player.Controller?.ControlledEntity?.Entity?.EntityId == missile.LauncherId);
 
-            if(myPlayers.Count > 0 && target == null)
+            if (myPlayers.Count > 0 && target == null)
             {
                 IMyPlayer player = myPlayers.First();
 
@@ -390,8 +387,8 @@ namespace Cython.GuidedMissiles
                 if (entity != null)
                 {
                     IMyLargeTurretBase launcher = entity as IMyLargeTurretBase;
-                    
-                    if(launcher != null)
+
+                    if (launcher != null)
                     {
                         Sandbox.ModAPI.Ingame.MyDetectedEntityInfo info = launcher.GetTargetedEntity();
                         if (!info.IsEmpty() && info.EntityId != 0)
@@ -400,7 +397,7 @@ namespace Cython.GuidedMissiles
                         }
                     }
                 }
-                
+
             }
 
             IMyCubeGrid targetGrid = target as IMyCubeGrid;
@@ -408,13 +405,13 @@ namespace Cython.GuidedMissiles
             {
                 target = targetGrid.GetFatBlocks<IMyThrust>().Count() > 0 ? targetGrid.GetFatBlocks<IMyThrust>().First() : null;
 
-                if(target == null)
+                if (target == null)
                     target = targetGrid.GetFatBlocks<IMyTerminalBlock>().Count() > 0 ? targetGrid.GetFatBlocks<IMyTerminalBlock>().First() : null;
 
-                
+
             }
 
-            if(target != null)
+            if (target != null)
             {
                 missile.Synchronized = true;
                 missileGuiders.Add(missile.EntityId, new MissileGuider(missile, target, this));
@@ -430,12 +427,11 @@ namespace Cython.GuidedMissiles
             List<IMyPlayer> myPlayers = new List<IMyPlayer>();
             MyAPIGateway.Players.GetPlayers(myPlayers, (player) => player?.Character?.Components?.Get<MyTargetLockingComponent>()?.Target == grid);
 
-            foreach(IMyPlayer player in myPlayers)
+            foreach (IMyPlayer player in myPlayers)
             {
                 player.Character.Components.Get<MyTargetLockingComponent>().ReleaseTargetLock();
             }
         }
-
 
         private bool IsBeamRider(IMyMissile missile)
         {
@@ -473,6 +469,8 @@ namespace Cython.GuidedMissiles
 
         private void OnMissileRemoved(IMyMissile missile)
         {
+            all_missiles.Remove(missile);
+
             if (flares.ContainsKey(missile.EntityId))
                 flares.Remove(missile.EntityId);
 
@@ -486,6 +484,163 @@ namespace Cython.GuidedMissiles
             {
                 missileGuider.Value.Update();
             }
+        }
+    }
+
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_LargeMissileTurret), false, "APSTurret")]
+    public class APSTurret : MyGameLogicComponent
+    {
+        MyLight light;
+        IMyGunObject<MyGunBase> gun;
+        IMyLargeTurretBase turret;
+        int tick;
+        bool init = false;
+
+        const int max_tick = 600;
+        const string subtypeId = "Welder";
+
+        List<IMyMissile> close_missiles = new List<IMyMissile>();
+
+        public MyLight CreateLight()
+        {
+            MyDefinitionId id = new MyDefinitionId(typeof(MyObjectBuilder_FlareDefinition), subtypeId);
+            MyFlareDefinition flareDefinition = MyDefinitionManager.Static.GetDefinition(id) as MyFlareDefinition;
+
+            light = MyLights.AddLight();
+            light.Start("APSLight");
+            light.Color = Color.Green;
+            light.Range = 10;
+            light.Falloff = 1f;
+            light.Intensity = 10f;
+            light.LightType = MyLightType.DEFAULT;
+            light.ParentID = Entity.Render.GetRenderObjectID();
+            light.LightOn = true;
+
+            light.GlareOn = true;
+            light.GlareQuerySize = 0.2f;
+            light.GlareQueryFreqMinMs = 0f;
+            light.GlareQueryFreqRndMs = 0f;
+            light.GlareType = MyGlareTypeEnum.Distant;
+            light.GlareMaxDistance = 5000f;
+
+            if (flareDefinition != null && flareDefinition.SubGlares != null)
+            {
+                light.SubGlares = flareDefinition.SubGlares;
+                light.GlareIntensity = flareDefinition.Intensity * 20f;
+                light.GlareSize = flareDefinition.Size * 0.3f;
+            }
+
+            light.UpdateLight();
+
+            return light;
+        }
+
+        public void RemoveLight()
+        {
+            MyLights.RemoveLight(light);
+            light = null;
+        }
+        public override void Init(MyObjectBuilder_EntityBase objectBuilder)
+        {
+            turret = Entity as IMyLargeTurretBase;
+            gun = Entity as IMyGunObject<MyGunBase>;
+            NeedsUpdate = MyEntityUpdateEnum.EACH_10TH_FRAME | MyEntityUpdateEnum.EACH_FRAME;
+        }
+        
+        public override void UpdateBeforeSimulation()
+        {
+
+            if(!init)
+            {
+                init = true;
+                turret.Enabled = false;
+            }
+
+            if (Entity == null || light == null)
+                return;
+
+            IMyCamera camera = MyAPIGateway.Session.Camera;
+            Vector3D dirFromCam = Vector3D.Normalize(turret.GetPosition() - camera.WorldMatrix.Translation);
+            light.Position = turret.GetPosition() - dirFromCam;
+            light.UpdateLight();
+
+            MyGunStatusEnum status;
+
+            if (!gun.CanShoot(MyShootActionEnum.PrimaryAction, turret.OwnerId, out status))
+                return;
+
+            foreach (IMyMissile missile in close_missiles)
+            {
+                BoundingSphereD sphere = new BoundingSphereD(turret.GetPosition(), 20);
+                RayD ray = new RayD(missile.GetPosition(), missile.WorldMatrix.Forward);
+
+                if ((missile.GetPosition() - turret.GetPosition()).LengthSquared() < 400 || ray.Intersects(sphere) < missile.LinearVelocity.Length() * 0.01667f)
+                {
+                    Vector3D turretDirection = missile.GetPosition() - turret.GetPosition();
+                    double yaw, pitch;
+                    MatrixD matrix = turret.WorldMatrix;
+                    VectorMath.GetRotationAngles(ref turretDirection, ref matrix, out yaw, out pitch);
+                    turret.Azimuth = (float)-yaw;
+                    turret.Elevation = (float)pitch;
+                    turret.SyncAzimuth();
+                    turret.ShootOnce();
+
+                    missile.DoDamage(100000f, MyStringHash.GetOrCompute("APS"), true);
+                    break;
+                }
+            }
+        }
+
+        public override void UpdateBeforeSimulation10()
+        {
+            close_missiles.Clear();
+
+            if (Entity == null || turret.CubeGrid.Physics == null || !turret.Enabled || !turret.IsFunctional || !turret.IsWorking)
+            {
+                if (light != null)
+                    RemoveLight();
+
+                return;
+            }
+
+            if (light == null)
+                light = CreateLight();
+
+            tick++;
+
+            MyGunStatusEnum status;
+            bool canShoot = gun.CanShoot(MyShootActionEnum.PrimaryAction, turret.OwnerId, out status);
+
+            if (tick > max_tick)
+            {
+                tick = 0;
+                gun.GunBase.CurrentAmmo = 0;
+                turret.Enabled = false;
+                return;
+            }
+            else if(status == MyGunStatusEnum.Reloading || status == MyGunStatusEnum.OutOfAmmo)
+            {
+                tick = 0;
+                turret.Enabled = false;
+                return;
+            }
+
+            if (!canShoot)
+                return;
+
+            foreach (IMyMissile missile in GuidedMissileSystem.instance.all_missiles)
+            {
+                if ((missile.GetPosition() - turret.GetPosition()).LengthSquared() < 4000)
+                {
+                    close_missiles.Add(missile);
+                }
+            }
+        }
+
+        public override void Close()
+        {
+            if (light != null)
+                RemoveLight();
         }
     }
 }
