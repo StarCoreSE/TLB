@@ -92,7 +92,7 @@
 			<AmmoMagazine Subtype="APSMag" />
 		</AmmoMagazines>
 		<Effects>
-			<Effect Action="Shoot" Dummy="Muzzle_Missile" Particle="Muzzle_Flash_MediumCalibre" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-2"/>
+			<Effect Action="Shoot" Dummy="muzzle_missile_001" Particle="Muzzle_Flash_MediumCalibre" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-2"/>
 		</Effects>
 		<ReloadTime>10000</ReloadTime>
 	</Weapon> <!--gren-->

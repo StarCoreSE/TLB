@@ -496,7 +496,7 @@ namespace StolenGuidedMissiles
         int tick;
         bool init = false;
 
-        const int max_tick = 600;
+        const int max_tick = 30;
         const string subtypeId = "Welder";
 
         List<IMyMissile> close_missiles = new List<IMyMissile>();
@@ -606,6 +606,7 @@ namespace StolenGuidedMissiles
             if (light == null)
                 light = CreateLight();
 
+            //MyAPIGateway.Utilities.ShowNotification($"tic {tick}", 160);
             tick++;
 
             MyGunStatusEnum status;
