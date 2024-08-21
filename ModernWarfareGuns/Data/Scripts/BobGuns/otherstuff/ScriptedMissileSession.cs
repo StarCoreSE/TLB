@@ -23,7 +23,7 @@ using Sandbox.Common.ObjectBuilders;
 using VRageRender.Lights;
 using System.Reflection;
 
-namespace StolenGuidedMissiles
+namespace ScriptedMissiles
 {
     public static class VectorMath
     {
@@ -115,17 +115,19 @@ namespace StolenGuidedMissiles
     }
 
     [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation | MyUpdateOrder.AfterSimulation | MyUpdateOrder.Simulation)]
-    public class GuidedMissileSystem : MySessionComponentBase
+    public class ScriptedMissileSession : MySessionComponentBase
     {
-        private class MissileGuider
+        private class ScriptedMissile
         {
             public IMyMissile missile;
             public IMyEntity target;
-            private GuidedMissileSystem system; // Reference to GuidedMissileSystem
+            private ScriptedMissileSession system; // Reference to GuidedMissileSystem
 
             private Vector3 lastLeadPosition = Vector3.Zero;
 
             private bool isBeamRider = false;
+            private bool isHoming = false;
+            private bool isProximityDetonator = false;
 
             private float time = 0;
 
@@ -138,12 +140,14 @@ namespace StolenGuidedMissiles
 
             Vector3 position = Vector3.Zero;
 
-            public MissileGuider(IMyMissile missile, IMyEntity target, GuidedMissileSystem system, bool isBeamRider = false)
+            public ScriptedMissile(IMyMissile missile, IMyEntity target, ScriptedMissileSession system, bool isBeamRider = false, bool isHoming = false, bool isProximityDetonator = false)
             {
                 this.missile = missile;
                 this.target = target;
                 this.system = system;
                 this.isBeamRider = isBeamRider;
+                this.isHoming = isHoming;
+                this.isProximityDetonator = isProximityDetonator;
 
                 direction = this.missile.WorldMatrix.Forward;
 
@@ -155,7 +159,6 @@ namespace StolenGuidedMissiles
 
                 UpdateVelocity();
             }
-
 
             public Vector3 GetTargetPrediction()
             {
@@ -187,7 +190,7 @@ namespace StolenGuidedMissiles
                 Vector3 deltaPosition = targetPosition - missilePosition;
 
                 double angle = VectorMath.AngleBetween(Vector3.Normalize(deltaPosition), direction);
-                if (angle > 1.00)
+                if (angle > 1.00 && angle < 3.00)
                 {
                     MyAPIGateway.Utilities.ShowNotification($"ang : {angle}", 1);
                     return lastLeadPosition;
@@ -220,7 +223,6 @@ namespace StolenGuidedMissiles
 
                 return leadPosition;
             }
-
 
             public Vector3 GetBeamRiderPrediction()
             {
@@ -266,11 +268,18 @@ namespace StolenGuidedMissiles
 
             public void Update()
             {
-                UpdateDirection();
 
-                UpdateVelocity();
+                if(isHoming || isBeamRider)
+                {
+                    UpdateDirection();
 
-                UpdateTransform();
+                    UpdateVelocity();
+
+                    UpdateTransform();
+                }
+
+                if (isProximityDetonator)
+                    UpdateProximityDetonation();
 
                 time += ticktime;
             }
@@ -295,7 +304,7 @@ namespace StolenGuidedMissiles
 
                 if (isBeamRider)
                     predictionPosition = GetBeamRiderPrediction();
-                else
+                else if(target != null)
                     predictionPosition = GetTargetPrediction();
 
                 Vector3 predictionDirection = predictionPosition - missile.GetPosition();
@@ -326,13 +335,51 @@ namespace StolenGuidedMissiles
                 worldMatrix.Forward = direction;
                 missile.WorldMatrix = worldMatrix;
             }
+
+            public void UpdateProximityDetonation()
+            {
+                if (missile == null || missile.MarkedForClose || target == null || target.MarkedForClose)
+                {
+                    return;
+                }
+
+                MyMissileAmmoDefinition ammo = (MyMissileAmmoDefinition)missile.AmmoDefinition;
+                Vector3 deltaPosition = target.GetPosition() - missile.GetPosition();
+
+                if (deltaPosition.Length() < ammo.MissileExplosionRadius * 10)
+                {
+                    TryProximityDetonate(Vector3D.Normalize(deltaPosition), ammo.MissileExplosionRadius);
+                }
+
+            }
+
+            private void TryProximityDetonate(Vector3D targetDirection, float radius)
+            {
+                IHitInfo hitinfo;
+                MyAPIGateway.Physics.CastRay(missile.GetPosition() + targetDirection, target.GetPosition(), out hitinfo, 0, false);
+
+                float value = 4f * radius;
+
+                if (hitinfo != null)
+                    MyAPIGateway.Utilities.ShowNotification($"ee {(hitinfo.Position - missile.GetPosition()).LengthSquared()}, {value * value}", 1600);
+
+                if (hitinfo != null && (hitinfo.Position - missile.GetPosition()).LengthSquared() < value * value)
+                {
+
+                    missile.SetPosition(hitinfo.Position - targetDirection * radius * 0.5f);
+                    //missile.Destroy();
+                    //missile.DoDamage(100000f, MyStringHash.GetOrCompute("APS"), true);
+                    system.missiles_to_be_exploded.Add(missile);
+                }
+            }
         }
 
-        public static GuidedMissileSystem instance;
+        public static ScriptedMissileSession instance;
 
-        Dictionary<long, MissileGuider> missileGuiders = new Dictionary<long, MissileGuider>();
+        Dictionary<long, ScriptedMissile> scriptedMissiles = new Dictionary<long, ScriptedMissile>();
         public Dictionary<long, IMyMissile> flares = new Dictionary<long, IMyMissile>();
         public HashSet<IMyMissile> all_missiles = new HashSet<IMyMissile>();
+        public List<IMyMissile> missiles_to_be_exploded = new List<IMyMissile>();
 
         public override void BeforeStart()
         {
@@ -359,16 +406,20 @@ namespace StolenGuidedMissiles
             {
                 DispelTargetLocks(missile.LauncherId);
             }
-            else if (IsBeamRider(missile))
+            else if (IsBeamRider(missile) || IsHoming(missile) || IsProximity(missile))
             {
                 missile.Synchronized = true;
-                missileGuiders.Add(missile.EntityId, new MissileGuider(missile, null, this, true));
-                return;
+
+                IMyEntity target = null;
+                if (IsHoming(missile) || IsProximity(missile))
+                    target = GetMissileTarget(missile);
+
+                scriptedMissiles.Add(missile.EntityId, new ScriptedMissile(missile, target, this, IsBeamRider(missile), IsHoming(missile), IsProximity(missile)));
             }
+        }
 
-            if (!IsHoming(missile))
-                return;
-
+        private IMyEntity GetMissileTarget(IMyMissile missile)
+        {
             IMyEntity target = null;
 
             List<IMyPlayer> myPlayers = new List<IMyPlayer>();
@@ -379,6 +430,7 @@ namespace StolenGuidedMissiles
                 IMyPlayer player = myPlayers.First();
 
                 target = player?.Character?.Components?.Get<MyTargetLockingComponent>()?.TargetEntity;
+                //MyAPIGateway.Utilities.ShowNotification($"target lock{target?.DisplayName}", 1600);
             }
 
             if (target == null)
@@ -394,6 +446,7 @@ namespace StolenGuidedMissiles
                         if (!info.IsEmpty() && info.EntityId != 0)
                         {
                             target = MyAPIGateway.Entities.GetEntityById(info.EntityId);
+                            //MyAPIGateway.Utilities.ShowNotification($"target ai? {target?.DisplayName}", 1600);
                         }
                     }
                 }
@@ -404,18 +457,37 @@ namespace StolenGuidedMissiles
             if (targetGrid is IMyCubeGrid)
             {
                 target = targetGrid.GetFatBlocks<IMyThrust>().Count() > 0 ? targetGrid.GetFatBlocks<IMyThrust>().First() : null;
+                //MyAPIGateway.Utilities.ShowNotification($"target thrster?{target?.DisplayName}", 1600);
 
                 if (target == null)
+                {
                     target = targetGrid.GetFatBlocks<IMyTerminalBlock>().Count() > 0 ? targetGrid.GetFatBlocks<IMyTerminalBlock>().First() : null;
+                    //MyAPIGateway.Utilities.ShowNotification($"target terminal? {target?.DisplayName}", 1600);
+                }
 
+                // fuck this
+                if (target == null)
+                {
+                    var AttachedList = new List<IMyCubeGrid>();
+                    MyAPIGateway.GridGroups.GetGroup(targetGrid, GridLinkTypeEnum.Physical, AttachedList);
 
+                    if (AttachedList.Count > 1)
+                    {
+                        foreach(IMyCubeGrid attachedGrid in AttachedList)
+                        {
+                            if (attachedGrid == targetGrid)
+                                continue;
+
+                            target = attachedGrid.GetFatBlocks<IMyTerminalBlock>().Count() > 0 ? attachedGrid.GetFatBlocks<IMyTerminalBlock>().First() : null;
+
+                            if (target != null)
+                                break;
+                        }
+                    }
+                }
             }
 
-            if (target != null)
-            {
-                missile.Synchronized = true;
-                missileGuiders.Add(missile.EntityId, new MissileGuider(missile, target, this));
-            }
+            return target;
         }
 
         private void DispelTargetLocks(long launcherEntId)
@@ -450,6 +522,14 @@ namespace StolenGuidedMissiles
 
             return false;
         }
+        private bool IsProximity(IMyMissile missile)
+        {
+            //MyAPIGateway.Utilities.ShowNotification($"ismissile : {missile.AmmoDefinition.Id.SubtypeName} : {missile.AmmoDefinition.Id.SubtypeName.Contains("Missile")}");
+            if (missile.AmmoDefinition.Id.SubtypeName.Contains("Proximity"))
+                return true;
+
+            return false;
+        }
 
         private bool IsFlare(IMyMissile missile)
         {
@@ -474,15 +554,35 @@ namespace StolenGuidedMissiles
             if (flares.ContainsKey(missile.EntityId))
                 flares.Remove(missile.EntityId);
 
-            if (missileGuiders.ContainsKey(missile.EntityId))
-                missileGuiders.Remove(missile.EntityId);
+            if (scriptedMissiles.ContainsKey(missile.EntityId))
+                scriptedMissiles.Remove(missile.EntityId);
+        }
+
+        private void CreateExplosionFromMissile(IMyMissile missile)
+        {
+            //Explosion Damage!
+            MyMissileAmmoDefinition ammo = (MyMissileAmmoDefinition)missile.AmmoDefinition;
+            BoundingSphereD sphere = new BoundingSphereD(missile.GetPosition(), ammo.MissileExplosionRadius);
+            MyExplosionInfo explosion = new MyExplosionInfo(ammo.MissileExplosionDamage * ammo.ExplosiveDamageMultiplier, ammo.MissileExplosionDamage * ammo.ExplosiveDamageMultiplier, sphere, MyExplosionTypeEnum.MISSILE_EXPLOSION, true, true);
+            explosion.CreateParticleEffect = true;
+            explosion.LifespanMiliseconds = 150 + (int)ammo.MissileExplosionRadius * 45;
+            MyExplosions.AddExplosion(ref explosion, true);
         }
 
         public override void UpdateBeforeSimulation()
         {
-            foreach (var missileGuider in missileGuiders)
+
+            missiles_to_be_exploded.Clear();
+
+            foreach (var missile in scriptedMissiles)
             {
-                missileGuider.Value.Update();
+                missile.Value.Update();
+            }
+
+            foreach(var missile in missiles_to_be_exploded)
+            {
+                CreateExplosionFromMissile(missile);
+                missile.Destroy();
             }
         }
     }
@@ -501,7 +601,7 @@ namespace StolenGuidedMissiles
 
         List<IMyMissile> close_missiles = new List<IMyMissile>();
 
-        public MyLight CreateLight()
+        public MyLight CreatAPSLight()
         {
             MyDefinitionId id = new MyDefinitionId(typeof(MyObjectBuilder_FlareDefinition), subtypeId);
             MyFlareDefinition flareDefinition = MyDefinitionManager.Static.GetDefinition(id) as MyFlareDefinition;
@@ -535,7 +635,7 @@ namespace StolenGuidedMissiles
             return light;
         }
 
-        public void RemoveLight()
+        public void RemoveAPSLight()
         {
             MyLights.RemoveLight(light);
             light = null;
@@ -569,6 +669,8 @@ namespace StolenGuidedMissiles
             if (!gun.CanShoot(MyShootActionEnum.PrimaryAction, turret.OwnerId, out status))
                 return;
 
+
+            //GetAllMissilesInSphere try this eventally?
             foreach (IMyMissile missile in close_missiles)
             {
                 BoundingSphereD sphere = new BoundingSphereD(turret.GetPosition(), 20);
@@ -598,13 +700,13 @@ namespace StolenGuidedMissiles
             if (Entity == null || turret.CubeGrid.Physics == null || !turret.Enabled || !turret.IsFunctional || !turret.IsWorking)
             {
                 if (light != null)
-                    RemoveLight();
+                    RemoveAPSLight();
 
                 return;
             }
 
             if (light == null)
-                light = CreateLight();
+                light = CreatAPSLight();
 
             //MyAPIGateway.Utilities.ShowNotification($"tic {tick}", 160);
             tick++;
@@ -629,7 +731,7 @@ namespace StolenGuidedMissiles
             if (!canShoot)
                 return;
 
-            foreach (IMyMissile missile in GuidedMissileSystem.instance.all_missiles)
+            foreach (IMyMissile missile in ScriptedMissileSession.instance.all_missiles)
             {
                 if ((missile.GetPosition() - turret.GetPosition()).LengthSquared() < 4000)
                 {
@@ -641,7 +743,7 @@ namespace StolenGuidedMissiles
         public override void Close()
         {
             if (light != null)
-                RemoveLight();
+                RemoveAPSLight();
         }
     }
 }
