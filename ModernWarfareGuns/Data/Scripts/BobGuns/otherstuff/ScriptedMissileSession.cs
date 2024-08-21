@@ -360,8 +360,8 @@ namespace ScriptedMissiles
 
                 float value = 4f * radius;
 
-                if (hitinfo != null)
-                    MyAPIGateway.Utilities.ShowNotification($"ee {(hitinfo.Position - missile.GetPosition()).LengthSquared()}, {value * value}", 1600);
+                //if (hitinfo != null)
+                //    MyAPIGateway.Utilities.ShowNotification($"ee {(hitinfo.Position - missile.GetPosition()).LengthSquared()}, {value * value}", 1600);
 
                 if (hitinfo != null && (hitinfo.Position - missile.GetPosition()).LengthSquared() < value * value)
                 {
