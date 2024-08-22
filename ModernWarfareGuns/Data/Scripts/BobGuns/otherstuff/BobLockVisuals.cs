@@ -22,6 +22,7 @@ using Sandbox.Game.Lights;
 using Sandbox.Common.ObjectBuilders;
 using VRageRender.Lights;
 using System.Reflection;
+using System.Reflection.Emit;
 
 namespace BobLockVisuals
 {
@@ -31,24 +32,39 @@ namespace BobLockVisuals
 
         private const float ticktime = 1f / 60f;
         private const float updatetime = 3f;
+        public static BobLockVisualsSession instance;
 
         private float time = updatetime;
 
-        Dictionary<IMyPlayer, TargetLockVisual> targetLocks = new Dictionary<IMyPlayer, TargetLockVisual>();
+        Dictionary<string, TargetLockVisual> targetLocks = new Dictionary<string, TargetLockVisual>();
+        HashSet<string> targetLocksKeysToRemove = new HashSet<string>();
+
         private class TargetLockVisual
         {
             const string subtypeId = "Welder";
 
-            public IMyEntity attacker;
             MyLight targetLight;
+            MyTargetLockingComponent targetLock;
+            BobLockVisualsSession system;
+            string key;
 
-            public TargetLockVisual(IMyEntity attacker)
+            IMyEntity attacker;
+            IMyEntity defender;
+
+            public TargetLockVisual(MyTargetLockingComponent targetLock, IMyEntity attacker, IMyEntity defender, string key, BobLockVisualsSession system)
             {
+                this.targetLock = targetLock;
                 this.attacker = attacker;
+                this.defender = defender;
+                this.system = system;
+                this.key = key;
             }
 
             public void CreateLight()
             {
+                if (targetLight != null)
+                    return;
+
                 MyDefinitionId id = new MyDefinitionId(typeof(MyObjectBuilder_FlareDefinition), subtypeId);
                 MyFlareDefinition flareDefinition = MyDefinitionManager.Static.GetDefinition(id) as MyFlareDefinition;
 
@@ -59,8 +75,8 @@ namespace BobLockVisuals
                 targetLight.Falloff = 1f;
                 targetLight.Intensity = 10f;
                 targetLight.LightType = MyLightType.DEFAULT;
-                targetLight.LightOn = true;
-                targetLight.Position = attacker.GetPosition() + (MyAPIGateway.Session.Camera.Position - attacker.GetPosition()) / 10;
+                targetLight.LightOn = false;
+                targetLight.Position = attacker.Physics.CenterOfMassWorld + (MyAPIGateway.Session.Camera.Position - attacker.Physics.CenterOfMassWorld) / 10;
                 targetLight.GlareOn = true;
                 targetLight.GlareQuerySize = 0.2f;
                 targetLight.GlareQueryFreqMinMs = 0f;
@@ -72,7 +88,7 @@ namespace BobLockVisuals
                 {
                     targetLight.SubGlares = flareDefinition.SubGlares;
                     targetLight.GlareIntensity = flareDefinition.Intensity * 20f;
-                    targetLight.GlareSize = flareDefinition.Size * 0.3f;
+                    targetLight.GlareSize = flareDefinition.Size * 0.5f;
                 }
 
                 targetLight.UpdateLight();
@@ -80,21 +96,46 @@ namespace BobLockVisuals
 
             public void RemoveLight()
             {
-                MyLights.RemoveLight(targetLight);
-                targetLight = null;
+                if(targetLight != null)
+                {
+                    MyLights.RemoveLight(targetLight);
+                    targetLight = null;
+                }
             }
 
             public void Update()
             {
-                targetLight.Position = attacker.GetPosition() + (MyAPIGateway.Session.Camera.Position - attacker.GetPosition()) / 10;
+                if(targetLock == null || defender == null || attacker == null || attacker.MarkedForClose || defender.MarkedForClose || !targetLock.IsTargetLocked)
+                {
+                    system.targetLocksKeysToRemove.Add(key);
+                    RemoveLight();
+                    return;
+                }
+
+                if (MyAPIGateway.Session?.Player != MyAPIGateway.Players.GetPlayerControllingEntity(defender))
+                {
+                    RemoveLight();
+                    // MyAPIGateway.Utilities.ShowNotification($"lights out: lock {targetLock == null}; atak {attacker.DisplayName}; def {defender.DisplayName}; gri {MyAPIGateway.Session?.Player == MyAPIGateway.Players.GetPlayerControllingEntity(defender)}", 16);
+                    return;
+                }
+
+                if (targetLight == null)
+                    CreateLight();
+
+                targetLight.Position = attacker.Physics.CenterOfMassWorld + (MyAPIGateway.Session.Camera.Position - attacker.Physics.CenterOfMassWorld) / 10;
                 targetLight.UpdateLight();
             }
-
         }
-
+        public override void BeforeStart()
+        {
+            instance = this;
+        }
         public void DrawLocks()
         {
-            foreach(TargetLockVisual targetLockVisual in targetLocks.Values)
+
+            // MyAPIGateway.Utilities.ShowNotification($"drawing {targetLocks.Count}", 16);
+
+            foreach (TargetLockVisual targetLockVisual in targetLocks.Values)
             {
                 targetLockVisual.Update();
             }
@@ -105,28 +146,33 @@ namespace BobLockVisuals
             List<IMyPlayer> myPlayers = new List<IMyPlayer>();
             MyAPIGateway.Players.GetPlayers(myPlayers);
 
+            //MyAPIGateway.Utilities.ShowNotification($"updated {targetLocks.Count}", 600);
+
             foreach (IMyPlayer player in myPlayers)
             {
-                if (player == MyAPIGateway.Session.Player)
-                    continue;
 
                 MyTargetLockingComponent targetLock = player?.Character?.Components?.Get<MyTargetLockingComponent>();
+                // MyAPIGateway.Utilities.ShowNotification($"lock? {targetLock?.TargetEntity?.DisplayName}", 600);
 
-                if (targetLock != null && targetLock.Entity is IMyCubeGrid)
+                if (targetLock != null && targetLock.TargetEntity is IMyCubeGrid && player.Controller.ControlledEntity is IMyCubeBlock)
                 {
-                    TargetLockVisual lockVisual = new TargetLockVisual(player.Character);
-                    lockVisual.CreateLight();
-                }
-                else
-                {
-                    TargetLockVisual lockVisual;
-                    if(targetLocks.TryGetValue(player, out lockVisual))
+                    IMyEntity attackerGrid = (player.Controller.ControlledEntity as IMyCubeBlock).CubeGrid;
+                    string key = $"lock:{attackerGrid.EntityId}:{targetLock.TargetEntity.EntityId}";
+                    if(!targetLocks.ContainsKey(key))
                     {
-                        lockVisual.RemoveLight();
-                        targetLocks.Remove(player);
+                        // MyAPIGateway.Utilities.ShowNotification($"added lock {key}", 6000);
+                        TargetLockVisual lockVisual = new TargetLockVisual(targetLock, attackerGrid, targetLock.TargetEntity, key, instance);
+                        targetLocks.Add(key, lockVisual);
                     }
                 }
             }
+
+            foreach(string key in targetLocksKeysToRemove)
+            {
+                // MyAPIGateway.Utilities.ShowNotification($"rm lock {key}", 6000);
+                targetLocks.Remove(key);
+            }
+            targetLocksKeysToRemove.Clear();
         }
 
         public override void UpdateBeforeSimulation()
@@ -138,7 +184,7 @@ namespace BobLockVisuals
 
             DrawLocks();
 
-            if (time % updatetime != 0f)
+            if (time < updatetime)
                 return;
 
             UpdateLocks();
