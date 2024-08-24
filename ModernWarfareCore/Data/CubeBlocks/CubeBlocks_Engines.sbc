@@ -248,7 +248,7 @@
 			<PCU>25</PCU>
 		</Definition>
 		
-				<Definition xsi:type="MyObjectBuilder_OxygenGeneratorDefinition">
+		<Definition xsi:type="MyObjectBuilder_OxygenGeneratorDefinition">
 			<Id>
 				<TypeId>OxygenGenerator</TypeId>
 				<SubtypeId>JetEngineIntake</SubtypeId>
@@ -655,8 +655,8 @@
                     </Id>
                 </FuelInfo>
             </FuelInfos>
-            <FuelProductionToCapacityMultiplier>0.02</FuelProductionToCapacityMultiplier>
-            <PrimarySound>ArcBlockHydrogenEngine</PrimarySound>
+            <FuelProductionToCapacityMultiplier>0.01</FuelProductionToCapacityMultiplier>
+            <!--<PrimarySound>ArcBlockHydrogenEngine</PrimarySound>-->
 
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>

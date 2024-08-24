@@ -17,9 +17,124 @@ using VRage.Game;
 using VRage;
 using SpaceEngineers.Game.Entities.Blocks;
 using Sandbox.Game.GameSystems;
+using System.Security.AccessControl;
+using VRage.Game.Entity;
+using System.Numerics;
+using System.Text.RegularExpressions;
 
 namespace MODERN_WARFARE_CORE
 {
+    public static class Utilities
+    {
+        public static float UpdateAndCalculateMean(ref float[] values, float newValue)
+        {
+            int length = values.Length;
+
+            // Shift all elements one position to the left
+            for (int i = 1; i < length; i++)
+            {
+                values[i - 1] = values[i];
+            }
+
+            // Insert the new value at the end
+            values[length - 1] = newValue;
+
+            // Calculate the mean
+            float sum = 0f;
+            for (int i = 0; i < length; i++)
+            {
+                sum += values[i];
+            }
+
+            return sum / length;
+        }
+        public static double SpeedOfSound(float airDensity)
+        {
+            // Approximate curve based on https://www.engineeringtoolbox.com/elevation-speed-sound-air-d_1534.html, accurate down to 22.68 kPa.
+            double speedOfSound = Math.Pow(8947200 * airDensity - 899699, 1 / 3.42938) + 236.712;
+            if (speedOfSound < 295.1)
+                speedOfSound = 295.1;
+
+            return speedOfSound;
+        }
+
+        public static double Clamp(double value, double min, double max)
+        {
+            return Math.Max(Math.Min(value, max), min);
+        }
+
+        public static double BilinearInterpolation(double[,] array, double[] xrange, double[] yrange, double x, double y)
+        {
+            // Clamp x and y to be within the range
+            x = Math.Max(xrange[0], Math.Min(x, xrange[xrange.Length - 1]));
+            y = Math.Max(yrange[0], Math.Min(y, yrange[yrange.Length - 1]));
+
+            // Find the bounding indices
+            int xIndex1 = Array.BinarySearch(xrange, x);
+            if (xIndex1 < 0) xIndex1 = ~xIndex1 - 1;
+            xIndex1 = Math.Max(0, Math.Min(xIndex1, xrange.Length - 2)); // Ensure within bounds
+            int xIndex2 = Math.Min(xIndex1 + 1, xrange.Length - 1);
+
+            int yIndex1 = Array.BinarySearch(yrange, y);
+            if (yIndex1 < 0) yIndex1 = ~yIndex1 - 1;
+            yIndex1 = Math.Max(0, Math.Min(yIndex1, yrange.Length - 2)); // Ensure within bounds
+            int yIndex2 = Math.Min(yIndex1 + 1, yrange.Length - 1);
+
+            // Get the coordinates of the four bounding points
+            double x1 = xrange[xIndex1];
+            double x2 = xrange[xIndex2];
+            double y1 = yrange[yIndex1];
+            double y2 = yrange[yIndex2];
+
+            double Q11 = array[yIndex1, xIndex1];
+            double Q12 = array[yIndex2, xIndex1];
+            double Q21 = array[yIndex1, xIndex2];
+            double Q22 = array[yIndex2, xIndex2];
+
+            // Calculate the interpolation weights
+            double x1x = x2 - x;
+            double x2x = x - x1;
+            double y1y = y2 - y;
+            double y2y = y - y1;
+
+            double denominator = (x2 - x1) * (y2 - y1);
+
+            // Perform bilinear interpolation
+            double result = (Q11 * x1x * y1y + Q21 * x2x * y1y + Q12 * x1x * y2y + Q22 * x2x * y2y) / denominator;
+
+            return result;
+        }
+
+        public static double LinearInterpolation(double[,] array, double x, double y)
+        {
+            int x0 = (int)Math.Floor(x);
+            int x1 = x0 + 1;
+            int y0 = (int)Math.Floor(y);
+            int y1 = y0 + 1;
+
+            if (x1 >= array.GetLength(0)) x1 = x0; // Handle edge cases
+            if (y1 >= array.GetLength(1)) y1 = y0; // Handle edge cases
+
+            double xFraction = x - x0;
+            double yFraction = y - y0;
+
+            // Interpolate along x for both y0 and y1
+            double v0 = array[x0, y0] + (array[x1, y0] - array[x0, y0]) * xFraction;
+            double v1 = array[x0, y1] + (array[x1, y1] - array[x0, y1]) * xFraction;
+
+            // Interpolate along y
+            return v0 + (v1 - v0) * yFraction;
+        }
+        public static double VectorAngleBetween(Vector3D a, Vector3D b)
+        { //returns radians
+          //Law of cosines to return the angle between two vectors.
+
+            if (a.LengthSquared() == 0 || b.LengthSquared() == 0)
+                return 0;
+            else
+                return Math.Acos(MathHelper.Clamp(a.Dot(b) / a.Length() / b.Length(), -1, 1));
+        }
+    }
     public class ControlledEntityHydrogenCapacity : IMyHudStat
     {
         public const string NumberFormat = "###,###,###,###,###,###,##0";
@@ -273,6 +388,171 @@ namespace MODERN_WARFARE_CORE
         }
     }
 
+    /*[MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenGenerator), false)]
+    public class Engine : MyGameLogicComponent
+    {
+        MyResourceSourceComponent sourceComp;
+        IMyFunctionalBlock block;
+        public override void Init(MyObjectBuilder_EntityBase objectBuilder)
+        {
+            block = Entity as IMyFunctionalBlock;
+            sourceComp = new MyResourceSourceComponent();
+            block.CubeGrid.Components.Add(sourceComp);
+            sourceComp.Init(MyStringHash.GetOrCompute("SolarPanels"), new MyResourceSourceInfo()
+            {
+                DefinedOutput = 1,
+                IsInfiniteCapacity = true,
+                ProductionToCapacityMultiplier = 1,
+                ResourceTypeId = MyResourceDistributorComponent.ElectricityId,
+            });
+        }
+
+        public override void UpdateBeforeSimulation10()
+        {
+            if(block.Enabled && block.IsFunctional)
+                sourceComp.Enabled = true;
+            else
+                sourceComp.Enabled = false;
+        }
+    }*/
+
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Thrust), false, "JetThruster")]
+    public class JetThruster : MyGameLogicComponent
+    {
+        IMyThrust thruster;
+        IMyCubeGrid grid;
+        MyPlanet planet;
+
+        double mach = 0;
+        double vang = 0;
+        const double MIN_STALL_SPEED = 100;
+
+        public override void Init(MyObjectBuilder_EntityBase objectBuilder)
+        {
+            thruster = Entity as IMyThrust;
+            grid = thruster.CubeGrid;
+            this.NeedsUpdate |= MyEntityUpdateEnum.EACH_10TH_FRAME | MyEntityUpdateEnum.EACH_FRAME;
+        }
+
+        public override void UpdateBeforeSimulation10()
+        {
+            if (planet == null)
+                planet = MyGamePruningStructure.GetClosestPlanet(grid.WorldMatrix.Translation);
+
+            thruster.PowerConsumptionMultiplier = 1 + (float)mach * 10f;
+        }
+
+        public override void UpdateBeforeSimulation()
+        {
+            if (planet == null || grid?.Physics == null) return;
+
+            var speed = thruster.CubeGrid.Physics.LinearVelocity.Length();
+            mach = speed / Utilities.SpeedOfSound(planet.GetAirDensity(grid.WorldMatrix.Translation));
+
+            ApplyStallTorque();
+            ApplyBadJetNoVtol();
+        }
+
+        private void ApplyBadJetNoVtol()
+        {
+            float inclination = Vector3.Dot(Vector3.Normalize(grid.Physics.Gravity), -thruster.WorldMatrix.Backward);
+
+            thruster.ThrustMultiplier = 1 + (float)mach * 2f;
+
+            if (inclination > .53)
+                thruster.ThrustMultiplier *= 2f - (.47f + inclination) * (.47f + inclination);
+
+        }
+
+        private void ApplyStallTorque()
+        {
+            Vector3 velocity = grid.Physics.LinearVelocity;
+            Vector3 forward = thruster.WorldMatrix.Backward;
+
+            float mismatch = -Vector3.Dot(forward, Vector3.Normalize(velocity));
+
+            if (mismatch > -0.96f && velocity.Length() < MIN_STALL_SPEED)
+            {
+                Vector3D torque = grid.WorldAABB.Size.Length() * 3 * grid.Physics.Mass * Vector3D.Cross(velocity, -forward) * Math.Min(velocity.Length(), MIN_STALL_SPEED) * (0.49f + mismatch * mismatch / 10f) / 3000f;
+                grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
+            }
+        }
+    }
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenGenerator), false, "JetEngineIntake")]
+    public class JetIntake : MyGameLogicComponent
+    {
+        IMyGasGenerator intake;
+        IMyCubeGrid grid;
+        MyPlanet planet;
+
+        double mach = 0;
+        double vang = 0;
+
+        double[,] cd_interp_table = new double[,] {
+            { 0.021433, 0.024394, 0.028970, 0.035160, 0.042966, 0.052386, 0.063421, 0.076071, 0.090336, 0.106216, 0.123711 },
+            { 0.021978, 0.025081, 0.029877, 0.036365, 0.044546, 0.054420, 0.065987, 0.079245, 0.094197, 0.110841, 0.129178 },
+            { 0.023892, 0.027519, 0.033124, 0.040707, 0.050269, 0.061808, 0.075327, 0.090823, 0.108298, 0.127751, 0.149182 },
+            { 0.028552, 0.033598, 0.041397, 0.051947, 0.065250, 0.081306, 0.100114, 0.121674, 0.145987, 0.173052, 0.202869 },
+            { 0.075666, 0.086826, 0.104072, 0.127405, 0.156826, 0.192333, 0.233927, 0.281609, 0.335377, 0.395232, 0.461174 },
+            { 0.227650, 0.231582, 0.243378, 0.263038, 0.290562, 0.325950, 0.369202, 0.420318, 0.479298, 0.546142, 0.620850 },
+            { 0.024749, 0.025640, 0.028312, 0.032766, 0.039002, 0.047020, 0.056819, 0.068400, 0.081763, 0.096907, 0.113833 },
+            { 0.017889, 0.018354, 0.019750, 0.022077, 0.025335, 0.029524, 0.034644, 0.040694, 0.047675, 0.055588, 0.064431 },
+            { 0.014364, 0.014664, 0.015564, 0.017064, 0.019165, 0.021866, 0.025166, 0.029067, 0.033568, 0.038670, 0.044371 },
+            { 0.012128, 0.012342, 0.012984, 0.014054, 0.015551, 0.017477, 0.019830, 0.022611, 0.025820, 0.029457, 0.033522 },
+            { 0.010553, 0.010715, 0.011201, 0.012011, 0.013144, 0.014602, 0.016384, 0.018490, 0.020919, 0.023673, 0.026750 },
+            { 0.009370, 0.009498, 0.009881, 0.010519, 0.011413, 0.012562, 0.013967, 0.015627, 0.017542, 0.019713, 0.022139 },
+            { 0.008442, 0.008546, 0.008857, 0.009375, 0.010101, 0.011034, 0.012174, 0.013522, 0.015077, 0.016839, 0.018809 },
+            { 0.007692, 0.007778, 0.008036, 0.008467, 0.009069, 0.009844, 0.010790, 0.011909, 0.013200, 0.014663, 0.016298 },
+            { 0.007071, 0.007144, 0.007362, 0.007726, 0.008235, 0.008889, 0.009689, 0.010634, 0.011725, 0.012962, 0.014343 },
+        };
+
+        double[] mrange = new double[] {0.0, 0.21428571, 0.42857143, 0.64285714, 0.85714286, 1.07142857, 1.28571429, 1.5, 1.71428571, 1.92857143, 2.14285714, 2.35714286, 2.57142857, 2.78571429, 3.0};
+        double[] aoarange = new double[] {0.0, 0.02617994, 0.05235988, 0.07853982, 0.10471976, 0.13089969, 0.15707963, 0.18325957, 0.20943951, 0.23561945, 0.26179939};
+
+        public override void Init(MyObjectBuilder_EntityBase objectBuilder)
+        {
+            intake = Entity as IMyGasGenerator;
+            grid = intake.CubeGrid;
+            this.NeedsUpdate |= MyEntityUpdateEnum.EACH_10TH_FRAME | MyEntityUpdateEnum.EACH_FRAME;
+        }
+
+        public override void UpdateBeforeSimulation10()
+        {
+            if (planet == null)
+                planet = MyGamePruningStructure.GetClosestPlanet(grid.WorldMatrix.Translation);
+
+            intake.ProductionCapacityMultiplier = 1 + (float)mach * 10f;
+        }
+
+        public override void UpdateBeforeSimulation()
+        {
+            if (planet == null || grid?.Physics == null) return;
+
+            var speed = intake.CubeGrid.Physics.LinearVelocity.Length();
+
+            mach = speed / Utilities.SpeedOfSound(planet.GetAirDensity(grid.WorldMatrix.Translation));
+            vang = Utilities.VectorAngleBetween(intake.CubeGrid.Physics.LinearVelocity, intake.WorldMatrix.Forward);
+            double cd = 2 * Utilities.BilinearInterpolation(cd_interp_table, mrange, aoarange, mach, vang);
+
+            //MyAPIGateway.Utilities.ShowNotification($"mach {mach:#.##}, vang {vang:#.##}, cd {cd:#.##}", 16);
+
+            ApplyDrag(cd);
+        }
+
+        public void ApplyDrag(double cd)
+        {
+            // Calculate the velocity in the direction opposite to the thrust direction
+            Vector3D thrustDirection = intake.WorldMatrix.Forward; // Opposite of the thruster's forward direction
+            double velocityInThrustDirection = Vector3D.Dot(grid.Physics.LinearVelocity, thrustDirection);
+
+            // Apply drag force proportional to the velocity component in the thrust direction
+            Vector3D dragForce = -thrustDirection * 2 * cd * velocityInThrustDirection * velocityInThrustDirection;
+            grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, dragForce, null, null);
+        }
+
+    }
+
+
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Thrust), false, "MainHelicopterRotor")]
     public class MainHelicopterRotorLogic : MyGameLogicComponent
     {
@@ -284,6 +564,10 @@ namespace MODERN_WARFARE_CORE
         IMyFunctionalBlock block;
         IMyCubeGrid grid;
         MyThrustDefinition def;
+
+        private const float _dragCoefficient = 0.1f;  // Adjust this value to change the drag effect
+        private const float _fadeTime = 5.0f;  // Time in seconds for drag to fade to zero
+        private double _lastThrustTime = MyAPIGateway.Session?.ElapsedPlayTime.TotalSeconds ?? double.PositiveInfinity;
 
         MechanicalPowerGrid vehicle;
 
@@ -342,37 +626,73 @@ namespace MODERN_WARFARE_CORE
 
         public override void UpdateBeforeSimulation()
         {
-            if (grid.Physics == null || block == null || !block.Enabled || !block.IsFunctional || thruster.CurrentThrust == 0 || thruster.MaxEffectiveThrust == 0 || vehicle == null)
+            if (grid.Physics == null || block == null || vehicle == null || thruster.MaxEffectiveThrust == 0)
                 return;
 
-            // rotor torque, fck you
-            if(vehicle.thrusters.Count < 2)
+            ApplyHeliDrag();
+
+            if (!block.IsFunctional || thruster.CurrentThrust == 0 || !block.Enabled)
+                return;
+
+            _lastThrustTime = MyAPIGateway.Session.ElapsedPlayTime.TotalSeconds;
+
+            ApplyHeliSpeedLimit();
+            ApplyRotorTorque();
+        }
+
+        public void ApplyHeliSpeedLimit()
+        {
+            if(grid.Physics.LinearVelocity.Length() > 100)
             {
-                ApplyRotorTorque();
+                grid.Physics.LinearVelocity = Vector3D.Normalize(grid.Physics.LinearVelocity) * 100;
+            }
+        }
+
+        public void ApplyHeliDrag()
+        {
+            double currentTime = MyAPIGateway.Session.ElapsedPlayTime.TotalSeconds;
+            double timeSinceThrust = currentTime - _lastThrustTime;
+
+            // Calculate fading drag multiplier based on time elapsed
+            float dragMultiplier = 1.0f - MathHelper.Clamp((float)(timeSinceThrust / _fadeTime), 0.0f, 1.0f);
+
+            // Calculate the velocity in the direction opposite to the thrust direction
+            Vector3D thrustDirection = thruster.WorldMatrix.Backward; // Opposite of the thruster's forward direction
+            double velocityInThrustDirection = Vector3D.Dot(grid.Physics.LinearVelocity, thrustDirection);
+
+            // Apply drag force proportional to the velocity component in the thrust direction
+            Vector3D dragForce = -thrustDirection * velocityInThrustDirection * _dragCoefficient * dragMultiplier;
+            grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, dragForce, null, null);
+        }
+
+        public void ApplyRotorTorque()
+        {
+            // rotor torque, fck you
+            if (vehicle.thrusters.Count < 2)
+            {
+                Vector3D torque = grid.WorldAABB.Size.Length() * grid.Physics.Mass * thruster.WorldMatrix.Forward * thruster.CurrentThrust / thruster.MaxThrust;
+                grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
             }
             else
             {
                 bool should_torque = true;
-                foreach(IMyThrust thrust in vehicle.thrusters)
+                foreach (IMyThrust thrust in vehicle.thrusters)
                 {
                     if (thrust == thruster)
                         continue;
 
-                    if(thrust.Enabled && thrust.IsFunctional && thrust.CurrentThrust > 0 && (thrust.GetPosition() - thruster.GetPosition()).LengthSquared() > 100)
+                    if (thrust.Enabled && thrust.IsFunctional && thrust.CurrentThrust > 0 && (thrust.GetPosition() - thruster.GetPosition()).LengthSquared() > 100)
                     {
                         should_torque = false;
                     }
                 }
 
                 if (should_torque)
-                    ApplyRotorTorque();
+                {
+                    Vector3D torque = grid.WorldAABB.Size.Length() * grid.Physics.Mass * thruster.WorldMatrix.Forward * thruster.CurrentThrust / thruster.MaxThrust;
+                    grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
+                }
             }
-        }
-
-        public void ApplyRotorTorque()
-        {
-            Vector3D torque = grid.WorldAABB.Size.Length() * grid.Physics.Mass * thruster.WorldMatrix.Forward * thruster.CurrentThrust / thruster.MaxThrust;
-            grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
         }
 
         public override void UpdateBeforeSimulation10()
@@ -431,6 +751,8 @@ namespace MODERN_WARFARE_CORE
         IMyMotorSuspension sus;
         IMyFunctionalBlock con;
 
+        bool turned_off_by_bob = false;
+
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
             sus = (Entity as IMyMotorSuspension);
@@ -451,8 +773,15 @@ namespace MODERN_WARFARE_CORE
                 return;
             
             if (sus.Enabled && (!con.Enabled || !con.IsFunctional || (con as MyFueledPowerProducer).Capacity == 0))// || con.Capacity == 0))
+            {
                 sus.Enabled = false;
-
+                turned_off_by_bob = true;
+            }
+            else if(turned_off_by_bob) // and working...
+            {
+                sus.Enabled = true;
+                turned_off_by_bob = false;
+            }
         }
 
         public void UpdateConverterBlock()
@@ -472,11 +801,88 @@ namespace MODERN_WARFARE_CORE
             }
 
             if (con == null)
+            {
                 sus.Enabled = false;
+                turned_off_by_bob = true;
+            }
+            else if(turned_off_by_bob)
+            {
+                sus.Enabled = true;
+                turned_off_by_bob = false;
+            }
         }
-
     }
 
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_HydrogenEngine), false, "SuspensionConverter")]
+    public class MotorConverterLogic : MyGameLogicComponent
+    {
+        IMyCubeGrid grid;
+        IMyMotorSuspension sus;
+        IMyFunctionalBlock con;
+
+        bool turned_off_by_bob = false;
+
+        public override void Init(MyObjectBuilder_EntityBase objectBuilder)
+        {
+            con = (Entity as IMyFunctionalBlock);
+
+            grid = con.CubeGrid;
+
+            this.NeedsUpdate |= MyEntityUpdateEnum.EACH_10TH_FRAME;
+        }
+
+        public override void UpdateBeforeSimulation10()
+        {
+            if (grid == null || grid.Physics == null || con == null)
+                return;
+
+            if (con.Enabled && sus == null)
+                UpdateSuspensionBlock();
+
+            if (sus == null)
+            {
+                con.Enabled = false;
+                turned_off_by_bob = true;
+            }
+            else if (turned_off_by_bob && !con.Enabled)
+            {
+                con.Enabled = true;
+                turned_off_by_bob = false;
+            }
+        }
+
+        public void UpdateSuspensionBlock()
+        {
+            con.ShowInTerminal = false;
+            con.ShowInInventory = false;
+            con.ShowInToolbarConfig = false;
+
+            List<IMySlimBlock> n = new List<IMySlimBlock>();
+            con.SlimBlock.GetNeighbours(n);
+
+            foreach (IMySlimBlock slim in n)
+            {
+                if (slim.FatBlock == null) continue;
+
+                if (slim.FatBlock is IMyMotorSuspension)
+                {
+                    sus = slim.FatBlock as IMyMotorSuspension;
+                    break;
+                }
+            }
+
+            if (sus == null)
+            {
+                con.Enabled = false;
+                turned_off_by_bob = true;
+            }
+            else if (turned_off_by_bob && !con.Enabled)
+            {
+                con.Enabled = true;
+                turned_off_by_bob = false;
+            }
+        }
+    }
 
     public class MechanicalPowerGrid
     {

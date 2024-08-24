@@ -11,14 +11,14 @@ using System.Runtime.CompilerServices;
 
 namespace cleaner
 {
-	[MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)]
+    [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)]
     public class BlockRemover : MySessionComponentBase
     {
         private readonly string DUMMY_MODEL = @"Models\Toedisgay.mwm";
-        private readonly string[] DUMMY_ICON = {@"Textures\FAKE.dds"};
+        private readonly string[] DUMMY_ICON = { @"Textures\FAKE.dds" };
         private readonly float DUMMY_MASS = 0f;
         private readonly string ADMIN_TAG = "ADMIN";
-        private readonly bool DEBUG = false;
+        private readonly bool DEBUG = true;
 
         public HashSet<string> weapon_def_hashset = new HashSet<string>();
         public HashSet<string> cockpit_def_hashset = new HashSet<string>();
@@ -26,7 +26,8 @@ namespace cleaner
         public HashSet<string> logistics_def_hashset = new HashSet<string>();
         public HashSet<string> mobility_def_hashset = new HashSet<string>();
 
-        public List<string> categories = new List<string>(new string[] {
+        public List<string> categories = new List<string>(new string[]
+        {
             "Large",
             "All",
             "Small",
@@ -40,12 +41,14 @@ namespace cleaner
             "motes"
         });
 
-        public List<string> category_blacklist = new List<string>(new string[] {
+        public List<string> category_blacklist = new List<string>(new string[]
+        {
             "category",
             "Blocks",
         });
 
-        public List<string> block_type_id_blacklist = new List<string>(new string[] {
+        public List<string> block_type_id_blacklist = new List<string>(new string[]
+        {
             "MyObjectBuilder_Thrust",
             "MyObjectBuilder_Cockpit",
             "MyObjectBuilder_Reactor",
@@ -55,7 +58,8 @@ namespace cleaner
             "MyObjectBuilder_HydrogenEngine",
         });
 
-        public List<string> block_subtype_id_blacklist = new List<string>(new string[] {
+        public List<string> block_subtype_id_blacklist = new List<string>(new string[]
+        {
             "LargeRailgun",
             "SmallRailgun",
             "SmallBlockMediumCalibreTurret",
@@ -78,22 +82,32 @@ namespace cleaner
             "Small_2x1_Control_Centered",
             "Small_2x1_Control_Flat",
 
-            //"LargeCameraBlock",
-            //"SmallCameraBlock",
+            "LargeCameraBlock",
+            "SmallCameraBlock",
             "LargeCameraTopMounted",
             "SmallCameraTopMounted",
         });
 
-        public List<string> block_subtype_id_whitelist = new List<string>(new string[] {
+        public List<string> block_subtype_banned_keywords = new List<string>(new string[]
+        {
+            "Plane",
+            "plane", ///... plane parts, fuck you.
+            "wing_fill",
+            "wing_tip",
+            "wing_rigging",
+        });
+
+        public List<string> block_subtype_id_whitelist = new List<string>(new string[]
+        {
             "OpenCockpitSmall",
             "OpenCockpitLarge",
-            "ZClassicCockpit",
             "PassengerSeatSmallOffset",
             "PassengerSeatSmall",
             "PassengerSeatSmallNew",
             "PassengerSeatLarge",
 
             "SmallBlockBatteryBlock",
+            "SmallBlockSmallBatteryBlock",
             "LargeBlockBatteryBlock",
 
             "JetThruster",
@@ -108,7 +122,18 @@ namespace cleaner
 
             "LargeAlternator",
             "SuspensionConverter",
-            "SmallAlternator"
+            "SmallAlternator",
+
+            "Propellantx4",
+            "Propellantx5",
+
+            "aero-wing-plane-air_brake_double_1x1x1_Small",
+            "aero-wing-plane-air_brake_single_1x1x1_Small",
+            "aero-wing-plane-air_brake_single_1x1x1_Large",
+            "aero-wing-plane-air_brake_double_1x1x1_Large",
+
+            "SmallCameraBlock",
+
         });
 
         private void ApplyGitGoneFilters()
@@ -122,8 +147,20 @@ namespace cleaner
                 string subtype_id = block_def.Id.SubtypeName;
                 string type_id = block_def.Id.TypeId.ToString();
 
-                bool is_banned = block_type_id_blacklist.Contains(type_id) && !block_subtype_id_whitelist.Contains(subtype_id) || block_subtype_id_blacklist.Contains(subtype_id);
+                bool is_banned = block_type_id_blacklist.Contains(type_id) || block_subtype_id_blacklist.Contains(subtype_id);
                 bool is_admin = subtype_id.Contains(ADMIN_TAG);
+
+                foreach (string banned_keyword in block_subtype_banned_keywords)
+                {
+                    if (subtype_id.Contains(banned_keyword))
+                    {
+                        is_banned = true;
+                    }
+                }
+
+                if (block_subtype_id_whitelist.Contains(subtype_id))
+                    is_banned = false;
+
 
                 if (DEBUG)
                 {
@@ -151,7 +188,7 @@ namespace cleaner
             foreach (MyDefinitionBase def in MyDefinitionManager.Static.GetAllDefinitions())
             {
                 var block_def = def as MyCubeBlockDefinition;
-                if (block_def == null || def.DLCs?.Length > 0)
+                if (block_def == null)
                     continue;
 
                 string subtype_id = block_def.Id.SubtypeName;
@@ -166,6 +203,18 @@ namespace cleaner
                 }
 
                 if (def.DisplayNameString != null && def.DisplayNameString.Contains("Control Surface"))
+                {
+                    mobility_def_hashset.Add(type_id + "/" + subtype_id);
+                    continue;
+                }
+
+                if(type_id == "MyObjectBuilder_TerminalBlock" && subtype_id.Contains("aero-wing_") && (subtype_id.Contains("pointed_edge") || subtype_id.Contains("rounded_edge")))
+                {
+                    mobility_def_hashset.Add(type_id + "/" + subtype_id);
+                    continue;
+                }
+
+                if (type_id == "MyObjectBuilder_AdvancedDoor" && subtype_id.Contains("air_brake"))
                 {
                     mobility_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
@@ -347,7 +396,7 @@ namespace cleaner
         public override void BeforeStart()
         {
             ApplyGitGoneFilters();
-            SortBlockCategories();            
+            SortBlockCategories();
         }
     }
 }
