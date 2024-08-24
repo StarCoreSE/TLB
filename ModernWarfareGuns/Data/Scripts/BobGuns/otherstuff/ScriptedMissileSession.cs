@@ -705,8 +705,8 @@ namespace ScriptedMissiles
                 return;
             }
 
-            if (light == null)
-                light = CreatAPSLight();
+            if (light == null && !MyAPIGateway.Utilities.IsDedicated)
+                light = CreatAPSLight();a
 
             //MyAPIGateway.Utilities.ShowNotification($"tic {tick}", 160);
             tick++;
