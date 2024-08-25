@@ -157,7 +157,7 @@ namespace ScriptedMissiles
                 lastLeadPosition = position + direction * 10000;
 
 
-                UpdateVelocity();
+                Update();
             }
 
             public Vector3 GetTargetPrediction()
@@ -706,7 +706,7 @@ namespace ScriptedMissiles
             }
 
             if (light == null && !MyAPIGateway.Utilities.IsDedicated)
-                light = CreatAPSLight();a
+                light = CreatAPSLight();
 
             //MyAPIGateway.Utilities.ShowNotification($"tic {tick}", 160);
             tick++;

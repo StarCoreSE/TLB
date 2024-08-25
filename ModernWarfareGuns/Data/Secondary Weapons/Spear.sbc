@@ -128,25 +128,25 @@
 			<SubtypeId>SpearAmmo_BeamRider</SubtypeId>
 		</Id>
 		<BasicProperties>
-			<DesiredSpeed>10000</DesiredSpeed>
+			<DesiredSpeed>400</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>5000</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
 			<BackkickForce>1</BackkickForce>
-			<PhysicalMaterial>MediumShell</PhysicalMaterial>
+			<PhysicalMaterial>Missile</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
 		</BasicProperties>
 		<MissileProperties>
 			<MissileMass>300</MissileMass>
 			<MissileExplosionRadius>3</MissileExplosionRadius>
-			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
+            <Model>Models\Weapons\Projectile_Missile.mwm</Model>
 			<MissileAcceleration>0</MissileAcceleration>
-			<MissileInitialSpeed>10</MissileInitialSpeed>
+			<MissileInitialSpeed>100</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
 			<MissileExplosionDamage>500</MissileExplosionDamage>
-			<MissileHealthPool>500</MissileHealthPool>
+			<MissileHealthPool>3000</MissileHealthPool>
 			<MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
-			<MissileGravityEnabled>true</MissileGravityEnabled>
+			<MissileGravityEnabled>false</MissileGravityEnabled>
 			<MissileRicochetAngle>30</MissileRicochetAngle>
 			<MissileRicochetDamage>2000</MissileRicochetDamage>
 			<MissileRicochetProbability>0</MissileRicochetProbability>
