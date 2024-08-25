@@ -51,7 +51,7 @@
 		<DeviateShotAngleAiming>0.15</DeviateShotAngleAiming>
 		<NoAmmoSoundName>WepPlayRifleNoAmmo</NoAmmoSoundName>
 		<AmmoMagazines>
-			<AmmoMagazine Subtype="LargeCalibreAmmo" />
+			<AmmoMagazine Subtype="CatapultMag" />
 		</AmmoMagazines>
 		<ReloadTime>12000</ReloadTime>
 		<Effects>
