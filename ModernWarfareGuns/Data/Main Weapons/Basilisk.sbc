@@ -73,7 +73,7 @@
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
 	<Capacity>3</Capacity>
-	<AmmoDefinitionId Subtype="BasiliskAmmo_Homing" />
+	<AmmoDefinitionId Subtype="BasiliskAmmo_Homing_Proximity" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>
 	<MaximumOfferAmount>1000</MaximumOfferAmount>
@@ -86,7 +86,7 @@
 	<Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
 		<Id>
 			<TypeId>AmmoDefinition</TypeId>
-			<SubtypeId>BasiliskAmmo_Homing</SubtypeId>
+			<SubtypeId>BasiliskAmmo_Homing_Proximity</SubtypeId>
 		</Id>
 		<BasicProperties>
 			<DesiredSpeed>1000</DesiredSpeed>
