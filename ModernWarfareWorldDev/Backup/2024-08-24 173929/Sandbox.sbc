@@ -1,0 +1,2389 @@
+<?xml version="1.0"?>
+<MyObjectBuilder_Checkpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CurrentSector x="0" y="0" z="0" />
+  <ElapsedGameTime>1885940480000</ElapsedGameTime>
+  <SessionName>ModernWarfareWorldDev</SessionName>
+  <SpectatorPosition>
+    <Position x="85357.84899953453" y="354260.30513579288" z="-359602.16392698436" />
+    <Forward x="-0.2848082" y="-0.94169277" z="0.1791619" />
+    <Up x="-0.169407576" y="-0.134514421" z="-0.9763232" />
+    <Orientation>
+      <X>-0.751194537</X>
+      <Y>0.159021348</Y>
+      <Z>-0.054442998</Z>
+      <W>0.638322</W>
+    </Orientation>
+  </SpectatorPosition>
+  <SpectatorSpeed x="18.2692623" y="1" />
+  <SpectatorIsLightOn>false</SpectatorIsLightOn>
+  <CameraEntity>0</CameraEntity>
+  <ControlledObject>85379252979539705</ControlledObject>
+  <Password />
+  <Description>This world is a blank slate, unleash your creativity and populate it with your creations.</Description>
+  <LastSaveTime>2024-08-24T17:39:29.1892547-05:00</LastSaveTime>
+  <SpectatorDistance>46.2865372</SpectatorDistance>
+  <WorkshopId xsi:nil="true" />
+  <WorkshopId1 xsi:nil="true" />
+  <CharacterToolbar>
+    <ToolbarType>Character</ToolbarType>
+    <SelectedSlot>7</SelectedSlot>
+    <Slots>
+      <Slot>
+        <Index>0</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+          <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="WelderItem" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>1</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="LargeHeavyBlockArmorSlope2Base" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>2</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_BatteryBlock" Subtype="LargeBlockBatteryBlock" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>3</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_LandingGear" Subtype="LargeBlockLandingGear" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>4</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_SmallMissileLauncher" Subtype="BasiliskGunBlock" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>5</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_LargeMissileTurret" Subtype="SpearLauncher" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>6</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_TerminalBlock" Subtype="aero-wing_5x2x1_rounded_edge_Large" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>7</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+          <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="PreciseAutomaticRifleItem" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>8</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_Thrust" Subtype="TailHelicopterRotor" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>9</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="Window1x2Face" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>10</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="Window1x2Flat" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>11</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="Window1x1Face" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>12</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="Window1x1Slope" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>13</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_CargoContainer" Subtype="SmallBlockMediumContainer" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>14</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_LargeMissileTurret" Subtype="SpearLauncher" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>15</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_OxygenGenerator" Subtype="MediumDieselEngine" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>16</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+          <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="PreciseAutomaticRifleItem" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>17</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+          <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="BasicHandHeldLauncherItem" />
+        </Data>
+      </Slot>
+    </Slots>
+    <SlotsGamepad />
+  </CharacterToolbar>
+  <ControlledEntities>
+    <dictionary>
+      <item>
+        <Key>85379252979539705</Key>
+        <Value>
+          <ClientId>0</ClientId>
+          <SerialId>0</SerialId>
+          <HashedId>2935005046534448615</HashedId>
+        </Value>
+      </item>
+    </dictionary>
+  </ControlledEntities>
+  <Settings xsi:type="MyObjectBuilder_SessionSettings">
+    <GameMode>Survival</GameMode>
+    <InventorySizeMultiplier>3</InventorySizeMultiplier>
+    <BlocksInventorySizeMultiplier>1</BlocksInventorySizeMultiplier>
+    <AssemblerSpeedMultiplier>3</AssemblerSpeedMultiplier>
+    <AssemblerEfficiencyMultiplier>3</AssemblerEfficiencyMultiplier>
+    <RefinerySpeedMultiplier>3</RefinerySpeedMultiplier>
+    <OnlineMode>FRIENDS</OnlineMode>
+    <MaxPlayers>16</MaxPlayers>
+    <MaxFloatingObjects>56</MaxFloatingObjects>
+    <TotalBotLimit>32</TotalBotLimit>
+    <MaxBackupSaves>5</MaxBackupSaves>
+    <MaxGridSize>0</MaxGridSize>
+    <MaxBlocksPerPlayer>0</MaxBlocksPerPlayer>
+    <TotalPCU>1000000</TotalPCU>
+    <PiratePCU>50000</PiratePCU>
+    <MaxFactionsCount>0</MaxFactionsCount>
+    <BlockLimitsEnabled>GLOBALLY</BlockLimitsEnabled>
+    <EnableRemoteBlockRemoval>true</EnableRemoteBlockRemoval>
+    <EnvironmentHostility>SAFE</EnvironmentHostility>
+    <AutoHealing>true</AutoHealing>
+    <EnableCopyPaste>false</EnableCopyPaste>
+    <WeaponsEnabled>true</WeaponsEnabled>
+    <ShowPlayerNamesOnHud>true</ShowPlayerNamesOnHud>
+    <ThrusterDamage>true</ThrusterDamage>
+    <CargoShipsEnabled>true</CargoShipsEnabled>
+    <EnableSpectator>false</EnableSpectator>
+    <WorldSizeKm>0</WorldSizeKm>
+    <RespawnShipDelete>false</RespawnShipDelete>
+    <ResetOwnership>false</ResetOwnership>
+    <WelderSpeedMultiplier>2</WelderSpeedMultiplier>
+    <GrinderSpeedMultiplier>2</GrinderSpeedMultiplier>
+    <RealisticSound>false</RealisticSound>
+    <HackSpeedMultiplier>0.33</HackSpeedMultiplier>
+    <PermanentDeath>false</PermanentDeath>
+    <AutoSaveInMinutes>5</AutoSaveInMinutes>
+    <EnableSaving>true</EnableSaving>
+    <InfiniteAmmo>false</InfiniteAmmo>
+    <EnableContainerDrops>true</EnableContainerDrops>
+    <SpawnShipTimeMultiplier>0</SpawnShipTimeMultiplier>
+    <ProceduralDensity>0.35</ProceduralDensity>
+    <ProceduralSeed>0</ProceduralSeed>
+    <DestructibleBlocks>true</DestructibleBlocks>
+    <EnableIngameScripts>true</EnableIngameScripts>
+    <ViewDistance>15000</ViewDistance>
+    <EnableToolShake>true</EnableToolShake>
+    <VoxelGeneratorVersion>4</VoxelGeneratorVersion>
+    <EnableOxygen>true</EnableOxygen>
+    <EnableOxygenPressurization>true</EnableOxygenPressurization>
+    <Enable3rdPersonView>true</Enable3rdPersonView>
+    <EnableEncounters>true</EnableEncounters>
+    <EnableConvertToStation>true</EnableConvertToStation>
+    <StationVoxelSupport>false</StationVoxelSupport>
+    <EnableSunRotation>true</EnableSunRotation>
+    <EnableRespawnShips>true</EnableRespawnShips>
+    <ScenarioEditMode>false</ScenarioEditMode>
+    <Scenario>false</Scenario>
+    <UpdateRespawnDictionary>false</UpdateRespawnDictionary>
+    <CanJoinRunning>false</CanJoinRunning>
+    <PhysicsIterations>8</PhysicsIterations>
+    <SunRotationIntervalMinutes>119.999992</SunRotationIntervalMinutes>
+    <EnableJetpack>true</EnableJetpack>
+    <SpawnWithTools>true</SpawnWithTools>
+    <BlueprintShareTimeout>30</BlueprintShareTimeout>
+    <BlueprintShare>true</BlueprintShare>
+    <StartInRespawnScreen>false</StartInRespawnScreen>
+    <EnableVoxelDestruction>true</EnableVoxelDestruction>
+    <MaxDrones>5</MaxDrones>
+    <EnableDrones>true</EnableDrones>
+    <EnableWolfs>false</EnableWolfs>
+    <EnableSpiders>false</EnableSpiders>
+    <FloraDensityMultiplier>1</FloraDensityMultiplier>
+    <EnableStructuralSimulation>false</EnableStructuralSimulation>
+    <MaxActiveFracturePieces>50</MaxActiveFracturePieces>
+    <BlockTypeLimits>
+      <dictionary />
+    </BlockTypeLimits>
+    <EnableScripterRole>false</EnableScripterRole>
+    <MinDropContainerRespawnTime>5</MinDropContainerRespawnTime>
+    <MaxDropContainerRespawnTime>20</MaxDropContainerRespawnTime>
+    <EnableTurretsFriendlyFire>false</EnableTurretsFriendlyFire>
+    <EnableSubgridDamage>false</EnableSubgridDamage>
+    <SyncDistance>5000</SyncDistance>
+    <ExperimentalMode>true</ExperimentalMode>
+    <AdaptiveSimulationQuality>true</AdaptiveSimulationQuality>
+    <EnableVoxelHand>true</EnableVoxelHand>
+    <RemoveOldIdentitiesH>0</RemoveOldIdentitiesH>
+    <TrashRemovalEnabled>true</TrashRemovalEnabled>
+    <StopGridsPeriodMin>15</StopGridsPeriodMin>
+    <TrashFlagsValue>7706</TrashFlagsValue>
+    <AFKTimeountMin>0</AFKTimeountMin>
+    <BlockCountThreshold>20</BlockCountThreshold>
+    <PlayerDistanceThreshold>500</PlayerDistanceThreshold>
+    <OptimalGridCount>0</OptimalGridCount>
+    <PlayerInactivityThreshold>0</PlayerInactivityThreshold>
+    <PlayerCharacterRemovalThreshold>15</PlayerCharacterRemovalThreshold>
+    <VoxelTrashRemovalEnabled>false</VoxelTrashRemovalEnabled>
+    <VoxelPlayerDistanceThreshold>5000</VoxelPlayerDistanceThreshold>
+    <VoxelGridDistanceThreshold>5000</VoxelGridDistanceThreshold>
+    <VoxelAgeThreshold>24</VoxelAgeThreshold>
+    <EnableResearch>true</EnableResearch>
+    <EnableGoodBotHints>true</EnableGoodBotHints>
+    <OptimalSpawnDistance>900</OptimalSpawnDistance>
+    <EnableAutorespawn>true</EnableAutorespawn>
+    <EnableBountyContracts>true</EnableBountyContracts>
+    <EnableSupergridding>false</EnableSupergridding>
+    <EnableEconomy>false</EnableEconomy>
+    <DepositsCountCoefficient>2</DepositsCountCoefficient>
+    <DepositSizeDenominator>30</DepositSizeDenominator>
+    <WeatherSystem>true</WeatherSystem>
+    <WeatherLightingDamage>false</WeatherLightingDamage>
+    <HarvestRatioMultiplier>1</HarvestRatioMultiplier>
+    <TradeFactionsCount>15</TradeFactionsCount>
+    <StationsDistanceInnerRadius>10000000</StationsDistanceInnerRadius>
+    <StationsDistanceOuterRadiusStart>10000000</StationsDistanceOuterRadiusStart>
+    <StationsDistanceOuterRadiusEnd>30000000</StationsDistanceOuterRadiusEnd>
+    <EconomyTickInSeconds>1200</EconomyTickInSeconds>
+    <NPCGridClaimTimeLimit>120</NPCGridClaimTimeLimit>
+    <SimplifiedSimulation>false</SimplifiedSimulation>
+    <EnablePcuTrading>true</EnablePcuTrading>
+    <FamilySharing>true</FamilySharing>
+    <EnableSelectivePhysicsUpdates>false</EnableSelectivePhysicsUpdates>
+    <PredefinedAsteroids>true</PredefinedAsteroids>
+    <UseConsolePCU>false</UseConsolePCU>
+    <MaxPlanets>99</MaxPlanets>
+    <OffensiveWordsFiltering>false</OffensiveWordsFiltering>
+    <AdjustableMaxVehicleSpeed>true</AdjustableMaxVehicleSpeed>
+    <EnableMatchComponent>false</EnableMatchComponent>
+    <PreMatchDuration>0</PreMatchDuration>
+    <MatchDuration>0</MatchDuration>
+    <PostMatchDuration>0</PostMatchDuration>
+    <EnableFriendlyFire>true</EnableFriendlyFire>
+    <EnableTeamBalancing>false</EnableTeamBalancing>
+    <CharacterSpeedMultiplier>1</CharacterSpeedMultiplier>
+    <EnableRecoil>true</EnableRecoil>
+    <EnvironmentDamageMultiplier>1</EnvironmentDamageMultiplier>
+    <EnableGamepadAimAssist>false</EnableGamepadAimAssist>
+    <BackpackDespawnTimer>5</BackpackDespawnTimer>
+    <EnableFactionPlayerNames>false</EnableFactionPlayerNames>
+    <EnableTeamScoreCounters>true</EnableTeamScoreCounters>
+    <EnableSpaceSuitRespawn>true</EnableSpaceSuitRespawn>
+    <MatchRestartWhenEmptyTime>0</MatchRestartWhenEmptyTime>
+    <EnableFactionVoiceChat>false</EnableFactionVoiceChat>
+    <EnableOrca>true</EnableOrca>
+    <MaxProductionQueueLength>50</MaxProductionQueueLength>
+    <PrefetchShapeRayLengthLimit>15000</PrefetchShapeRayLengthLimit>
+    <EnemyTargetIndicatorDistance>20</EnemyTargetIndicatorDistance>
+    <EnableTrashSettingsPlatformOverride>true</EnableTrashSettingsPlatformOverride>
+    <MinimumWorldSize>0</MinimumWorldSize>
+    <MaxCargoBags>100</MaxCargoBags>
+    <TrashCleanerCargoBagsMaxLiveTime>30</TrashCleanerCargoBagsMaxLiveTime>
+    <ScrapEnabled>true</ScrapEnabled>
+    <BroadcastControllerMaxOfflineTransmitDistance>200</BroadcastControllerMaxOfflineTransmitDistance>
+    <TemporaryContainers>true</TemporaryContainers>
+  </Settings>
+  <ScriptManagerData>
+    <variables>
+      <dictionary>
+        <item>
+          <Key>CEW-SmallMissileTurret</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-CannonTurret_Large</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-ArtilleryTurretSmall</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-CannonTurret</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-Missile_Large</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-Minigun_Large</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-Grenade_Large</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-Flamer_Large</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-Shotgun_Large</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-Shotgun</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-Flamer</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-Grenade</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-Missile</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-SpearLauncher</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-CutlassLauncher</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-MaceLauncher</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-SwordLauncher</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+        <item>
+          <Key>CEW-APSTurret</Key>
+          <Value xsi:type="xsd:string">800
+RegularDamage-False
+ExplosionDamage-False
+VoxelDamage-False
+TeslaDamage-False
+JumpDamage-False
+ShieldDamage-False
+HackingDamage-False</Value>
+        </item>
+      </dictionary>
+    </variables>
+  </ScriptManagerData>
+  <AppVersion>1204018</AppVersion>
+  <Factions>
+    <Factions>
+      <MyObjectBuilder_Faction>
+        <FactionId>258961289160008772</FactionId>
+        <Tag>SPRT</Tag>
+        <Name>Space Pirates</Name>
+        <PrivateInfo />
+        <Members>
+          <MyObjectBuilder_FactionMember>
+            <PlayerId>144115188075855896</PlayerId>
+            <IsLeader>true</IsLeader>
+            <IsFounder>true</IsFounder>
+          </MyObjectBuilder_FactionMember>
+        </Members>
+        <JoinRequests />
+        <AutoAcceptMember>true</AutoAcceptMember>
+        <AutoAcceptPeace>false</AutoAcceptPeace>
+        <AcceptHumans>false</AcceptHumans>
+        <EnableFriendlyFire>false</EnableFriendlyFire>
+        <FactionType>Trader</FactionType>
+        <Stations />
+        <CustomColor x="0" y="-0.8" z="-0.450000018" />
+        <IconColor x="0" y="0" z="0" />
+        <FactionIcon>Textures\FactionLogo\PirateIcon.dds</FactionIcon>
+        <TransferedPCUDelta>0</TransferedPCUDelta>
+        <Score>0</Score>
+        <ObjectivePercentageCompleted>0</ObjectivePercentageCompleted>
+        <FactionIconWorkshopId xsi:nil="true" />
+        <DamageInflicted>
+          <dictionary>
+            <item>
+              <Key>144115188075855895</Key>
+              <Value>55167.29</Value>
+            </item>
+            <item>
+              <Key>124168712738897777</Key>
+              <Value>7078.4</Value>
+            </item>
+          </dictionary>
+        </DamageInflicted>
+      </MyObjectBuilder_Faction>
+      <MyObjectBuilder_Faction>
+        <FactionId>270189608549417844</FactionId>
+        <Tag>asd</Tag>
+        <Name>asdasd</Name>
+        <Description />
+        <PrivateInfo />
+        <Members>
+          <MyObjectBuilder_FactionMember>
+            <PlayerId>144115188075855895</PlayerId>
+            <IsLeader>true</IsLeader>
+            <IsFounder>true</IsFounder>
+          </MyObjectBuilder_FactionMember>
+          <MyObjectBuilder_FactionMember>
+            <PlayerId>144115188075855899</PlayerId>
+            <IsLeader>false</IsLeader>
+            <IsFounder>false</IsFounder>
+          </MyObjectBuilder_FactionMember>
+          <MyObjectBuilder_FactionMember>
+            <PlayerId>144115188075855900</PlayerId>
+            <IsLeader>false</IsLeader>
+            <IsFounder>false</IsFounder>
+          </MyObjectBuilder_FactionMember>
+        </Members>
+        <JoinRequests />
+        <AutoAcceptMember>false</AutoAcceptMember>
+        <AutoAcceptPeace>false</AutoAcceptPeace>
+        <AcceptHumans>true</AcceptHumans>
+        <EnableFriendlyFire>true</EnableFriendlyFire>
+        <FactionType>PlayerMade</FactionType>
+        <Stations />
+        <CustomColor x="0.87643677" y="-0.205128253" z="0.314705878" />
+        <IconColor x="0" y="-0.8" z="0.55" />
+        <FactionIcon>Textures\FactionLogo\Builders\BuilderIcon_1.dds</FactionIcon>
+        <TransferedPCUDelta>0</TransferedPCUDelta>
+        <Score>0</Score>
+        <ObjectivePercentageCompleted>0</ObjectivePercentageCompleted>
+        <FactionIconWorkshopId xsi:nil="true" />
+        <DamageInflicted>
+          <dictionary>
+            <item>
+              <Key>144115188075855898</Key>
+              <Value>125.999992</Value>
+            </item>
+          </dictionary>
+        </DamageInflicted>
+      </MyObjectBuilder_Faction>
+      <MyObjectBuilder_Faction>
+        <FactionId>252936567261954974</FactionId>
+        <Tag>das</Tag>
+        <Name>asdfadsf</Name>
+        <Description />
+        <PrivateInfo />
+        <Members>
+          <MyObjectBuilder_FactionMember>
+            <PlayerId>144115188075855897</PlayerId>
+            <IsLeader>true</IsLeader>
+            <IsFounder>true</IsFounder>
+          </MyObjectBuilder_FactionMember>
+        </Members>
+        <JoinRequests />
+        <AutoAcceptMember>false</AutoAcceptMember>
+        <AutoAcceptPeace>false</AutoAcceptPeace>
+        <AcceptHumans>true</AcceptHumans>
+        <EnableFriendlyFire>true</EnableFriendlyFire>
+        <FactionType>PlayerMade</FactionType>
+        <Stations />
+        <CustomColor x="0.97343" y="-0.2344262" z="0.50686276" />
+        <IconColor x="0" y="-0.8" z="0.55" />
+        <FactionIcon>Textures\FactionLogo\Others\OtherIcon_23.dds</FactionIcon>
+        <TransferedPCUDelta>0</TransferedPCUDelta>
+        <Score>0</Score>
+        <ObjectivePercentageCompleted>0</ObjectivePercentageCompleted>
+        <FactionIconWorkshopId xsi:nil="true" />
+        <DamageInflicted>
+          <dictionary />
+        </DamageInflicted>
+      </MyObjectBuilder_Faction>
+    </Factions>
+    <Players>
+      <dictionary>
+        <item>
+          <Key>144115188075855896</Key>
+          <Value>258961289160008772</Value>
+        </item>
+        <item>
+          <Key>144115188075855895</Key>
+          <Value>270189608549417844</Value>
+        </item>
+        <item>
+          <Key>144115188075855897</Key>
+          <Value>252936567261954974</Value>
+        </item>
+        <item>
+          <Key>144115188075855899</Key>
+          <Value>270189608549417844</Value>
+        </item>
+        <item>
+          <Key>144115188075855900</Key>
+          <Value>270189608549417844</Value>
+        </item>
+      </dictionary>
+    </Players>
+    <Relations>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>270189608549417844</FactionId1>
+        <FactionId2>258961289160008772</FactionId2>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_FactionRelation>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>252936567261954974</FactionId1>
+        <FactionId2>258961289160008772</FactionId2>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_FactionRelation>
+    </Relations>
+    <RelationsWithPlayers>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855895</PlayerId>
+        <FactionId>258961289160008772</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-950</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>124168712738897777</PlayerId>
+        <FactionId>258961289160008772</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1035</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855897</PlayerId>
+        <FactionId>258961289160008772</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855896</PlayerId>
+        <FactionId>270189608549417844</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855896</PlayerId>
+        <FactionId>252936567261954974</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855898</PlayerId>
+        <FactionId>258961289160008772</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855898</PlayerId>
+        <FactionId>270189608549417844</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855899</PlayerId>
+        <FactionId>258961289160008772</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855900</PlayerId>
+        <FactionId>258961289160008772</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+    </RelationsWithPlayers>
+    <Requests />
+    <PlayerToFactionsVis>
+      <MyObjectBuilder_FactionsVisEntry>
+        <PlayerId>0</PlayerId>
+        <SerialId>0</SerialId>
+        <IdentityId>144115188075855895</IdentityId>
+        <DiscoveredFactions>
+          <long>258961289160008772</long>
+        </DiscoveredFactions>
+      </MyObjectBuilder_FactionsVisEntry>
+      <MyObjectBuilder_FactionsVisEntry>
+        <PlayerId>0</PlayerId>
+        <SerialId>0</SerialId>
+        <IdentityId>144115188075855897</IdentityId>
+        <DiscoveredFactions>
+          <long>258961289160008772</long>
+        </DiscoveredFactions>
+      </MyObjectBuilder_FactionsVisEntry>
+      <MyObjectBuilder_FactionsVisEntry>
+        <PlayerId>0</PlayerId>
+        <SerialId>0</SerialId>
+        <IdentityId>144115188075855898</IdentityId>
+        <DiscoveredFactions>
+          <long>258961289160008772</long>
+        </DiscoveredFactions>
+      </MyObjectBuilder_FactionsVisEntry>
+      <MyObjectBuilder_FactionsVisEntry>
+        <PlayerId>0</PlayerId>
+        <SerialId>0</SerialId>
+        <IdentityId>144115188075855899</IdentityId>
+        <DiscoveredFactions>
+          <long>258961289160008772</long>
+        </DiscoveredFactions>
+      </MyObjectBuilder_FactionsVisEntry>
+      <MyObjectBuilder_FactionsVisEntry>
+        <PlayerId>0</PlayerId>
+        <SerialId>0</SerialId>
+        <IdentityId>144115188075855900</IdentityId>
+        <DiscoveredFactions>
+          <long>258961289160008772</long>
+        </DiscoveredFactions>
+      </MyObjectBuilder_FactionsVisEntry>
+    </PlayerToFactionsVis>
+  </Factions>
+  <PlayersDeadInCryopods>
+    <dictionary />
+  </PlayersDeadInCryopods>
+  <Mods>
+    <ModItem FriendlyName="ModernWarfarePlanet">
+      <Name>3316456792.sbm</Name>
+      <PublishedFileId>3316456792</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="ModernWarfareGuns">
+      <Name>3307947679.sbm</Name>
+      <PublishedFileId>3307947679</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="ModernWarfareCore">
+      <Name>3310565215.sbm</Name>
+      <PublishedFileId>3310565215</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="ModernWarfareArmor">
+      <Name>3310564362.sbm</Name>
+      <PublishedFileId>3310564362</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="Landing Wheels">
+      <Name>2930794173.sbm</Name>
+      <PublishedFileId>2930794173</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="Dynamic Wheel Friction">
+      <Name>2829589020.sbm</Name>
+      <PublishedFileId>2829589020</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="Retractable Wheels 2.0.0">
+      <Name>2200258747.sbm</Name>
+      <PublishedFileId>2200258747</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="Aerodynamic Control Surfaces">
+      <Name>800500312.sbm</Name>
+      <PublishedFileId>800500312</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="Plane FX">
+      <Name>3300658544.sbm</Name>
+      <PublishedFileId>3300658544</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="Build Info">
+      <Name>514062285.sbm</Name>
+      <PublishedFileId>514062285</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="Plane Parts">
+      <Name>837058476.sbm</Name>
+      <PublishedFileId>837058476</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="RB - Piston Pack (Small &amp; Large Grid)">
+      <Name>2369529905.sbm</Name>
+      <PublishedFileId>2369529905</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="Tank Tracks over Vanilla Wheels">
+      <Name>3209008231.sbm</Name>
+      <PublishedFileId>3209008231</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="Better Wheels (adjusted collision, improved travel, dual wheels)">
+      <Name>2271486961.sbm</Name>
+      <PublishedFileId>2271486961</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="P.O.M -  XL Blocks [Slopes Update!]">
+      <Name>2943729620.sbm</Name>
+      <PublishedFileId>2943729620</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
+    <ModItem FriendlyName="Definition Extension API">
+      <Name>2756894170.sbm</Name>
+      <PublishedFileId>2756894170</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+      <IsDependency>true</IsDependency>
+    </ModItem>
+    <ModItem FriendlyName="Tank Tracks Builder">
+      <Name>3209005014.sbm</Name>
+      <PublishedFileId>3209005014</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+      <IsDependency>true</IsDependency>
+    </ModItem>
+    <ModItem FriendlyName="Tank Tracks Framework &amp; API">
+      <Name>3208995513.sbm</Name>
+      <PublishedFileId>3208995513</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+      <IsDependency>true</IsDependency>
+    </ModItem>
+    <ModItem FriendlyName="Text HUD API">
+      <Name>758597413.sbm</Name>
+      <PublishedFileId>758597413</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+      <IsDependency>true</IsDependency>
+    </ModItem>
+    <ModItem FriendlyName="Aerodynamic Control Surface Mod Component">
+      <Name>2831593561.sbm</Name>
+      <PublishedFileId>2831593561</PublishedFileId>
+      <PublishedServiceName>Steam</PublishedServiceName>
+      <IsDependency>true</IsDependency>
+    </ModItem>
+  </Mods>
+  <Scenario Type="MyObjectBuilder_ScenarioDefinition" Subtype="EmptyWorld" />
+  <RespawnCooldowns />
+  <Identities>
+    <MyObjectBuilder_Identity>
+      <IdentityId>144115188075855895</IdentityId>
+      <DisplayName>SchmoobledeeDOOM</DisplayName>
+      <CharacterEntityId>85379252979539705</CharacterEntityId>
+      <Model>Default_Astronaut</Model>
+      <ColorMask x="0" y="-0.265073538" z="-0.189549714" />
+      <BlockLimitModifier>0</BlockLimitModifier>
+      <LastLoginTime>2024-08-24T17:29:47.2595133-05:00</LastLoginTime>
+      <SavedCharacters>
+        <long>85379252979539705</long>
+      </SavedCharacters>
+      <LastLogoutTime>2024-08-24T17:39:29.1892547-05:00</LastLogoutTime>
+      <RespawnShips>
+        <long>92757251843174754</long>
+      </RespawnShips>
+      <LastDeathPosition>
+        <X>59711.841118498945</X>
+        <Y>3364.3223869986732</Y>
+        <Z>38343.143169202733</Z>
+      </LastDeathPosition>
+      <ActiveContracts />
+      <TransferedPCUDelta>0</TransferedPCUDelta>
+    </MyObjectBuilder_Identity>
+    <MyObjectBuilder_Identity>
+      <IdentityId>144115188075855896</IdentityId>
+      <DisplayName>Space Pirates</DisplayName>
+      <CharacterEntityId>0</CharacterEntityId>
+      <BlockLimitModifier>0</BlockLimitModifier>
+      <LastLoginTime>2024-08-24T17:29:54.543854-05:00</LastLoginTime>
+      <SavedCharacters />
+      <LastLogoutTime>0001-01-01T00:00:00</LastLogoutTime>
+      <RespawnShips />
+      <LastDeathPosition xsi:nil="true" />
+      <ActiveContracts />
+      <TransferedPCUDelta>0</TransferedPCUDelta>
+    </MyObjectBuilder_Identity>
+    <MyObjectBuilder_Identity>
+      <IdentityId>144115188075855897</IdentityId>
+      <DisplayName>D4RK3 54B3R</DisplayName>
+      <CharacterEntityId>0</CharacterEntityId>
+      <Model>Default_Astronaut_Female</Model>
+      <ColorMask x="0.6861111" y="-0.0659668446" z="0.166170865" />
+      <BlockLimitModifier>0</BlockLimitModifier>
+      <LastLoginTime>2024-08-21T19:59:06.3273572-05:00</LastLoginTime>
+      <SavedCharacters />
+      <LastLogoutTime>2024-08-21T20:00:59.194225-05:00</LastLogoutTime>
+      <RespawnShips>
+        <long>122589846603496395</long>
+      </RespawnShips>
+      <LastDeathPosition xsi:nil="true" />
+      <ActiveContracts />
+      <TransferedPCUDelta>0</TransferedPCUDelta>
+    </MyObjectBuilder_Identity>
+    <MyObjectBuilder_Identity>
+      <IdentityId>144115188075855898</IdentityId>
+      <DisplayName>Connor</DisplayName>
+      <CharacterEntityId>0</CharacterEntityId>
+      <Model>Default_Astronaut</Model>
+      <ColorMask x="1" y="-0.4666082" z="7.450581E-09" />
+      <BlockLimitModifier>0</BlockLimitModifier>
+      <LastLoginTime>2024-08-21T20:56:51.439624-05:00</LastLoginTime>
+      <SavedCharacters />
+      <LastLogoutTime>2024-08-21T21:02:43.442016-05:00</LastLogoutTime>
+      <RespawnShips />
+      <LastDeathPosition>
+        <X>64097.776997143235</X>
+        <Y>7172.3493132285384</Y>
+        <Z>2322.5856590172871</Z>
+      </LastDeathPosition>
+      <ActiveContracts />
+      <TransferedPCUDelta>0</TransferedPCUDelta>
+    </MyObjectBuilder_Identity>
+    <MyObjectBuilder_Identity>
+      <IdentityId>144115188075855899</IdentityId>
+      <DisplayName>I love The Division 3™</DisplayName>
+      <CharacterEntityId>0</CharacterEntityId>
+      <Model>Default_Astronaut</Model>
+      <ColorMask x="1" y="0.185344338" z="0.06418989" />
+      <BlockLimitModifier>0</BlockLimitModifier>
+      <LastLoginTime>2024-08-24T17:15:54.105526-05:00</LastLoginTime>
+      <SavedCharacters>
+        <long>135846046654267944</long>
+      </SavedCharacters>
+      <LastLogoutTime>2024-08-24T17:26:54.9601441-05:00</LastLogoutTime>
+      <RespawnShips>
+        <long>121597079026958636</long>
+      </RespawnShips>
+      <LastDeathPosition>
+        <X>78987.85273538</X>
+        <Y>326484.65209181933</Y>
+        <Z>-357032.98697301326</Z>
+      </LastDeathPosition>
+      <ActiveContracts />
+      <TransferedPCUDelta>0</TransferedPCUDelta>
+    </MyObjectBuilder_Identity>
+    <MyObjectBuilder_Identity>
+      <IdentityId>144115188075855900</IdentityId>
+      <DisplayName>Firewarrior44</DisplayName>
+      <CharacterEntityId>0</CharacterEntityId>
+      <Model>Default_Astronaut</Model>
+      <ColorMask x="0.13333334" y="0.02630198" z="0.252369732" />
+      <BlockLimitModifier>0</BlockLimitModifier>
+      <LastLoginTime>2024-08-24T17:18:23.9923877-05:00</LastLoginTime>
+      <SavedCharacters>
+        <long>142378942202945978</long>
+      </SavedCharacters>
+      <LastLogoutTime>2024-08-24T17:26:54.9601441-05:00</LastLogoutTime>
+      <RespawnShips>
+        <long>121187837125877208</long>
+      </RespawnShips>
+      <LastDeathPosition>
+        <X>75384.534236378051</X>
+        <Y>359391.25700762059</Y>
+        <Z>-360167.04431292537</Z>
+      </LastDeathPosition>
+      <ActiveContracts />
+      <TransferedPCUDelta>0</TransferedPCUDelta>
+    </MyObjectBuilder_Identity>
+  </Identities>
+  <PreviousEnvironmentHostility>SAFE</PreviousEnvironmentHostility>
+  <AllPlayersData>
+    <dictionary>
+      <item>
+        <Key>
+          <ClientId>0</ClientId>
+          <SerialId>0</SerialId>
+          <HashedId>2935005046534448615</HashedId>
+        </Key>
+        <Value>
+          <DisplayName>SchmoobledeeDOOM</DisplayName>
+          <IdentityId>144115188075855895</IdentityId>
+          <Connected>true</Connected>
+          <ForceRealPlayer>false</ForceRealPlayer>
+          <Toolbar>
+            <ToolbarType>Character</ToolbarType>
+            <SelectedSlot xsi:nil="true" />
+            <Slots>
+              <Slot>
+                <Index>0</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="WelderItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>1</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="LargeHeavyBlockArmorSlope2Base" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>2</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_BatteryBlock" Subtype="LargeBlockBatteryBlock" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>3</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_LandingGear" Subtype="LargeBlockLandingGear" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>4</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_SmallMissileLauncher" Subtype="BasiliskGunBlock" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>5</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_LargeMissileTurret" Subtype="SpearLauncher" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>6</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_TerminalBlock" Subtype="aero-wing_5x2x1_rounded_edge_Large" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>7</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="PreciseAutomaticRifleItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>8</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Thrust" Subtype="TailHelicopterRotor" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>9</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="Window1x2Face" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>10</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="Window1x2Flat" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>11</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="Window1x1Face" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>12</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="Window1x1Slope" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>13</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CargoContainer" Subtype="SmallBlockMediumContainer" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>14</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_LargeMissileTurret" Subtype="SpearLauncher" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>15</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_OxygenGenerator" Subtype="MediumDieselEngine" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>16</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="PreciseAutomaticRifleItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>17</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="BasicHandHeldLauncherItem" />
+                </Data>
+              </Slot>
+            </Slots>
+            <SlotsGamepad />
+          </Toolbar>
+          <EntityCameraData>
+            <CameraControllerSettings EntityId="85379252979539705">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>5.3314807030471227</Distance>
+              <HeadAngle x="0.290452421" y="0" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="115424052043413469">
+              <IsFirstPerson>false</IsFirstPerson>
+              <Distance>15.468717203895922</Distance>
+              <HeadAngle x="-0.9613975" y="-33.408577" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="90768371857848134">
+              <IsFirstPerson>false</IsFirstPerson>
+              <Distance>13.501303405753546</Distance>
+              <HeadAngle x="0" y="0" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="83014017632895381">
+              <IsFirstPerson>false</IsFirstPerson>
+              <Distance>11.055360143040515</Distance>
+              <HeadAngle x="20.5170746" y="526.3656" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="96265559357825165">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>11.295480209956253</Distance>
+              <HeadAngle x="0" y="0" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="80968846482792699">
+              <IsFirstPerson>false</IsFirstPerson>
+              <Distance>7.4649617797853356</Distance>
+              <HeadAngle x="35.8120537" y="-238.90741" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="114808546170430963">
+              <IsFirstPerson>false</IsFirstPerson>
+              <Distance>46.286536543178585</Distance>
+              <HeadAngle x="-44.6176224" y="769.83905" />
+            </CameraControllerSettings>
+          </EntityCameraData>
+          <BuildColorSlots>
+            <Vector3>
+              <X>0</X>
+              <Y>-0.8</Y>
+              <Z>7.450581E-09</Z>
+            </Vector3>
+            <Vector3>
+              <X>0</X>
+              <Y>0</Y>
+              <Z>0.05</Z>
+            </Vector3>
+            <Vector3>
+              <X>0.333333343</X>
+              <Y>-0.48</Y>
+              <Z>-0.25</Z>
+            </Vector3>
+            <Vector3>
+              <X>0.575</X>
+              <Y>0</Y>
+              <Z>0</Z>
+            </Vector3>
+            <Vector3>
+              <X>0.122222222</X>
+              <Y>-0.1</Y>
+              <Z>0.26</Z>
+            </Vector3>
+            <Vector3>
+              <X>0</X>
+              <Y>-0.95</Y>
+              <Z>0.4</Z>
+            </Vector3>
+            <Vector3>
+              <X>0</X>
+              <Y>-0.96</Y>
+              <Z>-0.5</Z>
+            </Vector3>
+            <Vector3>
+              <X>0</X>
+              <Y>-0.85</Y>
+              <Z>0.2</Z>
+            </Vector3>
+            <Vector3>
+              <X>0</X>
+              <Y>0.15</Y>
+              <Z>0.25</Z>
+            </Vector3>
+            <Vector3>
+              <X>0.333333343</X>
+              <Y>-0.329999983</Y>
+              <Z>-0.049999997</Z>
+            </Vector3>
+            <Vector3>
+              <X>0.575</X>
+              <Y>0.15</Y>
+              <Z>0.2</Z>
+            </Vector3>
+            <Vector3>
+              <X>0.0833333358</X>
+              <Y>-0.22</Y>
+              <Z>0.22</Z>
+            </Vector3>
+            <Vector3>
+              <X>0</X>
+              <Y>-0.799999952</Y>
+              <Z>0.6</Z>
+            </Vector3>
+            <Vector3>
+              <X>0</X>
+              <Y>-0.81</Y>
+              <Z>-0.13</Z>
+            </Vector3>
+          </BuildColorSlots>
+          <CreativeToolsEnabled>true</CreativeToolsEnabled>
+          <RemoteAdminSettings>5</RemoteAdminSettings>
+          <PromoteLevel>None</PromoteLevel>
+          <BuildArmorSkin>Concrete_Armor</BuildArmorSkin>
+          <BuildColorSlot>11</BuildColorSlot>
+          <IsWildlifeAgent>false</IsWildlifeAgent>
+          <PlatformIcon></PlatformIcon>
+        </Value>
+      </item>
+      <item>
+        <Key>
+          <ClientId>0</ClientId>
+          <SerialId>0</SerialId>
+          <HashedId>17500876496850552877</HashedId>
+        </Key>
+        <Value>
+          <DisplayName>Firewarrior44</DisplayName>
+          <IdentityId>144115188075855900</IdentityId>
+          <Connected>false</Connected>
+          <ForceRealPlayer>false</ForceRealPlayer>
+          <Toolbar>
+            <ToolbarType>Character</ToolbarType>
+            <SelectedSlot xsi:nil="true" />
+            <Slots>
+              <Slot>
+                <Index>0</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="WelderItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>1</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="AngleGrinderItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>2</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="HandDrillItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>3</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="LargeBlockArmorBlock" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>4</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Assembler" Subtype="BasicAssembler" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>5</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Refinery" Subtype="Blast Furnace" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>6</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_BatteryBlock" Subtype="LargeBlockBatteryBlock" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>7</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Thrust" Subtype="TailHelicopterRotor" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>8</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Thrust" Subtype="MainHelicopterRotor" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>9</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Thrust" Subtype="MainHelicopterRotor" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>10</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_OxygenGenerator" Subtype="LargeHydrogenEngine" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>11</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_LandingGear" Subtype="LargeBlockLandingGear" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>12</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="LargeBlockArmorBlock" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>13</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Conveyor" Subtype="SmallBlockConveyor" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>14</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Cockpit" Subtype="OpenCockpitLarge" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>15</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CargoContainer" Subtype="SmallBlockMediumContainer" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>16</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Gyro" Subtype="LargeBlockGyro" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>17</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Thrust" Subtype="TailHelicopterRotor" />
+                </Data>
+              </Slot>
+            </Slots>
+            <SlotsGamepad />
+          </Toolbar>
+          <EntityCameraData>
+            <CameraControllerSettings EntityId="90768371857848134">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>14.785980890470775</Distance>
+              <HeadAngle x="0" y="0" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="115424052043413469">
+              <IsFirstPerson>false</IsFirstPerson>
+              <Distance>2.5999999046325692</Distance>
+              <HeadAngle x="0" y="0" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="142378942202945978">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>2.5999999046325684</Distance>
+              <HeadAngle x="-1.30703628" y="0" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="83014017632895381">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>14.785980890470775</Distance>
+              <HeadAngle x="0" y="0" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="126793485326399784">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>14.785980890470775</Distance>
+              <HeadAngle x="0" y="0" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="101330322677454816">
+              <IsFirstPerson>false</IsFirstPerson>
+              <Distance>7.76355996621106</Distance>
+              <HeadAngle x="14.6613178" y="-459.067383" />
+            </CameraControllerSettings>
+          </EntityCameraData>
+          <CreativeToolsEnabled>true</CreativeToolsEnabled>
+          <RemoteAdminSettings>0</RemoteAdminSettings>
+          <PromoteLevel>Admin</PromoteLevel>
+          <BuildColorSlot>0</BuildColorSlot>
+          <IsWildlifeAgent>false</IsWildlifeAgent>
+        </Value>
+      </item>
+      <item>
+        <Key>
+          <ClientId>0</ClientId>
+          <SerialId>0</SerialId>
+          <HashedId>4797531735649172951</HashedId>
+        </Key>
+        <Value>
+          <DisplayName>Connor</DisplayName>
+          <IdentityId>144115188075855898</IdentityId>
+          <Connected>false</Connected>
+          <ForceRealPlayer>false</ForceRealPlayer>
+          <Toolbar>
+            <ToolbarType>Character</ToolbarType>
+            <SelectedSlot xsi:nil="true" />
+            <Slots>
+              <Slot>
+                <Index>0</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="SemiAutoPistolItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>1</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="AngleGrinderItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>2</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="WelderItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>3</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="LargeBlockArmorBlock" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>4</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Assembler" Subtype="BasicAssembler" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>5</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Refinery" Subtype="Blast Furnace" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>6</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_WindTurbine" Subtype="LargeBlockWindTurbine" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>7</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_SolarPanel" Subtype="LargeBlockSolarPanel" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>8</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_LandingGear" Subtype="LargeBlockLandingGear" />
+                </Data>
+              </Slot>
+            </Slots>
+            <SlotsGamepad />
+          </Toolbar>
+          <EntityCameraData />
+          <CreativeToolsEnabled>false</CreativeToolsEnabled>
+          <RemoteAdminSettings>0</RemoteAdminSettings>
+          <PromoteLevel>Admin</PromoteLevel>
+          <BuildColorSlot>0</BuildColorSlot>
+          <IsWildlifeAgent>false</IsWildlifeAgent>
+        </Value>
+      </item>
+      <item>
+        <Key>
+          <ClientId>0</ClientId>
+          <SerialId>0</SerialId>
+          <HashedId>9984226958368966617</HashedId>
+        </Key>
+        <Value>
+          <DisplayName>D4RK3 54B3R</DisplayName>
+          <IdentityId>144115188075855897</IdentityId>
+          <Connected>false</Connected>
+          <ForceRealPlayer>false</ForceRealPlayer>
+          <Toolbar>
+            <ToolbarType>Character</ToolbarType>
+            <SelectedSlot xsi:nil="true" />
+            <Slots>
+              <Slot>
+                <Index>0</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="WelderItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>1</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="AngleGrinderItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>2</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="HandDrillItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>3</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="LargeBlockArmorBlock" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>4</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Assembler" Subtype="BasicAssembler" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>5</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Refinery" Subtype="Blast Furnace" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>6</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_WindTurbine" Subtype="LargeBlockWindTurbine" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>7</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_SolarPanel" Subtype="LargeBlockSolarPanel" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>8</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_LandingGear" Subtype="LargeBlockLandingGear" />
+                </Data>
+              </Slot>
+            </Slots>
+            <SlotsGamepad />
+          </Toolbar>
+          <EntityCameraData />
+          <CreativeToolsEnabled>true</CreativeToolsEnabled>
+          <RemoteAdminSettings>15</RemoteAdminSettings>
+          <PromoteLevel>Admin</PromoteLevel>
+          <BuildColorSlot>0</BuildColorSlot>
+          <IsWildlifeAgent>false</IsWildlifeAgent>
+        </Value>
+      </item>
+      <item>
+        <Key>
+          <ClientId>0</ClientId>
+          <SerialId>0</SerialId>
+          <HashedId>4581959925613454277</HashedId>
+        </Key>
+        <Value>
+          <DisplayName>I love The Division 3™</DisplayName>
+          <IdentityId>144115188075855899</IdentityId>
+          <Connected>false</Connected>
+          <ForceRealPlayer>false</ForceRealPlayer>
+          <Toolbar>
+            <ToolbarType>Character</ToolbarType>
+            <SelectedSlot xsi:nil="true" />
+            <Slots>
+              <Slot>
+                <Index>0</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="WelderItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>1</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="AngleGrinderItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>2</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemWeapon">
+                  <DefinitionId Type="MyObjectBuilder_PhysicalGunObject" Subtype="HandDrillItem" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>3</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_MergeBlock" Subtype="AmmoRack" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>4</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Assembler" Subtype="BasicAssembler" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>5</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Refinery" Subtype="Blast Furnace" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>6</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_WindTurbine" Subtype="LargeBlockWindTurbine" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>7</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_SolarPanel" Subtype="LargeBlockSolarPanel" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>8</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_SmallMissileLauncher" Subtype="BasiliskGunBlock" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>9</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_BatteryBlock" Subtype="LargeBlockBatteryBlock" />
+                </Data>
+              </Slot>
+            </Slots>
+            <SlotsGamepad />
+          </Toolbar>
+          <EntityCameraData>
+            <CameraControllerSettings EntityId="135846046654267944">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>2.5999999046325684</Distance>
+              <HeadAngle x="-7.03796434" y="-97.62335" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="115424052043413469">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>12.177144513396376</Distance>
+              <HeadAngle x="0" y="0" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="90768371857848134">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>12.177144513338169</Distance>
+              <HeadAngle x="10.2047758" y="-121.266083" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="83014017632895381">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>12.177144513396376</Distance>
+              <HeadAngle x="0" y="0" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="126793485326399784">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>3.7024168606521748</Distance>
+              <HeadAngle x="0" y="0" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="101330322677454816">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>2.5999999046325684</Distance>
+              <HeadAngle x="0" y="0" />
+            </CameraControllerSettings>
+          </EntityCameraData>
+          <CreativeToolsEnabled>true</CreativeToolsEnabled>
+          <RemoteAdminSettings>15</RemoteAdminSettings>
+          <PromoteLevel>Admin</PromoteLevel>
+          <BuildColorSlot>0</BuildColorSlot>
+          <IsWildlifeAgent>false</IsWildlifeAgent>
+        </Value>
+      </item>
+    </dictionary>
+  </AllPlayersData>
+  <AllPlayersColors>
+    <dictionary>
+      <item>
+        <Key>
+          <ClientId>0</ClientId>
+          <SerialId>0</SerialId>
+          <HashedId>12842481203305440462</HashedId>
+        </Key>
+        <Value>
+          <Vector3>
+            <X>0</X>
+            <Y>-1</Y>
+            <Z>0</Z>
+          </Vector3>
+          <Vector3>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0.05</Z>
+          </Vector3>
+          <Vector3>
+            <X>0.333333343</X>
+            <Y>-0.48</Y>
+            <Z>-0.25</Z>
+          </Vector3>
+          <Vector3>
+            <X>0.575</X>
+            <Y>0</Y>
+            <Z>0</Z>
+          </Vector3>
+          <Vector3>
+            <X>0.122222222</X>
+            <Y>-0.1</Y>
+            <Z>0.26</Z>
+          </Vector3>
+          <Vector3>
+            <X>0</X>
+            <Y>-0.95</Y>
+            <Z>0.4</Z>
+          </Vector3>
+          <Vector3>
+            <X>0</X>
+            <Y>-0.96</Y>
+            <Z>-0.5</Z>
+          </Vector3>
+          <Vector3>
+            <X>0</X>
+            <Y>-0.85</Y>
+            <Z>0.2</Z>
+          </Vector3>
+          <Vector3>
+            <X>0</X>
+            <Y>0.15</Y>
+            <Z>0.25</Z>
+          </Vector3>
+          <Vector3>
+            <X>0.333333343</X>
+            <Y>-0.329999983</Y>
+            <Z>-0.049999997</Z>
+          </Vector3>
+          <Vector3>
+            <X>0.575</X>
+            <Y>0.15</Y>
+            <Z>0.2</Z>
+          </Vector3>
+          <Vector3>
+            <X>0.122222222</X>
+            <Y>0.0500000045</Y>
+            <Z>0.459999979</Z>
+          </Vector3>
+          <Vector3>
+            <X>0</X>
+            <Y>-0.799999952</Y>
+            <Z>0.6</Z>
+          </Vector3>
+          <Vector3>
+            <X>0</X>
+            <Y>-0.809999943</Y>
+            <Z>-0.3</Z>
+          </Vector3>
+        </Value>
+      </item>
+    </dictionary>
+  </AllPlayersColors>
+  <NonPlayerIdentities>
+    <long>144115188075855896</long>
+  </NonPlayerIdentities>
+  <Gps>
+    <dictionary>
+      <item>
+        <Key>144115188075855899</Key>
+        <Value>
+          <Entries>
+            <Entry>
+              <name>Unknown signal 83</name>
+              <description />
+              <coords>
+                <X>77239.1384344892</X>
+                <Y>328064.5636505392</Y>
+                <Z>-357842.6540447587</Z>
+              </coords>
+              <isFinal>true</isFinal>
+              <showOnHud>true</showOnHud>
+              <alwaysVisible>true</alwaysVisible>
+              <color>
+                <PackedValue>4281335725</PackedValue>
+                <X>173</X>
+                <Y>255</Y>
+                <Z>47</Z>
+                <R>173</R>
+                <G>255</G>
+                <B>47</B>
+                <A>255</A>
+              </color>
+              <entityId>95767844373829922</entityId>
+              <isObjective>false</isObjective>
+              <contractId>0</contractId>
+              <DisplayName>Unknown signal</DisplayName>
+            </Entry>
+          </Entries>
+        </Value>
+      </item>
+      <item>
+        <Key>144115188075855900</Key>
+        <Value>
+          <Entries>
+            <Entry>
+              <name>Respawn Pod - 121187837125877208</name>
+              <description>Location of your respawn pod</description>
+              <coords>
+                <X>69785.345051671</X>
+                <Y>406135.19791475288</Y>
+                <Z>-318780.64467627392</Z>
+              </coords>
+              <isFinal>true</isFinal>
+              <showOnHud>true</showOnHud>
+              <alwaysVisible>true</alwaysVisible>
+              <color>
+                <PackedValue>4294035829</PackedValue>
+                <X>117</X>
+                <Y>201</Y>
+                <Z>241</Z>
+                <R>117</R>
+                <G>201</G>
+                <B>241</B>
+                <A>255</A>
+              </color>
+              <entityId>121187837125877208</entityId>
+              <isObjective>false</isObjective>
+              <contractId>0</contractId>
+              <DisplayName>Respawn Pod</DisplayName>
+            </Entry>
+          </Entries>
+        </Value>
+      </item>
+      <item>
+        <Key>144115188075855895</Key>
+        <Value>
+          <Entries>
+            <Entry>
+              <name>Unknown signal 84</name>
+              <description />
+              <coords>
+                <X>79291.719036851951</X>
+                <Y>326013.50630207179</Y>
+                <Z>-356852.644388389</Z>
+              </coords>
+              <isFinal>true</isFinal>
+              <showOnHud>true</showOnHud>
+              <alwaysVisible>true</alwaysVisible>
+              <color>
+                <PackedValue>4281335725</PackedValue>
+                <X>173</X>
+                <Y>255</Y>
+                <Z>47</Z>
+                <R>173</R>
+                <G>255</G>
+                <B>47</B>
+                <A>255</A>
+              </color>
+              <entityId>140477412741179044</entityId>
+              <isObjective>false</isObjective>
+              <contractId>0</contractId>
+              <DisplayName>Unknown signal</DisplayName>
+            </Entry>
+          </Entries>
+        </Value>
+      </item>
+    </dictionary>
+  </Gps>
+  <ContainerGridIds>
+    <dictionary>
+      <item>
+        <Key>76561198083962964</Key>
+        <Value>
+          <long>118256807644269184</long>
+        </Value>
+      </item>
+      <item>
+        <Key>76561198191207115</Key>
+        <Value>
+          <long>127883733254249254</long>
+        </Value>
+      </item>
+      <item>
+        <Key>76561198003074447</Key>
+        <Value />
+      </item>
+    </dictionary>
+  </ContainerGridIds>
+  <SessionComponents>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_LocalizationSessionComponent">
+      <AdditionalPaths />
+      <CampaignPaths />
+      <CampaignModFolderName />
+      <Language>en-US</Language>
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SharedStorageComponent">
+      <BoolStorage>
+        <dictionary />
+      </BoolStorage>
+      <IntStorage>
+        <dictionary />
+      </IntStorage>
+      <LongStorage>
+        <dictionary />
+      </LongStorage>
+      <ULongStorage>
+        <dictionary />
+      </ULongStorage>
+      <StringStorage>
+        <dictionary />
+      </StringStorage>
+      <FloatStorage>
+        <dictionary />
+      </FloatStorage>
+      <Vector3DStorage>
+        <dictionary />
+      </Vector3DStorage>
+      <BoolListStorage>
+        <dictionary />
+      </BoolListStorage>
+      <IntListStorage>
+        <dictionary />
+      </IntListStorage>
+      <LongListStorage>
+        <dictionary />
+      </LongListStorage>
+      <ULongListStorage>
+        <dictionary />
+      </ULongListStorage>
+      <StringListStorage>
+        <dictionary />
+      </StringListStorage>
+      <FloatListStorage>
+        <dictionary />
+      </FloatListStorage>
+      <Vector3DListStorage>
+        <dictionary />
+      </Vector3DListStorage>
+      <BoolStorageSecondary>
+        <dictionary />
+      </BoolStorageSecondary>
+      <IntStorageSecondary>
+        <dictionary />
+      </IntStorageSecondary>
+      <LongStorageSecondary>
+        <dictionary />
+      </LongStorageSecondary>
+      <ULongStorageSecondary>
+        <dictionary />
+      </ULongStorageSecondary>
+      <StringStorageSecondary>
+        <dictionary />
+      </StringStorageSecondary>
+      <FloatStorageSecondary>
+        <dictionary />
+      </FloatStorageSecondary>
+      <Vector3DStorageSecondary>
+        <dictionary />
+      </Vector3DStorageSecondary>
+      <BoolListStorageSecondary>
+        <dictionary />
+      </BoolListStorageSecondary>
+      <IntListStorageSecondary>
+        <dictionary />
+      </IntListStorageSecondary>
+      <LongListStorageSecondary>
+        <dictionary />
+      </LongListStorageSecondary>
+      <ULongListStorageSecondary>
+        <dictionary />
+      </ULongListStorageSecondary>
+      <StringListStorageSecondary>
+        <dictionary />
+      </StringListStorageSecondary>
+      <FloatListStorageSecondary>
+        <dictionary />
+      </FloatListStorageSecondary>
+      <Vector3DListStorageSecondary>
+        <dictionary />
+      </Vector3DListStorageSecondary>
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_AiRvoComponent">
+      <Definition Type="MyObjectbuilder_AiRvoComponentDefinition" Subtype="Default" />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_AutopilotPathfindingComponent">
+      <Definition Type="MyObjectbuilder_AutopilotPathfindingComponentDefinition" Subtype="Default" />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SessionComponentNPCGridClaim">
+      <NPCGrids>
+        <dictionary>
+          <item>
+            <Key>135431505537345141</Key>
+            <Value xsi:nil="true" />
+          </item>
+          <item>
+            <Key>126416698290864964</Key>
+            <Value xsi:nil="true" />
+          </item>
+          <item>
+            <Key>111292353909226825</Key>
+            <Value xsi:nil="true" />
+          </item>
+          <item>
+            <Key>89280841462538670</Key>
+            <Value xsi:nil="true" />
+          </item>
+        </dictionary>
+      </NPCGrids>
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SpaceFaunaComponent">
+      <SpawnInfos />
+      <TimeoutInfos />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_CampaignSessionComponent">
+      <IsVanilla>false</IsVanilla>
+      <Mod />
+      <CustomRespawnEnabled>false</CustomRespawnEnabled>
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_MyIGCSystemSessionComponent">
+      <ActiveProgrammableBlocks />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SectorWeatherComponent">
+      <BaseSunDirection x="0.339467347" y="0.709795356" z="-0.617213368" />
+      <SunDirectionNormalized x="-0.704050064" y="0.24622114" z="-0.666099548" />
+      <WeatherPlanetData>
+        <MyObjectBuilder_WeatherPlanetData>
+          <PlanetId>7370438533550474062</PlanetId>
+          <NextWeather>4513</NextWeather>
+          <Weathers />
+        </MyObjectBuilder_WeatherPlanetData>
+      </WeatherPlanetData>
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SessionComponentAssetModifiers" />
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SessionComponentContainerDropSystem">
+      <Definition Type="MyObjectBuilder_ContainerDropSystemDefinition" Subtype="Default" />
+      <PlayerData>
+        <PlayerContainerData>
+          <PlayerId>144115188075855895</PlayerId>
+          <Timer>1062</Timer>
+          <Active>false</Active>
+          <Competetive>false</Competetive>
+          <ContainerId>140477412741179044</ContainerId>
+        </PlayerContainerData>
+        <PlayerContainerData>
+          <PlayerId>144115188075855897</PlayerId>
+          <Timer>248</Timer>
+          <Active>true</Active>
+          <Competetive>true</Competetive>
+          <ContainerId>0</ContainerId>
+        </PlayerContainerData>
+        <PlayerContainerData>
+          <PlayerId>144115188075855898</PlayerId>
+          <Timer>23</Timer>
+          <Active>true</Active>
+          <Competetive>true</Competetive>
+          <ContainerId>0</ContainerId>
+        </PlayerContainerData>
+        <PlayerContainerData>
+          <PlayerId>144115188075855899</PlayerId>
+          <Timer>358</Timer>
+          <Active>true</Active>
+          <Competetive>false</Competetive>
+          <ContainerId>0</ContainerId>
+        </PlayerContainerData>
+        <PlayerContainerData>
+          <PlayerId>144115188075855900</PlayerId>
+          <Timer>144</Timer>
+          <Active>true</Active>
+          <Competetive>false</Competetive>
+          <ContainerId>0</ContainerId>
+        </PlayerContainerData>
+      </PlayerData>
+      <GPSForRemoval />
+      <EntitiesForRemoval>
+        <MyEntityForRemoval>
+          <TimeLeft>82</TimeLeft>
+          <EntityId>127883733254249254</EntityId>
+        </MyEntityForRemoval>
+        <MyEntityForRemoval>
+          <TimeLeft>602</TimeLeft>
+          <EntityId>118256807644269184</EntityId>
+        </MyEntityForRemoval>
+      </EntitiesForRemoval>
+      <ContainerIdSmall>85</ContainerIdSmall>
+      <ContainerIdLarge>1</ContainerIdLarge>
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SessionComponentContractSystem">
+      <Definition Type="MyObjectBuilder_SessionComponentContractSystemDefinition" Subtype="Default" />
+      <InactiveContracts />
+      <ActiveContracts />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_CutsceneSessionComponent">
+      <Cutscenes />
+      <VoxelPrecachingWaypointNames />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_MySessionComponentDLC" />
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SessionComponentEconomy">
+      <Definition Type="MyObjectbuilder_SessionComponentEconomyDefinition" Subtype="Default" />
+      <GenerateFactionsOnStart>true</GenerateFactionsOnStart>
+      <AnalysisTotalCurrency>0</AnalysisTotalCurrency>
+      <AnalysisCurrencyFaucet>0</AnalysisCurrencyFaucet>
+      <AnalysisCurrencySink>0</AnalysisCurrencySink>
+      <CurrencyGeneratedThisTick>0</CurrencyGeneratedThisTick>
+      <CurrencyDestroyedThisTick>0</CurrencyDestroyedThisTick>
+      <AnalysisPerPlayerCurrency />
+      <AnalysisPerFactionCurrency />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SessionComponentGameInventory" />
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SessionComponentMatch">
+      <State>3</State>
+      <RemainingTimeInMinutes>0</RemainingTimeInMinutes>
+      <IsRunning>true</IsRunning>
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_MySessionComponentPanels" />
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SessionComponentReplay">
+      <EntityReplayData />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SessionComponentResearch">
+      <Research Identity="144115188075855895">
+        <Entry Type="MyObjectBuilder_CubeBlock" Subtype="SmallHeavyBlockArmorBlock" />
+        <Entry Type="MyObjectBuilder_CargoContainer" Subtype="SmallBlockMediumContainer" />
+        <Entry Type="MyObjectBuilder_CubeBlock" Subtype="SmallHeavyBlockArmorSlope2Base" />
+        <Entry Type="MyObjectBuilder_HydrogenEngine" Subtype="SuspensionConverter" />
+      </Research>
+      <Research Identity="144115188075855899">
+        <Entry Type="MyObjectBuilder_CubeBlock" Subtype="SmallHeavyBlockArmorSlope2Base" />
+        <Entry Type="MyObjectBuilder_HydrogenEngine" Subtype="SuspensionConverter" />
+      </Research>
+      <Research Identity="144115188075855900">
+        <Entry Type="MyObjectBuilder_HydrogenEngine" Subtype="SuspensionConverter" />
+      </Research>
+      <WhitelistMode>false</WhitelistMode>
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SessionComponentSmartUpdater" />
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SessionComponent" />
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_VisualScriptManagerSessionComponent">
+      <FirstRun>false</FirstRun>
+      <LevelScriptFiles xsi:nil="true" />
+      <StateMachines xsi:nil="true" />
+      <Questlog>
+        <LineData />
+        <Title>Prepare to Leave the Escape Pod</Title>
+        <Visible>false</Visible>
+        <IsUsedByVisualScripting>false</IsUsedByVisualScripting>
+      </Questlog>
+      <ExclusiveHighlights>
+        <ExclusiveHighlightData />
+      </ExclusiveHighlights>
+      <BoardScreens />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_AntennaSessionComponent" />
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_EnvironmentBotSpawningSystem">
+      <TimeSinceLastEventInMs>110033</TimeSinceLastEventInMs>
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_TradingManager" />
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_CoordinateSystem">
+      <Definition Type="MyObjectBuilder_CoordinateSystemDefinition" Subtype="CoordinateSystem" />
+      <LastCoordSysId>44</LastCoordSysId>
+      <CoordSystems />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_BankingSystem">
+      <Definition Type="MyObjectBuilder_BankingSystemDefinition" Subtype="BankingSystem" />
+      <Accounts>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>144115188075855895</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>144115188075855895</OwnerIdentifier>
+            <Balance>10000</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>144115188075855896</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>144115188075855896</OwnerIdentifier>
+            <Balance>10000</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>258961289160008772</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>258961289160008772</OwnerIdentifier>
+            <Balance>0</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>144115188075855897</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>144115188075855897</OwnerIdentifier>
+            <Balance>10000</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>270189608549417844</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>270189608549417844</OwnerIdentifier>
+            <Balance>0</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>252936567261954974</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>252936567261954974</OwnerIdentifier>
+            <Balance>0</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>144115188075855898</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>144115188075855898</OwnerIdentifier>
+            <Balance>10000</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>144115188075855899</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>144115188075855899</OwnerIdentifier>
+            <Balance>10000</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>144115188075855900</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>144115188075855900</OwnerIdentifier>
+            <Balance>10000</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+      </Accounts>
+      <OverallBalance>60000</OverallBalance>
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_NeutralShipSpawner">
+      <ShipsInProgress />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_PirateAntennas">
+      <PiratesIdentity>144115188075855896</PiratesIdentity>
+      <Drones />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_Encounters">
+      <SavedEncounters />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_WorldGenerator">
+      <MarkedAreas>
+        <EmptyArea>
+          <Position>
+            <X>74810.147034555761</X>
+            <Y>346289.96582748479</Y>
+            <Z>-297201.30810386385</Z>
+          </Position>
+          <Radius>66000</Radius>
+        </EmptyArea>
+      </MarkedAreas>
+      <DeletedAreas />
+      <ExistingObjectsSeeds />
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SessionComponentSafeZones">
+      <AllowedActions>All</AllowedActions>
+    </MyObjectBuilder_SessionComponent>
+    <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_AIComponent" />
+  </SessionComponents>
+  <GameDefinition Type="MyObjectBuilder_GameDefinition" Subtype="Default" />
+  <SessionComponentEnabled />
+  <SessionComponentDisabled />
+  <InGameTime>2081-01-01T07:00:00</InGameTime>
+  <CustomSkybox />
+  <RequiresDX>11</RequiresDX>
+  <VicinityModelsCache>
+    <string>Models\Cubes\Small\conveyor.mwm</string>
+    <string>D:\SteamLibrary\steamapps\workshop\content\244850\3310565215\Models\Cubes\small\HelicopterTail.mwm</string>
+  </VicinityModelsCache>
+  <VicinityArmorModelsCache>
+    <string>D:\SteamLibrary\steamapps\workshop\content\244850\3307947679\Models\Weapons\Sniper.mwm</string>
+    <string>Models\Characters\Astronaut\SE_astronaut.mwm</string>
+  </VicinityArmorModelsCache>
+  <VicinityVoxelCache>
+    <string>DesertRocks</string>
+    <string>PertamSand</string>
+    <string>Soil</string>
+    <string>Grass_old bare</string>
+    <string>Grass_old</string>
+    <string>CrackedSoil</string>
+    <string>DustyRocks3</string>
+    <string>Woods_grass</string>
+  </VicinityVoxelCache>
+  <WorldId>dd5139a0-a776-4b1d-a075-50e7e316b75b</WorldId>
+</MyObjectBuilder_Checkpoint>
