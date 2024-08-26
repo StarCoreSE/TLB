@@ -283,11 +283,18 @@ namespace TLB.ShareTrack.ShipTracking
 
         private void CalculateCost(IMyCubeBlock block)
         {
-            int blockPoints;
-            var blockDisplayName = block.DefinitionDisplayNameText;
-            if (!AllGridsList.PointValues.TryGetValue(block.BlockDefinition.SubtypeName, out blockPoints))
-                return;
+            int blockPoints = 0;
+            foreach (var kvp in AllGridsList.PointValues)
+            {
+                if (block.BlockDefinition.SubtypeName.StartsWith(kvp.Key, StringComparison.OrdinalIgnoreCase))
+                {
+                    blockPoints = kvp.Value;
+                    break;
+                }
+            }
+            if (blockPoints == 0) return;
 
+            var blockDisplayName = block.DefinitionDisplayNameText;
             float thisClimbingCostMult = 0;
             AllGridsList.ClimbingCostRename(ref blockDisplayName, ref thisClimbingCostMult);
 
@@ -303,6 +310,7 @@ namespace TLB.ShareTrack.ShipTracking
                 MovementPoints += blockPoints;
             if (block is IMyPowerProducer)
                 PowerPoints += blockPoints;
+
             if (WcApi.HasCoreWeapon((MyEntity)block))
             {
                 var validTargetTypes = new List<string>();

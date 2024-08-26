@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Sandbox.ModAPI;
 using TLB.ShareTrack.API;
@@ -100,10 +101,13 @@ namespace TLB.ShareTrack
                 var dict = message as Dictionary<string, int>;
                 if (dict != null)
                 {
-                    PointValues = dict;
+                    PointValues = new Dictionary<string, int>();
+                    foreach (var kvp in dict)
+                    {
+                        AddFuzzyPointValue(kvp.Key, kvp.Value);
+                    }
                     return;
                 }
-
                 var climbCostFunc = message as Func<string, MyTuple<string, float>>;
                 if (climbCostFunc != null)
                 {
@@ -114,6 +118,18 @@ namespace TLB.ShareTrack
             {
                 Log.Error(ex);
             }
+        }
+
+        private void AddFuzzyPointValue(string key, int value)
+        {
+            foreach (var existingKey in PointValues.Keys.ToList())
+            {
+                if (existingKey.StartsWith(key, StringComparison.OrdinalIgnoreCase))
+                {
+                    PointValues[existingKey] = value;
+                }
+            }
+            PointValues[key] = value; // Add the original key-value pair as well
         }
 
         private void HudRegistered()
