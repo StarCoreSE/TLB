@@ -8,7 +8,7 @@
 		</Id>
 		<DisplayName>Ballista Cannon</DisplayName>
 		<Icon>Textures\GUI\Icons\Cubes\MediumCaliberGun.dds</Icon>
-		<Description></Description>
+		<Description>HESH cannon</Description>
 		<CubeSize>Small</CubeSize>
 		<GuiVisible>false</GuiVisible>
 		<BlockTopology>TriangleMesh</BlockTopology>

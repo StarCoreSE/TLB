@@ -8,7 +8,7 @@
 		</Id>
 		<DisplayName>Onager Cannon</DisplayName>
 		<Icon>Textures\GUI\Icons\Cubes\MediumCaliberGun.dds</Icon>
-		<Description></Description>
+		<Description>Proximity detonation airbust cannon</Description>
 		<CubeSize>Small</CubeSize>
 		<GuiVisible>false</GuiVisible>
 		<BlockTopology>TriangleMesh</BlockTopology>

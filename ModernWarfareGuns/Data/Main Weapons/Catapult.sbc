@@ -8,7 +8,7 @@
 		</Id>
 		<DisplayName>Catapult Cannon</DisplayName>
 		<Icon>Textures\Icons\Turrets\CatapultIcon.dds</Icon>
-		<Description></Description>
+		<Description>Your standard APFSDSFSDSFSDS firing cannon</Description>
 		<CubeSize>Small</CubeSize>
 		<GuiVisible>false</GuiVisible>
 		<BlockTopology>TriangleMesh</BlockTopology>

@@ -8,7 +8,7 @@
 		</Id>
 		<DisplayName>Hwacha Launcher</DisplayName>
 		<Icon>Textures\Icons\Turrets\HwachaIcon.png</Icon>
-		<Description></Description>
+		<Description>Rocket barrage artillery</Description>
 		<CubeSize>Small</CubeSize>
 		<GuiVisible>false</GuiVisible>
 		<BlockTopology>TriangleMesh</BlockTopology>
