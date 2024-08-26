@@ -214,7 +214,8 @@ namespace BobLockVisuals
             }
             if (targetLock.TargetEntity == null) { return; }
             double ang = AngleBetween(MyAPIGateway.Session.Camera.WorldMatrix.Forward, targetLock.TargetEntity.WorldMatrix.Translation - MyAPIGateway.Session.Camera.WorldMatrix.Translation);
-            if (ang > 0.035 || ) { targetLock.ReleaseTargetLock(); }
+            if (ang > 0.035 && !targetLock.IsTargetLocked) { targetLock.ReleaseTargetLock(); } // If the target IS NOT locked and the angle is too high, release the lock
+            else if (ang > 0.79 && targetLock.IsTargetLocked) { targetLock.ReleaseTargetLock(); } // If the target IS locked and the angle is too high, release the lock
         }
 
 
