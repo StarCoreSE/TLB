@@ -13,7 +13,9 @@ namespace ShipPoints
     {
         readonly Dictionary<string, int> PointValues = new Dictionary<string, int>
         {
-            ["SmallBlockBatteryBlock"] = 14,
+            //to show up on the hud, it needs to be listed here
+            ["SmallBlockBatteryBlock"] = 0,
+            ["TinyDieselEngine"] = 0,
 
         };
 
@@ -25,7 +27,7 @@ namespace ShipPoints
 
             switch (blockDisplayName)
             {
-                case "TesetEntry1":
+                case "TestEntry1":
                     blockDisplayName = "Test Entry 1";
                     costMultiplier = 0f;
                     break;

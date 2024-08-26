@@ -237,8 +237,15 @@ namespace TLB.ShareTrack.ShipTracking
             var subtype = block.BlockDefinition.SubtypeName;
             // WHY CAN'T WE JUST USE THE LATEST C# VERSION THIS IS UGLY AS HECK
 
-            if (block is IMyGasGenerator)
-                blockDisplayName = "H2O2Generator";
+            if (block is IMyGasGenerator) //tlb gas engines
+                switch (subtype)
+                {
+                    case "TinyDieselEngine":
+                    case "SmallDieselEngine":
+                    case "MediumDieselEngine":
+                        blockDisplayName = "Engine";
+                        break;
+                }
             else if (block is IMyGasTank)
                 blockDisplayName = "HydrogenTank";
             else if (block is IMyMotorStator && subtype == "SubgridBase")
