@@ -127,30 +127,25 @@
 			<TypeId>AmmoDefinition</TypeId>
 			<SubtypeId>SpearAmmo_BeamRider</SubtypeId>
 		</Id>
-		<BasicProperties>
-			<DesiredSpeed>400</DesiredSpeed>
-			<SpeedVariance>0</SpeedVariance>
-			<MaxTrajectory>5000</MaxTrajectory>
-			<IsExplosive>true</IsExplosive>
-			<BackkickForce>1</BackkickForce>
-			<PhysicalMaterial>Missile</PhysicalMaterial>
-			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
-		</BasicProperties>
-		<MissileProperties>
-			<MissileMass>300</MissileMass>
-			<MissileExplosionRadius>3</MissileExplosionRadius>
-            <Model>Models\Weapons\Projectile_Missile.mwm</Model>
-			<MissileAcceleration>0</MissileAcceleration>
-			<MissileInitialSpeed>100</MissileInitialSpeed>
-			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>500</MissileExplosionDamage>
-			<MissileHealthPool>3000</MissileHealthPool>
-			<MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
-			<MissileGravityEnabled>false</MissileGravityEnabled>
-			<MissileRicochetAngle>30</MissileRicochetAngle>
-			<MissileRicochetDamage>2000</MissileRicochetDamage>
-			<MissileRicochetProbability>0</MissileRicochetProbability>
-		</MissileProperties>
+	  <BasicProperties>
+		<DesiredSpeed>200</DesiredSpeed>
+		<SpeedVariance>0</SpeedVariance>
+		<MaxTrajectory>800</MaxTrajectory>
+		<IsExplosive>true</IsExplosive>
+		<BackkickForce>0</BackkickForce>
+		<PhysicalMaterial>Missile</PhysicalMaterial>
+		<ExplosiveDamageMultiplier>2</ExplosiveDamageMultiplier>
+	  </BasicProperties>
+	  <MissileProperties>
+		<MissileMass>45</MissileMass>
+		<MissileExplosionRadius>4</MissileExplosionRadius>
+		<MissileModelName>Models\Weapons\Projectile_Missile.mwm</MissileModelName>
+		<MissileAcceleration>600</MissileAcceleration>
+		<MissileInitialSpeed>100</MissileInitialSpeed>
+		<MissileSkipAcceleration>false</MissileSkipAcceleration>
+		<MissileExplosionDamage>500</MissileExplosionDamage>
+		<MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
+	  </MissileProperties>
 	</Ammo>
 	</Ammos>
 </Definitions>
