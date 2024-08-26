@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <BlockVariantGroups>
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="DuctedFanGroup" />
+            <Icon>Textures\GUI\Icons\Cubes\SmallFlatAtmosphericThrusterSmall.dds</Icon>
+            <DisplayName>Electric Fans</DisplayName>
+            <Description></Description>
+            <Blocks>
+                <Block Type="MyObjectBuilder_Thrust" Subtype="ElectricFan" />
+                <Block Type="MyObjectBuilder_Thrust" Subtype="ElectricFanDShape" />
+            </Blocks>
+        </BlockVariantGroup>    
+    </BlockVariantGroups>
+	    <BlockVariantGroups>
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="JetThrusterIntakeGroup" />
+            <Icon>Textures\Icons\JetThruster.dds</Icon>
+            <DisplayName>Jet Thruster</DisplayName>
+            <Description></Description>
+            <Blocks>
+                <Block Type="MyObjectBuilder_Thrust" Subtype="JetThruster" />
+                <Block Type="MyObjectBuilder_OxygenGenerator" Subtype="JetEngineIntake" />
+            </Blocks>
+        </BlockVariantGroup>    
+    </BlockVariantGroups>
+	
+	
+	
+	
+</Definitions>

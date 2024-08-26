@@ -129,8 +129,8 @@ namespace cleaner
             "aero-wing-plane-air_brake_double_1x1x1_Large",
 
             "SmallCameraBlock",
-            "SmallBlockSmallFlatAtmosphericThrustDShape",
-            "SmallBlockSmallFlatAtmosphericThrust",
+            "ElectricFan",
+            "ElectricFanDShape",
 
         });
 
