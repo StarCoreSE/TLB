@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Sandbox.Definitions;
 using Sandbox.Game.Entities;
+using Sandbox.Game.Weapons;
 using Sandbox.ModAPI;
 using TLB.ShareTrack.API;
 using TLB.ShareTrack.API.CoreSystem;
@@ -241,24 +242,44 @@ namespace TLB.ShareTrack.ShipTracking
         private void UpdateWeaponStats()
         {
             WeaponCounts.Clear();
-            foreach (var weaponBlock in _fatBlocks)
+            foreach (var block in _fatBlocks)
             {
-                // Check that the block has points and is a weapon
                 int weaponPoints;
-                var weaponDisplayName = weaponBlock.DefinitionDisplayNameText;
-                if (!AllGridsList.PointValues.TryGetValue(weaponBlock.BlockDefinition.SubtypeName, out weaponPoints) ||
-                    !WcApi.HasCoreWeapon((MyEntity)weaponBlock))
+                var weaponDisplayName = block.DefinitionDisplayNameText;
+
+                // Check for WeaponCore weapons
+                if (AllGridsList.PointValues.TryGetValue(block.BlockDefinition.SubtypeName, out weaponPoints) && WcApi.HasCoreWeapon((MyEntity)block))
+                {
+                    float thisClimbingCostMult = 0;
+                    AllGridsList.ClimbingCostRename(ref weaponDisplayName, ref thisClimbingCostMult);
+                    AddWeaponCount(weaponDisplayName);
                     continue;
+                }
 
-                float thisClimbingCostMult = 0;
-
-                AllGridsList.ClimbingCostRename(ref weaponDisplayName, ref thisClimbingCostMult);
-
-                if (!WeaponCounts.ContainsKey(weaponDisplayName))
-                    WeaponCounts.Add(weaponDisplayName, 0);
-
-                WeaponCounts[weaponDisplayName]++;
+                // Check for vanilla and modded weapons using IMyGunObject<MyGunBase>
+                var gunObject = block as IMyGunObject<MyGunBase>;
+                if (gunObject != null && block is IMyCubeBlock) // Ensure it's a block, not a hand weapon
+                {
+                    weaponDisplayName = GetWeaponDisplayName(block, gunObject);
+                    AddWeaponCount(weaponDisplayName);
+                }
             }
+        }
+
+        private string GetWeaponDisplayName(IMyCubeBlock block, IMyGunObject<MyGunBase> gunObject)
+        {
+            // You can customize this method to categorize weapons as needed
+            if (block is IMyLargeTurretBase)
+                return $"{block.DefinitionDisplayNameText} Turret";
+            else
+                return block.DefinitionDisplayNameText;
+        }
+
+        private void AddWeaponCount(string weaponDisplayName)
+        {
+            if (!WeaponCounts.ContainsKey(weaponDisplayName))
+                WeaponCounts.Add(weaponDisplayName, 0);
+            WeaponCounts[weaponDisplayName]++;
         }
 
         private void CalculateCost(IMyCubeBlock block)
