@@ -32,6 +32,18 @@ namespace BobLockVisuals
 
         private const float ticktime = 1f / 60f;
         private const float updatetime = 3f;
+        private List<string> lockSafeWeather = new List<string>
+        {
+            "SnowLight",
+            "ThunderstormLight",
+            "RainLight",
+            "MarsSnow",
+            "FogLight",
+            "Dust",
+            "AlienThunderstormLight",
+            "AlienRainLight",
+            "Clear",
+        };
         public static BobLockVisualsSession instance;
 
         private float time = updatetime;
@@ -132,8 +144,9 @@ namespace BobLockVisuals
         }
         public void DrawLocks()
         {
-
-            // MyAPIGateway.Utilities.ShowNotification($"drawing {targetLocks.Count}", 16);
+            if (MyAPIGateway.Session?.Player?.Character == null || MyAPIGateway.Session.Camera == null)
+                return;
+                // MyAPIGateway.Utilities.ShowNotification($"drawing {targetLocks.Count}", 16);
 
             foreach (TargetLockVisual targetLockVisual in targetLocks.Values)
             {
@@ -150,12 +163,19 @@ namespace BobLockVisuals
 
             foreach (IMyPlayer player in myPlayers)
             {
-
                 MyTargetLockingComponent targetLock = player?.Character?.Components?.Get<MyTargetLockingComponent>();
                 // MyAPIGateway.Utilities.ShowNotification($"lock? {targetLock?.TargetEntity?.DisplayName}", 600);
 
                 if (targetLock != null && targetLock.TargetEntity is IMyCubeGrid && player.Controller.ControlledEntity is IMyCubeBlock)
                 {
+                    if (!lockSafeWeather.Contains(MyAPIGateway.Session.WeatherEffects.GetWeather(player.Character.WorldMatrix.Translation))){
+                        targetLock.ReleaseTargetLock();
+                        MyAPIGateway.Utilities.ShowNotification($"{MyAPIGateway.Session.WeatherEffects.GetWeather(player.Character.WorldMatrix.Translation)}", 3000);
+                        continue;
+                    }
+
+
+
                     IMyEntity attackerGrid = (player.Controller.ControlledEntity as IMyCubeBlock).CubeGrid;
                     string key = $"lock:{attackerGrid.EntityId}:{targetLock.TargetEntity.EntityId}";
                     if(!targetLocks.ContainsKey(key))
@@ -177,7 +197,7 @@ namespace BobLockVisuals
 
         public override void UpdateBeforeSimulation()
         {
-            if (MyAPIGateway.Session?.Player?.Character == null || MyAPIGateway.Session.Camera == null)
+            if (MyAPIGateway.Session == null)
                 return;
 
             time += ticktime;
