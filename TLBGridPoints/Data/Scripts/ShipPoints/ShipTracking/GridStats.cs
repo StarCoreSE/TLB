@@ -260,7 +260,6 @@ namespace TLB.ShareTrack.ShipTracking
                 var gunObject = block as IMyGunObject<MyGunBase>;
                 if (gunObject != null && block is IMyCubeBlock) // Ensure it's a block, not a hand weapon
                 {
-                    weaponDisplayName = GetWeaponDisplayName(block, gunObject);
                     AddWeaponCount(weaponDisplayName);
                 }
             }

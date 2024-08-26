@@ -198,7 +198,8 @@ namespace TLB.ShareTrack
             sb.AppendFormat("<color=Green>PCU<color=White>: {0}\n", _shipTracker.PCU);
             sb.AppendFormat("<color=Green>Size<color=White>: {0}\n",
                 (focusedGrid.Max + Vector3.Abs(focusedGrid.Min)).ToString());
-             sb.AppendFormat("<color=Green>Max Speed<color=White>: {0} | <color=Green>TWR<color=White>: {1}\n", speed, twRs);
+            sb.AppendFormat("<color=Green>Max Speed<color=White>: {0}\n", speed);
+            //sb.AppendFormat("<color=Green>Max Speed<color=White>: {0} | <color=Green>TWR<color=White>: {1}\n", speed, twRs);
             //sb.AppendFormat(
             //    "<color=Green>Max Speed<color=White>: {0} | <color=Green>Reduced Angular Speed<color=White>: {1:F2} | <color=Green>TWR<color=White>: {2}\n",
             //    speed, reducedAngularSpeed, twRs); //this is for starcore's weird RTS fork that can reduce angular speed limits
@@ -212,13 +213,13 @@ namespace TLB.ShareTrack
             //    Math.Round(_shipTracker.OffensivePointsRatio * 100f), Math.Round(_shipTracker.PowerPointsRatio * 100f),
             //    Math.Round(_shipTracker.MovementPointsRatio * 100f),
             //    Math.Round(_shipTracker.RemainingPointsRatio * 100f));
-            sb.Append(
-                $"<color=Green>PD Investment<color=White>: <color=Orange>( <color=white>{_shipTracker.PointDefensePointsRatio * 100:N0}% <color=Orange>|<color=Crimson> {(_shipTracker.OffensivePoints == 0 ? 0 : (float)_shipTracker.PointDefensePoints / _shipTracker.OffensivePoints) * 100f:N0}%<color=Orange> )\n");
-            sb.AppendFormat(
-                "<color=Green>Shield Max HP<color=White>: {0} <color=Orange>(<color=White>{1:N0}%<color=Orange>)\n",
-                totalShieldString, _shipTracker.CurrentShieldPercent);
+            //sb.Append(
+            //    $"<color=Green>PD Investment<color=White>: <color=Orange>( <color=white>{_shipTracker.PointDefensePointsRatio * 100:N0}% <color=Orange>|<color=Crimson> {(_shipTracker.OffensivePoints == 0 ? 0 : (float)_shipTracker.PointDefensePoints / _shipTracker.OffensivePoints) * 100f:N0}%<color=Orange> )\n");
+            //sb.AppendFormat(
+            //    "<color=Green>Shield Max HP<color=White>: {0} <color=Orange>(<color=White>{1:N0}%<color=Orange>)\n",
+            //    totalShieldString, _shipTracker.CurrentShieldPercent);
             sb.AppendFormat("<color=Green>Thrust<color=White>: {0}N\n", thrustString);
-            sb.AppendFormat("<color=Green>Gyro<color=White>: {0}N\n", gyroString);
+            //sb.AppendFormat("<color=Green>Gyro<color=White>: {0}N\n", gyroString);
             sb.AppendFormat("<color=Green>Power<color=White>: {0}\n", pwr);
             sb.AppendLine(); //blank line
 
