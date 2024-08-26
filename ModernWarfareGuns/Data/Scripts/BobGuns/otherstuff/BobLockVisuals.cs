@@ -198,7 +198,7 @@ namespace BobLockVisuals
         }
 
 
-        public void FuckWithLocks()
+        public void LockCriteriaCheck()
         {
             if (MyAPIGateway.Session?.Player?.Character == null || MyAPIGateway.Session.Camera == null)
                 return;
@@ -225,7 +225,7 @@ namespace BobLockVisuals
             time += ticktime;
 
 
-            FuckWithLocks();
+            LockCriteriaCheck();
             DrawLocks();
 
             if (time < updatetime)
