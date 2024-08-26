@@ -8,7 +8,7 @@
                 <TypeId>SearchEnemyComponent</TypeId>
                 <SubtypeId>DefaultEnemySearch</SubtypeId>
             </Id>
-            <SearchRadius>2000</SearchRadius>
+            <SearchRadius>5000</SearchRadius>
         </EntityComponent>
 
 		<!-- "Radar Cone" 25 -> 2 | Massive nerf to prevent "alt-look" detection of people (and encourage stealth and a good defense network)  -->
@@ -17,7 +17,7 @@
                 <TypeId>TargetFocusComponent</TypeId>
                 <SubtypeId>Character</SubtypeId>
             </Id>
-            <FocusSearchMaxDistance>2500</FocusSearchMaxDistance>
+            <FocusSearchMaxDistance>5000</FocusSearchMaxDistance>
             <AngularToleranceFromCrosshair>2</AngularToleranceFromCrosshair>
         </EntityComponent>
 

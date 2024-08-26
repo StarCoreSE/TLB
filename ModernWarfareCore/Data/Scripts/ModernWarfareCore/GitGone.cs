@@ -82,10 +82,6 @@ namespace cleaner
             "Small_2x1_Control_Centered",
             "Small_2x1_Control_Flat",
 
-            "LargeCameraBlock",
-            "SmallCameraBlock",
-            "LargeCameraTopMounted",
-            "SmallCameraTopMounted",
         });
 
         public List<string> block_subtype_banned_keywords = new List<string>(new string[]
@@ -133,6 +129,8 @@ namespace cleaner
             "aero-wing-plane-air_brake_double_1x1x1_Large",
 
             "SmallCameraBlock",
+            "SmallBlockSmallFlatAtmosphericThrustDShape",
+            "SmallBlockSmallFlatAtmosphericThrust",
 
         });
 
