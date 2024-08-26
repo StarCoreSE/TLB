@@ -17,7 +17,7 @@ namespace TLB.ShareTrack
             MasterSession.I.HudRegistered += () =>
             {
                 _pointsMessage = new HudAPIv2.HUDMessage(scale: 1f, font: "BI_SEOutlined", Message: new StringBuilder(""),
-                    origin: new Vector2D(-0.969, 0.57), blend: MyBillboard.BlendTypeEnum.PostPP);
+                    origin: new Vector2D(0, 0.2), blend: MyBillboard.BlendTypeEnum.PostPP);
             };
         }
 

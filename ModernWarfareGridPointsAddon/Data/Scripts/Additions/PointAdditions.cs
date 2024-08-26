@@ -50,7 +50,7 @@ namespace ShipPoints
             ["BasiliskGunBlock"] = 2.5,
 
             // Utilities
-            ["Camera"] = 1,
+            ["SmallCameraBlock"] = 1,
             ["TLBSmallFlareLauncher"] = 2,
             ["TLBSmallSmokeLauncher"] = 3,
             ["APSTurret"] = 4,
@@ -58,6 +58,14 @@ namespace ShipPoints
             ["SurvivalKit"] = 5,
 
             // Propulsion 
+            ["JetThruster"] = 2,
+            ["SmallBlockGyro"] = 1,
+            ["MainHelicopterRotor"] = 3,
+            ["TailHelicopterRotor"] = 1,
+            ["Propellantx4"] = 1,
+            ["Propellantx5"] = 1,
+            ["SmallBlockSmallFlatAtmosphericThrust"] = 0.5,
+            ["SmallBlockSmallFlatAtmosphericThrustDShape"] = 0.5,
 
         };
 
