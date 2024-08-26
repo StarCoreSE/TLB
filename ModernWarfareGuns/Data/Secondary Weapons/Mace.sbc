@@ -85,7 +85,7 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>MaceWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="300" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="4" />
+		<MissileAmmoData RateOfFire="300" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="3" />
 		<DeviateShotAngle>2.0</DeviateShotAngle>
 		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
 		<AmmoMagazines>
