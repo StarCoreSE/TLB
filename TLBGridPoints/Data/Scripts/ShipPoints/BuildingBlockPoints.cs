@@ -24,6 +24,13 @@ namespace TLB.ShareTrack
         private int _ticks;
         public void Update()
         {
+            // Disable the tooltip by ensuring it is not visible
+            if (_pointsMessage != null)
+            {
+                _pointsMessage.Visible = false;
+            }
+
+            // Existing logic, but now it won't display anything
             if (_ticks++ % 10 != 0)
                 return;
 
@@ -39,6 +46,7 @@ namespace TLB.ShareTrack
             if (_pointsMessage == null)
                 return;
 
+            // This code is still executed, but the message is never made visible
             double blockPoints;
             if (blockInfo == null || !AllGridsList.PointValues.TryGetValue(blockInfo.DefinitionId.SubtypeName, out blockPoints))
             {
@@ -54,8 +62,10 @@ namespace TLB.ShareTrack
             _pointsMessage.Message.Clear();
             _pointsMessage.Message.Append($"{blockDisplayName}:\n{blockPoints}bp");
             if (thisClimbingCostMult != 0)
-                _pointsMessage.Message.Append($" +{(blockPoints*thisClimbingCostMult)}bp/b");
-            _pointsMessage.Visible = true;
+                _pointsMessage.Message.Append($" +{(blockPoints * thisClimbingCostMult)}bp/b");
+
+            // Even though this is here, the tooltip will not be visible
+            _pointsMessage.Visible = false; // Ensures the HUD is never displayed
         }
     }
 }
