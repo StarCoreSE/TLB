@@ -58,18 +58,7 @@ namespace ShipPoints
             ["SurvivalKit"] = 5,
 
             // Propulsion 
-            ["3xPlaneWheels"] = 1,
-            ["8x2x2Wheels"] = 1,
-            ["4x3x3Wheels"] = 1,
-            ["2x5x5Wheels"] = 1,
-            ["2xWing"] = 1,
-            ["4xControlSurface"] = 1,
-            ["Gyro"] = 1,
-            ["JetThrusterIntakeCombo"] = 2,
-            ["HelicopterRotor"] = 3,
-            ["HelicopterTailRotor"] = 1,
-            ["X4X5"] = 1,
-            ["2xElectricFans"] = 1,
+
         };
 
         private readonly Dictionary<string, int> FuzzyPoints = new Dictionary<string, int>();
@@ -93,7 +82,7 @@ namespace ShipPoints
         {
             // Add fuzzy rules
             FuzzyPoints.Add("aero-wing", 1);
-
+            FuzzyPoints.Add("suspension", 1); 
 
             // Process fuzzy rules
             foreach (var kvp in FuzzyPoints)
@@ -101,11 +90,15 @@ namespace ShipPoints
                 foreach (var block in MyDefinitionManager.Static.GetAllDefinitions())
                 {
                     var cubeBlock = block as MyCubeBlockDefinition;
-                    if (cubeBlock != null && cubeBlock.Id.SubtypeName.StartsWith(kvp.Key, StringComparison.OrdinalIgnoreCase))
+                    if (cubeBlock != null)
                     {
-                        if (!PointValues.ContainsKey(cubeBlock.Id.SubtypeName))
+                        // Check if the subtype contains the fuzzy rule key (case-insensitive)
+                        if (cubeBlock.Id.SubtypeName.IndexOf(kvp.Key, StringComparison.OrdinalIgnoreCase) >= 0)
                         {
-                            PointValues[cubeBlock.Id.SubtypeName] = kvp.Value;
+                            if (!PointValues.ContainsKey(cubeBlock.Id.SubtypeName))
+                            {
+                                PointValues[cubeBlock.Id.SubtypeName] = kvp.Value;
+                            }
                         }
                     }
                 }
