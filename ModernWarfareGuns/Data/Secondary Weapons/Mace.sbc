@@ -127,30 +127,30 @@
 			<TypeId>AmmoDefinition</TypeId>
 			<SubtypeId>MaceAmmo</SubtypeId>
 		</Id>
-		<BasicProperties>
-			<DesiredSpeed>10000</DesiredSpeed>
-			<SpeedVariance>0</SpeedVariance>
-			<MaxTrajectory>5000</MaxTrajectory>
-			<IsExplosive>true</IsExplosive>
-			<BackkickForce>1</BackkickForce>
-			<PhysicalMaterial>MediumShell</PhysicalMaterial>
-			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
-		</BasicProperties>
-		<MissileProperties>
-			<MissileMass>300</MissileMass>
-			<MissileExplosionRadius>3</MissileExplosionRadius>
-			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
-			<MissileAcceleration>0</MissileAcceleration>
-			<MissileInitialSpeed>10</MissileInitialSpeed>
-			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>500</MissileExplosionDamage>
-			<MissileHealthPool>500</MissileHealthPool>
-			<MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
-			<MissileGravityEnabled>true</MissileGravityEnabled>
-			<MissileRicochetAngle>30</MissileRicochetAngle>
-			<MissileRicochetDamage>2000</MissileRicochetDamage>
-			<MissileRicochetProbability>0</MissileRicochetProbability>
-		</MissileProperties>
+      <BasicProperties>
+        <DesiredSpeed>100</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>1400</MaxTrajectory>
+        <IsExplosive>true</IsExplosive>
+        <BackkickForce>1</BackkickForce>
+        <PhysicalMaterial>MediumShell</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <MissileProperties>
+        <MissileMass>300</MissileMass>
+        <MissileExplosionRadius>3</MissileExplosionRadius>
+        <MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
+        <MissileAcceleration>0</MissileAcceleration>
+        <MissileInitialSpeed>100</MissileInitialSpeed>
+        <MissileSkipAcceleration>false</MissileSkipAcceleration>
+        <MissileExplosionDamage>500</MissileExplosionDamage>
+        <MissileHealthPool>500</MissileHealthPool>
+        <MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
+        <MissileGravityEnabled>true</MissileGravityEnabled>
+        <MissileRicochetAngle>30</MissileRicochetAngle>
+        <MissileRicochetDamage>2000</MissileRicochetDamage>
+        <MissileRicochetProbability>0</MissileRicochetProbability>
+      </MissileProperties>
 	</Ammo>
 	</Ammos>
 </Definitions>
