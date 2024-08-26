@@ -21,7 +21,7 @@ namespace TLB.ShareTrack.TrackerApi
                 ["RegisterOnAliveChanged"] = new Action<Action<IMyCubeGrid, bool>>(RegisterOnAliveChanged),
                 ["UnregisterOnAliveChanged"] = new Action<Action<IMyCubeGrid, bool>>(UnregisterOnAliveChanged),
                 ["AreTrackedGridsLoaded"] = new Func<bool>(AreTrackedGridsLoaded),
-                ["GetGridPoints"] = new Func<IMyCubeGrid, int>(GetGridPoints),
+                ["GetGridPoints"] = new Func<IMyCubeGrid, double>(GetGridPoints),
                 ["TrackGrid"] = new Action<IMyCubeGrid, bool>(TrackGrid),
                 ["UnTrackGrid"] = new Action<IMyCubeGrid, bool>(UnTrackGrid),
             };
@@ -69,7 +69,7 @@ namespace TLB.ShareTrack.TrackerApi
             return TrackingManager.I.GetQueuedGridTracks().Length == 0;
         }
 
-        private int GetGridPoints(IMyCubeGrid grid)
+        private double GetGridPoints(IMyCubeGrid grid)
         {
             if (TrackingManager.I == null || !TrackingManager.I.TrackedGrids.ContainsKey(grid))
                 return -1;

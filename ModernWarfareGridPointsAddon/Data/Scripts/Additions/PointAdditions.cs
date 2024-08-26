@@ -11,7 +11,7 @@ namespace ShipPoints
     [MySessionComponentDescriptor(MyUpdateOrder.NoUpdate)]
     internal class PointAdditions : MySessionComponentBase
     {
-        private readonly Dictionary<string, int> PointValues = new Dictionary<string, int>
+        private readonly Dictionary<string, double> PointValues = new Dictionary<string, double>
         {
             // to show up on the HUD, it needs to be listed here
             ["SmallBlockBatteryBlock"] = 0,
@@ -61,28 +61,30 @@ namespace ShipPoints
 
         };
 
-        private readonly Dictionary<string, int> FuzzyPoints = new Dictionary<string, int>();
-        private readonly Func<string, MyTuple<string, float>> _climbingCostRename = ClimbingCostRename;
+        private readonly Dictionary<string, double> FuzzyPoints = new Dictionary<string, double>();
+        private readonly Func<string, MyTuple<string, double>> _climbingCostRename = ClimbingCostRename;
 
-        private static MyTuple<string, float> ClimbingCostRename(string blockSubtypeName)
+        private static MyTuple<string, double> ClimbingCostRename(string blockSubtypeName)
         {
-            float costMultiplier = 0;
+            double costMultiplier = 0;
 
             switch (blockSubtypeName)
             {
                 case "TestEntry1":
-                    costMultiplier = 0f;
+                    costMultiplier = 0;
                     break;
             }
 
-            return new MyTuple<string, float>(blockSubtypeName, costMultiplier);
+            return new MyTuple<string, double>(blockSubtypeName, costMultiplier);
         }
 
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
         {
             // Add fuzzy rules
             FuzzyPoints.Add("aero-wing", 1);
-            FuzzyPoints.Add("suspension", 1); 
+            FuzzyPoints.Add("suspension2x2", 0.125);
+            FuzzyPoints.Add("suspension3x3", 0.25);
+            FuzzyPoints.Add("suspension5x5", 0.5);
 
             // Process fuzzy rules
             foreach (var kvp in FuzzyPoints)

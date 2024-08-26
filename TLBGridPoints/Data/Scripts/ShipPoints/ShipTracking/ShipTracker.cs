@@ -529,74 +529,74 @@ namespace TLB.ShareTrack.ShipTracking
 
         #region BattlePoint Stats
 
-        public int BattlePoints
+        public double BattlePoints
         {
             get
             {
-                var total = 0;
+                double total = 0;
                 foreach (var stats in _gridStats.Values)
                     total += stats.BattlePoints;
                 return total;
             }
         }
 
-        public int OffensivePoints
+        public double OffensivePoints
         {
             get
             {
-                var total = 0;
+                double total = 0;
                 foreach (var stats in _gridStats.Values)
                     total += stats.OffensivePoints;
                 return total;
             }
         }
 
-        public float OffensivePointsRatio => BattlePoints == 0 ? 0 : (float)OffensivePoints / BattlePoints;
+        public float OffensivePointsRatio => BattlePoints == 0 ? 0 : (float)OffensivePoints / (float)BattlePoints;
 
-        public int PowerPoints
+        public double PowerPoints
         {
             get
             {
-                var total = 0;
+                double total = 0;
                 foreach (var stats in _gridStats.Values)
                     total += stats.PowerPoints;
                 return total;
             }
         }
 
-        public float PowerPointsRatio => BattlePoints == 0 ? 0 : (float)PowerPoints / BattlePoints;
+        public float PowerPointsRatio => BattlePoints == 0 ? 0 : (float)PowerPoints / (float)BattlePoints;
 
-        public int MovementPoints
+        public double MovementPoints
         {
             get
             {
-                var total = 0;
+                double total = 0;
                 foreach (var stats in _gridStats.Values)
                     total += stats.MovementPoints;
                 return total;
             }
         }
 
-        public float MovementPointsRatio => BattlePoints == 0 ? 0 : (float)MovementPoints / BattlePoints;
+        public float MovementPointsRatio => BattlePoints == 0 ? 0 : (float)MovementPoints / (float)BattlePoints;
 
-        public int PointDefensePoints
+        public double PointDefensePoints
         {
             get
             {
-                var total = 0;
+                double total = 0;
                 foreach (var stats in _gridStats.Values)
                     total += stats.PointDefensePoints;
                 return total;
             }
         }
 
-        public float PointDefensePointsRatio => BattlePoints == 0 ? 0 : (float)PointDefensePoints / BattlePoints;
+        public float PointDefensePointsRatio => BattlePoints == 0 ? 0 : (float)PointDefensePoints / (float)BattlePoints;
 
 
-        public int RemainingPoints =>
+        public double RemainingPoints =>
             BattlePoints - OffensivePoints - PowerPoints - MovementPoints - PointDefensePoints;
 
-        public int RemainingPointsRatio => BattlePoints == 0 ? 0 : RemainingPoints / BattlePoints;
+        public double RemainingPointsRatio => BattlePoints == 0 ? 0 : RemainingPoints / BattlePoints;
 
         #endregion
 
