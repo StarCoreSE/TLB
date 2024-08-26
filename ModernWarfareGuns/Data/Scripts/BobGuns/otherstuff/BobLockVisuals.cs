@@ -43,6 +43,7 @@ namespace BobLockVisuals
             "AlienThunderstormLight",
             "AlienRainLight",
             "Clear",
+            "None",
         };
         public static BobLockVisualsSession instance;
 
@@ -213,7 +214,7 @@ namespace BobLockVisuals
             }
             if (targetLock.TargetEntity == null) { return; }
             double ang = AngleBetween(MyAPIGateway.Session.Camera.WorldMatrix.Forward, targetLock.TargetEntity.WorldMatrix.Translation - MyAPIGateway.Session.Camera.WorldMatrix.Translation);
-            if (ang > 0.035) { targetLock.ReleaseTargetLock(); }
+            if (ang > 0.035 || ) { targetLock.ReleaseTargetLock(); }
         }
 
 
