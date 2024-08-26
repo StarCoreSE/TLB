@@ -8,7 +8,7 @@
       </Id>
       <DisplayName>Torch Turret</DisplayName>
 	  <Icon>Textures\Icons\Turrets\TorchTurretIcon.png</Icon>
-      <Description>A thrower of flame</Description>
+      <Description>A basic turret that chucks Grenade ammo. Thunk.</Description>
       <CubeSize>Small</CubeSize>
       <GuiVisible>false</GuiVisible>
       <PlaceDecals>false</PlaceDecals>
@@ -127,30 +127,29 @@
 			<TypeId>AmmoDefinition</TypeId>
 			<SubtypeId>TorchAmmo</SubtypeId>
 		</Id>
-		<BasicProperties>
-			<DesiredSpeed>10000</DesiredSpeed>
-			<SpeedVariance>0</SpeedVariance>
-			<MaxTrajectory>5000</MaxTrajectory>
-			<IsExplosive>true</IsExplosive>
-			<BackkickForce>1</BackkickForce>
-			<PhysicalMaterial>MediumShell</PhysicalMaterial>
-			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
-		</BasicProperties>
-		<MissileProperties>
-			<MissileMass>300</MissileMass>
-			<MissileExplosionRadius>3</MissileExplosionRadius>
-			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
-			<MissileAcceleration>0</MissileAcceleration>
-			<MissileInitialSpeed>10</MissileInitialSpeed>
-			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>500</MissileExplosionDamage>
-			<MissileHealthPool>500</MissileHealthPool>
-			<MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
-			<MissileGravityEnabled>true</MissileGravityEnabled>
-			<MissileRicochetAngle>30</MissileRicochetAngle>
-			<MissileRicochetDamage>2000</MissileRicochetDamage>
-			<MissileRicochetProbability>0</MissileRicochetProbability>
-		</MissileProperties>
+      <BasicProperties>
+        <DesiredSpeed>80</DesiredSpeed>
+        <SpeedVariance>0.1</SpeedVariance>
+        <MaxTrajectory>300</MaxTrajectory>
+        <BackkickForce>0</BackkickForce>
+        <PhysicalMaterial></PhysicalMaterial>
+        <EndOfLifeSound></EndOfLifeSound>
+        <EndOfLifeEffect>Explosion_Flare</EndOfLifeEffect>
+        <DeathMessage>CauseOfDeath_LightWeapons</DeathMessage>
+      </BasicProperties>
+      <MissileProperties>
+        <MissileMass>100</MissileMass>
+        <MissileExplosionRadius>2.5</MissileExplosionRadius>
+        <MissileModelName>Models\Weapons\FlareAmmo.mwm</MissileModelName>
+        <MissileAcceleration>0</MissileAcceleration>
+        <MissileInitialSpeed>50</MissileInitialSpeed>
+        <MissileSkipAcceleration>false</MissileSkipAcceleration>
+        <MissileExplosionDamage>1000</MissileExplosionDamage>
+        <MissileHealthPool>100</MissileHealthPool>
+        <MissileTrailEffect>Smoke_Flare</MissileTrailEffect>
+        <MissileGravityEnabled>true</MissileGravityEnabled>
+        <ExplosionFlags>APPLY_FORCE_AND_DAMAGE CREATE_DECALS CREATE_SHRAPNELS FORCE_CUSTOM_END_OF_LIFE_EFFECT</ExplosionFlags>
+      </MissileProperties>
 	</Ammo>
 	</Ammos>
 </Definitions>
