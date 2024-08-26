@@ -639,6 +639,8 @@
             <BuildTimeSeconds>40</BuildTimeSeconds>
             <ResourceSinkGroup>Generators</ResourceSinkGroup>
             <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+			<MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
             <MaxPowerOutput>0.2</MaxPowerOutput>
             <FuelCapacity>1</FuelCapacity>
             <IsAirTight>false</IsAirTight>
