@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AmmoMagazines>
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>MediumBombMag</SubtypeId>
+      </Id>
+      <DisplayName>Ammo Bomb Medium</DisplayName>
+      <Icon>Textures\Icons\MediumBomb.png</Icon>
+      <Size>
+        <X>1.2</X>
+        <Y>0.3</Y>
+        <Z>0.3</Z>
+      </Size>
+      <Mass>130</Mass>
+      <Volume>300</Volume>
+      <Model>Models\Ammo\MediumBomb.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="MediumBomb" />
+
+      <MinimumOfferAmount>50</MinimumOfferAmount>
+      <MaximumOfferAmount>500</MaximumOfferAmount>
+      <MinimumOrderAmount>100</MinimumOrderAmount>
+      <MaximumOrderAmount>2000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </AmmoMagazine>
+  </AmmoMagazines>
+  <Ammos>
+      <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>MediumBomb</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>10000</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>10000</MaxTrajectory>
+        <IsExplosive>true</IsExplosive>
+        <BackkickForce>0</BackkickForce>
+        <PhysicalMaterial>LargeShell</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>1.2</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <MissileProperties>
+        <MissileMass>1327</MissileMass>
+        <MissileExplosionRadius>6</MissileExplosionRadius>
+        <MissileModelName>Models\Ammo\MediumBomb.mwm</MissileModelName>
+        <MissileInitialSpeed>1</MissileInitialSpeed>
+        <MissileSkipAcceleration>false</MissileSkipAcceleration>
+        <MissileHealthPool>1000</MissileHealthPool>
+        <MissileExplosionDamage>1000</MissileExplosionDamage>
+        <MissileGravityEnabled>true</MissileGravityEnabled>
+        <MissileAcceleration>0</MissileAcceleration>
+        <MissileTrailEffect></MissileTrailEffect>
+      </MissileProperties>
+    </Ammo>
+	</Ammos>
+</Definitions>

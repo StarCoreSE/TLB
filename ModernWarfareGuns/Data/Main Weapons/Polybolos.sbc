@@ -8,7 +8,7 @@
 	  </Id>
 	  <DisplayName>Polybolos HMG</DisplayName>
 	  
-	  <Description></Description>
+	  <Description>.50 caliber heavy machine gun</Description>
 	  
 		<Icon>Textures\GUI\Icons\Cubes\AutoCannon.dds</Icon>
 		<Description>Description_Autocannon</Description>
