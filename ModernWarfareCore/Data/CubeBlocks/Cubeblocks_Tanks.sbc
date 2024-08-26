@@ -32,7 +32,7 @@
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EdgeType>Light</EdgeType>
-      <Capacity>3000</Capacity>
+      <Capacity>1500</Capacity>
       <BuildTimeSeconds>45</BuildTimeSeconds>
       <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
       <DamagedSound>ParticleWeapExpl</DamagedSound>      
