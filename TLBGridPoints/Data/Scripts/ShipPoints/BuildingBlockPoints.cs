@@ -27,14 +27,6 @@ namespace TLB.ShareTrack
             if (_ticks++ % 10 != 0)
                 return;
 
-            // Check if the player is currently controlling a grid
-            var controlledEntity = MyAPIGateway.Session?.Player?.Controller?.ControlledEntity?.Entity;
-            if (controlledEntity is IMyCockpit || controlledEntity is IMyShipController)
-            {
-                _pointsMessage.Visible = false;
-                return;
-            }
-
             if (LastHeldSubtype != MyHud.BlockInfo?.DefinitionId.SubtypeName)
             {
                 LastHeldSubtype = MyHud.BlockInfo?.DefinitionId.SubtypeName;
@@ -46,14 +38,6 @@ namespace TLB.ShareTrack
         {
             if (_pointsMessage == null)
                 return;
-
-            // Check if the player is currently controlling a grid
-            var controlledEntity = MyAPIGateway.Session?.Player?.Controller?.ControlledEntity?.Entity;
-            if (controlledEntity is IMyCockpit || controlledEntity is IMyShipController)
-            {
-                _pointsMessage.Visible = false;
-                return;
-            }
 
             double blockPoints;
             if (blockInfo == null || !AllGridsList.PointValues.TryGetValue(blockInfo.DefinitionId.SubtypeName, out blockPoints))
@@ -70,7 +54,7 @@ namespace TLB.ShareTrack
             _pointsMessage.Message.Clear();
             _pointsMessage.Message.Append($"{blockDisplayName}:\n{blockPoints}bp");
             if (thisClimbingCostMult != 0)
-                _pointsMessage.Message.Append($" +{(blockPoints * thisClimbingCostMult)}bp/b");
+                _pointsMessage.Message.Append($" +{(blockPoints*thisClimbingCostMult)}bp/b");
             _pointsMessage.Visible = true;
         }
     }
