@@ -133,11 +133,11 @@ namespace TLB.ShareTrack.ShipTracking
         public float OriginalGridIntegrity { get; private set; }
 
         // BattlePoint Stats
-        public int BattlePoints { get; private set; }
-        public int OffensivePoints { get; private set; }
-        public int PowerPoints { get; private set; }
-        public int MovementPoints { get; private set; }
-        public int PointDefensePoints { get; private set; }
+        public double BattlePoints { get; private set; }
+        public double OffensivePoints { get; private set; }
+        public double PowerPoints { get; private set; }
+        public double MovementPoints { get; private set; }
+        public double PointDefensePoints { get; private set; }
 
         // Weapon Stats
         public readonly Dictionary<string, int> WeaponCounts = new Dictionary<string, int>();
@@ -244,7 +244,7 @@ namespace TLB.ShareTrack.ShipTracking
             WeaponCounts.Clear();
             foreach (var block in _fatBlocks)
             {
-                int weaponPoints;
+                double weaponPoints;
                 var weaponDisplayName = block.DefinitionDisplayNameText;
 
                 // Check for WeaponCore weapons
@@ -283,11 +283,18 @@ namespace TLB.ShareTrack.ShipTracking
 
         private void CalculateCost(IMyCubeBlock block)
         {
-            int blockPoints;
-            var blockDisplayName = block.DefinitionDisplayNameText;
-            if (!AllGridsList.PointValues.TryGetValue(block.BlockDefinition.SubtypeName, out blockPoints))
-                return;
+            double blockPoints = 0;
+            foreach (var kvp in AllGridsList.PointValues)
+            {
+                if (block.BlockDefinition.SubtypeName.StartsWith(kvp.Key, StringComparison.OrdinalIgnoreCase))
+                {
+                    blockPoints = kvp.Value;
+                    break;
+                }
+            }
+            if (blockPoints == 0) return;
 
+            var blockDisplayName = block.DefinitionDisplayNameText;
             float thisClimbingCostMult = 0;
             AllGridsList.ClimbingCostRename(ref blockDisplayName, ref thisClimbingCostMult);
 
@@ -297,12 +304,13 @@ namespace TLB.ShareTrack.ShipTracking
             var thisSpecialBlocksCount = BlockCounts[blockDisplayName]++;
 
             if (thisClimbingCostMult > 0)
-                blockPoints += (int)(blockPoints * thisSpecialBlocksCount * thisClimbingCostMult);
+                blockPoints += (blockPoints * thisSpecialBlocksCount * thisClimbingCostMult);
 
             if (block is IMyThrust || block is IMyGyro)
                 MovementPoints += blockPoints;
             if (block is IMyPowerProducer)
                 PowerPoints += blockPoints;
+
             if (WcApi.HasCoreWeapon((MyEntity)block))
             {
                 var validTargetTypes = new List<string>();
@@ -314,6 +322,8 @@ namespace TLB.ShareTrack.ShipTracking
             }
 
             BattlePoints += blockPoints;
+
+            //MyAPIGateway.Utilities.ShowNotification($"EEEEEEEEE{blockPoints}", 3000);
         }
 
         #endregion

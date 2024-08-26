@@ -235,22 +235,40 @@ namespace TLB.ShareTrack.ShipTracking
         public static void SpecialBlockRename(ref string blockDisplayName, IMyCubeBlock block)
         {
             var subtype = block.BlockDefinition.SubtypeName;
-            // WHY CAN'T WE JUST USE THE LATEST C# VERSION THIS IS UGLY AS HECK
 
-            if (block is IMyGasGenerator) //tlb gas engines
-                switch (subtype)
+            // Dictionary for grouping blocks by subtype or display name
+            var groupings = new Dictionary<string, string>
+    {
+        { "Suspension", "Wheel Suspension" },
+        { "Wing_", "Wing" },
+        { "DieselEngine", "Engine" },
+        //{ "Weapon_", "Weapon" },
+        //{ "Buster", "Buster Block" },
+        //{ "Armor Laser", "Laser Armor" }
+    };
+
+            // Check if the block should be grouped
+            foreach (var group in groupings)
+            {
+                if (subtype.StartsWith(group.Key, StringComparison.OrdinalIgnoreCase) ||
+                    blockDisplayName.StartsWith(group.Key, StringComparison.OrdinalIgnoreCase))
                 {
-                    case "TinyDieselEngine":
-                    case "SmallDieselEngine":
-                    case "MediumDieselEngine":
-                        blockDisplayName = "Engine";
-                        break;
+                    blockDisplayName = group.Value;
+                    return;
                 }
-            else if (block is IMyGasTank)
+            }
+
+            // Type-specific renaming
+            if (block is IMyGasTank)
                 blockDisplayName = "HydrogenTank";
+            else if (block is IMyLightingBlock && !(block is IMyReflectorLight))
+                blockDisplayName = "Light";
+            else if (block is IMyConveyor || block is IMyConveyorTube)
+                blockDisplayName = "Conveyor";
             else if (block is IMyMotorStator && subtype == "SubgridBase")
                 blockDisplayName = "Invincible Subgrid";
             else if (block is IMyUpgradeModule)
+            {
                 switch (subtype)
                 {
                     case "LargeEnhancer":
@@ -274,7 +292,9 @@ namespace TLB.ShareTrack.ShipTracking
                         blockDisplayName = "Large Gyro Booster";
                         break;
                 }
+            }
             else if (block is IMyReactor)
+            {
                 switch (subtype)
                 {
                     case "LargeBlockLargeGenerator":
@@ -286,7 +306,9 @@ namespace TLB.ShareTrack.ShipTracking
                         blockDisplayName = "Small Reactor";
                         break;
                 }
+            }
             else if (block is IMyGyro)
+            {
                 switch (subtype)
                 {
                     case "LargeBlockGyro":
@@ -296,7 +318,9 @@ namespace TLB.ShareTrack.ShipTracking
                         blockDisplayName = "Large Gyro";
                         break;
                 }
+            }
             else if (block is IMyCameraBlock)
+            {
                 switch (subtype)
                 {
                     case "MA_Buster_Camera":
@@ -306,10 +330,8 @@ namespace TLB.ShareTrack.ShipTracking
                         blockDisplayName = "Camera";
                         break;
                 }
-            else if (block is IMyLightingBlock && !(block is IMyReflectorLight)) blockDisplayName = "Light";
-            else if (block is IMyConveyor || block is IMyConveyorTube) blockDisplayName = "Conveyor";
-            else if (blockDisplayName.Contains("Buster")) blockDisplayName = "Buster Block";
-            else if (blockDisplayName.StartsWith("Armor Laser")) blockDisplayName = "Laser Armor";
+            }
+
             //else if (!(block is IMyTerminalBlock)) blockDisplayName = "CubeBlock"; // If this is ever an issue, look here.
 
             //if (blockDisplayName.Contains("Letter")) blockDisplayName = "Letter";
@@ -319,7 +341,6 @@ namespace TLB.ShareTrack.ShipTracking
             //else if (blockDisplayName.Contains("Neon"))
             //    blockDisplayName = "Neon Tube";
         }
-
 
         private static Vector3 ColorMaskToRgb(Vector3 colorMask)
         {
@@ -493,12 +514,12 @@ namespace TLB.ShareTrack.ShipTracking
             {
                 var blockCounts = new Dictionary<string, int>();
                 foreach (var stats in _gridStats.Values)
-                foreach (var kvp in stats.SpecialBlockCounts)
-                {
-                    if (!blockCounts.ContainsKey(kvp.Key))
-                        blockCounts.Add(kvp.Key, 0);
-                    blockCounts[kvp.Key] += kvp.Value;
-                }
+                    foreach (var kvp in stats.SpecialBlockCounts)
+                    {
+                        if (!blockCounts.ContainsKey(kvp.Key))
+                            blockCounts.Add(kvp.Key, 0);
+                        blockCounts[kvp.Key] += kvp.Value;
+                    }
 
                 return blockCounts;
             }
@@ -508,74 +529,74 @@ namespace TLB.ShareTrack.ShipTracking
 
         #region BattlePoint Stats
 
-        public int BattlePoints
+        public double BattlePoints
         {
             get
             {
-                var total = 0;
+                double total = 0;
                 foreach (var stats in _gridStats.Values)
                     total += stats.BattlePoints;
                 return total;
             }
         }
 
-        public int OffensivePoints
+        public double OffensivePoints
         {
             get
             {
-                var total = 0;
+                double total = 0;
                 foreach (var stats in _gridStats.Values)
                     total += stats.OffensivePoints;
                 return total;
             }
         }
 
-        public float OffensivePointsRatio => BattlePoints == 0 ? 0 : (float)OffensivePoints / BattlePoints;
+        public float OffensivePointsRatio => BattlePoints == 0 ? 0 : (float)OffensivePoints / (float)BattlePoints;
 
-        public int PowerPoints
+        public double PowerPoints
         {
             get
             {
-                var total = 0;
+                double total = 0;
                 foreach (var stats in _gridStats.Values)
                     total += stats.PowerPoints;
                 return total;
             }
         }
 
-        public float PowerPointsRatio => BattlePoints == 0 ? 0 : (float)PowerPoints / BattlePoints;
+        public float PowerPointsRatio => BattlePoints == 0 ? 0 : (float)PowerPoints / (float)BattlePoints;
 
-        public int MovementPoints
+        public double MovementPoints
         {
             get
             {
-                var total = 0;
+                double total = 0;
                 foreach (var stats in _gridStats.Values)
                     total += stats.MovementPoints;
                 return total;
             }
         }
 
-        public float MovementPointsRatio => BattlePoints == 0 ? 0 : (float)MovementPoints / BattlePoints;
+        public float MovementPointsRatio => BattlePoints == 0 ? 0 : (float)MovementPoints / (float)BattlePoints;
 
-        public int PointDefensePoints
+        public double PointDefensePoints
         {
             get
             {
-                var total = 0;
+                double total = 0;
                 foreach (var stats in _gridStats.Values)
                     total += stats.PointDefensePoints;
                 return total;
             }
         }
 
-        public float PointDefensePointsRatio => BattlePoints == 0 ? 0 : (float)PointDefensePoints / BattlePoints;
+        public float PointDefensePointsRatio => BattlePoints == 0 ? 0 : (float)PointDefensePoints / (float)BattlePoints;
 
 
-        public int RemainingPoints =>
+        public double RemainingPoints =>
             BattlePoints - OffensivePoints - PowerPoints - MovementPoints - PointDefensePoints;
 
-        public int RemainingPointsRatio => BattlePoints == 0 ? 0 : RemainingPoints / BattlePoints;
+        public double RemainingPointsRatio => BattlePoints == 0 ? 0 : RemainingPoints / BattlePoints;
 
         #endregion
 
@@ -626,18 +647,18 @@ namespace TLB.ShareTrack.ShipTracking
             {
                 var blockCounts = new Dictionary<string, int>();
                 foreach (var stats in _gridStats.Values)
-                foreach (var kvp in stats.WeaponCounts)
-                {
-                    if (!blockCounts.ContainsKey(kvp.Key))
-                        blockCounts.Add(kvp.Key, 0);
-                    blockCounts[kvp.Key] += kvp.Value;
-                }
+                    foreach (var kvp in stats.WeaponCounts)
+                    {
+                        if (!blockCounts.ContainsKey(kvp.Key))
+                            blockCounts.Add(kvp.Key, 0);
+                        blockCounts[kvp.Key] += kvp.Value;
+                    }
 
                 return blockCounts;
             }
         }
 
-        public float DamagePerSecond => Math.Abs(AllGridsList.I.WcApi.GetConstructEffectiveDps((MyEntity) Grid));
+        public float DamagePerSecond => Math.Abs(AllGridsList.I.WcApi.GetConstructEffectiveDps((MyEntity)Grid));
 
         #endregion
 

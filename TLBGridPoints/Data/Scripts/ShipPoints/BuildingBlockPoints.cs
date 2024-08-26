@@ -17,7 +17,7 @@ namespace TLB.ShareTrack
             MasterSession.I.HudRegistered += () =>
             {
                 _pointsMessage = new HudAPIv2.HUDMessage(scale: 1f, font: "BI_SEOutlined", Message: new StringBuilder(""),
-                    origin: new Vector2D(-0.969, 0.57), blend: MyBillboard.BlendTypeEnum.PostPP);
+                    origin: new Vector2D(0, 0.2), blend: MyBillboard.BlendTypeEnum.PostPP);
             };
         }
 
@@ -39,7 +39,7 @@ namespace TLB.ShareTrack
             if (_pointsMessage == null)
                 return;
 
-            int blockPoints;
+            double blockPoints;
             if (blockInfo == null || !AllGridsList.PointValues.TryGetValue(blockInfo.DefinitionId.SubtypeName, out blockPoints))
             {
                 _pointsMessage.Visible = false;
@@ -54,7 +54,7 @@ namespace TLB.ShareTrack
             _pointsMessage.Message.Clear();
             _pointsMessage.Message.Append($"{blockDisplayName}:\n{blockPoints}bp");
             if (thisClimbingCostMult != 0)
-                _pointsMessage.Message.Append($" +{(int)(blockPoints*thisClimbingCostMult)}bp/b");
+                _pointsMessage.Message.Append($" +{(blockPoints*thisClimbingCostMult)}bp/b");
             _pointsMessage.Visible = true;
         }
     }
