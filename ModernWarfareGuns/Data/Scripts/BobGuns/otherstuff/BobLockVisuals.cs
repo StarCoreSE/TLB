@@ -170,7 +170,6 @@ namespace BobLockVisuals
                 {
                     if (!lockSafeWeather.Contains(MyAPIGateway.Session.WeatherEffects.GetWeather(player.Character.WorldMatrix.Translation))){
                         targetLock.ReleaseTargetLock();
-                        MyAPIGateway.Utilities.ShowNotification($"{MyAPIGateway.Session.WeatherEffects.GetWeather(player.Character.WorldMatrix.Translation)}", 3000);
                         continue;
                     }
 
