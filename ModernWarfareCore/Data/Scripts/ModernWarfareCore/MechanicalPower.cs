@@ -532,7 +532,7 @@ namespace MODERN_WARFARE_CORE
 
             mach = speed / Utilities.SpeedOfSound(planet.GetAirDensity(grid.WorldMatrix.Translation));
             vang = Utilities.VectorAngleBetween(intake.CubeGrid.Physics.LinearVelocity, intake.WorldMatrix.Forward);
-            double cd = 2 * Utilities.BilinearInterpolation(cd_interp_table, mrange, aoarange, mach, vang);
+            double cd = Utilities.BilinearInterpolation(cd_interp_table, mrange, aoarange, mach, vang);
 
             //MyAPIGateway.Utilities.ShowNotification($"mach {mach:#.##}, vang {vang:#.##}, cd {cd:#.##}", 16);
 
@@ -546,7 +546,7 @@ namespace MODERN_WARFARE_CORE
             double velocityInThrustDirection = Vector3D.Dot(grid.Physics.LinearVelocity, thrustDirection);
 
             // Apply drag force proportional to the velocity component in the thrust direction
-            Vector3D dragForce = -thrustDirection * 2 * cd * velocityInThrustDirection * velocityInThrustDirection;
+            Vector3D dragForce = -thrustDirection * 4 * cd * velocityInThrustDirection * velocityInThrustDirection;
             grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, dragForce, null, null);
         }
 

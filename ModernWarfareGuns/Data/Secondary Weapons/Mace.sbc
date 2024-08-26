@@ -125,7 +125,7 @@
 	<Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
 		<Id>
 			<TypeId>AmmoDefinition</TypeId>
-			<SubtypeId>MaceAmmo_BeamRider</SubtypeId>
+			<SubtypeId>MaceAmmo</SubtypeId>
 		</Id>
 		<BasicProperties>
 			<DesiredSpeed>10000</DesiredSpeed>
