@@ -112,7 +112,7 @@
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
 	<Capacity>3</Capacity>
-	<AmmoDefinitionId Subtype="TorchAmmo_BeamRider" />
+	<AmmoDefinitionId Subtype="TorchAmmo" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>
 	<MaximumOfferAmount>1000</MaximumOfferAmount>
