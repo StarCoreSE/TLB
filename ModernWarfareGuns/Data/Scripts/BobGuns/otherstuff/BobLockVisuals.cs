@@ -29,7 +29,7 @@ namespace BobLockVisuals
     [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation | MyUpdateOrder.AfterSimulation | MyUpdateOrder.Simulation)]
     public class BobLockVisualsSession : MySessionComponentBase
     {
-
+        List<IMyPlayer> myPlayers = new List<IMyPlayer>();
         private const float ticktime = 1f / 60f;
         private const float updatetime = 3f;
         private List<string> lockSafeWeather = new List<string>
@@ -156,7 +156,7 @@ namespace BobLockVisuals
 
         public void UpdateLocks()
         {
-            List<IMyPlayer> myPlayers = new List<IMyPlayer>();
+            myPlayers.Clear();
             MyAPIGateway.Players.GetPlayers(myPlayers);
 
             //MyAPIGateway.Utilities.ShowNotification($"updated {targetLocks.Count}", 600);
@@ -168,13 +168,6 @@ namespace BobLockVisuals
 
                 if (targetLock != null && targetLock.TargetEntity is IMyCubeGrid && player.Controller.ControlledEntity is IMyCubeBlock)
                 {
-                    if (!lockSafeWeather.Contains(MyAPIGateway.Session.WeatherEffects.GetWeather(player.Character.WorldMatrix.Translation))){
-                        targetLock.ReleaseTargetLock();
-                        continue;
-                    }
-
-
-
                     IMyEntity attackerGrid = (player.Controller.ControlledEntity as IMyCubeBlock).CubeGrid;
                     string key = $"lock:{attackerGrid.EntityId}:{targetLock.TargetEntity.EntityId}";
                     if(!targetLocks.ContainsKey(key))
@@ -194,6 +187,36 @@ namespace BobLockVisuals
             targetLocksKeysToRemove.Clear();
         }
 
+
+        public static double AngleBetween(Vector3D a, Vector3D b)
+        {
+            if (Vector3D.IsZero(a) || Vector3D.IsZero(b))
+                return 0;
+            else
+                return Math.Acos(MathHelper.Clamp(
+                    a.Dot(b) / Math.Sqrt(a.LengthSquared() * b.LengthSquared()), -1, 1));
+        }
+
+
+        public void FuckWithLocks()
+        {
+            if (MyAPIGateway.Session?.Player?.Character == null || MyAPIGateway.Session.Camera == null)
+                return;
+            IMyPlayer player = MyAPIGateway.Session.Player;
+            MyTargetLockingComponent targetLock = player?.Character?.Components?.Get<MyTargetLockingComponent>();
+            if (targetLock == null) { return; }
+            if (!lockSafeWeather.Contains(MyAPIGateway.Session.WeatherEffects.GetWeather(player.Character.WorldMatrix.Translation)))
+            {
+
+                targetLock.ReleaseTargetLock();
+                return;
+            }
+            if (targetLock.TargetEntity == null) { return; }
+            double ang = AngleBetween(MyAPIGateway.Session.Camera.WorldMatrix.Forward, targetLock.TargetEntity.WorldMatrix.Translation - MyAPIGateway.Session.Camera.WorldMatrix.Translation);
+            if (ang > 0.035) { targetLock.ReleaseTargetLock(); }
+        }
+
+
         public override void UpdateBeforeSimulation()
         {
             if (MyAPIGateway.Session == null)
@@ -201,6 +224,8 @@ namespace BobLockVisuals
 
             time += ticktime;
 
+
+            FuckWithLocks();
             DrawLocks();
 
             if (time < updatetime)
