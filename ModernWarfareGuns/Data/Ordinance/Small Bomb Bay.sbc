@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+    <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
+      <Id>
+        <TypeId>SmallMissileLauncherReload</TypeId>
+        <SubtypeId>BombBaySmall</SubtypeId>
+      </Id>
+      <DisplayName>Small Bomb Bay</DisplayName>
+      <Icon>Textures\Icons\BombBaySmall.png</Icon>
+      <Description>Description_RocketLauncherReload</Description>
+      <CubeSize>Small</CubeSize>
+      <GuiVisible>false</GuiVisible>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="3" y="3" z="4" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\BombBaySmall.mwm</Model>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <MountPoints>
+      </MountPoints>
+      <Components>
+        <Component Subtype="SmallTube" Count="50" />
+        <Component Subtype="InteriorPlate" Count="40" />
+        <Component Subtype="Construction" Count="24" />
+        <Component Subtype="LargeTube" Count="8" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="Motor" Count="4" />
+        <Component Subtype="Computer" Count="2" />
+        <Component Subtype="SteelPlate" Count="8" />
+        <Component Subtype="InteriorPlate" Count="10" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.43" File="Models\Cubes\BombBaySmall_BS1.mwm" />
+        <Model BuildPercentUpperBound="1.0" File="Models\Cubes\BombBaySmall_BS2.mwm" />
+      </BuildProgressModels>
+      <Center x="1" y="1" z="2" />
+      <BuildTimeSeconds>15</BuildTimeSeconds>
+      <InventoryMaxVolume>0.9</InventoryMaxVolume>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <WeaponDefinitionId Subtype="SmallBombBay" />
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>425</PCU>
+      <MirroringZ>Y</MirroringZ>
+      <MirroringY>Z</MirroringY>
+      <TargetingGroups>
+        <string>Weapons</string>
+      </TargetingGroups>
+    </Definition>
+	</CubeBlocks>
+	<Weapons>
+	<Weapon>
+	<Id>
+		<TypeId>WeaponDefinition</TypeId>
+		<SubtypeId>SmallBombBay</SubtypeId>
+	</Id>
+	<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="bomb_whistle_small" ShotsInBurst="9" />
+	<DeviateShotAngle>0</DeviateShotAngle>
+	<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
+	<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
+	<AmmoMagazines>
+		<AmmoMagazine Subtype="SmallBombMag" />
+	</AmmoMagazines>
+	<ReloadTime>30000</ReloadTime>
+	</Weapon>
+	</Weapons>
+	  <AmmoMagazines>
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>SmallBombMag</SubtypeId>
+      </Id>
+      <DisplayName>Ammo Bomb Small</DisplayName>
+      <Icon>Textures\Icons\SmallBomb.png</Icon>
+      <Size>
+        <X>1.2</X>
+        <Y>0.3</Y>
+        <Z>0.3</Z>
+      </Size>
+      <Mass>50</Mass>
+      <Volume>100</Volume>
+      <Model>Models\Ammo\SmallBomb.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="SmallBomb" />
+
+      <MinimumOfferAmount>50</MinimumOfferAmount>
+      <MaximumOfferAmount>500</MaximumOfferAmount>
+      <MinimumOrderAmount>100</MinimumOrderAmount>
+      <MaximumOrderAmount>2000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </AmmoMagazine>
+  <Ammos>
+    <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>SmallBomb</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>10000</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>10000</MaxTrajectory>
+        <IsExplosive>true</IsExplosive>
+        <BackkickForce>0</BackkickForce>
+        <PhysicalMaterial>LargeShell</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>1.2</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <MissileProperties>
+        <MissileMass>500</MissileMass>
+        <MissileExplosionRadius>6</MissileExplosionRadius>
+        <MissileModelName>Models\Ammo\SmallBomb.mwm</MissileModelName>
+        <MissileInitialSpeed>1</MissileInitialSpeed>
+        <MissileSkipAcceleration>false</MissileSkipAcceleration>
+        <MissileHealthPool>600</MissileHealthPool>
+        <MissileExplosionDamage>600</MissileExplosionDamage>
+        <MissileGravityEnabled>true</MissileGravityEnabled>
+        <MissileAcceleration>0</MissileAcceleration>
+        <MissileTrailEffect></MissileTrailEffect>
+      </MissileProperties>
+    </Ammo>
+	</Ammos>
+</Definitions>

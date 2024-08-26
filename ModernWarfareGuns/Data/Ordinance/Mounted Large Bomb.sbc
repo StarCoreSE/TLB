@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+    <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
+      <Id>
+        <TypeId>SmallMissileLauncherReload</TypeId>
+        <SubtypeId>MountedLargeBomb</SubtypeId>
+      </Id>
+      <DisplayName>Mounted Large Bomb</DisplayName>
+      <Icon>Textures\Icons\MountedLargeBomb.png</Icon>
+      <Description>	</Description>
+      <CubeSize>Small</CubeSize>
+      <GuiVisible>false</GuiVisible>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="3" y="2" z="7" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\MountedLargeBomb.mwm</Model>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Top" StartX="1" StartY="3" EndX="2" EndY="4" />
+      </MountPoints>
+      <Components>
+        <Component Subtype="Explosives" Count="10" />
+        <Component Subtype="MetalGrid" Count="5" />
+        <Component Subtype="Motor" Count="5" />
+        <Component Subtype="Computer" Count="5" />
+        <Component Subtype="SteelPlate" Count="30" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <Center x="0" y="0" z="1" />
+      <BuildTimeSeconds>15</BuildTimeSeconds>
+      <InventoryMaxVolume>0.24</InventoryMaxVolume>
+      <ResourceSinkGroup>Defense</ResourceSinkGroup>
+      <WeaponDefinitionId Subtype="LargeBombBay" />
+      <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+      <DamagedSound>ParticleWeapExpl</DamagedSound>
+      <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <PCU>425</PCU>
+      <MirroringZ>Y</MirroringZ>
+      <MirroringY>Z</MirroringY>
+      <TargetingGroups>
+        <string>Weapons</string>
+      </TargetingGroups>
+    </Definition>
+	</CubeBlocks>
+	<Weapons>
+	<Weapon>
+	<Id>
+		<TypeId>WeaponDefinition</TypeId>
+		<SubtypeId>LargeBombBay</SubtypeId>
+	</Id>
+	<MissileAmmoData RateOfFire="200" ShootSoundName="bomb_drop" FlightSoundName="bomb_whistle_large" ShotsInBurst="1" />
+	<DeviateShotAngle>0</DeviateShotAngle>
+	<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
+	<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
+	<AmmoMagazines>
+		<AmmoMagazine Subtype="LargeBombMag" />
+	</AmmoMagazines>
+	<ReloadTime>30000</ReloadTime>
+	</Weapon>
+	</Weapons>
+</Definitions>
