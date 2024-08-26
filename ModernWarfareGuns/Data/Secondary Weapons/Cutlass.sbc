@@ -8,7 +8,7 @@
       </Id>
       <DisplayName>Cutlass Turret</DisplayName>
 	  <Icon>Textures\Icons\Turrets\CutlassTurretIcon.png</Icon>
-      <Description>A basic turret that chucks Grenade ammo. Thunk.</Description>
+      <Description>A shotgun turret</Description>
       <CubeSize>Small</CubeSize>
       <GuiVisible>false</GuiVisible>
       <PlaceDecals>false</PlaceDecals>

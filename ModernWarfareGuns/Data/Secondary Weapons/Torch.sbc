@@ -8,7 +8,7 @@
       </Id>
       <DisplayName>Torch Turret</DisplayName>
 	  <Icon>Textures\Icons\Turrets\TorchTurretIcon.png</Icon>
-      <Description>A basic turret that chucks Grenade ammo. Thunk.</Description>
+      <Description>A thrower of flame</Description>
       <CubeSize>Small</CubeSize>
       <GuiVisible>false</GuiVisible>
       <PlaceDecals>false</PlaceDecals>

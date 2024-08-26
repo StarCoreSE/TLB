@@ -8,7 +8,7 @@
       </Id>
       <DisplayName>Dagger Turret</DisplayName>
 	  <Icon>Textures\Icons\Turrets\DaggerTurretIcon.png</Icon>
-      <Description>A basic turret that chucks Grenade ammo. Thunk.</Description>
+      <Description>A smol rifle turret :3</Description>
       <CubeSize>Small</CubeSize>
       <GuiVisible>false</GuiVisible>
       <PlaceDecals>false</PlaceDecals>

@@ -8,7 +8,7 @@
       </Id>
       <DisplayName>Sword Turret</DisplayName>
 	  <Icon>Textures\Icons\Turrets\SwordTurretIcon.png</Icon>
-      <Description>A basic turret that chucks Grenade ammo. Thunk.</Description>
+      <Description>An autocannon thingy</Description>
       <CubeSize>Small</CubeSize>
       <GuiVisible>false</GuiVisible>
       <PlaceDecals>false</PlaceDecals>

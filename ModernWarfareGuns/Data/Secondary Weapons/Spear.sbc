@@ -8,7 +8,7 @@
       </Id>
       <DisplayName>Spear Turret</DisplayName>
 	  <Icon>Textures\Icons\Turrets\SpearTurretIcon.png</Icon>
-      <Description>A basic turret that chucks Grenade ammo. Thunk.</Description>
+      <Description>An beam riding ATGM turret</Description>
       <CubeSize>Small</CubeSize>
       <GuiVisible>false</GuiVisible>
       <PlaceDecals>false</PlaceDecals>
