@@ -79,12 +79,12 @@ namespace TLB.ShareTrack.TrackerApi
 
         private void TrackGrid(IMyCubeGrid grid, bool share)
         {
-            TrackingManager.I?.TrackGrid(grid, share);
+            //TrackingManager.I?.TrackGrid(grid, share);
         }
 
         private void UnTrackGrid(IMyCubeGrid grid, bool share)
         {
-            TrackingManager.I?.UntrackGrid(grid, share);
+            //TrackingManager.I?.UntrackGrid(grid, share);
         }
     }
 }

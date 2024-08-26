@@ -40,38 +40,38 @@ namespace TLB.ShareTrack
 
         private readonly Dictionary<MyKeys, Action> _keyAndActionPairs = new Dictionary<MyKeys, Action>
         {
-            [MyKeys.M] = () =>
-            {
-                var castGrid = RaycastGridFromCamera();
-                if (castGrid == null)
-                    return;
-
-                if (!TrackingManager.I.IsGridTracked(castGrid))
-                    TrackingManager.I.TrackGrid(castGrid);
-                else
-                    TrackingManager.I.UntrackGrid(castGrid);
-            },
-            [MyKeys.N] = () =>
-            {
-                IntegretyMessage.Visible = !IntegretyMessage.Visible;
-                MyAPIGateway.Utilities.ShowNotification("ShipTracker: Hud visibility set to " +
-                                                        IntegretyMessage.Visible);
-            },
-            [MyKeys.B] = () =>
-            {
-                TimerMessage.Visible = !TimerMessage.Visible;
-                Ticketmessage.Visible = !Ticketmessage.Visible;
-                MyAPIGateway.Utilities.ShowNotification(
-                    "ShipTracker: Timer visibility set to " + TimerMessage.Visible);
-            },
-            [MyKeys.J] = () =>
-            {
-                NametagViewState++;
-                if (NametagViewState > (ShipTracker.NametagSettings)3)
-                    NametagViewState = 0;
-                MyAPIGateway.Utilities.ShowNotification(
-                    "ShipTracker: Nameplate visibility set to " + NametagViewState);
-            },
+            //[MyKeys.M] = () =>
+            //{
+            //    var castGrid = RaycastGridFromCamera();
+            //    if (castGrid == null)
+            //        return;
+            //
+            //    if (!TrackingManager.I.IsGridTracked(castGrid))
+            //        TrackingManager.I.TrackGrid(castGrid);
+            //    else
+            //        TrackingManager.I.UntrackGrid(castGrid);
+            //},
+            //[MyKeys.N] = () =>
+            //{
+            //    IntegretyMessage.Visible = !IntegretyMessage.Visible;
+            //    MyAPIGateway.Utilities.ShowNotification("ShipTracker: Hud visibility set to " +
+            //                                            IntegretyMessage.Visible);
+            //},
+            //[MyKeys.B] = () =>
+            //{
+            //    TimerMessage.Visible = !TimerMessage.Visible;
+            //    Ticketmessage.Visible = !Ticketmessage.Visible;
+            //    MyAPIGateway.Utilities.ShowNotification(
+            //        "ShipTracker: Timer visibility set to " + TimerMessage.Visible);
+            //},
+            //[MyKeys.J] = () =>
+            //{
+            //    NametagViewState++;
+            //    if (NametagViewState > (ShipTracker.NametagSettings)3)
+            //        NametagViewState = 0;
+            //    MyAPIGateway.Utilities.ShowNotification(
+            //        "ShipTracker: Nameplate visibility set to " + NametagViewState);
+            //},
             [MyKeys.T] = () =>
             {
                 I?._hudPointsList?.CycleViewState();
