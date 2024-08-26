@@ -766,38 +766,43 @@ namespace MODERN_WARFARE_CORE
     public class MotorSuspensionLogic : MyGameLogicComponent
     {
         IMyCubeGrid grid;
-        IMyMotorSuspension sus;
+        IMyMotorSuspension suspension;
         IMyFunctionalBlock con;
 
-        bool turned_off_by_bob = false;
+        bool turned_off_by_bob = false; // Flag to check if the suspension was turned off by the converter
 
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
-            sus = (Entity as IMyMotorSuspension);
-            grid = sus.CubeGrid;
+            suspension = (Entity as IMyMotorSuspension);
+            grid = suspension.CubeGrid;
 
             this.NeedsUpdate |= MyEntityUpdateEnum.EACH_10TH_FRAME;
         }
 
         public override void UpdateBeforeSimulation10()
         {
-            if (grid == null || grid.Physics == null || sus == null)
+            if (grid == null || grid.Physics == null || suspension == null)
                 return;
 
-            if (sus.Enabled && con == null)
+            if (suspension.Enabled && con == null)
                 UpdateConverterBlock();
 
             if (con == null)
                 return;
-            
-            if (sus.Enabled && (!con.Enabled || !con.IsFunctional || (con as MyFueledPowerProducer).Capacity == 0))// || con.Capacity == 0))
+            //MyAPIGateway.Utilities.ShowNotification($"Converter is not null, and enabled", 160);
+            bool converter_is_working = con.Enabled && con.IsFunctional & (con as MyFueledPowerProducer).Capacity > 0;
+
+            // Check if the suspension is enabled and the converter is not working
+            if (suspension.Enabled && !converter_is_working)
             {
-                sus.Enabled = false;
+                // Disable the suspension, and set the flag
+                suspension.Enabled = false;
                 turned_off_by_bob = true;
             }
-            else if(turned_off_by_bob) // and working...
+            if (turned_off_by_bob && converter_is_working)
             {
-                sus.Enabled = true;
+                // Vice versa
+                suspension.Enabled = true;
                 turned_off_by_bob = false;
             }
         }
@@ -805,7 +810,7 @@ namespace MODERN_WARFARE_CORE
         public void UpdateConverterBlock()
         {
             List<IMySlimBlock> n = new List<IMySlimBlock>();
-            sus.SlimBlock.GetNeighbours(n);
+            suspension.SlimBlock.GetNeighbours(n); // Get the neighbours of the SUSPENSION block
 
             foreach (IMySlimBlock slim in n)
             {
@@ -818,16 +823,16 @@ namespace MODERN_WARFARE_CORE
                 }
             }
 
-            if (con == null)
+            /*if (con == null)
             {
-                sus.Enabled = false;
+                suspension.Enabled = false;
                 turned_off_by_bob = true;
             }
             else if(turned_off_by_bob)
             {
-                sus.Enabled = true;
+                suspension.Enabled = true;
                 turned_off_by_bob = false;
-            }
+            }*/
         }
     }
 
@@ -835,10 +840,10 @@ namespace MODERN_WARFARE_CORE
     public class MotorConverterLogic : MyGameLogicComponent
     {
         IMyCubeGrid grid;
-        IMyMotorSuspension sus;
+        IMyMotorSuspension suspension;
         IMyFunctionalBlock con;
 
-        bool turned_off_by_bob = false;
+        //bool turned_off_by_bob = false;
 
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
@@ -854,18 +859,18 @@ namespace MODERN_WARFARE_CORE
             if (grid == null || grid.Physics == null || con == null)
                 return;
 
-            if (con.Enabled && sus == null)
+            if (suspension == null)
                 UpdateSuspensionBlock();
 
-            if (sus == null)
+            if (suspension == null)
             {
                 con.Enabled = false;
-                turned_off_by_bob = true;
+                //turned_off_by_bob = true;
             }
-            else if (turned_off_by_bob && !con.Enabled)
+            else //(turned_off_by_bob && !con.Enabled)
             {
                 con.Enabled = true;
-                turned_off_by_bob = false;
+                //turned_off_by_bob = false;
             }
         }
 
@@ -884,21 +889,21 @@ namespace MODERN_WARFARE_CORE
 
                 if (slim.FatBlock is IMyMotorSuspension)
                 {
-                    sus = slim.FatBlock as IMyMotorSuspension;
+                    suspension = slim.FatBlock as IMyMotorSuspension;
                     break;
                 }
             }
 
-            if (sus == null)
+            /*if (suspension == null)
             {
                 con.Enabled = false;
-                turned_off_by_bob = true;
+                //turned_off_by_bob = true;
             }
-            else if (turned_off_by_bob && !con.Enabled)
+            else //(turned_off_by_bob && !con.Enabled)
             {
                 con.Enabled = true;
-                turned_off_by_bob = false;
-            }
+                //turned_off_by_bob = false;
+            }*/
         }
     }
 
