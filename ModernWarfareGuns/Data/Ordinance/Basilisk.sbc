@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+	<Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
+		<Id>
+			<TypeId>SmallMissileLauncher</TypeId>
+			<SubtypeId>BasiliskGunBlock</SubtypeId>
+		</Id>
+		<DisplayName>Basilisk Missile</DisplayName>
+		<Icon>Textures\Icons\Turrets\BasiliskIcon.png</Icon>
+		<Description></Description>
+		<CubeSize>Small</CubeSize>
+		<GuiVisible>false</GuiVisible>
+		<BlockTopology>TriangleMesh</BlockTopology>
+		<Size x="1" y="1" z="7" />
+		<ModelOffset x="0" y="0" z="0" />
+		<Model>Models\Cubes\BasiliskModel.mwm</Model>
+		<Components>
+			<Component Subtype="SteelPlate" Count="1" />
+			<Component Subtype="Construction" Count="1" />
+			<Component Subtype="LargeTube" Count="3" />
+			<Component Subtype="Computer" Count="1" />
+			<Component Subtype="SteelPlate" Count="1" />
+		</Components>
+		<CriticalComponent Subtype="Computer" Index="0" />
+		<MirroringY>Z</MirroringY>
+		<MirroringZ>Y</MirroringZ>
+		<Center x="0" y="0" z="0" />
+		<BuildTimeSeconds>6</BuildTimeSeconds>
+		<EdgeType>Light</EdgeType>
+		<WeaponDefinitionId Subtype="BasiliskWep" />
+		<ResourceSinkGroup>Defense</ResourceSinkGroup>
+		<InventoryMaxVolume>0.006</InventoryMaxVolume>
+		<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+		<DamagedSound>ParticleWeapExpl</DamagedSound>
+		<DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+		<DestroySound>WepSmallWarheadExpl</DestroySound>
+		<TargetingGroups>
+		</TargetingGroups>
+		<PCU>150</PCU>
+	</Definition>
+	</CubeBlocks>
+    <Weapons>
+	<Weapon>
+		<Id>
+			<TypeId>WeaponDefinition</TypeId>
+			<SubtypeId>BasiliskWep</SubtypeId>
+		</Id>
+		<MissileAmmoData RateOfFire="1000" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="1" />
+		<DeviateShotAngle>2.0</DeviateShotAngle>
+		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
+		<AmmoMagazines>
+			<AmmoMagazine Subtype="BasiliskMag" />
+		</AmmoMagazines>
+		<ReloadTime>10000</ReloadTime>
+	</Weapon> <!--gren-->
+	</Weapons>
+	<AmmoMagazines>
+	<AmmoMagazine>
+	<Id>
+		<TypeId>AmmoMagazine</TypeId>
+		<SubtypeId>BasiliskMag</SubtypeId>
+	</Id>
+	<DisplayName>Ammo Basilisk</DisplayName>
+	<Icon>Textures\Icons\Magazines\GrenadeCrate.png</Icon>
+	<Size>
+		<X>0.25</X>
+		<Y>0.2</Y>
+		<Z>0.2</Z>
+	</Size><Health>999999</Health>
+	<Mass>60</Mass>
+	<Volume>30</Volume>
+	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
+	<PhysicalMaterial>Ammo</PhysicalMaterial>
+	<Capacity>3</Capacity>
+	<AmmoDefinitionId Subtype="BasiliskAmmo_Homing_Proximity" />
+
+	<MinimumOfferAmount>100</MinimumOfferAmount>
+	<MaximumOfferAmount>1000</MaximumOfferAmount>
+	<MinimumOrderAmount>100</MinimumOrderAmount>
+	<MaximumOrderAmount>2000</MaximumOrderAmount>
+	<CanPlayerOrder>true</CanPlayerOrder>
+	</AmmoMagazine> <!--gren-->
+	</AmmoMagazines>
+	<Ammos>
+	<Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+		<Id>
+			<TypeId>AmmoDefinition</TypeId>
+			<SubtypeId>BasiliskAmmo_Homing_Proximity</SubtypeId>
+		</Id>
+		<BasicProperties>
+			<DesiredSpeed>1000</DesiredSpeed>
+			<SpeedVariance>0</SpeedVariance>
+			<MaxTrajectory>1400</MaxTrajectory>
+			<IsExplosive>true</IsExplosive>
+			<BackkickForce>1</BackkickForce>
+			<PhysicalMaterial>MediumShell</PhysicalMaterial>
+			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+		</BasicProperties>
+		<MissileProperties>
+			<MissileMass>45</MissileMass>
+			<MissileExplosionRadius>4</MissileExplosionRadius>
+			<MissileModelName>Models\Weapons\Projectile_Missile.mwm</MissileModelName>
+			<MissileAcceleration>600</MissileAcceleration>
+			<MissileInitialSpeed>100</MissileInitialSpeed>
+			<MissileSkipAcceleration>false</MissileSkipAcceleration>
+			<MissileExplosionDamage>500</MissileExplosionDamage>
+			<MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
+		</MissileProperties>
+	</Ammo>
+	</Ammos>
+</Definitions>

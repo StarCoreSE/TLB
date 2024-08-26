@@ -69,13 +69,13 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>ScorpionWep</SubtypeId>
 		</Id>
-		<ProjectileAmmoData RateOfFire="3000" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="140" />
-		<DeviateShotAngle>2.0</DeviateShotAngle>
-		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
+		<ProjectileAmmoData RateOfFire="3900" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="3900" />
+		<DeviateShotAngle>0.5</DeviateShotAngle>
+		<DeviateShotAngleAiming>0.5</DeviateShotAngleAiming>
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="ScorpionMag" />
 		</AmmoMagazines>
-		<ReloadTime>10000</ReloadTime>
+		<ReloadTime>0</ReloadTime>
 	</Weapon> <!--gren-->
 	</Weapons>
 	<AmmoMagazines>
@@ -112,9 +112,9 @@
 			<SubtypeId>ScorpionAmmo</SubtypeId>
 		</Id>
 		<BasicProperties>
-			<DesiredSpeed>400</DesiredSpeed>
-			<SpeedVariance>0</SpeedVariance>
-			<MaxTrajectory>800</MaxTrajectory>
+			<DesiredSpeed>900</DesiredSpeed>
+			<SpeedVariance>0.2</SpeedVariance>
+			<MaxTrajectory>1200</MaxTrajectory>
 			<BackkickForce>1.7</BackkickForce>
 			<PhysicalMaterial>GunBullet</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>0.6</ExplosiveDamageMultiplier>
@@ -122,7 +122,7 @@
 		<ProjectileProperties>
 			<ProjectileTrailScale>0.1</ProjectileTrailScale>
 			<ProjectileHitImpulse>2</ProjectileHitImpulse>
-			<ProjectileMassDamage>90</ProjectileMassDamage>
+			<ProjectileMassDamage>54</ProjectileMassDamage>
 			<ProjectileHealthDamage>33</ProjectileHealthDamage>
 			<HeadShot>true</HeadShot>
 		</ProjectileProperties>
