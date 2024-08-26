@@ -45,9 +45,9 @@ namespace ShipPoints
             ["SmallBombBay"] = 3,
             ["MediumBombBay"] = 4,
             ["MountedLargeBomb"] = 1,
-            ["MountedMissile"] = 5,
+            ["MountedMissile"] = 1.25,
             ["BombardLauncher"] = 10,
-            ["BasiliskGunBlock"] = 10,
+            ["BasiliskGunBlock"] = 2.5,
 
             // Utilities
             ["Camera"] = 1,
@@ -80,11 +80,13 @@ namespace ShipPoints
 
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
         {
-            // Add fuzzy rules
-            FuzzyPoints.Add("aero-wing", 1);
+            // Add fuzzy rules (can be displayname or subtype)
+            FuzzyPoints.Add("aero-wing", 0.5);
+            FuzzyPoints.Add("Control Surface", 0.25);
             FuzzyPoints.Add("suspension2x2", 0.125);
             FuzzyPoints.Add("suspension3x3", 0.25);
             FuzzyPoints.Add("suspension5x5", 0.5);
+            FuzzyPoints.Add("SmallDragWheel", 0.33);
 
             // Process fuzzy rules
             foreach (var kvp in FuzzyPoints)
@@ -101,6 +103,14 @@ namespace ShipPoints
                             {
                                 PointValues[cubeBlock.Id.SubtypeName] = kvp.Value;
                             }
+                        }
+                        else if (cubeBlock.DisplayNameString != null && cubeBlock.DisplayNameString.Contains(kvp.Key))
+                        {
+                            if (!PointValues.ContainsKey(cubeBlock.Id.SubtypeName))
+                            {
+                                PointValues[cubeBlock.Id.SubtypeName] = kvp.Value;
+                            }
+
                         }
                     }
                 }
