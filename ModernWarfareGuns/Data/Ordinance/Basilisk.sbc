@@ -3,7 +3,7 @@
 	<CubeBlocks>
 	<Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
 		<Id>
-			<TypeId>SmallMissileLauncher</TypeId>
+			<TypeId>SmallMissileLauncherReload</TypeId>
 			<SubtypeId>BasiliskGunBlock</SubtypeId>
 		</Id>
 		<DisplayName>Basilisk Missile</DisplayName>
@@ -25,7 +25,7 @@
 		<CriticalComponent Subtype="Computer" Index="0" />
 		<MirroringY>Z</MirroringY>
 		<MirroringZ>Y</MirroringZ>
-		<Center x="0" y="0" z="0" />
+		<Center x="0" y="0" z="3" />
 		<BuildTimeSeconds>6</BuildTimeSeconds>
 		<EdgeType>Light</EdgeType>
 		<WeaponDefinitionId Subtype="BasiliskWep" />
