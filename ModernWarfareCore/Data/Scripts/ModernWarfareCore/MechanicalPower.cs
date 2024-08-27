@@ -673,14 +673,15 @@ namespace MODERN_WARFARE_CORE
             double timeSinceThrust = currentTime - _lastThrustTime;
 
             // Calculate fading drag multiplier based on time elapsed
-            float dragMultiplier = 1.0f - MathHelper.Clamp((float)(timeSinceThrust / _fadeTime), 0.0f, 1.0f);
+            float dragMultiplier = 1.0f - MathHelper.Clamp((float)(timeSinceThrust / _fadeTime), 0.0f, 1.0f) * 10;
 
             // Calculate the velocity in the direction opposite to the thrust direction
             Vector3D thrustDirection = thruster.WorldMatrix.Backward; // Opposite of the thruster's forward direction
             double velocityInThrustDirection = Vector3D.Dot(grid.Physics.LinearVelocity, thrustDirection);
 
             // Apply drag force proportional to the velocity component in the thrust direction
-            Vector3D dragForce = -thrustDirection * velocityInThrustDirection * _dragCoefficient * dragMultiplier;
+            Vector3D dragForce = -thrustDirection * velocityInThrustDirection * velocityInThrustDirection * _dragCoefficient * dragMultiplier;
+
             grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, dragForce, null, null);
         }
 
