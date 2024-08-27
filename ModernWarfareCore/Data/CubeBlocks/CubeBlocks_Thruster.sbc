@@ -88,7 +88,7 @@
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>25</BuildTimeSeconds>
 			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
-			<ForceMagnitude>900000</ForceMagnitude>
+			<ForceMagnitude>1500000</ForceMagnitude>
 			<FuelConverter>
 				<FuelId>
 					<TypeId>GasProperties</TypeId>
