@@ -8,7 +8,7 @@
 		</Id>
 		<DisplayName>Catapult Cannon</DisplayName>
 		<Icon>Textures\Icons\Turrets\CatapultIcon.dds</Icon>
-		<Description>Shoots your standard APFSDSFSDSFSDS</Description>
+		<Description>Shoots your friendly neighbourhood APFSDSFSDSFSDS</Description>
 		<CubeSize>Small</CubeSize>
 		<GuiVisible>false</GuiVisible>
 		<BlockTopology>TriangleMesh</BlockTopology>
@@ -47,8 +47,8 @@
 			<SubtypeId>CatapultWep</SubtypeId>
 		</Id>
 		<MissileAmmoData RateOfFire="80" ShootSoundName="WepLargeCalibreShot" FlightSoundName="HeavyShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="1" />
-		<DeviateShotAngle>0.15</DeviateShotAngle>
-		<DeviateShotAngleAiming>0.15</DeviateShotAngleAiming>
+		<DeviateShotAngle>0</DeviateShotAngle>
+		<DeviateShotAngleAiming>0</DeviateShotAngleAiming>
 		<NoAmmoSoundName>WepPlayRifleNoAmmo</NoAmmoSoundName>
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="CatapultMag" />
@@ -95,7 +95,7 @@
 		<BasicProperties>
 			<DesiredSpeed>3000</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
-			<MaxTrajectory>2000</MaxTrajectory>
+			<MaxTrajectory>4000</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
 			<BackkickForce>15000</BackkickForce>
 			<PhysicalMaterial>LargeShell</PhysicalMaterial>
@@ -107,7 +107,7 @@
 			<MissileExplosionRadius>3</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\LargeCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
-			<MissileInitialSpeed>500</MissileInitialSpeed>
+			<MissileInitialSpeed>3000</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
 			<MissileExplosionDamage>0</MissileExplosionDamage>
 			<MissileHealthPool>7000</MissileHealthPool>
