@@ -8,7 +8,7 @@
 		</Id>
 		<DisplayName>Catapult Cannon</DisplayName>
 		<Icon>Textures\Icons\Turrets\CatapultIcon.dds</Icon>
-		<Description>Your standard APFSDSFSDSFSDS firing cannon</Description>
+		<Description>Shoots your standard APFSDSFSDSFSDS</Description>
 		<CubeSize>Small</CubeSize>
 		<GuiVisible>false</GuiVisible>
 		<BlockTopology>TriangleMesh</BlockTopology>
@@ -93,7 +93,7 @@
 			<SubtypeId>CatapultAmmo</SubtypeId>
 		</Id>
 		<BasicProperties>
-			<DesiredSpeed>500</DesiredSpeed>
+			<DesiredSpeed>3000</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>2000</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
