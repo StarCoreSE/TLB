@@ -593,7 +593,7 @@ namespace ScriptedMissiles
         MyLight light;
         IMyGunObject<MyGunBase> gun;
         IMyLargeTurretBase turret;
-        int tick;
+        int tick = 0;
         bool init = false;
 
         const int max_tick = 30;
@@ -705,12 +705,6 @@ namespace ScriptedMissiles
                 return;
             }
 
-            if (light == null && !MyAPIGateway.Utilities.IsDedicated)
-                light = CreatAPSLight();
-
-            //MyAPIGateway.Utilities.ShowNotification($"tic {tick}", 160);
-            tick++;
-
             MyGunStatusEnum status;
             bool canShoot = gun.CanShoot(MyShootActionEnum.PrimaryAction, turret.OwnerId, out status);
 
@@ -719,17 +713,31 @@ namespace ScriptedMissiles
                 tick = 0;
                 gun.GunBase.CurrentAmmo = 0;
                 turret.Enabled = false;
+                if (light != null)
+                    RemoveAPSLight();
                 return;
             }
-            else if(status == MyGunStatusEnum.Reloading || status == MyGunStatusEnum.OutOfAmmo)
+            else if (status == MyGunStatusEnum.Reloading || status == MyGunStatusEnum.OutOfAmmo || gun.GunBase.CurrentAmmo == 0)
             {
                 tick = 0;
                 turret.Enabled = false;
+                if (light != null)
+                    RemoveAPSLight();
                 return;
             }
 
             if (!canShoot)
+            {
+                if (light != null)
+                    RemoveAPSLight();
                 return;
+            }
+
+            if (light == null && !MyAPIGateway.Utilities.IsDedicated)
+                light = CreatAPSLight();
+
+            //MyAPIGateway.Utilities.ShowNotification($"tic {tick}", 160);
+            tick++;
 
             foreach (IMyMissile missile in ScriptedMissileSession.instance.all_missiles)
             {

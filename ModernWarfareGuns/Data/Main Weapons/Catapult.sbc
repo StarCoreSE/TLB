@@ -25,7 +25,7 @@
 		<CriticalComponent Subtype="Computer" Index="0" />
 		<MirroringY>Z</MirroringY>
 		<MirroringZ>Y</MirroringZ>
-		<Center x="0" y="0" z="0" />
+		<Center x="0" y="0" z="11" />
 		<BuildTimeSeconds>6</BuildTimeSeconds>
 		<EdgeType>Light</EdgeType>
 		<WeaponDefinitionId Subtype="CatapultWep" />
@@ -76,7 +76,7 @@
 		<Volume>30</Volume>
 		<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 		<PhysicalMaterial>Ammo</PhysicalMaterial>
-		<Capacity>3</Capacity>
+		<Capacity>1</Capacity>
 		<AmmoDefinitionId Subtype="CatapultAmmo" />
 
 		<MinimumOfferAmount>100</MinimumOfferAmount>

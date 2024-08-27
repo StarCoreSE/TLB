@@ -278,7 +278,7 @@
 			<BuildTimeSeconds>30</BuildTimeSeconds>
 			<EdgeType>Light</EdgeType>
 			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
-			<IceConsumptionPerSecond>24</IceConsumptionPerSecond>
+			<IceConsumptionPerSecond>100</IceConsumptionPerSecond>
             <InventoryMaxVolume>.1</InventoryMaxVolume>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <InventorySize>
@@ -300,7 +300,7 @@
                         <TypeId>GasProperties</TypeId>
                         <SubtypeId>Hydrogen</SubtypeId>
                     </Id>
-                    <IceToGasRatio>2.5</IceToGasRatio>
+                    <IceToGasRatio>2</IceToGasRatio>
                 </GasInfo>
             </ProducedGases>
             <BlueprintClasses>
@@ -639,6 +639,8 @@
             <BuildTimeSeconds>40</BuildTimeSeconds>
             <ResourceSinkGroup>Generators</ResourceSinkGroup>
             <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+			<MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
             <MaxPowerOutput>0.2</MaxPowerOutput>
             <FuelCapacity>1</FuelCapacity>
             <IsAirTight>false</IsAirTight>

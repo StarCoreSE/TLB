@@ -15,7 +15,7 @@ using VRage.Utils;
  
 namespace BOB
 {
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_SmallMissileLauncherReload), false, "MountedLargeBomb", "MountedGlideBomb", "MountedMediumBomb", "MountedMissile")]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_SmallMissileLauncherReload), false, "MountedMissile", "BasiliskGunBlock", "MountedMediumBomb", "MountedLargeBomb")]
     public class MountedBomb : MyGameLogicComponent
     {
         private IMyFunctionalBlock block;
