@@ -654,6 +654,7 @@ namespace MODERN_WARFARE_CORE
 
             _lastThrustTime = MyAPIGateway.Session.ElapsedPlayTime.TotalSeconds;
 
+            ApplyPlayerControlledTorque();
             ApplyHeliSpeedLimit();
             ApplyRotorTorque();
         }
@@ -681,6 +682,44 @@ namespace MODERN_WARFARE_CORE
             // Apply drag force proportional to the velocity component in the thrust direction
             Vector3D dragForce = -thrustDirection * velocityInThrustDirection * _dragCoefficient * dragMultiplier;
             grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, dragForce, null, null);
+        }
+
+        private void ApplyPlayerControlledTorque()
+        {
+
+            // Get the cockpit or ship controller the player is using
+            var cockpit = grid.ControlSystem.CurrentShipController as IMyShipController;
+            if (cockpit == null || !cockpit.IsUnderControl)
+                return;
+
+            // Get rotation input from the player's control of the cockpit
+            double pitch = -MathHelper.Clamp(cockpit.RotationIndicator.X * 0.05, -1, 1);
+            double yaw = -MathHelper.Clamp(cockpit.RotationIndicator.Y * 0.05, -1, 1);
+            double roll = -(double)cockpit.RollIndicator;
+
+            if (pitch == 0 && yaw == 0 && roll == 0)
+                return;
+
+            // Adjust sensitivity
+            float strength = 500000f; // Adjust this to control how much torque is applied per input
+            Vector3D torque = new Vector3D(pitch, yaw, roll) * strength;
+            Vector3D torque_about_cockpit = Vector3D.TransformNormal(torque, cockpit.LocalMatrix);
+
+            /*
+            MyAPIGateway.Utilities.ShowNotification($"tq {pitch:0.##}, {yaw:0.##}, {roll:0.##}", 16);
+            
+            Vector4 red = Color.Red.ToVector4();
+            Vector4 blu = Color.Blue.ToVector4();
+            Vector4 gre = Color.Green.ToVector4();
+
+            MySimpleObjectDraw.DrawLine(grid.Physics.CenterOfMassWorld, grid.Physics.CenterOfMassWorld + grid.WorldMatrix.Right * torque_about_cockpit.X / 5000, MyStringId.GetOrCompute("Square"), ref red, 0.1f);
+            MySimpleObjectDraw.DrawLine(grid.Physics.CenterOfMassWorld, grid.Physics.CenterOfMassWorld + grid.WorldMatrix.Up * torque_about_cockpit.Y / 5000, MyStringId.GetOrCompute("Square"), ref blu, 0.1f);
+            MySimpleObjectDraw.DrawLine(grid.Physics.CenterOfMassWorld, grid.Physics.CenterOfMassWorld + grid.WorldMatrix.Forward * torque_about_cockpit.Z / 5000, MyStringId.GetOrCompute("Square"), ref gre, 0.1f);
+            */
+
+            // Apply torque to the grid based on player input
+            grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, torque_about_cockpit);
+
         }
 
         public void ApplyRotorTorque()
