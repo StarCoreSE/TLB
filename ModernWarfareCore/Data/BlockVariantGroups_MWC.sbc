@@ -21,9 +21,5 @@
                 <Block Type="MyObjectBuilder_OxygenGenerator" Subtype="JetEngineIntake" />
             </Blocks>
         </BlockVariantGroup>    
-    </BlockVariantGroups>
-	
-	
-	
-	
+    </BlockVariantGroups>	
 </Definitions>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <BlockVariantGroups>
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="AutocannonGroup" />
+            <Icon>Textures\Icons\Turrets\ArbalestIcon.dds</Icon>
+            <DisplayName>Autocannons</DisplayName>
+            <Description></Description>
+            <Blocks>
+                <Block Type="MyObjectBuilder_WeaponBlock" Subtype="ArbalestGunBlock" />
+                <Block Type="MyObjectBuilder_WeaponBlock" Subtype="OnagerGunBlock" />
+            </Blocks>
+        </BlockVariantGroup>  
+    </BlockVariantGroups>
+</Definitions>
