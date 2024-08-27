@@ -8,7 +8,7 @@
 		</Id>
 		<DisplayName>Arbalest Autocannon</DisplayName>
 		<Icon>Textures\Icons\Turrets\ArbalestIcon.dds</Icon>
-		<Description>A high ROF explosive autocannon</Description>
+		<Description>A high ROF armour piercing autocannon</Description>
 		<CubeSize>Small</CubeSize>
 		<GuiVisible>false</GuiVisible>
 		<BlockTopology>TriangleMesh</BlockTopology>
@@ -97,7 +97,7 @@
 			<SubtypeId>ArbalestAmmo</SubtypeId>
 		</Id>
 		<BasicProperties>
-			<DesiredSpeed>500</DesiredSpeed>
+			<DesiredSpeed>1345</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>1400</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>

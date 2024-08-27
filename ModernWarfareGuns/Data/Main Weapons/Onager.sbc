@@ -6,15 +6,15 @@
 			<TypeId>SmallMissileLauncher</TypeId>
 			<SubtypeId>OnagerGunBlock</SubtypeId>
 		</Id>
-		<DisplayName>Onager Cannon</DisplayName>
-		<Icon>Textures\GUI\Icons\Cubes\MediumCaliberGun.dds</Icon>
+		<DisplayName>Onager Autocannon</DisplayName>
+		<Icon>Textures\Icons\Turrets\ArbalestIcon.dds</Icon>
 		<Description>Proximity detonation airbust cannon</Description>
 		<CubeSize>Small</CubeSize>
 		<GuiVisible>false</GuiVisible>
 		<BlockTopology>TriangleMesh</BlockTopology>
 		<Size x="1" y="1" z="9" />
 		<ModelOffset x="0" y="0" z="0" />
-		<Model>Models\Cubes\Small\MediumCaliberGun.mwm</Model>
+		<Model>Models\Cubes\ArbalestModel.mwm</Model>
 		<Components>
 			<Component Subtype="SteelPlate" Count="1" />
 			<Component Subtype="Construction" Count="1" />
@@ -25,10 +25,10 @@
 		<CriticalComponent Subtype="Computer" Index="0" />
 		<MirroringY>Z</MirroringY>
 		<MirroringZ>Y</MirroringZ>
-		<Center x="0" y="0" z="7" />
+		<Center x="0" y="0" z="8" />
 		<BuildTimeSeconds>6</BuildTimeSeconds>
 		<EdgeType>Light</EdgeType>
-		<WeaponDefinitionId Subtype="OnagerWep" />
+		<WeaponDefinitionId Subtype="ArbalestWep" />
 		<ResourceSinkGroup>Defense</ResourceSinkGroup>
 		<InventoryMaxVolume>0.006</InventoryMaxVolume>
 		<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
@@ -46,7 +46,7 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>OnagerWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="120" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="5" />
+		<MissileAmmoData RateOfFire="200" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="5" />
 		<DeviateShotAngle>0.2</DeviateShotAngle>
 		<DeviateShotAngleAiming>0.2</DeviateShotAngleAiming>
 		<AmmoMagazines>
@@ -92,7 +92,7 @@
 			<SubtypeId>OnagerAmmo_Proximity</SubtypeId>
 		</Id>
 		<BasicProperties>
-			<DesiredSpeed>500</DesiredSpeed>
+			<DesiredSpeed>1100</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>1400</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
