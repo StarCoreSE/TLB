@@ -146,9 +146,9 @@
         <MissileSkipAcceleration>false</MissileSkipAcceleration>
         <MissileExplosionDamage>1000</MissileExplosionDamage>
         <MissileHealthPool>100</MissileHealthPool>
-        <MissileTrailEffect>Smoke_Flare</MissileTrailEffect>
+        <MissileTrailEffect>ExhaustFire</MissileTrailEffect>
         <MissileGravityEnabled>true</MissileGravityEnabled>
-        <ExplosionFlags>APPLY_FORCE_AND_DAMAGE CREATE_DECALS CREATE_SHRAPNELS FORCE_CUSTOM_END_OF_LIFE_EFFECT</ExplosionFlags>
+        <ExplosionFlags>APPLY_FORCE_AND_DAMAGE CREATE_DECALS FORCE_CUSTOM_END_OF_LIFE_EFFECT</ExplosionFlags>
       </MissileProperties>
 	</Ammo>
 	</Ammos>

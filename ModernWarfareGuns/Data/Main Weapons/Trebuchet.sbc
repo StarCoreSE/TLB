@@ -96,9 +96,10 @@
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>1400</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
-			<BackkickForce>50000</BackkickForce>
+			<BackkickForce>15000</BackkickForce>
 			<PhysicalMaterial>MediumShell</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+			<EndOfLifeEffect>Explosion_Warhead_30</EndOfLifeEffect>
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
