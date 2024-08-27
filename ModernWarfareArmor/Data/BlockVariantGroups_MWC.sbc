@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <BlockVariantGroups>
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ERAGroup" />
+            <Icon>Textures\GUI\Icons\Cubes\ReactiveArmorFull.dds</Icon>
+            <DisplayName>Explosive Reactive Armor</DisplayName>
+            <Description></Description>
+            <Blocks>
+                <Block Type="MyObjectBuilder_CubeBlock" Subtype="ReactiveArmorFull" />
+                <Block Type="MyObjectBuilder_CubeBlock" Subtype="ReactiveArmorSlope" />
+                <Block Type="MyObjectBuilder_CubeBlock" Subtype="ReactiveArmorHalf" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ReactiveArmorHalfSlopeBase" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ReactiveArmorHalfSlopeTip" />
+            </Blocks>
+        </BlockVariantGroup>
+    </BlockVariantGroups>
+</Definitions>

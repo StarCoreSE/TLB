@@ -10,9 +10,7 @@
                 <Block Type="MyObjectBuilder_Thrust" Subtype="ElectricFan" />
                 <Block Type="MyObjectBuilder_Thrust" Subtype="ElectricFanDShape" />
             </Blocks>
-        </BlockVariantGroup>    
-    </BlockVariantGroups>
-	    <BlockVariantGroups>
+        </BlockVariantGroup>
         <BlockVariantGroup>
             <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="JetThrusterIntakeGroup" />
             <Icon>Textures\Icons\JetThruster.dds</Icon>
