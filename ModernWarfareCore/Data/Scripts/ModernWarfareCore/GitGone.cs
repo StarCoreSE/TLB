@@ -18,6 +18,7 @@ namespace cleaner
         private readonly string[] DUMMY_ICON = { @"Textures\FAKE.dds" };
         private readonly float DUMMY_MASS = 0f;
         private readonly string ADMIN_TAG = "ADMIN";
+        private readonly string AI_ENABLED_TAG = "AIEnabled";
         private readonly bool DEBUG = true;
 
         public HashSet<string> weapon_def_hashset = new HashSet<string>();
@@ -232,7 +233,7 @@ namespace cleaner
                     }
 
                     // from weapon ai remover - thanks fire and jp
-                    if (turret_def != null && !subtype_id.Contains(ADMIN_TAG))
+                    if (turret_def != null && !subtype_id.Contains(ADMIN_TAG) && !subtype_id.Contains(AI_ENABLED_TAG))
                     {
                         turret_def.AiEnabled = false;
                         turret_def.MaxRangeMeters = 0f;
