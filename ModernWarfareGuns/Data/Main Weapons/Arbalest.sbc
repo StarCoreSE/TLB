@@ -100,7 +100,7 @@
 			<DesiredSpeed>1345</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>1400</MaxTrajectory>
-			<IsExplosive>true</IsExplosive>
+			<IsExplosive>false</IsExplosive>
 			<BackkickForce>0</BackkickForce>
 			<PhysicalMaterial>MediumShell</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
@@ -114,7 +114,7 @@
 			<MissileAcceleration>0</MissileAcceleration>
 			<MissileInitialSpeed>1345</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>500</MissileExplosionDamage>
+			<MissileExplosionDamage>0</MissileExplosionDamage>
 			<MissileHealthPool>500</MissileHealthPool>
 			<MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
