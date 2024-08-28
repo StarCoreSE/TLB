@@ -101,7 +101,7 @@
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>1400</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
-			<BackkickForce>3000</BackkickForce>
+			<BackkickForce>0</BackkickForce>
 			<PhysicalMaterial>MediumShell</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
 			<EndOfLifeEffect>BlockDestroyedExplosion_Small</EndOfLifeEffect>
