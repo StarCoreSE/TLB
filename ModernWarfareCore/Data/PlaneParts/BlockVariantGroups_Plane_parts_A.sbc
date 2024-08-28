@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <BlockVariantGroups>
+
+<!-- na -->
+
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="aero-wing_1x5x1_rounded_edge_Group" />
+            <Icon>Textures\Icons\aero-wing_1x5x1_rounded_edge.dds</Icon>
+            <DisplayName>Wing_1x5x1_rounded_edge</DisplayName>
+            <Description>rounded Wings</Description>
+            <Blocks>
+                <Block Type="TerminalBlock" Subtype="aero-wing_1x5x1_rounded_edge_Large" />
+                <Block Type="TerminalBlock" Subtype="aero-wing_2x5x1_rounded_edge_Large" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_3x5x1_rounded_edge_Large" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_4x5x1_rounded_edge_Large" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_5x5x1_rounded_edge_Large" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_6x5x1_rounded_edge_Large" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_5x3x1_rounded_edge_Large" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_5x2x1_rounded_edge_Large" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_5x1x1_rounded_edge_Large" />
+				<Block Type="CubeBlock" Subtype="aero-wing_1x1x1_rounded_edge_Large" />		
+                <Block Type="TerminalBlock" Subtype="aero-wing_1x5x1_rounded_edge_Small" />
+                <Block Type="TerminalBlock" Subtype="aero-wing_2x5x1_rounded_edge_Small" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_3x5x1_rounded_edge_Small" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_4x5x1_rounded_edge_Small" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_5x5x1_rounded_edge_Small" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_6x5x1_rounded_edge_Small" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_5x3x1_rounded_edge_Small" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_5x2x1_rounded_edge_Small" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_5x1x1_rounded_edge_Small" />
+				<Block Type="CubeBlock" Subtype="aero-wing_1x1x1_rounded_edge_Small" />
+		
+            </Blocks>
+        </BlockVariantGroup>
+
+		
+        <BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="aero-wing_2x5x1_pointed_edge_Group" />
+            <Icon>Textures\Icons\aero-wing_2x5x1_pointed_edge.dds</Icon>
+            <DisplayName>Wing_2x5x1_pointed_edge</DisplayName>
+            <Description>pointed Wings</Description>
+            <Blocks>
+                <Block Type="TerminalBlock" Subtype="aero-wing_2x5x1_pointed_edge_Large" />
+                <Block Type="TerminalBlock" Subtype="aero-wing_3x5x1_pointed_edge_Large" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_4x5x1_pointed_edge_Large" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_5x5x1_pointed_edge_Large" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_6x5x1_pointed_edge_Large" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_7x5x1_pointed_edge_Large" />
+				<Block Type="CubeBlock" Subtype="aero-wing_2x1x1_pointed_edge_Large" />	
+                <Block Type="TerminalBlock" Subtype="aero-wing_2x5x1_pointed_edge_Small" />
+                <Block Type="TerminalBlock" Subtype="aero-wing_3x5x1_pointed_edge_Small" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_4x5x1_pointed_edge_Small" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_5x5x1_pointed_edge_Small" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_6x5x1_pointed_edge_Small" />
+				<Block Type="TerminalBlock" Subtype="aero-wing_7x5x1_pointed_edge_Small" />
+				<Block Type="CubeBlock" Subtype="aero-wing_2x1x1_pointed_edge_Small" />
+            </Blocks>
+        </BlockVariantGroup>		
+		
+		<BlockVariantGroup>
+            <Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="aero-wing-plane-air_brake_double_1x1x1_Group" />
+            <Icon>Textures\Icons\aero-wing-plane-air_brake_double_1x1x1.dds</Icon>
+            <DisplayName>Plane Air Brake double</DisplayName>
+            <Description>Air Brakes</Description>
+            <Blocks>
+                <Block Type="AdvancedDoor" Subtype="aero-wing-plane-air_brake_double_1x1x1_Large" />
+                <Block Type="AdvancedDoor" Subtype="aero-wing-plane-air_brake_single_1x1x1_Large" />
+                <Block Type="AdvancedDoor" Subtype="aero-wing-plane-air_brake_double_1x1x1_Small" />
+                <Block Type="AdvancedDoor" Subtype="aero-wing-plane-air_brake_single_1x1x1_Small" />
+            </Blocks>
+        </BlockVariantGroup>			
+		
+    </BlockVariantGroups>
+</Definitions>
