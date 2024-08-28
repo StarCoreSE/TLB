@@ -75,7 +75,7 @@
 	<Volume>30</Volume>
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>3</Capacity>
+	<Capacity>1</Capacity>
 	<AmmoDefinitionId Subtype="TrebuchetAmmo" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>

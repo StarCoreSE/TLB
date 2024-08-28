@@ -46,7 +46,7 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>ArbalestWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="200" ShootSoundName="WepShipAutocannonShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="32" />
+		<MissileAmmoData RateOfFire="180" ShootSoundName="WepShipAutocannonShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="32" />
 		<ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
 		<DeviateShotAngle>0.15</DeviateShotAngle>
 		<DeviateShotAngleAiming>0.15</DeviateShotAngleAiming>

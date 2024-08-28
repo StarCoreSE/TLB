@@ -46,7 +46,7 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>OnagerWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="200" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="5" />
+		<MissileAmmoData RateOfFire="180" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="5" />
 		<DeviateShotAngle>0.2</DeviateShotAngle>
 		<DeviateShotAngleAiming>0.2</DeviateShotAngleAiming>
 		<AmmoMagazines>
@@ -75,7 +75,7 @@
 	<Volume>30</Volume>
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>3</Capacity>
+	<Capacity>32</Capacity>
 	<AmmoDefinitionId Subtype="OnagerAmmo_Proximity" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>
