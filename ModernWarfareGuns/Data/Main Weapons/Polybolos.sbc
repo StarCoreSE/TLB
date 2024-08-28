@@ -130,7 +130,7 @@
 			<DesiredSpeed>850</DesiredSpeed>
 			<SpeedVariance>0.2</SpeedVariance>
 			<MaxTrajectory>800</MaxTrajectory>
-			<BackkickForce>1000</BackkickForce>
+			<BackkickForce>0</BackkickForce>
 			<PhysicalMaterial>GunBullet</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>0.6</ExplosiveDamageMultiplier>
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
@@ -138,7 +138,7 @@
 	<ProjectileProperties>
 		<ProjectileTrailScale>0.2</ProjectileTrailScale>
 		<ProjectileHitImpulse>3</ProjectileHitImpulse>
-		<ProjectileMassDamage>500</ProjectileMassDamage>
+		<ProjectileMassDamage>50</ProjectileMassDamage>
 		<ProjectileHealthDamage>100</ProjectileHealthDamage>
 		<HeadShot>true</HeadShot>
 	</ProjectileProperties>
