@@ -242,7 +242,7 @@ namespace Digi2.AeroWings
                             forceMul = 2.0;
                             fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.55);
                             break;
-
+                        /*
                         case "aero-wing_1x5x1_rounded_edge_Large":
                         case "aero-wing_5x1x1_rounded_edge_Large":
                         case "aero-wing_2x5x1_pointed_edge_Large":
@@ -275,7 +275,7 @@ namespace Digi2.AeroWings
                         case "aero-wing_7x5x1_pointed_edge_Large":
                             forceMul = 2.0 * 10;
                             fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.55);
-                            break;
+                            break;*/
                     }
 
                     double speedDir = fw.Dot(vel);
