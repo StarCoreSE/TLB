@@ -71,7 +71,7 @@ namespace Shrapnel
 
             if (slim.BlockDefinition.Id.SubtypeName.Contains("Reactive"))
             {
-                CreateExplosion(slim.FatBlock.GetPosition() + slim.FatBlock.WorldMatrix.Up, 1000f, 0.5f);
+                CreateExplosion(slim.FatBlock.GetPosition() + slim.FatBlock.WorldMatrix.Up, 2000f, 0.5f);
                 info.Amount = slim.Integrity;
             }
             //else if(slim.BlockDefinition.Id.SubtypeName.Contains("Heavy"))
