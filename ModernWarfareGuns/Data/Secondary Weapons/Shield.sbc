@@ -4,7 +4,7 @@
 	<Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
 	<Id>
 		<TypeId>LargeGatlingTurret</TypeId>
-		<SubtypeId>ShieldTurret</SubtypeId>
+		<SubtypeId>ShieldTurret_AIEnabled</SubtypeId>
       </Id>
       <DisplayName>Shield Turret</DisplayName>
 	  <Icon>Textures\Icons\Turrets\ShieldTurretIcon.png</Icon>

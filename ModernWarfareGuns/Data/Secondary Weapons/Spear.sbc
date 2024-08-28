@@ -85,13 +85,13 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>SpearWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="300" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="4" />
+		<MissileAmmoData RateOfFire="5" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="4" />
 		<DeviateShotAngle>2.0</DeviateShotAngle>
 		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="SpearMag" />
 		</AmmoMagazines>
-		<ReloadTime>10000</ReloadTime>
+		<ReloadTime>12000</ReloadTime>
 	</Weapon> <!--gren-->
 	</Weapons>
 	<AmmoMagazines>
@@ -111,7 +111,7 @@
 	<Volume>30</Volume>
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>3</Capacity>
+	<Capacity>1</Capacity>
 	<AmmoDefinitionId Subtype="SpearAmmo_BeamRider" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>
