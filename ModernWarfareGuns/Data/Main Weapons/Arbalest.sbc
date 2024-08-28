@@ -108,11 +108,11 @@
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
-			<MissileMass>300</MissileMass>
+			<MissileMass>1</MissileMass>
 			<MissileExplosionRadius>0.1</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
-			<MissileInitialSpeed>500</MissileInitialSpeed>
+			<MissileInitialSpeed>1345</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
 			<MissileExplosionDamage>500</MissileExplosionDamage>
 			<MissileHealthPool>500</MissileHealthPool>
