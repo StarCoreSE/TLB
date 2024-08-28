@@ -99,7 +99,7 @@
 			<BackkickForce>15000</BackkickForce>
 			<PhysicalMaterial>MediumShell</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
-			<EndOfLifeEffect>Explosion_Warhead_30</EndOfLifeEffect>
+			<EndOfLifeEffect>Explosion_Warhead_50</EndOfLifeEffect>
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
@@ -118,6 +118,7 @@
 			<MissileMinRicochetProbability>0.25</MissileMinRicochetProbability>
 			<MissileMaxRicochetProbability>0.85</MissileMaxRicochetProbability>
 			<MissileRicochetDamage>2000</MissileRicochetDamage>
+			<ExplosionFlags>APPLY_FORCE_AND_DAMAGE CREATE_DECALS CREATE_SHRAPNELS FORCE_CUSTOM_END_OF_LIFE_EFFECT</ExplosionFlags>
 		</MissileProperties>
 	</Ammo>
 	</Ammos>

@@ -103,13 +103,13 @@
 		</BasicProperties>
 		<MissileProperties>
 			<MissileMass>10</MissileMass>
-			<MissileExplosionRadius>2</MissileExplosionRadius>
+			<MissileExplosionRadius>2.5</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
 			<MissileInitialSpeed>1100</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
 			<MissileExplosionDamage>2000</MissileExplosionDamage>
-			<MissileHealthPool>500</MissileHealthPool>
+			<MissileHealthPool>100</MissileHealthPool>
 			<MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
 			<MissileMinRicochetAngle>40</MissileMinRicochetAngle>

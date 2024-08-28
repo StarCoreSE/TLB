@@ -21,7 +21,7 @@
 				<Component Subtype="SmallTube" Count="1" />
 				<Component Subtype="Motor" Count="2" />
 				<Component Subtype="Computer" Count="2" />
-				<Component Subtype="SteelPlate" Count="4" />
+				<Component Subtype="SteelPlate" Count="54" />
 			</Components>
 			<CriticalComponent Subtype="Motor" Index="0" />
 			<EdgeType>Light</EdgeType>
@@ -63,10 +63,14 @@
 			<Model>Models\Cubes\AdvancedTurretRotor5x5.mwm</Model>
 			<UseModelIntersection>true</UseModelIntersection>
 			<Components>
-				<Component Subtype="SteelPlate" Count="20" />
-				<Component Subtype="LargeTube" Count="6" />
+				<Component Subtype="SteelPlate" Count="6" />
+				<Component Subtype="Construction" Count="6" />
+				<Component Subtype="SmallTube" Count="1" />
+				<Component Subtype="Motor" Count="2" />
+				<Component Subtype="Computer" Count="2" />
+				<Component Subtype="SteelPlate" Count="54" />
 			</Components>
-			<CriticalComponent Subtype="SteelPlate" Index="0" />
+			<CriticalComponent Subtype="Motor" Index="0" />
 			<BlockPairName>AdvancedTurretRotor5x5</BlockPairName>
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>4</BuildTimeSeconds>
@@ -94,7 +98,7 @@
 				<Component Subtype="SmallTube" Count="1" />
 				<Component Subtype="Motor" Count="2" />
 				<Component Subtype="Computer" Count="2" />
-				<Component Subtype="SteelPlate" Count="4" />
+				<Component Subtype="SteelPlate" Count="104" />
 			</Components>
 			<CriticalComponent Subtype="Motor" Index="0" />
 			<EdgeType>Light</EdgeType>
@@ -136,10 +140,14 @@
 			<Model>Models\Cubes\AdvancedTurretRotor7x7.mwm</Model>
 			<UseModelIntersection>true</UseModelIntersection>
 			<Components>
-				<Component Subtype="SteelPlate" Count="20" />
-				<Component Subtype="LargeTube" Count="6" />
+				<Component Subtype="SteelPlate" Count="6" />
+				<Component Subtype="Construction" Count="6" />
+				<Component Subtype="SmallTube" Count="1" />
+				<Component Subtype="Motor" Count="2" />
+				<Component Subtype="Computer" Count="2" />
+				<Component Subtype="SteelPlate" Count="104" />
 			</Components>
-			<CriticalComponent Subtype="SteelPlate" Index="0" />
+			<CriticalComponent Subtype="Motor" Index="0" />
 			<BlockPairName>AdvancedTurretRotor7x7</BlockPairName>
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>4</BuildTimeSeconds>
@@ -166,7 +174,7 @@
 				<Component Subtype="SmallTube" Count="1" />
 				<Component Subtype="Motor" Count="2" />
 				<Component Subtype="Computer" Count="2" />
-				<Component Subtype="SteelPlate" Count="4" />
+				<Component Subtype="SteelPlate" Count="154" />
 			</Components>
 			<CriticalComponent Subtype="Motor" Index="0" />
 			<EdgeType>Light</EdgeType>
@@ -208,10 +216,14 @@
 			<Model>Models\Cubes\AdvancedTurretRotor9x9.mwm</Model>
 			<UseModelIntersection>true</UseModelIntersection>
 			<Components>
-				<Component Subtype="SteelPlate" Count="20" />
-				<Component Subtype="LargeTube" Count="6" />
+				<Component Subtype="SteelPlate" Count="6" />
+				<Component Subtype="Construction" Count="6" />
+				<Component Subtype="SmallTube" Count="1" />
+				<Component Subtype="Motor" Count="2" />
+				<Component Subtype="Computer" Count="2" />
+				<Component Subtype="SteelPlate" Count="154" />
 			</Components>
-			<CriticalComponent Subtype="SteelPlate" Index="0" />
+			<CriticalComponent Subtype="Motor" Index="0" />
 			<BlockPairName>AdvancedTurretRotor9x9</BlockPairName>
 			<EdgeType>Light</EdgeType>
 			<BuildTimeSeconds>4</BuildTimeSeconds>
