@@ -103,14 +103,14 @@
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
-			<MissileMass>80</MissileMass>
+			<MissileMass>1000</MissileMass>
 			<MissileExplosionRadius>3</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\LargeCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
 			<MissileInitialSpeed>1000</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
 			<MissileExplosionDamage>0</MissileExplosionDamage>
-			<MissileHealthPool>7000</MissileHealthPool>
+			<MissileHealthPool>4000</MissileHealthPool>
 			<MissileTrailEffect>LargeCalibreGun_Tracer</MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
 			<MissileMinRicochetAngle>50</MissileMinRicochetAngle>

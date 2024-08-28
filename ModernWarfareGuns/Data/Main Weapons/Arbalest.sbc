@@ -115,7 +115,7 @@
 			<MissileInitialSpeed>1345</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
 			<MissileExplosionDamage>0</MissileExplosionDamage>
-			<MissileHealthPool>3500</MissileHealthPool>
+			<MissileHealthPool>1500</MissileHealthPool>
 			<MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
 			<MissileMinRicochetAngle>40</MissileMinRicochetAngle>

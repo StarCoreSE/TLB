@@ -130,7 +130,7 @@
 			<DesiredSpeed>850</DesiredSpeed>
 			<SpeedVariance>0.2</SpeedVariance>
 			<MaxTrajectory>800</MaxTrajectory>
-			<BackkickForce>0</BackkickForce>
+			<BackkickForce>10</BackkickForce>
 			<PhysicalMaterial>GunBullet</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>0.6</ExplosiveDamageMultiplier>
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
