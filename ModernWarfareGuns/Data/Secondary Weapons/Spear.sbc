@@ -142,7 +142,7 @@
 		<MissileModelName>Models\Weapons\Projectile_Missile.mwm</MissileModelName>
 		<MissileAcceleration>600</MissileAcceleration>
 		<MissileInitialSpeed>100</MissileInitialSpeed>
-		<MissileHealthPool>1000</MissileHealthPool>
+		<MissileHealthPool>10000</MissileHealthPool>
 		<MissileSkipAcceleration>false</MissileSkipAcceleration>
 		<MissileExplosionDamage>500</MissileExplosionDamage>
 		<MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
