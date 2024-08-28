@@ -93,7 +93,7 @@
 			<SubtypeId>CatapultAmmo</SubtypeId>
 		</Id>
 		<BasicProperties>
-			<DesiredSpeed>1500</DesiredSpeed>
+			<DesiredSpeed>1000</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>4000</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
@@ -107,7 +107,7 @@
 			<MissileExplosionRadius>3</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\LargeCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
-			<MissileInitialSpeed>1500</MissileInitialSpeed>
+			<MissileInitialSpeed>1000</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
 			<MissileExplosionDamage>0</MissileExplosionDamage>
 			<MissileHealthPool>7000</MissileHealthPool>
