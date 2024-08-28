@@ -1,0 +1,615 @@
+INFO:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\materials\Armors.xml Materialslib
+INFO:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\materials\Character.xml Materialslib
+INFO:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\materials\Foliage.xml Materialslib
+INFO:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\materials\Items.xml Materialslib
+INFO:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\materials\LargeBlockLODs.xml Materialslib
+INFO:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\materials\Materials.xml Materialslib
+INFO:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\materials\PlayerItems.xml Materialslib
+INFO:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\materials\SmallBlockLODs.xml Materialslib
+INFO:   Material libraries were loaded from path: E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\materials !
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateBentNormalsCorner2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateBentNormalsCorner2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateBentNormalsCorner2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateBentNormalsCorner2.FBX : Finished in 0.3s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseTop.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseTop.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseTop.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseTop.FBX : Finished in 0.4s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlope2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlope2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlope2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlope2Tip.FBX : Finished in 0.4s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseTop_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseTop_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseTop_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseTop_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlope2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlope2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlope2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlope2Tip_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2Side.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2Side.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2Side.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2Side.FBX : Finished in 0.4s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2TipSide.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2TipSide.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2TipSide.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2TipSide.FBX : Finished in 0.4s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsRoundedSlopeFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsRoundedSlopeFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsRoundedSlopeFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsRoundedSlopeFront.FBX : Finished in 0.4s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsRoundedSlopeTop.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsRoundedSlopeTop.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsRoundedSlopeTop.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsRoundedSlopeTop.FBX : Finished in 0.5s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2.FBX : Finished in 0.5s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsInvCorner2Tip.FBX : Finished in 0.5s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsRoundedCorner.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsRoundedCorner.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsRoundedCorner.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsRoundedCorner.FBX : Finished in 0.5s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsSlope2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsSlope2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsSlope2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateBentNormalsSlope2.FBX : Finished in 0.5s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateBentNormalsCorner2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateBentNormalsCorner2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateBentNormalsCorner2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateBentNormalsCorner2.FBX : Finished in 0.5s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateBentNormalsSlope2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateBentNormalsSlope2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateBentNormalsSlope2.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateBentNormalsSlope2.FBX : Finished in 0.5s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundFaceTrianglePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundFaceTrianglePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundFaceTrianglePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundFaceTrianglePlate.FBX : Finished in 0.5s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundTriangleRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundTriangleRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundTriangleRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundTriangleRight.FBX : Finished in 0.6s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundTriangleLeft.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundTriangleLeft.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundTriangleLeft.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundTriangleLeft.FBX : Finished in 0.6s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundCornerTriangleRightPlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundCornerTriangleRightPlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundCornerTriangleRightPlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundCornerTriangleRightPlate.FBX : Finished in 0.6s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundInvFaceTrianglePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundInvFaceTrianglePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundInvFaceTrianglePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundInvFaceTrianglePlate.FBX : Finished in 0.6s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceRoundTrianglePlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceRoundTrianglePlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceRoundTrianglePlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceRoundTrianglePlate.fbx : Finished in 0.6s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlate.FBX : Finished in 0.6s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlate.FBX : Finished in 0.6s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlate.FBX : Finished in 0.6s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundSlope.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundSlope.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundSlope.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundSlope.FBX : Finished in 0.7s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundSlopePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundSlopePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundSlopePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundSlopePlate.FBX : Finished in 0.7s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlate.FBX : Finished in 0.7s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlate_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlate_LOD1.fbx : Finished in 0.7s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlate_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlate_LOD1.fbx : Finished in 0.7s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundCornerTriangleLeftPlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundCornerTriangleLeftPlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundCornerTriangleLeftPlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\RoundCornerTriangleLeftPlate.FBX : Finished in 0.8s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlate.FBX : Finished in 0.8s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlate_LOD1.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlate_LOD1.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlate_LOD1.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlate_LOD1.FBX:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceRoundTrianglePlate_LOD1.fbx:
+System.InvalidOperationException: There is an error in XML document (34, 3). ---> System.Xml.XmlException: The 'Material' start tag on line 18 position 4 does not match the end tag of 'Model'. Line 34, position 3.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ThrowTagMismatch(NodeData startTag)
+   at System.Xml.XmlTextReaderImpl.ParseEndElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XmlTextReader.Read()
+   at System.Xml.XmlTextReaderImpl.Skip()
+   at System.Xml.XmlTextReader.Skip()
+   at System.Xml.Serialization.XmlSerializationReader.UnknownNode(Object o, String qnames)
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderMyModelConfiguration.Read3_MyMaterialConfiguration(Boolean isNullable, Boolean checkType)
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderMyModelConfiguration.Read7_MyModelConfiguration(Boolean isNullable, Boolean checkType)
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderMyModelConfiguration.Read8_Model()
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+   at MwmBuilder.ProgramContext.ImportXml(String xmlFile) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 108
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 244
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceRoundTrianglePlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceRoundTrianglePlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceRoundTrianglePlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceRoundTrianglePlate.fbx : Finished in 0.8s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceRoundTrianglePlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceRoundTrianglePlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceRoundTrianglePlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceRoundTrianglePlate_LOD2.fbx : Finished in 0.8s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopeRoundPlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopeRoundPlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopeRoundPlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopeRoundPlate.fbx : Finished in 0.8s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2BaseRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2BaseRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2BaseRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2BaseRight.FBX : Finished in 0.9s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseBottom.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseBottom.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseBottom.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseBottom.FBX : Finished in 0.9s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateCorner2BaseTop.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateCorner2BaseTop.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateCorner2BaseTop.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateCorner2BaseTop.FBX : Finished in 0.9s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBack.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBack.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBack.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBack.FBX : Finished in 0.9s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBottom.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBottom.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBottom.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBottom.FBX : Finished in 0.9s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseLeft.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseLeft.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseLeft.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseLeft.FBX : Finished in 0.9s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseRight.FBX : Finished in 0.9s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Tip.FBX : Finished in 1.0s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceRoundTrianglePlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceRoundTrianglePlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceRoundTrianglePlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceRoundTrianglePlate_LOD1.fbx : Finished in 1.0s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2TipRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2TipRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2TipRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2TipRight.FBX : Finished in 1.0s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipBottom.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipBottom.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipBottom.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipBottom.FBX : Finished in 1.0s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Base.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Base.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Base.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Base.FBX : Finished in 1.0s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateSlope2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateSlope2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateSlope2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateSlope2Tip.FBX : Finished in 1.0s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateSlope2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateSlope2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateSlope2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateSlope2Tip.FBX : Finished in 1.0s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateCorner2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateCorner2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateCorner2Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateCorner2Tip.FBX : Finished in 1.0s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2Base.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2Base.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2Base.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2Base.FBX:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipBottom.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipBottom.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipBottom.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipBottom.FBX : Finished in 1.1s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2TipRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2TipRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2TipRight.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2TipRight.FBX : Finished in 1.1s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceRoundTrianglePlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceRoundTrianglePlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceRoundTrianglePlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceRoundTrianglePlate_LOD2.fbx : Finished in 1.1s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2BaseRight_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2BaseRight_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2BaseRight_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2BaseRight_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBack_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBack_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBack_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBack_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseBottom_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseBottom_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseBottom_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseBottom_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Tip_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateCorner3Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateCorner3Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateCorner3Tip.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateCorner3Tip.FBX : Finished in 1.3s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2TipRight_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2TipRight_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2TipRight_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateInvCorner2TipRight_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBottom_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBottom_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBottom_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCorner2BaseBottom_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseRight_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseRight_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseRight_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseRight_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateCorner2BaseTop_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateCorner2BaseTop_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateCorner2BaseTop_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateCorner2BaseTop_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseLeft_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseLeft_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseLeft_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseLeft_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipBottom_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipBottom_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipBottom_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipBottom_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Base_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Base_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Base_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\InvFaceTrianglePlateInvCorner2Base_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipBottom_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipBottom_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipBottom_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipBottom_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2TipRight_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2TipRight_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2TipRight_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2TipRight_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipFront.FBX : Finished in 1.4s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateSlope2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateSlope2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateSlope2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateSlope2Tip_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateSlope2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateSlope2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateSlope2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateSlope2Tip_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2Base.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2Base.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2Base.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2Base.FBX : Finished in 1.5s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateCorner2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateCorner2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateCorner2Tip_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\FaceTrianglePlateCorner2Tip_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2Base_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2Base_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2Base_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2Base_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleRightPlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleRightPlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleRightPlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleRightPlate.fbx : Finished in 1.5s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopeRoundPlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopeRoundPlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopeRoundPlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopeRoundPlate_LOD2.fbx : Finished in 1.5s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopeRoundPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopeRoundPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopeRoundPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopeRoundPlate_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleLeftPlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleLeftPlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleLeftPlate.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleLeftPlate.fbx : Finished in 1.6s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipFront_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipFront_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipFront_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2TipFront_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipFront_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipFront_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipFront_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipFront_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateCorner2TipFront.FBX:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2Base_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2Base_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2Base_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleRightPlateCorner2Base_LOD1.fbx : Finished in 1.7s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlab.fbx Material: SlopePlateSlab is already defined in the processor. Not adding it again..
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlab.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlab.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlab.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlab.fbx : Finished in 1.7s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseFront.FBX : Finished in 1.7s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlate.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlate.FBX : Finished in 1.7s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateInvCorner2TipBack.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateInvCorner2TipBack.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateInvCorner2TipBack.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateInvCorner2TipBack.FBX : Finished in 1.7s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCenter.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCenter.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCenter.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCenter.fbx : Finished in 1.7s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlab_LOD1.fbx Material: SlopePlateSlab is already defined in the processor. Not adding it again..
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlab_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlab_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlab_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlateSlab_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleLeftPlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleLeftPlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleLeftPlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleLeftPlate_LOD2.fbx : Finished in 1.8s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleRightPlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleRightPlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleRightPlate_LOD2.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleRightPlate_LOD2.fbx : Finished in 1.8s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseFront.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseFront.FBX : Finished in 1.8s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2TipBack.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2TipBack.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2TipBack.FBX Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2TipBack.FBX : Finished in 1.8s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseFront_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseFront_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseFront_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerTriangleLeftPlateInvCorner2BaseFront_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+PROCESSED:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SlopePlate_LOD1.fbx : Finished in 1.8s
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateInvCorner2TipBack_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateInvCorner2TipBack_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateInvCorner2TipBack_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateInvCorner2TipBack_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCenter_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCenter_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCenter_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateCenter_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseFront_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseFront_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseFront_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2BaseFront_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2TipBack_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2TipBack_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2TipBack_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\SquarePlateSlope2TipBack_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleRightPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleRightPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleRightPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleRightPlate_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleLeftPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_cm.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleLeftPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_ng.dds does not exists!
+WARNING:  E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleLeftPlate_LOD1.fbx Texture Textures\Models\Cubes\PaintedMetal_Clean_add.dds does not exists!
+ERROR:   E:\SpaceEngineersModding\SpaceEngineersModels\Aero-Wings\Armor\Large_2019\CornerRoundTriangleLeftPlate_LOD1.fbx:
+System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at MwmBuilder.MyModelBuilder.Build(String filename, String intermediateDir, String outputDir, MyModelConfiguration configuration, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances, Func`2 getMaterialByRef, IMyLogger logger) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\MyModelBuilder.cs:line 26
+   at MwmBuilder.ProgramContext.ProcessItem(ItemInfo item, String outputDir, Byte[] havokCollisionShapes, Boolean checkOpenBoundaries, Single[] lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 368
+   at MwmBuilder.ProgramContext.ProcessFile(String file, String outputDir, Dictionary`2 defaultVars, Boolean exportXml, Boolean forceBuild, Boolean checkOpenBoundaries, String lodDistances) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 286
+   at MwmBuilder.ProgramContext.ProcessFileSafe(String file) in E:\Users\Eike\Documents\Reflector\Disassembler\MwmBuilder\MwmBuilder\ProgramContext.cs:line 341

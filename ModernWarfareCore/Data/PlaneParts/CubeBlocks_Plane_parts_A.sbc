@@ -1,0 +1,1063 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CubeBlocks>
+
+
+
+
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_1x5x1_rounded_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_1x5x1_rounded_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_1x5x1_rounded_edge.dds</Icon>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="1" y="1" z="5" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_1x5x1_rounded_edge\aero-wing_1x5x1_rounded_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_1x5x1_rounded_edge\aero-wing_1x5x1_rounded_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+		<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+		<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+		<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" Default="true" />
+	</MountPoints>
+        
+	<BlockPairName>aero-wing_1x5x1_rounded_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>5</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+	
+
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_2x5x1_rounded_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_2x5x1_rounded_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_2x5x1_rounded_edge.dds</Icon>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+		<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="3" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="2" y="1" z="5" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_2x5x1_rounded_edge\aero-wing_2x5x1_rounded_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_2x5x1_rounded_edge\aero-wing_2x5x1_rounded_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="2.00" EndY="1.00" />
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Top" StartX="1.00" StartY="0.00" EndX="2.00" EndY="4.00" />
+				<MountPoint Side="Bottom" StartX="1.00" StartY="1.00" EndX="2.00" EndY="5.00" />
+	</MountPoints>
+	<BlockPairName>aero-wing_2x5x1_rounded_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>7</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+
+
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_3x5x1_rounded_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_3x5x1_rounded_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_3x5x1_rounded_edge.dds</Icon>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="4" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="3" y="1" z="5" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_3x5x1_rounded_edge\aero-wing_3x5x1_rounded_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_3x5x1_rounded_edge\aero-wing_3x5x1_rounded_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="3.00" EndY="1.00" />
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="1.00" StartY="4.00" EndX="3.00" EndY="5.00" />
+				<MountPoint Side="Top" StartX="1.00" StartY="0.00" EndX="3.00" EndY="1.00" />
+				<MountPoint Side="Bottom" StartX="2.00" StartY="1.00" EndX="3.00" EndY="4.00" />
+				<MountPoint Side="Top" StartX="2.00" StartY="1.00" EndX="3.00" EndY="4.00" />
+	</MountPoints>
+	<BlockPairName>aero-wing_3x5x1_rounded_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>9</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+
+
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_4x5x1_rounded_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_4x5x1_rounded_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_4x5x1_rounded_edge.dds</Icon>
+	  <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="5" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="4" y="1" z="5" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_4x5x1_rounded_edge\aero-wing_4x5x1_rounded_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_4x5x1_rounded_edge\aero-wing_4x5x1_rounded_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="4.00" EndY="1.00" />
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="1.00" StartY="4.00" EndX="4.00" EndY="5.00" />
+				<MountPoint Side="Top" StartX="1.00" StartY="0.00" EndX="4.00" EndY="1.00" />
+				<MountPoint Side="Bottom" StartX="2.00" StartY="0.00" EndX="4.00" EndY="4.00" />
+				<MountPoint Side="Top" StartX="2.00" StartY="1.00" EndX="4.00" EndY="5.00" />
+	</MountPoints>
+        
+	<BlockPairName>aero-wing_4x5x1_rounded_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>11</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+	
+  
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_5x5x1_rounded_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_5x5x1_rounded_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_5x5x1_rounded_edge.dds</Icon>
+	  <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="6" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="5" y="1" z="5" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_5x5x1_rounded_edge\aero-wing_5x5x1_rounded_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_5x5x1_rounded_edge\aero-wing_5x5x1_rounded_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" />
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="1.00" StartY="4.00" EndX="5.00" EndY="5.00" />
+				<MountPoint Side="Top" StartX="1.00" StartY="0.00" EndX="5.00" EndY="1.00" />
+				<MountPoint Side="Bottom" StartX="2.00" StartY="0.00" EndX="5.00" EndY="4.00" />
+				<MountPoint Side="Top" StartX="2.00" StartY="1.00" EndX="5.00" EndY="5.00" />
+	</MountPoints>
+        
+	<BlockPairName>aero-wing_5x5x1_rounded_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>13</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+  
+    
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_6x5x1_rounded_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_6x5x1_rounded_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_6x5x1_rounded_edge.dds</Icon>
+	  <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="7" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="6" y="1" z="5" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_6x5x1_rounded_edge\aero-wing_6x5x1_rounded_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_6x5x1_rounded_edge\aero-wing_6x5x1_rounded_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="6.00" EndY="1.00" />
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="1.00" StartY="4.00" EndX="6.00" EndY="5.00" />
+				<MountPoint Side="Top" StartX="1.00" StartY="0.00" EndX="6.00" EndY="1.00" />
+				<MountPoint Side="Bottom" StartX="2.00" StartY="0.00" EndX="6.00" EndY="4.00" />
+				<MountPoint Side="Top" StartX="2.00" StartY="1.00" EndX="6.00" EndY="5.00" />
+	</MountPoints>
+        
+	<BlockPairName>aero-wing_6x5x1_rounded_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>15</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+	
+
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>aero-wing_1x1x1_rounded_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_1x1x1_rounded_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_1x1x1_rounded_edge.dds</Icon>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+        <Component Subtype="SteelPlate" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="1" y="1" z="1" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_1x1x1_rounded_edge\aero-wing_1x1x1_rounded_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_1x1x1_rounded_edge\aero-wing_1x1x1_rounded_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="0.20" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+	</MountPoints>
+        
+	<BlockPairName>aero-wing_1x1x1_rounded_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>3</BuildTimeSeconds>
+      <PCU>1</PCU>
+    </Definition>
+
+
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_5x3x1_rounded_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_5x3x1_rounded_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_5x3x1_rounded_edge.dds</Icon>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="4" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="5" y="1" z="3" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_5x3x1_rounded_edge\aero-wing_5x3x1_rounded_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_5x3x1_rounded_edge\aero-wing_5x3x1_rounded_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" />
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="3.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="1.00" StartY="0.00" EndX="5.00" EndY="3.00" />
+				<MountPoint Side="Top" StartX="1.00" StartY="0.00" EndX="5.00" EndY="3.00" />
+	</MountPoints>
+	<BlockPairName>aero-wing_5x3x1_rounded_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>9</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+
+
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_5x2x1_rounded_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_5x2x1_rounded_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_5x2x1_rounded_edge.dds</Icon>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="3" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="5" y="1" z="2" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_5x2x1_rounded_edge\aero-wing_5x2x1_rounded_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_5x2x1_rounded_edge\aero-wing_5x2x1_rounded_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" />
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="2.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="1.00" StartY="0.00" EndX="5.00" EndY="2.00" />
+				<MountPoint Side="Top" StartX="1.00" StartY="0.00" EndX="5.00" EndY="2.00" />
+	</MountPoints>
+	<BlockPairName>aero-wing_5x2x1_rounded_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>7</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+
+
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_5x1x1_rounded_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_5x1x1_rounded_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_5x1x1_rounded_edge.dds</Icon>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="5" y="1" z="1" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_5x1x1_rounded_edge\aero-wing_5x1x1_rounded_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_5x1x1_rounded_edge\aero-wing_5x1x1_rounded_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" />
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="1.00" StartY="-0.25" EndX="5.00" EndY="1.00" />
+				<MountPoint Side="Top" StartX="1.00" StartY="0.00" EndX="5.00" EndY="1.25" />
+	</MountPoints>
+	<BlockPairName>aero-wing_5x1x1_rounded_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>5</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+
+
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_2x5x1_pointed_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_2x5x1_pointed_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_2x5x1_pointed_edge.dds</Icon>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="2" y="1" z="5" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_2x5x1_pointed_edge\aero-wing_2x5x1_pointed_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_2x5x1_pointed_edge\aero-wing_2x5x1_pointed_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="2.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="2.00" EndY="1.00" />
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="5.00" />
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="1.00" EndY="5.00" />
+	</MountPoints>
+        
+	<BlockPairName>aero-wing_2x5x1_pointed_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>5</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+
+
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_3x5x1_pointed_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_3x5x1_pointed_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_3x5x1_pointed_edge.dds</Icon>
+	  <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="3" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="3" y="1" z="5" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_3x5x1_pointed_edge\aero-wing_3x5x1_pointed_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_3x5x1_pointed_edge\aero-wing_3x5x1_pointed_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="1.00" StartY="0.00" EndX="3.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="3.00" EndY="1.00" />
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="5.00" />
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="1.00" EndY="5.00" />
+	</MountPoints>
+	<BlockPairName>aero-wing_3x5x1_pointed_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>7</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+
+
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_4x5x1_pointed_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_4x5x1_pointed_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_4x5x1_pointed_edge.dds</Icon>
+	  <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="4" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="4" y="1" z="5" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_4x5x1_pointed_edge\aero-wing_4x5x1_pointed_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_4x5x1_pointed_edge\aero-wing_4x5x1_pointed_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="2.00" StartY="0.00" EndX="4.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="4.00" EndY="1.00" />
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="2.00" EndY="5.00" />
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="2.00" EndY="5.00" />
+	</MountPoints>
+	<BlockPairName>aero-wing_4x5x1_pointed_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>9</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+	
+	
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_5x5x1_pointed_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_5x5x1_pointed_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_5x5x1_pointed_edge.dds</Icon>
+	  <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="5" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="5" y="1" z="5" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_5x5x1_pointed_edge\aero-wing_5x5x1_pointed_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_5x5x1_pointed_edge\aero-wing_5x5x1_pointed_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="3.00" StartY="0.00" EndX="5.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" />
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="3.00" EndY="5.00" />
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="3.00" EndY="5.00" />
+	</MountPoints>
+	<BlockPairName>aero-wing_5x5x1_pointed_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>11</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+	
+	
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_6x5x1_pointed_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_6x5x1_pointed_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_6x5x1_pointed_edge.dds</Icon>
+	  <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="6" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="6" y="1" z="5" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_6x5x1_pointed_edge\aero-wing_6x5x1_pointed_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_6x5x1_pointed_edge\aero-wing_6x5x1_pointed_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="3.90" StartY="0.00" EndX="6.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="6.00" EndY="1.00" />
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="5.00" EndY="5.00" />
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="5.00" EndY="5.00" />
+	</MountPoints>
+	<BlockPairName>aero-wing_6x5x1_pointed_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>13</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+
+	
+	
+    <Definition>
+      <Id>
+        <TypeId>TerminalBlock</TypeId>
+        <SubtypeId>aero-wing_7x5x1_pointed_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_7x5x1_pointed_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_7x5x1_pointed_edge.dds</Icon>
+	  <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+	<Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="SteelPlate" Count="7" />
+        <Component Subtype="MetalGrid" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="7" y="1" z="5" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_7x5x1_pointed_edge\aero-wing_7x5x1_pointed_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_7x5x1_pointed_edge\aero-wing_7x5x1_pointed_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="5.00" StartY="0.00" EndX="7.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="7.00" EndY="1.00" />
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="5.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="5.00" EndY="5.00" />
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="5.00" EndY="5.00" />
+	</MountPoints>
+	<BlockPairName>aero-wing_7x5x1_pointed_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>15</BuildTimeSeconds>
+      <PCU>10</PCU>
+    </Definition>
+	
+	
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>aero-wing_2x1x1_pointed_edge_Small</SubtypeId>
+      </Id>
+      <DisplayName>Wing_2x1x1_pointed_edge</DisplayName>
+      <Icon>Textures\Icons\aero-wing_2x1x1_pointed_edge.dds</Icon>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Small</CubeSize>
+	  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Components>
+        <Component Subtype="SteelPlate" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+	<Size x="2" y="1" z="1" />
+	<ModelOffset x="0" y="0" z="0" />
+	<Model>Models\PlaneParts\aero-wing_2x1x1_pointed_edge\aero-wing_2x1x1_pointed_edge_Small.mwm</Model>
+	<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_2x1x1_pointed_edge\aero-wing_2x1x1_pointed_edge_Small_Constr1.mwm" />
+	</BuildProgressModels>
+	<MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="2.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="2.00" EndY="1.00" />
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+	</MountPoints>
+        
+	<BlockPairName>aero-wing_2x1x1_pointed_edge</BlockPairName>
+	<MirroringX>Z</MirroringX>
+	<MirroringY>None</MirroringY>
+	<MirroringZ>X</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>3</BuildTimeSeconds>
+      <PCU>1</PCU>
+    </Definition>
+
+
+    <Definition xsi:type="MyObjectBuilder_RadioAntennaDefinition">
+      <Id>
+        <TypeId>RadioAntenna</TypeId>
+        <SubtypeId>aero-wing_Antenna_1x1x1_Small</SubtypeId>
+      </Id>
+      <DisplayName>Plane Antenna</DisplayName>
+      <Icon>Textures\Icons\aero-wing_Antenna_1x1x1.dds</Icon>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\PlaneParts\aero-wing_Antenna_1x1x1\aero-wing_Antenna_1x1x1_Small.mwm</Model>
+      <Components>
+        <Component Subtype="SmallTube" Count="1" />
+        <Component Subtype="Computer" Count="1" />
+        <Component Subtype="RadioCommunication" Count="2" />
+        <Component Subtype="Construction" Count="1" />
+      </Components>
+      <CriticalComponent Subtype="RadioCommunication" Index="0" />
+      <MountPoints>
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true" />
+      </MountPoints>
+      <BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_Antenna_1x1x1\aero-wing_Antenna_1x1x1_Small_Constr1.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>aero-wing_Antenna_1x1x1</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <ResourceSinkGroup>Utility</ResourceSinkGroup>
+      <BuildTimeSeconds>20</BuildTimeSeconds>
+      <DamageEffectId>214</DamageEffectId>
+      <DamagedSound>ParticleElectrical</DamagedSound>
+      <PCU>100</PCU>
+    </Definition>
+
+
+    <Definition xsi:type="MyObjectBuilder_RadioAntennaDefinition">
+      <Id>
+        <TypeId>RadioAntenna</TypeId>
+        <SubtypeId>aero-wing_Antenna_1x1x1_Large</SubtypeId>
+      </Id>
+      <DisplayName>Plane Antenna</DisplayName>
+      <Icon>Textures\Icons\aero-wing_Antenna_1x1x1.dds</Icon>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\PlaneParts\aero-wing_Antenna_1x1x1\aero-wing_Antenna_1x1x1_Large.mwm</Model>
+      <Components>
+        <Component Subtype="SmallTube" Count="10" />
+        <Component Subtype="Computer" Count="8" />
+        <Component Subtype="RadioCommunication" Count="20" />
+        <Component Subtype="Construction" Count="10" />
+      </Components>
+      <CriticalComponent Subtype="RadioCommunication" Index="0" />
+      <MountPoints>
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true" />
+      </MountPoints>
+      <BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing_Antenna_1x1x1\aero-wing_Antenna_1x1x1_Large_Constr1.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>aero-wing_Antenna_1x1x1</BlockPairName>
+      <EdgeType>Light</EdgeType>
+      <ResourceSinkGroup>Utility</ResourceSinkGroup>
+      <BuildTimeSeconds>50</BuildTimeSeconds>
+      <MirroringY>Z</MirroringY>
+	  <MirroringZ>Y</MirroringZ>
+      <DamageEffectId>214</DamageEffectId>
+      <DamagedSound>ParticleElectrical</DamagedSound>
+	    <Effects>
+        <Effect Name="Damage" ParameterMin="0">
+          <ParticleEffects>
+            <ParticleEffect Origin="Electricity_Antenna" Name="Damage_Electrical_Damaged_Antenna" Loop="true" SpawnTimeMin="2" SpawnTimeMax="3" />
+          </ParticleEffects>
+        </Effect>
+      </Effects>
+      <PCU>100</PCU>
+    </Definition>
+
+
+<Definition xsi:type="MyObjectBuilder_AdvancedDoorDefinition">
+   <Id>
+     <TypeId>AdvancedDoor</TypeId>
+     <SubtypeId>aero-wing-plane-air_brake_double_1x1x1_Small</SubtypeId>
+   </Id>
+   <DisplayName>Plane Air Brake double</DisplayName>
+   <Icon>Textures\Icons\aero-wing-plane-air_brake_double_1x1x1.dds</Icon>
+   <CubeSize>Small</CubeSize>
+   <BlockTopology>TriangleMesh</BlockTopology>
+   <Size x="1" y="1" z="1" />
+   <ModelOffset x="0" y="0" z="0" />
+   <Model>Models\PlaneParts\aero-wing-plane-air_brake_double_1x1x1\aero-wing-plane-air_brake_double_1x1x1_Small.mwm</Model>
+   <Components>
+     <Component Subtype="SteelPlate" Count="2" />
+	 <Component Subtype="Motor" Count="2" />
+   </Components>
+   <CriticalComponent Subtype="SteelPlate" Index="0" />
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing-plane-air_brake_double_1x1x1\aero-wing-plane-air_brake_double_1x1x1_Small_Constr1.mwm" />
+			</BuildProgressModels>
+   <MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+   </MountPoints>
+   <BlockPairName>aero-wing-plane-air_brake_double_1x1x1</BlockPairName>
+   <MirroringX>None</MirroringX>
+   <MirroringY>Z</MirroringY>
+   <MirroringZ>Y</MirroringZ>
+   <EdgeType>Light</EdgeType>
+   <BuildTimeSeconds>4</BuildTimeSeconds>
+   <DisassembleRatio>3</DisassembleRatio>
+   <Public>true</Public>
+   <PowerConsumptionIdle>0.00001</PowerConsumptionIdle>
+   <PowerConsumptionMoving>0.001</PowerConsumptionMoving>
+   <DamageEffectId>212</DamageEffectId>
+   <Subparts>
+     <SubpartDefinition>
+       <Name>aero-wing-plane-air_brake_1x1x1_subpart_Small</Name>
+     </SubpartDefinition>
+     <SubpartDefinition>
+       <Name>aero-wing-plane-air_brake_1x1x1_subpart2_Small</Name>
+     </SubpartDefinition>
+   </Subparts>
+   <OpeningSequence>
+     <Opening>
+       <IDs>0</IDs>
+       <Move>Rotate</Move>
+       <RotationAxis>X</RotationAxis>
+       <PivotPosition x="0.0" y="0.25" z="0.25" />
+       <MaxOpen>70</MaxOpen>
+       <Speed>50</Speed>
+       <OpenSound>BlockAirBrakesOpen</OpenSound>
+       <CloseSound>BlockAirBrakesClose</CloseSound>
+     </Opening>
+     <Opening>
+       <IDs>1</IDs>
+       <Move>Rotate</Move>
+       <RotationAxis>X</RotationAxis>
+       <PivotPosition x="0.0" y="-0.25" z="0.25" />
+       <MaxOpen>-70</MaxOpen>
+       <Speed>50</Speed>
+       <OpenSound>BlockAirBrakesOpen</OpenSound>
+       <CloseSound>BlockAirBrakesClose</CloseSound>
+     </Opening>
+   </OpeningSequence>
+   <PCU>115</PCU>
+</Definition>
+
+
+
+<Definition xsi:type="MyObjectBuilder_AdvancedDoorDefinition">
+   <Id>
+     <TypeId>AdvancedDoor</TypeId>
+     <SubtypeId>aero-wing-plane-air_brake_double_1x1x1_Large</SubtypeId>
+   </Id>
+   <DisplayName>Plane Air Brake double</DisplayName>
+   <Icon>Textures\Icons\aero-wing-plane-air_brake_double_1x1x1.dds</Icon>
+   <CubeSize>Large</CubeSize>
+   <BlockTopology>TriangleMesh</BlockTopology>
+   <Size x="1" y="1" z="1" />
+   <ModelOffset x="0" y="0" z="0" />
+   <Model>Models\PlaneParts\aero-wing-plane-air_brake_double_1x1x1\aero-wing-plane-air_brake_double_1x1x1_Large.mwm</Model>
+   <Components>
+     <Component Subtype="SteelPlate" Count="12" />
+	 <Component Subtype="SteelPlate" Count="13" />
+	 <Component Subtype="Motor" Count="12" />
+   </Components>
+   <CriticalComponent Subtype="SteelPlate" Index="0" />
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing-plane-air_brake_double_1x1x1\aero-wing-plane-air_brake_double_1x1x1_Large_Constr1.mwm" />
+			</BuildProgressModels>
+   <MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+   </MountPoints>
+   <BlockPairName>aero-wing-plane-air_brake_double_1x1x1</BlockPairName>
+   <MirroringX>None</MirroringX>
+   <MirroringY>Z</MirroringY>
+   <MirroringZ>Y</MirroringZ>
+   <EdgeType>Light</EdgeType>
+   <BuildTimeSeconds>9</BuildTimeSeconds>
+    <DisassembleRatio>3</DisassembleRatio>
+   <Public>true</Public>
+   <PowerConsumptionIdle>0.00001</PowerConsumptionIdle>
+   <PowerConsumptionMoving>0.001</PowerConsumptionMoving>
+   <DamageEffectId>212</DamageEffectId>
+   <Subparts>
+     <SubpartDefinition>
+       <Name>aero-wing-plane-air_brake_1x1x1_subpart_Large</Name>
+     </SubpartDefinition>
+     <SubpartDefinition>
+       <Name>aero-wing-plane-air_brake_1x1x1_subpart2_Large</Name>
+     </SubpartDefinition>
+   </Subparts>
+   <OpeningSequence>
+     <Opening>
+       <IDs>0</IDs>
+       <Move>Rotate</Move>
+       <RotationAxis>X</RotationAxis>
+       <PivotPosition x="0.0" y="1.25" z="1.25" />
+       <MaxOpen>70</MaxOpen>
+       <Speed>50</Speed>
+       <OpenSound>BlockAirBrakesOpen</OpenSound>
+       <CloseSound>BlockAirBrakesClose</CloseSound>
+     </Opening>
+     <Opening>
+       <IDs>1</IDs>
+       <Move>Rotate</Move>
+       <RotationAxis>X</RotationAxis>
+       <PivotPosition x="0.0" y="-1.25" z="1.25" />
+       <MaxOpen>-70</MaxOpen>
+       <Speed>50</Speed>
+       <OpenSound>BlockAirBrakesOpen</OpenSound>
+       <CloseSound>BlockAirBrakesClose</CloseSound>
+     </Opening>
+   </OpeningSequence>
+   <PCU>115</PCU>
+</Definition>
+
+
+
+<Definition xsi:type="MyObjectBuilder_AdvancedDoorDefinition">
+   <Id>
+     <TypeId>AdvancedDoor</TypeId>
+     <SubtypeId>aero-wing-plane-air_brake_single_1x1x1_Small</SubtypeId>
+   </Id>
+   <DisplayName>Plane Air Brake single</DisplayName>
+   <Icon>Textures\Icons\aero-wing-plane-air_brake_single_1x1x1.dds</Icon>
+   <GuiVisible>false</GuiVisible>
+   <CubeSize>Small</CubeSize>
+   <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+   <BlockTopology>TriangleMesh</BlockTopology>
+   <Size x="1" y="1" z="1" />
+   <ModelOffset x="0" y="0" z="0" />
+   <Model>Models\PlaneParts\aero-wing-plane-air_brake_single_1x1x1\aero-wing-plane-air_brake_single_1x1x1_Small.mwm</Model>
+   <Components>
+     <Component Subtype="SteelPlate" Count="2" />
+	 <Component Subtype="Motor" Count="1" />
+   </Components>
+   <CriticalComponent Subtype="SteelPlate" Index="0" />
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing-plane-air_brake_single_1x1x1\aero-wing-plane-air_brake_single_1x1x1_Small_Constr1.mwm" />
+			</BuildProgressModels>
+   <MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+   </MountPoints>
+   <BlockPairName>aero-wing-plane-air_brake_single_1x1x1</BlockPairName>
+   <MirroringX>None</MirroringX>
+   <MirroringY>Z</MirroringY>
+   <MirroringZ>Y</MirroringZ>
+   <EdgeType>Light</EdgeType>
+   <BuildTimeSeconds>4</BuildTimeSeconds>
+   <DisassembleRatio>3</DisassembleRatio>
+   <Public>true</Public>
+   <PowerConsumptionIdle>0.00001</PowerConsumptionIdle>
+   <PowerConsumptionMoving>0.001</PowerConsumptionMoving>
+   <DamageEffectId>212</DamageEffectId>
+   <Subparts>
+     <SubpartDefinition>
+       <Name>aero-wing-plane-air_brake_1x1x1_subpart_Small</Name>
+     </SubpartDefinition>
+   </Subparts>
+   <OpeningSequence>
+     <Opening>
+       <IDs>0</IDs>
+       <Move>Rotate</Move>
+       <RotationAxis>X</RotationAxis>
+       <PivotPosition x="0.0" y="0.25" z="0.25" />
+       <MaxOpen>70</MaxOpen>
+       <Speed>50</Speed>
+       <OpenSound>BlockAirBrakesOpen</OpenSound>
+       <CloseSound>BlockAirBrakesClose</CloseSound>
+     </Opening>
+   </OpeningSequence>
+   <PCU>115</PCU>
+</Definition>
+
+
+
+<Definition xsi:type="MyObjectBuilder_AdvancedDoorDefinition">
+   <Id>
+     <TypeId>AdvancedDoor</TypeId>
+     <SubtypeId>aero-wing-plane-air_brake_single_1x1x1_Large</SubtypeId>
+   </Id>
+   <DisplayName>Plane Air Brake single</DisplayName>
+   <Icon>Textures\Icons\aero-wing-plane-air_brake_single_1x1x1.dds</Icon>
+   <GuiVisible>false</GuiVisible>
+   <CubeSize>Large</CubeSize>
+   <GeneralDamageMultiplier>0.5</GeneralDamageMultiplier>
+   <BlockTopology>TriangleMesh</BlockTopology>
+   <Size x="1" y="1" z="1" />
+   <ModelOffset x="0" y="0" z="0" />
+   <Model>Models\PlaneParts\aero-wing-plane-air_brake_single_1x1x1\aero-wing-plane-air_brake_single_1x1x1_Large.mwm</Model>
+   <Components>
+     <Component Subtype="SteelPlate" Count="12" />
+	 <Component Subtype="SteelPlate" Count="13" />
+	 <Component Subtype="Motor" Count="6" />
+   </Components>
+   <CriticalComponent Subtype="SteelPlate" Index="0" />
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\PlaneParts\aero-wing-plane-air_brake_single_1x1x1\aero-wing-plane-air_brake_single_1x1x1_Large_Constr1.mwm" />
+			</BuildProgressModels>
+   <MountPoints>
+				<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true" />
+				<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+				<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+   </MountPoints>
+   <BlockPairName>aero-wing-plane-air_brake_single_1x1x1</BlockPairName>
+   <MirroringX>None</MirroringX>
+   <MirroringY>Z</MirroringY>
+   <MirroringZ>Y</MirroringZ>
+   <EdgeType>Light</EdgeType>
+   <BuildTimeSeconds>9</BuildTimeSeconds>
+   <DisassembleRatio>3</DisassembleRatio>
+   <Public>true</Public>
+   <PowerConsumptionIdle>0.00001</PowerConsumptionIdle>
+   <PowerConsumptionMoving>0.001</PowerConsumptionMoving>
+   <DamageEffectId>212</DamageEffectId>
+   <Subparts>
+     <SubpartDefinition>
+       <Name>aero-wing-plane-air_brake_1x1x1_subpart_Large</Name>
+     </SubpartDefinition>
+   </Subparts>
+   <OpeningSequence>
+     <Opening>
+       <IDs>0</IDs>
+       <Move>Rotate</Move>
+       <RotationAxis>X</RotationAxis>
+       <PivotPosition x="0.0" y="1.25" z="1.25" />
+       <MaxOpen>70</MaxOpen>
+       <Speed>50</Speed>
+       <OpenSound>BlockAirBrakesOpen</OpenSound>
+       <CloseSound>BlockAirBrakesClose</CloseSound>
+     </Opening>
+   </OpeningSequence>
+   <PCU>115</PCU>
+</Definition>
+
+  </CubeBlocks>
+</Definitions>
