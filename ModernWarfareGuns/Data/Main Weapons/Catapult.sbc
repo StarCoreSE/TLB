@@ -53,7 +53,7 @@
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="CatapultMag" />
 		</AmmoMagazines>
-		<ReloadTime>12000</ReloadTime>
+		<ReloadTime>4000</ReloadTime>
 		<Effects>
 			<Effect Action="Shoot" Dummy="Muzzle_Missile" Particle="Muzzle_Flash_LargeCalibre" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-3.5"/>
 		</Effects>
