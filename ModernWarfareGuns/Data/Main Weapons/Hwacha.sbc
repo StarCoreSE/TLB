@@ -46,13 +46,13 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>HwachaWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="1000" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="32" />
-		<DeviateShotAngle>2.0</DeviateShotAngle>
-		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
+		<MissileAmmoData RateOfFire="500" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="32" />
+		<DeviateShotAngle>1.0</DeviateShotAngle>
+		<DeviateShotAngleAiming>1.0</DeviateShotAngleAiming>
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="HwachaMag" />
 		</AmmoMagazines>
-		<ReloadTime>10000</ReloadTime>
+		<ReloadTime>30000</ReloadTime>
 	</Weapon> <!--gren-->
 	</Weapons>
 	<AmmoMagazines>
@@ -72,7 +72,7 @@
 	<Volume>30</Volume>
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>3</Capacity>
+	<Capacity>32</Capacity>
 	<AmmoDefinitionId Subtype="HwachaAmmo" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>

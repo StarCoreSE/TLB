@@ -25,7 +25,7 @@
 		<CriticalComponent Subtype="Computer" Index="0" />
 		<MirroringY>Z</MirroringY>
 		<MirroringZ>Y</MirroringZ>
-		<Center x="0" y="0" z="11" />
+		<Center x="0" y="0" z="10" />
 		<BuildTimeSeconds>6</BuildTimeSeconds>
 		<EdgeType>Light</EdgeType>
 		<WeaponDefinitionId Subtype="CatapultWep" />
