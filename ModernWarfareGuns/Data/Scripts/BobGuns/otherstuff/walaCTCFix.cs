@@ -45,7 +45,7 @@ namespace wala
                 if (ctc == null || ctc.MarkedForClose)
                     continue;
 
-                if (ctc.AIEnabled)
+                if (ctc.AIEnabled && !ctc.SlimBlock.BlockDefinition.Id.SubtypeName.Contains("Large"))
                     ctc.AIEnabled = false;
             }
         }
