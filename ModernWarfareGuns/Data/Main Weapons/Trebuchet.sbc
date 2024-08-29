@@ -76,7 +76,7 @@
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
 	<Capacity>1</Capacity>
-	<AmmoDefinitionId Subtype="TrebuchetAmmo" />
+	<AmmoDefinitionId Subtype="TrebuchetAmmoAlt" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>
 	<MaximumOfferAmount>1000</MaximumOfferAmount>
@@ -99,7 +99,7 @@
 			<BackkickForce>15000</BackkickForce>
 			<PhysicalMaterial>MediumShell</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
-			<EndOfLifeEffect>Explosion_Warhead_50</EndOfLifeEffect>
+			<!--<EndOfLifeEffect>Explosion_Warhead_50</EndOfLifeEffect>-->
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
@@ -109,7 +109,7 @@
 			<MissileAcceleration>0</MissileAcceleration>
 			<MissileInitialSpeed>100</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>500</MissileExplosionDamage>
+			<MissileExplosionDamage>5000</MissileExplosionDamage>
 			<MissileHealthPool>500</MissileHealthPool>
 			<MissileTrailEffect>LargeCalibreGun_Tracer</MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
@@ -118,8 +118,36 @@
 			<MissileMinRicochetProbability>0.25</MissileMinRicochetProbability>
 			<MissileMaxRicochetProbability>0.85</MissileMaxRicochetProbability>
 			<MissileRicochetDamage>2000</MissileRicochetDamage>
-			<ExplosionFlags>APPLY_FORCE_AND_DAMAGE CREATE_DECALS CREATE_SHRAPNELS FORCE_CUSTOM_END_OF_LIFE_EFFECT</ExplosionFlags>
+			<!--<ExplosionFlags>APPLY_FORCE_AND_DAMAGE CREATE_DECALS CREATE_SHRAPNELS FORCE_CUSTOM_END_OF_LIFE_EFFECT</ExplosionFlags>-->
 		</MissileProperties>
 	</Ammo>
+	        <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+            <Id>
+                <TypeId>AmmoDefinition</TypeId>
+                <SubtypeId>TrebuchetAmmoAlt</SubtypeId>
+            </Id>
+            <BasicProperties>
+                <DesiredSpeed>100</DesiredSpeed>
+                <SpeedVariance>0</SpeedVariance>
+                <MaxTrajectory>3000</MaxTrajectory>
+                <IsExplosive>true</IsExplosive>
+                <BackkickForce>15000</BackkickForce>
+                <PhysicalMaterial>Missile</PhysicalMaterial>
+                <ExplosiveDamageMultiplier>2</ExplosiveDamageMultiplier>
+                <DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
+            </BasicProperties>
+            <MissileProperties>
+                <MissileMass>45</MissileMass>
+                <MissileExplosionRadius>20</MissileExplosionRadius>
+                <MissileModelName>Models\Weapons\Projectile_Missile.mwm</MissileModelName>
+                <MissileAcceleration>600</MissileAcceleration>
+                <MissileInitialSpeed>100</MissileInitialSpeed>
+				<MissileTrailEffect>LargeCalibreGun_Tracer</MissileTrailEffect>
+                <MissileSkipAcceleration>false</MissileSkipAcceleration>
+                <MissileExplosionDamage>1000</MissileExplosionDamage>
+				<MissileGravityEnabled>true</MissileGravityEnabled>
+
+            </MissileProperties>
+        </Ammo>
 	</Ammos>
 </Definitions>
