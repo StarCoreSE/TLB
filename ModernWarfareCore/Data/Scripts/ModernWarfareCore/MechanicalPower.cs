@@ -510,36 +510,12 @@ namespace MODERN_WARFARE_CORE
         double[] mrange = new double[] {0.0, 0.21428571, 0.42857143, 0.64285714, 0.85714286, 1.07142857, 1.28571429, 1.5, 1.71428571, 1.92857143, 2.14285714, 2.35714286, 2.57142857, 2.78571429, 3.0};
         double[] aoarange = new double[] {0.0, 0.02617994, 0.05235988, 0.07853982, 0.10471976, 0.13089969, 0.15707963, 0.18325957, 0.20943951, 0.23561945, 0.26179939};
 
-        MyResourceSourceComponent source;
-        float source_max_output = 69420f;
-
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
             intake = Entity as IMyGasGenerator;
             grid = intake.CubeGrid;
-            source = intake.Components.Get<MyResourceSourceComponent>();
-            source_max_output = source.MaxOutput;
-
-            this.NeedsUpdate |= MyEntityUpdateEnum.EACH_10TH_FRAME | MyEntityUpdateEnum.EACH_FRAME;
+            this.NeedsUpdate |= MyEntityUpdateEnum.EACH_FRAME;
         }
-        /*
-        private float CalclateKeenInfluence(float airDensity, float MinPlanetaryInfluence = 0.3f, float MaxPlanetaryInfluence = 1f, float EffectivenessAtMinInfluence = 0f, float EffectivenessAtMaxInfluence = 1f)
-        {
-            // CalculatePlanetaryInfluenceForceModKeen
-            float InvDiffMinMaxPlanetaryInfluence = 1f / (MaxPlanetaryInfluence - MinPlanetaryInfluence);
-            if (airDensity <= 0)
-            {
-                return EffectivenessAtMinInfluence;
-            }
-            else if (MaxPlanetaryInfluence != MinPlanetaryInfluence)
-            {
-                float value = (airDensity - MinPlanetaryInfluence) * InvDiffMinMaxPlanetaryInfluence;
-
-                return MathHelper.Lerp(EffectivenessAtMinInfluence, EffectivenessAtMaxInfluence, MathHelper.Clamp(value, 0f, 1f));
-            }
-            
-            return 0;
-        }*/
 
         public override void UpdateBeforeSimulation()
         {
@@ -559,13 +535,18 @@ namespace MODERN_WARFARE_CORE
 
         public void ApplyDrag(double cd)
         {
-            // Calculate the velocity in the direction opposite to the thrust direction
-            Vector3D thrustDirection = intake.WorldMatrix.Forward; // Opposite of the thruster's forward direction
+            var blockMatrix = intake.WorldMatrix;
+            Vector3D thrustDirection = blockMatrix.Forward; // Opposite of the thruster's forward direction
             double velocityInThrustDirection = Vector3D.Dot(grid.Physics.LinearVelocity, thrustDirection);
-
             // Apply drag force proportional to the velocity component in the thrust direction
-            Vector3D dragForce = -thrustDirection * 4 * cd * velocityInThrustDirection * velocityInThrustDirection;
-            grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, dragForce, null, null);
+            Vector3D dragForce = -thrustDirection * 30 * cd * velocityInThrustDirection * velocityInThrustDirection;
+
+            //grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, dragForce, applyForceAt, null);
+            var subgrids = MyAPIGateway.GridGroups.GetGroup(grid, VRage.Game.ModAPI.GridLinkTypeEnum.Logical);
+            foreach (MyCubeGrid subgrid in subgrids)
+            {
+                subgrid.Physics.LinearVelocity += dragForce / grid.Physics.Mass * 0.0167;
+            }
         }
 
     }

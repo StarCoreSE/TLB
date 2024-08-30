@@ -211,7 +211,7 @@ namespace Digi2.AeroWings
                 if (speedSq >= 50)
                 {
                     Vector3D fw = blockMatrix.Left;
-                    double forceMul = 0.25;
+                    double forceMul = 0.75;
 
                     switch (block.BlockDefinition.SubtypeId)
                     {
@@ -291,88 +291,12 @@ namespace Digi2.AeroWings
                     {
                         var upDir = blockMatrix.Up;
                         var forceVector = -upDir * upDir.Dot(vel) * forceMul * speedSq * atmosphere;
-                        var applyForceAt = Vector3D.Zero;
+                        forceVector += -fw * speedDir * forceMul * 0.0001 * speedSq * atmosphere;
 
-                        if (_useGridCOM)
+                        var subgrids2 = MyAPIGateway.GridGroups.GetGroup(grid, VRage.Game.ModAPI.GridLinkTypeEnum.Logical);
+                        foreach (MyCubeGrid subgrid in subgrids2)
                         {
-                            applyForceAt = grid.Physics.CenterOfMassWorld;
-
-                            //moved to here because acting to biggest grid in other case
-                            grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, forceVector, applyForceAt, null);
-                        }
-                        else
-                        {
-                            //org from Digi, have problems with rotating wheels
-                            //var gridSharedProperties = MyGridPhysicalGroupData.GetGroupSharedProperties((MyCubeGrid)grid);
-                            //applyForceAt = gridSharedProperties.CoMWorld;
-                            //----------------------------
-
-                            //new version: Ship COM
-                            if (++tempcount > tempcountmax)
-                            {
-                                tempcount = 0;
-                                tempcountmax = 60;
-
-                                var COM_ship = grid.Physics.CenterOfMassWorld;
-                                float grid_mass = grid.Physics.Mass;
-                                var biggestgrid = grid;
-                                COM_offset = Vector3D.Zero;
-
-                                var subgrids = MyAPIGateway.GridGroups.GetGroup(grid, VRage.Game.ModAPI.GridLinkTypeEnum.Logical);
-                                if (subgrids.Count > 1)
-                                {
-                                    foreach (MyCubeGrid subgrid in subgrids)
-                                    {
-                                        if (subgrid != grid && subgrid.Physics != null)
-                                        {
-                                            if (subgrid.Physics.Mass > biggestgrid.Physics.Mass)
-                                            {
-                                                biggestgrid = subgrid;
-                                            }
-
-                                            COM_ship = COM_ship + (subgrid.Physics.CenterOfMassWorld - COM_ship) * (subgrid.Physics.Mass / (grid_mass + subgrid.Physics.Mass));
-                                            grid_mass = grid_mass + subgrid.Physics.Mass;
-                                        }
-                                    }
-                                    COM_offset = Vector3D.TransformNormal(COM_ship - grid.Physics.CenterOfMassWorld, MatrixD.Transpose(blockMatrix));
-                                }
-                            }
-
-                            //show COM_offset
-                            //MyTransparentGeometry.AddLineBillboard(MyStringId.GetOrCompute("Square"), Color.Red, grid.Physics.CenterOfMassWorld, Vector3D.TransformNormal(COM_offset, blockMatrix), 1, 1.15f);
-
-                            applyForceAt = grid.Physics.CenterOfMassWorld + Vector3D.TransformNormal(COM_offset, blockMatrix);
-
-
-                            //acting to biggest grid to prevent from having impact to weak rotors
-                            if (biggestgrid != null)
-                                biggestgrid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, forceVector, applyForceAt, null);
-                            else
-                                grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, forceVector, applyForceAt, null);
-                            //test ende
-                        }
-
-                        //test only, center of mass bug
-                        //MyTransparentGeometry.AddPointBillboard(MyStringId.GetOrCompute("Square"), Color.Green, applyForceAt, 2.5f, 0);
-
-                        //moved up
-                        //grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, forceVector, applyForceAt, null);
-
-                        noLiftWarning = false;
-
-                        if (debug)
-                        {
-                            var totalForce = forceVector.Normalize();
-
-                            var height = (float)totalForce / 100000f;
-                            var pos = blockMatrix.Translation + forceVector * height;
-
-                            MyTransparentGeometry.AddBillboardOriented(MyStringId.GetOrCompute("Square"), Color.Green * 0.5f, pos, blockMatrix.Forward, forceVector, 1.25f, height);
-
-                            if (debugText)
-                                MyAPIGateway.Utilities.ShowNotification(block.CustomName + ": forceMul=" + Math.Round(forceMul, 2) + "; atmosphere=" + Math.Round(atmosphere * 100, 0) + "%; totalforce=" + Math.Round(totalForce / 1000, 2) + " MN", 16, MyFontEnum.Green);
-
-                            DebugSetColor(ref AerodynamicsModTN.instance.DEBUG_COLOR_ACTIVE);
+                            subgrid.Physics.LinearVelocity += forceVector / grid.Physics.Mass * 0.0167;
                         }
                     }
                     else if (debug)

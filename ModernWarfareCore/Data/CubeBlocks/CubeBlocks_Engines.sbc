@@ -278,8 +278,8 @@
 			<BuildTimeSeconds>30</BuildTimeSeconds>
 			<EdgeType>Light</EdgeType>
 			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
-			<IceConsumptionPerSecond>100</IceConsumptionPerSecond>
-            <InventoryMaxVolume>.1</InventoryMaxVolume>
+			<IceConsumptionPerSecond>50</IceConsumptionPerSecond>
+            <InventoryMaxVolume>.2</InventoryMaxVolume>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <InventorySize>
                 <X>2</X>
@@ -290,7 +290,7 @@
             <InventoryFillFactorMin>0.5</InventoryFillFactorMin>
             <InventoryFillFactorMax>0.7</InventoryFillFactorMax>
 
-            <FuelPullAmountFromConveyorInMinutes>5</FuelPullAmountFromConveyorInMinutes>
+            <FuelPullAmountFromConveyorInMinutes>10</FuelPullAmountFromConveyorInMinutes>
 
             <StandbyPowerConsumption>0</StandbyPowerConsumption>
             <OperationalPowerConsumption>0</OperationalPowerConsumption>
@@ -300,7 +300,7 @@
                         <TypeId>GasProperties</TypeId>
                         <SubtypeId>Hydrogen</SubtypeId>
                     </Id>
-                    <IceToGasRatio>2</IceToGasRatio>
+                    <IceToGasRatio>4</IceToGasRatio>
                 </GasInfo>
             </ProducedGases>
             <BlueprintClasses>
