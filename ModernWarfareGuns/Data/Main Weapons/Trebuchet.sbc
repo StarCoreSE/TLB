@@ -47,8 +47,8 @@
 			<SubtypeId>TrebuchetWep</SubtypeId>
 		</Id>
 		<MissileAmmoData RateOfFire="80" ShootSoundName="WepLargeCalibreShot" FlightSoundName="HeavyShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="1" />
-		<DeviateShotAngle>2.0</DeviateShotAngle>
-		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
+		<DeviateShotAngle>1.0</DeviateShotAngle>
+		<DeviateShotAngleAiming>1.0</DeviateShotAngleAiming>
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="TrebuchetMag" />
 		</AmmoMagazines>
