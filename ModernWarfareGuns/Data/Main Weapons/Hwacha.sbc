@@ -46,7 +46,7 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>HwachaWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="500" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="32" />
+		<MissileAmmoData RateOfFire="1000" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="50" />
 		<DeviateShotAngle>1.0</DeviateShotAngle>
 		<DeviateShotAngleAiming>1.0</DeviateShotAngleAiming>
 		<AmmoMagazines>
@@ -72,7 +72,7 @@
 	<Volume>30</Volume>
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>32</Capacity>
+	<Capacity>10</Capacity>
 	<AmmoDefinitionId Subtype="HwachaAmmo" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>
