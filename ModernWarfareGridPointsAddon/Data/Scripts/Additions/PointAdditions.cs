@@ -22,9 +22,9 @@ namespace ShipPoints
             // Primary weapons
             ["PolybolosGunBlock"] = 2,
             ["CulverinRocketPod"] = 2,
-            ["TrebuchetGunBlock"] = 4,
-            ["OnagerGunBlock"] = 5,
-            ["ArbalestGunBlock"] = 7,
+            ["TrebuchetGunBlock"] = 5,
+            ["OnagerGunBlock"] = 6,
+            ["ArbalestGunBlock"] = 6,
             ["BallistaGunBlock"] = 7,
             ["HwachaGunBlock"] = 7,
             ["ScorpionGunBlock"] = 9,
@@ -32,10 +32,10 @@ namespace ShipPoints
 
             // Secondary weapons (all are turrets; may only have one)
             ["DaggerLauncher"] = 1,
-            ["TorchLauncher"] = 2,
+            //["TorchLauncher"] = 2,
             ["CutlassLauncher"] = 2,
-            ["ShieldTurret"] = 3,
-            ["SwordLauncher"] = 4,
+            ["ShieldTurret"] = 2,
+            ["SwordLauncher"] = 3,
             ["MaceLauncher"] = 4,
             ["SpearLauncher"] = 5,
 
@@ -62,8 +62,8 @@ namespace ShipPoints
             ["SmallBlockGyro"] = 1,
             ["MainHelicopterRotor"] = 3,
             ["TailHelicopterRotor"] = 1,
-            ["Propellantx4"] = 1,
-            ["Propellantx5"] = 1,
+            ["Propellantx4"] = 2,
+            ["Propellantx5"] = 2,
             ["SmallBlockSmallFlatAtmosphericThrust"] = 0.5,
             ["SmallBlockSmallFlatAtmosphericThrustDShape"] = 0.5,
 
@@ -89,7 +89,7 @@ namespace ShipPoints
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
         {
             // Add fuzzy rules (can be displayname or subtype)
-            FuzzyPoints.Add("aero-wing", 0.5);
+            FuzzyPoints.Add("aero-wing", 0.33);
             FuzzyPoints.Add("Control Surface", 0.25);
             FuzzyPoints.Add("suspension2x2", 0.125);
             FuzzyPoints.Add("suspension3x3", 0.25);

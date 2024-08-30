@@ -211,35 +211,35 @@ namespace Digi2.AeroWings
                 if (speedSq >= 50)
                 {
                     Vector3D fw = blockMatrix.Left;
-                    double forceMul = 0.75;
+                    double forceMul = 0.25;
 
                     switch (block.BlockDefinition.SubtypeId)
                     {
                         case "aero-wing_2x5x1_rounded_edge_Small":
                         case "aero-wing_5x2x1_rounded_edge_Small":
                         case "aero-wing_3x5x1_pointed_edge_Small":
-                            forceMul = 1.0;
+                            forceMul *= 1.0;
                             fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.15);
                             break;
                         case "aero-wing_3x5x1_rounded_edge_Small":
                         case "aero-wing_5x3x1_rounded_edge_Small":
                         case "aero-wing_4x5x1_pointed_edge_Small":
-                            forceMul = 1.25;
+                            forceMul *= 1.25;
                             fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.25);
                             break;
                         case "aero-wing_4x5x1_rounded_edge_Small":
                         case "aero-wing_5x5x1_pointed_edge_Small":
-                            forceMul = 1.5;
+                            forceMul *= 1.5;
                             fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.35);
                             break;
                         case "aero-wing_5x5x1_rounded_edge_Small":
                         case "aero-wing_6x5x1_pointed_edge_Small":
-                            forceMul = 1.75;
+                            forceMul *= 1.75;
                             fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.45);
                             break;
                         case "aero-wing_6x5x1_rounded_edge_Small":
                         case "aero-wing_7x5x1_pointed_edge_Small":
-                            forceMul = 2.0;
+                            forceMul *= 2.0;
                             fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.55);
                             break;
                         /*

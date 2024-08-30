@@ -474,7 +474,7 @@ namespace MODERN_WARFARE_CORE
 
             if (mismatch > -0.96f && velocity.Length() < MIN_STALL_SPEED)
             {
-                Vector3D torque = grid.WorldAABB.Size.Length() * 3 * grid.Physics.Mass * Vector3D.Cross(velocity, -forward) * Math.Min(velocity.Length(), MIN_STALL_SPEED) * (0.49f + mismatch * mismatch / 10f) / 3000f;
+                Vector3D torque = grid.WorldAABB.Size.Length()* grid.Physics.Mass * Vector3D.Cross(velocity, -forward) * Math.Min(velocity.Length(), MIN_STALL_SPEED) * (0.49f + mismatch * mismatch / 10f) / 5000f;
                 grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
             }
         }
