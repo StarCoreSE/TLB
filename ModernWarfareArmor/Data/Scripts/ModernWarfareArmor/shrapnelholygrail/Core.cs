@@ -10,12 +10,20 @@ using VRage.Game.Components;
 using VRage.Game.ModAPI;
 using VRage.Utils;
 using System.Collections;
-
+using Sandbox.Game.Entities.Cube;
+using Sandbox.Game.Entities.Debris;
+using Sandbox.Game.Entities;
+using VRage.Game.Entity;
+using SpaceEngineers.Game.Entities.Blocks;
+using SpaceEngineers.Game.ModAPI;
+using VRage.ModAPI;
 namespace Shrapnel
 {
     [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)]
     public class Core : MySessionComponentBase
     {
+        HashSet<ChainLocation> chainLocations = new HashSet<ChainLocation>();
+        int tick;
         private Queue<ShrapnelData> queue = new Queue<ShrapnelData>();
 
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
@@ -23,15 +31,32 @@ namespace Shrapnel
             MyAPIGateway.Session.DamageSystem.RegisterBeforeDamageHandler(int.MaxValue, ProcessDamage);
         }
 
-        private void CreateExplosion(Vector3D myPos, float dmg, float radius)
+        private void CreateExplosion(Vector3D myPos, float dmg, float radius, MyEntity ownerEntity)
         {
             //Explosion Damage!
+            //BoundingSphereD sphere = GetExplosionSphere(myPos);
             BoundingSphereD sphere = new BoundingSphereD(myPos, radius);
             MyExplosionInfo bomb = new MyExplosionInfo(dmg, dmg, sphere, MyExplosionTypeEnum.MISSILE_EXPLOSION, true, true);
             bomb.CreateParticleEffect = true;
             bomb.LifespanMiliseconds = 150 + (int)radius * 45;
-            bomb.ParticleScale = 0.15f;
+            bomb.ParticleScale = 0.15f * radius;
+            bomb.OwnerEntity = ownerEntity;
+
             MyExplosions.AddExplosion(ref bomb, true);
+        }   
+
+        public class ChainLocation
+        {
+            public Vector3D pt;
+            public int xp;
+            public int duration;
+
+            public ChainLocation(Vector3D pt, int xp, int duration)
+            {
+                this.pt = pt;
+                this.xp = xp;
+                this.duration = duration;
+            }
         }
 
         public void ProcessDamage(object target, ref MyDamageInformation info)
@@ -47,13 +72,43 @@ namespace Shrapnel
                 if (slim.BlockDefinition.Id.SubtypeName.Contains("Armor"))
                     HandleArmorInteractions(slim, ref info);
 
+
                 // bang sizzle
                 if (slim.BlockDefinition.Id.SubtypeName.Contains("AmmoRack"))
                 {
-                    CreateExplosion(slim.FatBlock.GetPosition(), 1500f, 1f);
-                    info.Amount = slim.Integrity;
-                }
 
+                    ChainLocation closestChain = null;
+                    double closestDistance = 999999;
+
+                    // iterate throuuh all chain locs
+                    foreach(ChainLocation chainLoc in chainLocations)
+                    {
+                        double dist = (slim.FatBlock.WorldMatrix.Translation - chainLoc.pt).Length();
+                        if(dist < closestDistance && dist < 100)
+                        {
+                            closestDistance = dist;
+                            closestChain = chainLoc;
+                        }
+                    }
+
+                    // if we are close enough
+                    if(closestChain != null && closestChain.xp < 10)
+                    {
+                        closestChain.xp += 1;
+                        CreateExplosion(slim.FatBlock.WorldMatrix.Translation, 1500f + 100f * closestChain.xp, 1f + 1f * closestChain.xp, null);
+                        //MyAPIGateway.Utilities.ShowNotification($"bang, {closestChain.xp}!", 3000);
+                    }
+                    // or if we are alone, add
+                    else
+                    {
+                        chainLocations.Add(new ChainLocation(slim.FatBlock.WorldMatrix.Translation, 0, 100));
+                        CreateExplosion(slim.FatBlock.WorldMatrix.Translation, 1500f, 1f, null);
+                        //MyAPIGateway.Utilities.ShowNotification($"nope!", 3000);
+                    }
+
+                    info.Amount = slim.Integrity;
+
+                }
 
                 if (slim.Integrity <= info.Amount)
                 {
@@ -65,13 +120,36 @@ namespace Shrapnel
             else if (info.Type == MyDamageType.Explosion && !(slim.FatBlock is IMyWarhead))
                 ConvertDamage(slim, ref info, info.Amount);
         }
+        public BoundingSphereD GetExplosionSphere(Vector3D myPos)
+        {
+            float radiusToCheckForAmmoBlock = 0.25f; // Static value for range of ammo racks that will be added to the explosion
+            float explosionDamageConstant = 1f; // Value for the damage of the explosion
+            float newExplosionRadius = 0; // Radius of the explosion
+
+
+            BoundingSphereD ammoBlockDetectionSphere = new BoundingSphereD(myPos, radiusToCheckForAmmoBlock);
+            List<MyEntity> EntitiesInSideAmmoBlockChecker = new List<MyEntity>();
+            MyGamePruningStructure.GetAllEntitiesInSphere(ref ammoBlockDetectionSphere, EntitiesInSideAmmoBlockChecker);
+            foreach (MyEntity Entity in EntitiesInSideAmmoBlockChecker)
+            {
+                if (Entity is IMyShipMergeBlock && (Entity as IMyShipMergeBlock).SlimBlock.BlockDefinition.Id.SubtypeName.Contains("AmmoRack"))
+                {
+                    IMySlimBlock slimBlock = (Entity as IMyShipMergeBlock).SlimBlock;
+
+                    newExplosionRadius += (float)Math.Pow(explosionDamageConstant, 2.5);
+                    slimBlock.CubeGrid.RazeBlock(slimBlock.Position); // Destroy the ammo rack
+                }
+            }
+            MyAPIGateway.Utilities.ShowNotification("Explosion Radius: " + newExplosionRadius.ToString(), 10000);
+            return new BoundingSphereD(myPos, newExplosionRadius);
+        }
 
         public void HandleArmorInteractions(IMySlimBlock slim, ref MyDamageInformation info)
         {
 
             if (slim.BlockDefinition.Id.SubtypeName.Contains("Reactive"))
             {
-                CreateExplosion(slim.FatBlock.GetPosition() + slim.FatBlock.WorldMatrix.Up, 2000f, 0.5f);
+                CreateExplosion(slim.FatBlock.WorldMatrix.Translation + slim.FatBlock.WorldMatrix.Up, 2000f, 0.5f, slim.FatBlock as MyEntity);
                 info.Amount = slim.Integrity;
             }
             //else if(slim.BlockDefinition.Id.SubtypeName.Contains("Heavy"))
@@ -160,6 +238,17 @@ namespace Shrapnel
             {
                 tasks++;
                 HandleShrapnel();
+            }
+
+            if(chainLocations.Count > 1)
+            {
+                tick++;
+
+                if(tick > 100)
+                {
+                    chainLocations.Clear();
+                    tick = 0;
+                }
             }
         }
     }
