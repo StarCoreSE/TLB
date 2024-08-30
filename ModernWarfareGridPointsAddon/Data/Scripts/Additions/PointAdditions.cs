@@ -90,7 +90,7 @@ namespace ShipPoints
         {
             // Add fuzzy rules (can be displayname or subtype)
             FuzzyPoints.Add("aero-wing", 0.33);
-            FuzzyPoints.Add("Control Surface", 0.25);
+            FuzzyPoints.Add("Control Surface", 0.33);
             FuzzyPoints.Add("suspension2x2", 0.125);
             FuzzyPoints.Add("suspension3x3", 0.25);
             FuzzyPoints.Add("suspension5x5", 0.5);
