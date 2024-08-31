@@ -62,8 +62,15 @@ namespace MODERN_WARFARE_CORE
         {
             return Math.Max(Math.Min(value, max), min);
         }
+
         public static double BilinearInterpolation(double[,] array, double[] xrange, double[] yrange, double x, double y)
         {
+
+            if (double.IsNaN(x)) x = xrange[0];
+            if (double.IsNaN(y)) y = xrange[0];
+            if (double.IsInfinity(x)) x = xrange[0];
+            if (double.IsInfinity(y)) y = xrange[0];
+
             // Clamp x and y to be within the range
             x = Math.Max(xrange[0], Math.Min(x, xrange[xrange.Length - 1]));
             y = Math.Max(yrange[0], Math.Min(y, yrange[yrange.Length - 1]));
@@ -71,25 +78,19 @@ namespace MODERN_WARFARE_CORE
             // Find the bounding indices
             int xIndex1 = Array.BinarySearch(xrange, x);
             if (xIndex1 < 0) xIndex1 = ~xIndex1 - 1;
-            xIndex1 = Math.Max(0, xIndex1); // Ensure xIndex1 is not negative
-            int xIndex2 = Math.Min(xIndex1 + 1, xrange.Length - 1); // Clamp xIndex2 to stay within bounds
+            xIndex1 = Math.Max(0, Math.Min(xIndex1, xrange.Length - 2)); // Ensure within bounds
+            int xIndex2 = Math.Min(xIndex1 + 1, xrange.Length - 1);
 
             int yIndex1 = Array.BinarySearch(yrange, y);
             if (yIndex1 < 0) yIndex1 = ~yIndex1 - 1;
-            yIndex1 = Math.Max(0, yIndex1); // Ensure yIndex1 is not negative
-            int yIndex2 = Math.Min(yIndex1 + 1, yrange.Length - 1); // Clamp yIndex2 to stay within bounds
+            yIndex1 = Math.Max(0, Math.Min(yIndex1, yrange.Length - 2)); // Ensure within bounds
+            int yIndex2 = Math.Min(yIndex1 + 1, yrange.Length - 1);
 
             // Get the coordinates of the four bounding points
             double x1 = xrange[xIndex1];
             double x2 = xrange[xIndex2];
             double y1 = yrange[yIndex1];
             double y2 = yrange[yIndex2];
-
-            // Ensure indices are clamped to be within array bounds
-            xIndex1 = Math.Min(xIndex1, array.GetLength(1) - 1);
-            xIndex2 = Math.Min(xIndex2, array.GetLength(1) - 1);
-            yIndex1 = Math.Min(yIndex1, array.GetLength(0) - 1);
-            yIndex2 = Math.Min(yIndex2, array.GetLength(0) - 1);
 
             double Q11 = array[yIndex1, xIndex1];
             double Q12 = array[yIndex2, xIndex1];
