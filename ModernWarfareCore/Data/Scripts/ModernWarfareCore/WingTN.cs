@@ -287,8 +287,8 @@ namespace Digi2.AeroWings
 
                     }
 
-                    Vector4 red = Color.Red.ToVector4();
-                    MySimpleObjectDraw.DrawLine(block.GetPosition(), block.GetPosition() + fw, MyStringId.GetOrCompute("Square"), ref red, 0.1f);
+                    //Vector4 red = Color.Red.ToVector4();
+                    //MySimpleObjectDraw.DrawLine(block.GetPosition(), block.GetPosition() + fw, MyStringId.GetOrCompute("Square"), ref red, 0.1f);
 
                     // changed to bidirectional, works now in both directions, was "if(speedDir > 0)"
                     if (speedDir > 0 || speedDir < 0)
@@ -312,7 +312,7 @@ namespace Digi2.AeroWings
                             tempcount = 0;
                             //double vertical_speed = Math.Abs(upDir.Dot(vel));
                             double lift_force = liftVector.Length() * Math.Abs(speedDir) / 300;
-                            MyAPIGateway.Utilities.ShowNotification($"{block.SlimBlock.BlockDefinition.Id.SubtypeName} vs {lift_force}", 1600);
+                            //MyAPIGateway.Utilities.ShowNotification($"{block.SlimBlock.BlockDefinition.Id.SubtypeName} vs {lift_force}", 1600);
 
                             if (lift_force > 750000) //vel.Length() > SpeedOfSound(atmosphere) && 
                             {
