@@ -2606,7 +2606,7 @@
       <Breathable>true</Breathable>
       <OxygenDensity>0.9</OxygenDensity>
       <Density>1.0</Density>
-      <LimitAltitude>4.0</LimitAltitude>
+      <LimitAltitude>3.0</LimitAltitude>
 	  <MaxWindSpeed>85</MaxWindSpeed>
       </Atmosphere>
 	  
