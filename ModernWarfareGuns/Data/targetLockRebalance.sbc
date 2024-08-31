@@ -2,7 +2,6 @@
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <EntityComponents>
 
-		 <!-- 2500 -> 2000 | Mild nerf for AI block search radius, so AI turrets arent as OP -->
 		 <EntityComponent xsi:type="MyObjectBuilder_SearchEnemyComponentDefinition">
             <Id>
                 <TypeId>SearchEnemyComponent</TypeId>
@@ -11,17 +10,16 @@
             <SearchRadius>5000</SearchRadius>
         </EntityComponent>
 
-		<!-- "Radar Cone" 25 -> 2 | Massive nerf to prevent "alt-look" detection of people (and encourage stealth and a good defense network)  -->
         <EntityComponent xsi:type="MyObjectBuilder_TargetFocusComponentDefinition">
             <Id>
                 <TypeId>TargetFocusComponent</TypeId>
                 <SubtypeId>Character</SubtypeId>
             </Id>
             <FocusSearchMaxDistance>5000</FocusSearchMaxDistance>
-            <AngularToleranceFromCrosshair>2</AngularToleranceFromCrosshair>
+            <AngularToleranceFromCrosshair>25</AngularToleranceFromCrosshair>
         </EntityComponent>
+		<!--
 
-		<!-- "Distance Modifier" 10 -> 15 | Locking at long ranges should take 50% more time  -->
         <EntityComponent xsi:type="MyObjectBuilder_TargetLockingComponentDefinition">
             <Id>
                 <TypeId>TargetLockingComponent</TypeId>
@@ -45,7 +43,6 @@
             </Id>
         </EntityComponent>
 		
-		<!-- Same again for AI blocks  -->
         <EntityComponent xsi:type="MyObjectBuilder_TargetLockingBlockComponentDefinition">
             <Id>
                 <TypeId>TargetLockingBlockComponent</TypeId>
@@ -61,7 +58,7 @@
             <LockingTimeMaxCharacter>10</LockingTimeMaxCharacter>
             <LockingModifierDistanceCharacter>15</LockingModifierDistanceCharacter>
         </EntityComponent>
-
+		-->
 
     </EntityComponents>
 
