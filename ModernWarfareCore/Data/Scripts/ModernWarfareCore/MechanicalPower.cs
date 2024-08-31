@@ -532,11 +532,15 @@ namespace MODERN_WARFARE_CORE
 
             var speed = intake.CubeGrid.Physics.LinearVelocity.Length();
 
-            mach = speed / Utilities.SpeedOfSound(planet.GetAirDensity(grid.WorldMatrix.Translation));
-            vang = Utilities.VectorAngleBetween(intake.CubeGrid.Physics.LinearVelocity, intake.WorldMatrix.Forward);
-            double cd = Utilities.BilinearInterpolation(cd_interp_table, mrange, aoarange, mach, vang);
+            try
+            {
+                mach = speed / Utilities.SpeedOfSound(planet.GetAirDensity(grid.WorldMatrix.Translation));
+                vang = Utilities.VectorAngleBetween(intake.CubeGrid.Physics.LinearVelocity, intake.WorldMatrix.Forward);
+                double cd = Utilities.BilinearInterpolation(cd_interp_table, mrange, aoarange, mach, vang);
 
-            ApplyDrag(cd);
+                ApplyDrag(cd);
+            }
+            catch { }
         }
 
         public void ApplyDrag(double cd)
