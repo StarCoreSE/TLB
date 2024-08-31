@@ -298,11 +298,11 @@ namespace Digi2.AeroWings
                         var dragVector = -fw * speedDir * forceMul * 0.0001 * speedDir * speedDir * atmosphere;
                         var forceVector = liftVector + dragVector;
 
-                        var subgrids2 = MyAPIGateway.GridGroups.GetGroup(grid, VRage.Game.ModAPI.GridLinkTypeEnum.Logical);
+                        var subgrids2 = MyAPIGateway.GridGroups.GetGroup(grid, GridLinkTypeEnum.Logical);
                         shipMass = 0f;
                         foreach (MyCubeGrid subgrid in subgrids2)
                         {
-                            shipMass += subgrid.Physics.Mass;
+                            shipMass += (subgrid as MyCubeGrid).GetCurrentMass();
                         }
                         tempcount++;
 

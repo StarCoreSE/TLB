@@ -480,7 +480,7 @@ namespace MODERN_WARFARE_CORE
 
             if (mismatch > -0.96f && velocity.Length() < MIN_STALL_SPEED)
             {
-                Vector3D torque = grid.WorldAABB.Size.Length()* grid.Physics.Mass * Vector3D.Cross(velocity, -forward) * Math.Min(velocity.Length(), MIN_STALL_SPEED) * (0.49f + mismatch * mismatch / 10f) / 5000f;
+                Vector3D torque = grid.WorldAABB.Size.Length() * (grid as MyCubeGrid).GetCurrentMass() * Vector3D.Cross(velocity, -forward) * Math.Min(velocity.Length(), MIN_STALL_SPEED) * (0.49f + mismatch * mismatch / 10f) / 5000f;
                 grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
             }
         }
@@ -555,7 +555,7 @@ namespace MODERN_WARFARE_CORE
             var subgrids = MyAPIGateway.GridGroups.GetGroup(grid, VRage.Game.ModAPI.GridLinkTypeEnum.Logical);
             foreach (MyCubeGrid subgrid in subgrids)
             {
-                subgrid.Physics.LinearVelocity += dragForce / grid.Physics.Mass * 0.0167;
+                subgrid.Physics.LinearVelocity += dragForce / (grid as MyCubeGrid).GetCurrentMass() * 0.0167;
             }
         }
 
@@ -718,13 +718,13 @@ namespace MODERN_WARFARE_CORE
             // rotor torque, fck you
             if (vehicle.thrusters.Count < 2)
             {
-                Vector3D torque = grid.WorldAABB.Size.Length() * grid.Physics.Mass * thruster.WorldMatrix.Forward * thruster.CurrentThrust / thruster.MaxThrust;
+                Vector3D torque = grid.WorldAABB.Size.Length() * (grid as MyCubeGrid).GetCurrentMass() * thruster.WorldMatrix.Forward * thruster.CurrentThrust / thruster.MaxThrust;
                 grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
             }
             else
             {
                 bool should_torque = true;
-                foreach (IMyThrust thrust in vehicle.thrusters)
+                foreach (IMyThrust thrust in vehicle.thrusters) 
                 {
                     if (thrust == thruster)
                         continue;
@@ -737,7 +737,7 @@ namespace MODERN_WARFARE_CORE
 
                 if (should_torque)
                 {
-                    Vector3D torque = grid.WorldAABB.Size.Length() * grid.Physics.Mass * thruster.WorldMatrix.Forward * thruster.CurrentThrust / thruster.MaxThrust;
+                    Vector3D torque = grid.WorldAABB.Size.Length() * (grid as MyCubeGrid).GetCurrentMass() * thruster.WorldMatrix.Forward * thruster.CurrentThrust / thruster.MaxThrust;
                     grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
                 }
             }
