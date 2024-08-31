@@ -52,7 +52,7 @@
 			<FlameFlare>LargeGridSmallThruster</FlameFlare>
 			<FlameVisibilityDistance>0</FlameVisibilityDistance>
 			<FlameGlareQuerySize>0</FlameGlareQuerySize>
-			<PrimarySound>planepropeller</PrimarySound>
+			<PrimarySound>jetengine</PrimarySound>
 			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
 			<DamagedSound>ParticleWeapExpl</DamagedSound>
 			<Public>true</Public>
@@ -119,7 +119,7 @@
 			<PropellerAccelerationTime>2</PropellerAccelerationTime>
 			<PropellerDecelerationTime>8</PropellerDecelerationTime>
 			<PropellerMaxVisibleDistance>3000</PropellerMaxVisibleDistance>
-			<PrimarySound>planepropeller</PrimarySound>
+			<PrimarySound>helicopter_main_rotor</PrimarySound>
 			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
 			<DamagedSound>ParticleWeapExpl</DamagedSound>
 			<Public>true</Public>
@@ -186,7 +186,7 @@
 			<PropellerAccelerationTime>2</PropellerAccelerationTime>
 			<PropellerDecelerationTime>8</PropellerDecelerationTime>
 			<PropellerMaxVisibleDistance>3000</PropellerMaxVisibleDistance>
-			<PrimarySound>planepropeller</PrimarySound>
+			<PrimarySound>helicopter_tail_rotor</PrimarySound>
 			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
 			<DamagedSound>ParticleWeapExpl</DamagedSound>
 			<Public>true</Public>

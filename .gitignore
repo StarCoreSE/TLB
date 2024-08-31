@@ -5,3 +5,6 @@ Properties/
 *.sln
 *.ini
 bin/
+.idea
+.idea/workspace.xml
+Scratch
