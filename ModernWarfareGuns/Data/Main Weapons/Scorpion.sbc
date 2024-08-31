@@ -118,14 +118,14 @@
 			<DesiredSpeed>900</DesiredSpeed>
 			<SpeedVariance>0.2</SpeedVariance>
 			<MaxTrajectory>1200</MaxTrajectory>
-			<BackkickForce>1500</BackkickForce>
+			<BackkickForce>10000</BackkickForce>
 			<PhysicalMaterial>GunBullet</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>0.6</ExplosiveDamageMultiplier>
 		</BasicProperties>
 		<ProjectileProperties>
 			<ProjectileTrailScale>0.1</ProjectileTrailScale>
 			<ProjectileHitImpulse>2</ProjectileHitImpulse>
-			<ProjectileMassDamage>300</ProjectileMassDamage>
+			<ProjectileMassDamage>210</ProjectileMassDamage>
 			<ProjectileHealthDamage>33</ProjectileHealthDamage>
 			<HeadShot>true</HeadShot>
 		</ProjectileProperties>

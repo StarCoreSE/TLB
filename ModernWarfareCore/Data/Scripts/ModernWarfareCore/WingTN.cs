@@ -230,7 +230,7 @@ namespace Digi2.AeroWings
                 if (speedSq >= 50)
                 {
                     Vector3D fw = blockMatrix.Left;
-                    double forceMul = 3f;
+                    double forceMul = 10f;
 
                     switch (block.BlockDefinition.SubtypeId)
                     {
@@ -311,7 +311,7 @@ namespace Digi2.AeroWings
 
                             tempcount = 0;
                             //double vertical_speed = Math.Abs(upDir.Dot(vel));
-                            double lift_force = liftVector.Length() * Math.Abs(speedDir) / 300;
+                            double lift_force = liftVector.Length() * Math.Abs(speedDir) / 300 / forceMul;
                             //MyAPIGateway.Utilities.ShowNotification($"{block.SlimBlock.BlockDefinition.Id.SubtypeName} vs {lift_force}", 1600);
 
                             if (lift_force > 750000) //vel.Length() > SpeedOfSound(atmosphere) && 
