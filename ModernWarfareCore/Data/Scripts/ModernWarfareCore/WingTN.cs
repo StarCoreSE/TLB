@@ -230,48 +230,48 @@ namespace Digi2.AeroWings
                 if (speedSq >= 50)
                 {
                     Vector3D fw = blockMatrix.Left;
-                    double forceMul = 1.3f;
+                    double forceMul = 3f;
 
                     switch (block.BlockDefinition.SubtypeId)
                     {
                         case "aero-wing_2x5x1_rounded_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 2, 5) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 2, 5);
                             break;
                         case "aero-wing_5x2x1_rounded_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 5, 2) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 5, 2);
                             break;
                         case "aero-wing_3x5x1_pointed_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 3, 5) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 3, 5);
                             break;
                         case "aero-wing_3x5x1_rounded_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 3, 5) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 3, 5);
                             break;
                         case "aero-wing_5x3x1_rounded_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 5, 3) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 5, 3);
                             break;
                         case "aero-wing_4x5x1_pointed_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 4, 5) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 4, 5);
                             break;
                         case "aero-wing_4x5x1_rounded_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 4, 5) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 4, 5);
                             break;
                         case "aero-wing_5x5x1_pointed_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 5, 5) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 5, 5);
                             break;
                         case "aero-wing_5x5x1_rounded_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 5, 5) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 5, 5);
                             break;
                         case "aero-wing_6x5x1_pointed_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 6, 5) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 6, 5);
                             break;
                         case "aero-wing_6x5x1_rounded_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 6, 5) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 6, 5);
                             break;
                         case "aero-wing_7x5x1_pointed_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 7, 5) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 7, 5);
                             break;
                         case "aero-wing_5x1x1_rounded_edge_Small":
-                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 7, 5) * forceMul;
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 7, 5);
                             break;
                     }
 
