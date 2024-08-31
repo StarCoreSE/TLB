@@ -100,7 +100,7 @@
 		<MissileProperties>
 			<MissileMass>45</MissileMass>
 			<MissileExplosionRadius>10</MissileExplosionRadius>
-			<MissileModelName>Models\Weapons\Projectile_Missile.mwm</MissileModelName>
+			<MissileModelName>Models\Magazines\BasiliskMissile.mwm</MissileModelName>
 			<MissileAcceleration>600</MissileAcceleration>
 			<MissileInitialSpeed>100</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
