@@ -69,13 +69,16 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>ScorpionWep</SubtypeId>
 		</Id>
-		<ProjectileAmmoData RateOfFire="3900" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="3900" />
-		<DeviateShotAngle>0.5</DeviateShotAngle>
-		<DeviateShotAngleAiming>0.5</DeviateShotAngleAiming>
+		<ProjectileAmmoData RateOfFire="3900" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="1000" />
+		<DeviateShotAngle>0.2</DeviateShotAngle>
+		<DeviateShotAngleAiming>0.2</DeviateShotAngleAiming>
+		<Effects>
+			<Effect Action="Shoot" Dummy="muzzle_projectile.001" Particle="Muzzle_Flash_Autocannon" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-2.0"/>
+		</Effects>
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="ScorpionMag" />
 		</AmmoMagazines>
-		<ReloadTime>0</ReloadTime>
+		<ReloadTime>10000</ReloadTime>
 	</Weapon> <!--gren-->
 	</Weapons>
 	<AmmoMagazines>
@@ -95,7 +98,7 @@
 	<Volume>30</Volume>
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>600</Capacity>
+	<Capacity>200</Capacity>
 	<AmmoDefinitionId Subtype="ScorpionAmmo" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>
@@ -115,14 +118,14 @@
 			<DesiredSpeed>900</DesiredSpeed>
 			<SpeedVariance>0.2</SpeedVariance>
 			<MaxTrajectory>1200</MaxTrajectory>
-			<BackkickForce>100</BackkickForce>
+			<BackkickForce>1500</BackkickForce>
 			<PhysicalMaterial>GunBullet</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>0.6</ExplosiveDamageMultiplier>
 		</BasicProperties>
 		<ProjectileProperties>
 			<ProjectileTrailScale>0.1</ProjectileTrailScale>
 			<ProjectileHitImpulse>2</ProjectileHitImpulse>
-			<ProjectileMassDamage>54</ProjectileMassDamage>
+			<ProjectileMassDamage>300</ProjectileMassDamage>
 			<ProjectileHealthDamage>33</ProjectileHealthDamage>
 			<HeadShot>true</HeadShot>
 		</ProjectileProperties>

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using VRage.Game;
 using VRage.Game.Components;
+using VRage.Game.ModAPI;
 using VRage.ModAPI;
 using VRage.ObjectBuilders;
 using VRage.Utils;
@@ -58,6 +60,7 @@ namespace Digi2.AeroWings
         int tempcount;
         int tempcountmax;
         private MyCubeGrid biggestgrid;
+        private float shipMass = 0f;
         // test ende
 
         private const string USE_GROUP_COM_TAG = "UseGridCOM";
@@ -143,6 +146,20 @@ namespace Digi2.AeroWings
         {
             _useGridCOM = (block.CustomData.IndexOf(USE_GROUP_COM_TAG, 0, StringComparison.InvariantCultureIgnoreCase) != -1);
         }
+        public static double SpeedOfSound(float airDensity)
+        {
+            // Approximate curve based on https://www.engineeringtoolbox.com/elevation-speed-sound-air-d_1534.html, accurate down to 22.68 kPa.
+            double speedOfSound = Math.Pow(8947200 * airDensity - 899699, 1 / 3.42938) + 236.712;
+            if (speedOfSound < 295.1)
+                speedOfSound = 295.1;
+
+            return speedOfSound;
+        }
+
+        public Vector3D WingForward(Vector3D left, Vector3D forward, int forward_length, int left_length)
+        {
+            return Vector3D.Normalize(left * left_length + forward * forward_length);
+        }
 
         //Digi: public override void UpdateAfterSimulation()
         public override void UpdateBeforeSimulation()
@@ -208,74 +225,54 @@ namespace Digi2.AeroWings
                 //    MyTransparentGeometry.AddLineBillboard(MyStringId.GetOrCompute("Square"), (Color.YellowGreen * 0.5f), blockMatrix.Translation, Vector3D.Normalize(grid.Physics.LinearVelocity), 12, 0.1f);
                 //}
 
+
+
                 if (speedSq >= 50)
                 {
                     Vector3D fw = blockMatrix.Left;
-                    double forceMul = 0.75;
+                    double forceMul = 1.3f;
 
                     switch (block.BlockDefinition.SubtypeId)
                     {
                         case "aero-wing_2x5x1_rounded_edge_Small":
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 2, 5) * forceMul;
+                            break;
                         case "aero-wing_5x2x1_rounded_edge_Small":
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 5, 2) * forceMul;
+                            break;
                         case "aero-wing_3x5x1_pointed_edge_Small":
-                            forceMul *= 1.0;
-                            fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.15);
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 3, 5) * forceMul;
                             break;
                         case "aero-wing_3x5x1_rounded_edge_Small":
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 3, 5) * forceMul;
+                            break;
                         case "aero-wing_5x3x1_rounded_edge_Small":
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 5, 3) * forceMul;
+                            break;
                         case "aero-wing_4x5x1_pointed_edge_Small":
-                            forceMul *= 1.25;
-                            fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.25);
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 4, 5) * forceMul;
                             break;
                         case "aero-wing_4x5x1_rounded_edge_Small":
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 4, 5) * forceMul;
+                            break;
                         case "aero-wing_5x5x1_pointed_edge_Small":
-                            forceMul *= 1.5;
-                            fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.35);
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 5, 5) * forceMul;
                             break;
                         case "aero-wing_5x5x1_rounded_edge_Small":
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 5, 5) * forceMul;
+                            break;
                         case "aero-wing_6x5x1_pointed_edge_Small":
-                            forceMul *= 1.75;
-                            fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.45);
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 6, 5) * forceMul;
                             break;
                         case "aero-wing_6x5x1_rounded_edge_Small":
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 6, 5) * forceMul;
+                            break;
                         case "aero-wing_7x5x1_pointed_edge_Small":
-                            forceMul *= 2.0;
-                            fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.55);
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 7, 5) * forceMul;
                             break;
-                        /*
-                        case "aero-wing_1x5x1_rounded_edge_Large":
-                        case "aero-wing_5x1x1_rounded_edge_Large":
-                        case "aero-wing_2x5x1_pointed_edge_Large":
-                            forceMul = 0.75 * 10;
-                            fw = Vector3D.Normalize(blockMatrix.Left);
+                        case "aero-wing_5x1x1_rounded_edge_Small":
+                            fw = WingForward(blockMatrix.Left, blockMatrix.Forward, 7, 5) * forceMul;
                             break;
-                        case "aero-wing_2x5x1_rounded_edge_Large":
-                        case "aero-wing_5x2x1_rounded_edge_Large":
-                        case "aero-wing_3x5x1_pointed_edge_Large":
-                            forceMul = 1.0 * 10;
-                            fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.15);
-                            break;
-                        case "aero-wing_3x5x1_rounded_edge_Large":
-                        case "aero-wing_5x3x1_rounded_edge_Large":
-                        case "aero-wing_4x5x1_pointed_edge_Large":
-                            forceMul = 1.25 * 10;
-                            fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.25);
-                            break;
-                        case "aero-wing_4x5x1_rounded_edge_Large":
-                        case "aero-wing_5x5x1_pointed_edge_Large":
-                            forceMul = 1.5 * 10;
-                            fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.35);
-                            break;
-                        case "aero-wing_5x5x1_rounded_edge_Large":
-                        case "aero-wing_6x5x1_pointed_edge_Large":
-                            forceMul = 1.75 * 10;
-                            fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.45);
-                            break;
-                        case "aero-wing_6x5x1_rounded_edge_Large":
-                        case "aero-wing_7x5x1_pointed_edge_Large":
-                            forceMul = 2.0 * 10;
-                            fw = Vector3D.Normalize(blockMatrix.Left + blockMatrix.Forward * 0.55);
-                            break;*/
                     }
 
                     double speedDir = fw.Dot(vel);
@@ -284,19 +281,56 @@ namespace Digi2.AeroWings
                     {
                         //changed, because both directions are alowed                        MyTransparentGeometry.AddLineBillboard(MyStringId.GetOrCompute("Square"), ((speedDir > 0 ? Color.Blue : Color.Red) * 0.5f), blockMatrix.Translation, Vector3D.Normalize(vel), 10, 0.05f);
                         MyTransparentGeometry.AddLineBillboard(MyStringId.GetOrCompute("Square"), (Color.Blue * 0.5f), blockMatrix.Translation, Vector3D.Normalize(vel), 10, 0.05f);
+
+                        Vector4 blu = Color.Blue.ToVector4();
+                        Vector4 gre = Color.Green.ToVector4();
+
                     }
+
+                    Vector4 red = Color.Red.ToVector4();
+                    MySimpleObjectDraw.DrawLine(block.GetPosition(), block.GetPosition() + fw, MyStringId.GetOrCompute("Square"), ref red, 0.1f);
 
                     // changed to bidirectional, works now in both directions, was "if(speedDir > 0)"
                     if (speedDir > 0 || speedDir < 0)
                     {
                         var upDir = blockMatrix.Up;
-                        var forceVector = -upDir * upDir.Dot(vel) * forceMul * speedSq * atmosphere;
-                        forceVector += -fw * speedDir * forceMul * 0.0001 * speedSq * atmosphere;
+                        var liftVector = -upDir * upDir.Dot(vel) * forceMul * speedDir * speedDir * atmosphere;
+                        var dragVector = -fw * speedDir * forceMul * 0.0001 * speedDir * speedDir * atmosphere;
+                        var forceVector = liftVector + dragVector;
 
                         var subgrids2 = MyAPIGateway.GridGroups.GetGroup(grid, VRage.Game.ModAPI.GridLinkTypeEnum.Logical);
+                        shipMass = 0f;
                         foreach (MyCubeGrid subgrid in subgrids2)
                         {
-                            subgrid.Physics.LinearVelocity += forceVector / grid.Physics.Mass * 0.0167;
+                            shipMass += subgrid.Physics.Mass;
+                        }
+                        tempcount++;
+
+                        if(tempcount > 100)
+                        {
+
+                            tempcount = 0;
+                            //double vertical_speed = Math.Abs(upDir.Dot(vel));
+                            double lift_force = liftVector.Length() * Math.Abs(speedDir) / 300;
+                            MyAPIGateway.Utilities.ShowNotification($"{block.SlimBlock.BlockDefinition.Id.SubtypeName} vs {lift_force}", 1600);
+
+                            if (lift_force > 750000) //vel.Length() > SpeedOfSound(atmosphere) && 
+                            {
+                                List<IMySlimBlock> slims = new List<IMySlimBlock>();
+                                block.SlimBlock.GetNeighbours(slims);
+                                foreach (IMySlimBlock slim in slims)
+                                {
+                                    //if (slim.BlockDefinition.Id.SubtypeName.Contains("wing"))
+                                    //    continue;
+                                    slim.DoDamage((float)(lift_force - 750000) / 5000f / slims.Count, MyStringHash.GetOrCompute("Bullet"), true);
+                                }
+                                block.SlimBlock.DoDamage((float)(lift_force - 750000) / 5000f, MyStringHash.GetOrCompute("Bullet"), true);
+                            }
+                        }
+
+                        foreach (MyCubeGrid subgrid in subgrids2)
+                        {
+                            subgrid.Physics.LinearVelocity += forceVector / shipMass * 0.0167;
                         }
                     }
                     else if (debug)
@@ -385,6 +419,7 @@ namespace Digi2.AeroWings
                     NeedsUpdate |= MyEntityUpdateEnum.EACH_FRAME | MyEntityUpdateEnum.EACH_10TH_FRAME;
                 else
                     NeedsUpdate &= ~(MyEntityUpdateEnum.EACH_FRAME | MyEntityUpdateEnum.EACH_10TH_FRAME);
+
             }
             catch (Exception e)
             {
