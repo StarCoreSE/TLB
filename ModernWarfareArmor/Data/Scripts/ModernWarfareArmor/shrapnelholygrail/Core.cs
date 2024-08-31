@@ -99,7 +99,7 @@ namespace Shrapnel
                         //MyAPIGateway.Utilities.ShowNotification($"bang, {closestChain.xp}!", 3000);
                     }
                     // or if we are alone, add
-                    else
+                    else if (closestChain == null)
                     {
                         chainLocations.Add(new ChainLocation(slim.FatBlock.WorldMatrix.Translation, 0, 100));
                         CreateExplosion(slim.FatBlock.WorldMatrix.Translation, 1500f, 1f, null);
