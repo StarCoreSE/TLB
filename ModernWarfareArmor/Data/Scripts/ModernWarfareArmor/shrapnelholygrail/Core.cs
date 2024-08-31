@@ -39,7 +39,7 @@ namespace Shrapnel
             MyExplosionInfo bomb = new MyExplosionInfo(dmg, dmg, sphere, MyExplosionTypeEnum.MISSILE_EXPLOSION, true, true);
             bomb.CreateParticleEffect = true;
             bomb.LifespanMiliseconds = 150 + (int)radius * 45;
-            bomb.ParticleScale = 0.15f * radius;
+            bomb.ParticleScale = 0.30f * radius;
             bomb.OwnerEntity = ownerEntity;
 
             MyExplosions.AddExplosion(ref bomb, true);
