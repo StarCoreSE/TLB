@@ -310,7 +310,7 @@ namespace ScriptedMissiles
                 Vector3 predictionDirection = predictionPosition - missile.GetPosition();
                 predictionDirection.Normalize();
 
-                double angle = Math.Acos(Math.Max(Math.Min(Vector3.Dot(direction, predictionDirection), 1), -1)) / 50;
+                double angle = Math.Acos(Math.Max(Math.Min(Vector3.Dot(direction, predictionDirection), 1), -1));// / 50;
 
                 Vector3 rotationAxis = Vector3.Cross(direction, predictionDirection);
                 rotationAxis.Normalize();

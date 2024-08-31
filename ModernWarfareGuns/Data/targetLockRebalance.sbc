@@ -31,7 +31,7 @@
             <LockingModifierLargeGrid>10</LockingModifierLargeGrid>
             <LockingTimeMin>10</LockingTimeMin>
             <LockingTimeMax>10</LockingTimeMax>
-            <LockingModifierDistance>10</LockingModifierDistance>
+            <LockingModifierDistance>1</LockingModifierDistance>
             <LockingModifierCharacter>2</LockingModifierCharacter>
             <LockingTimeMinCharacter>1</LockingTimeMinCharacter>
             <LockingTimeMaxCharacter>10</LockingTimeMaxCharacter>

@@ -227,7 +227,7 @@ namespace BobLockVisuals
             time += ticktime;
 
 
-            LockCriteriaCheck();
+            //LockCriteriaCheck();
             DrawLocks();
 
             if (time < updatetime)
