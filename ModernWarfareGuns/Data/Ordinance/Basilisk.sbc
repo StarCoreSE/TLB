@@ -91,20 +91,20 @@
 		<BasicProperties>
 			<DesiredSpeed>1000</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
-			<MaxTrajectory>1400</MaxTrajectory>
+			<MaxTrajectory>5000</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
 			<BackkickForce>1</BackkickForce>
 			<PhysicalMaterial>MediumShell</PhysicalMaterial>
-			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+			<ExplosiveDamageMultiplier>2</ExplosiveDamageMultiplier>
 		</BasicProperties>
 		<MissileProperties>
 			<MissileMass>45</MissileMass>
-			<MissileExplosionRadius>4</MissileExplosionRadius>
+			<MissileExplosionRadius>10</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\Projectile_Missile.mwm</MissileModelName>
 			<MissileAcceleration>600</MissileAcceleration>
 			<MissileInitialSpeed>100</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>500</MissileExplosionDamage>
+			<MissileExplosionDamage>800</MissileExplosionDamage>
 			<MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
 		</MissileProperties>
 	</Ammo>
