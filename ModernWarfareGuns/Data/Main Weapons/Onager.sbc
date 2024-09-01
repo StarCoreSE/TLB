@@ -28,7 +28,7 @@
 		<Center x="0" y="0" z="8" />
 		<BuildTimeSeconds>6</BuildTimeSeconds>
 		<EdgeType>Light</EdgeType>
-		<WeaponDefinitionId Subtype="ArbalestWep" />
+		<WeaponDefinitionId Subtype="OnagerWep" />
 		<ResourceSinkGroup>Defense</ResourceSinkGroup>
 		<InventoryMaxVolume>0.006</InventoryMaxVolume>
 		<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
@@ -46,14 +46,14 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>OnagerWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="150" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="16" />
+		<MissileAmmoData RateOfFire="150" ShootSoundName="WepShipAutocannonShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="16" />
 		<DeviateShotAngle>0.2</DeviateShotAngle>
 		<DeviateShotAngleAiming>0.2</DeviateShotAngleAiming>
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="OnagerMag" />
 		</AmmoMagazines>
 		<Effects>
-			<Effect Action="Shoot" Dummy="Muzzle_Missile" Particle="Muzzle_Flash_MediumCalibre" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-2"/>
+			<Effect Action="Shoot" Dummy="Muzzle_Missile" Particle="Muzzle_Flash_Autocannon" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-0.7"/>
 		</Effects>
 		<ReloadTime>10000</ReloadTime>
 	</Weapon> <!--gren-->
@@ -92,24 +92,24 @@
 			<SubtypeId>OnagerAmmo_Proximity</SubtypeId>
 		</Id>
 		<BasicProperties>
-			<DesiredSpeed>1100</DesiredSpeed>
+			<DesiredSpeed>800</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>1400</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
 			<BackkickForce>0</BackkickForce>
 			<PhysicalMaterial>MediumShell</PhysicalMaterial>
-			<ExplosiveDamageMultiplier>2</ExplosiveDamageMultiplier>
+			<ExplosiveDamageMultiplier>1.2</ExplosiveDamageMultiplier>
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
 			<MissileMass>10</MissileMass>
-			<MissileExplosionRadius>5</MissileExplosionRadius>
+			<MissileExplosionRadius>1.5</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
 			<MissileInitialSpeed>1100</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>500</MissileExplosionDamage>
-			<MissileHealthPool>100</MissileHealthPool>
+			<MissileExplosionDamage>125</MissileExplosionDamage>
+			<MissileHealthPool>25</MissileHealthPool>
 			<MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
 		</MissileProperties>

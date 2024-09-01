@@ -46,7 +46,8 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>BallistaWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="120" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="5" />
+		<ProjectileAmmoData RateOfFire="60" ShootSoundName="WepMediumCalibreShot" ShotsInBurst="2" />
+		<!--<MissileAmmoData RateOfFire="120" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="5" />-->
 		<DeviateShotAngle>0.2</DeviateShotAngle>
 		<DeviateShotAngleAiming>0.2</DeviateShotAngleAiming>
 		<AmmoMagazines>
@@ -75,8 +76,8 @@
 	<Volume>30</Volume>
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>3</Capacity>
-	<AmmoDefinitionId Subtype="BallistaAmmo" />
+	<Capacity>2</Capacity>
+	<AmmoDefinitionId Subtype="BallistaAltAmmo" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>
 	<MaximumOfferAmount>1000</MaximumOfferAmount>
@@ -86,6 +87,32 @@
 	</AmmoMagazine> <!--gren-->
 	</AmmoMagazines>
 	<Ammos>
+	<Ammo xsi:type="MyObjectBuilder_ProjectileAmmoDefinition">
+		<Id>
+			<TypeId>AmmoDefinition</TypeId>
+			<SubtypeId>BallistaAltAmmo</SubtypeId>
+		</Id>
+		<BasicProperties>
+			<DesiredSpeed>900</DesiredSpeed>
+			<SpeedVariance>0.2</SpeedVariance>
+			<MaxTrajectory>1200</MaxTrajectory>
+			<BackkickForce>10000</BackkickForce>
+			<PhysicalMaterial>MediumShell</PhysicalMaterial>
+			<EndOfLifeEffect>Explosion_Missile</EndOfLifeEffect>
+			<IsExplosive>true</IsExplosive>
+		</BasicProperties>
+		<ProjectileProperties>
+			<ProjectileTrailScale>1.0</ProjectileTrailScale>
+			<ProjectileHitImpulse>2000</ProjectileHitImpulse>
+			<ProjectileMassDamage>3000</ProjectileMassDamage>
+			<ProjectileHealthDamage>33</ProjectileHealthDamage>
+			<HeadShot>true</HeadShot>
+			<ProjectileOnHitEffectName>Explosion_Missile</ProjectileOnHitEffectName>
+			<ProjectileExplosionDamage>0</ProjectileExplosionDamage>
+			<ProjectileExplosionRadius>1</ProjectileExplosionRadius>
+		</ProjectileProperties>
+	</Ammo>
+	<!--
 	<Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
 		<Id>
 			<TypeId>AmmoDefinition</TypeId>
@@ -98,26 +125,27 @@
 			<IsExplosive>true</IsExplosive>
 			<BackkickForce>13000</BackkickForce>
 			<PhysicalMaterial>MediumShell</PhysicalMaterial>
-			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+			<ExplosiveDamageMultiplier>2</ExplosiveDamageMultiplier>
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
 			<MissileMass>300</MissileMass>
-			<MissileExplosionRadius>0.4</MissileExplosionRadius>
+			<MissileExplosionRadius>1</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
 			<MissileInitialSpeed>500</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>2000</MissileExplosionDamage>
-			<MissileHealthPool>2000</MissileHealthPool>
+			<MissileExplosionDamage>5000</MissileExplosionDamage>
+			<MissileHealthPool>0</MissileHealthPool>
 			<MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
 			<MissileMinRicochetAngle>40</MissileMinRicochetAngle>
 			<MissileMaxRicochetAngle>70</MissileMaxRicochetAngle>
-			<MissileMinRicochetProbability>0.25</MissileMinRicochetProbability>
+			<MissileMinRicochetProbability>0</MissileMinRicochetProbability>
 			<MissileMaxRicochetProbability>0.85</MissileMaxRicochetProbability>
 			<MissileRicochetDamage>2000</MissileRicochetDamage>
 		</MissileProperties>
 	</Ammo>
+	-->
 	</Ammos>
 </Definitions>

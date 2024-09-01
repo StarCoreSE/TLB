@@ -17,6 +17,9 @@ using VRage.Game.Entity;
 using SpaceEngineers.Game.Entities.Blocks;
 using SpaceEngineers.Game.ModAPI;
 using VRage.ModAPI;
+using Sandbox.Common.ObjectBuilders.Definitions;
+using Sandbox.Game.Weapons;
+
 namespace Shrapnel
 {
     [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)]
@@ -63,7 +66,8 @@ namespace Shrapnel
         {
 
             IMySlimBlock slim = target as IMySlimBlock;
-            if (slim == null) return;
+            if (slim == null) return; // || info.Type == MyDamageType.Deformation
+
 
             if (info.Type == MyDamageType.Bullet || info.Type == MyDamageType.Rocket)
             {
@@ -74,7 +78,7 @@ namespace Shrapnel
 
 
                 // bang sizzle
-                if (slim.BlockDefinition.Id.SubtypeName.Contains("AmmoRack"))
+                if (slim.BlockDefinition.Id.SubtypeName.Contains("AmmoRack") && slim.Integrity - info.Amount < slim.Integrity * 0.7)
                 {
 
                     ChainLocation closestChain = null;
@@ -140,34 +144,44 @@ namespace Shrapnel
                     slimBlock.CubeGrid.RazeBlock(slimBlock.Position); // Destroy the ammo rack
                 }
             }
-            MyAPIGateway.Utilities.ShowNotification("Explosion Radius: " + newExplosionRadius.ToString(), 10000);
+            //MyAPIGateway.Utilities.ShowNotification("Explosion Radius: " + newExplosionRadius.ToString(), 10000);
             return new BoundingSphereD(myPos, newExplosionRadius);
         }
 
         public void HandleArmorInteractions(IMySlimBlock slim, ref MyDamageInformation info)
         {
-
             if (slim.BlockDefinition.Id.SubtypeName.Contains("Reactive"))
             {
                 CreateExplosion(slim.FatBlock.WorldMatrix.Translation + slim.FatBlock.WorldMatrix.Up, 2000f, 0.5f, slim.FatBlock as MyEntity);
                 info.Amount = slim.Integrity;
             }
-            //else if(slim.BlockDefinition.Id.SubtypeName.Contains("Heavy"))
-            //{
-            //    info.Amount = (float)Math.Max(info.Amount - 200f * slim.Integrity / slim.MaxIntegrity, 0f);
-            //}
+            else if(slim.BlockDefinition.Id.SubtypeName.Contains("Heavy") && info.Amount < slim.Integrity * 0.75f ) 
+            {
+                info.Amount = (float)Math.Max(info.Amount - 200f * slim.Integrity / slim.MaxIntegrity, 0f);
 
+                /*
+                MyMissileAmmoDefinition missileProps = (MyAPIGateway.Entities.GetEntityById(info.AttackerId) as IMyGunObject<MyGunBase>)?.GunBase?.CurrentAmmoDefinition as MyMissileAmmoDefinition;
+                if(missileProps == null)
+                {
+                    MyAPIGateway.Utilities.ShowNotification($"{MyAPIGateway.Entities.GetEntityById(info.AttackerId) == null}, " +
+                        $"{MyAPIGateway.Entities.GetEntityById(info.AttackerId) as IMyGunObject<MyGunBase> == null}, " +
+                        $"{(MyAPIGateway.Entities.GetEntityById(info.AttackerId) as IMyGunObject<MyGunBase>)?.GunBase?.CurrentAmmoDefinition as MyMissileAmmoDefinition == null}", 10000);
+                }*/
+            }
+            /*
             if (slim.IsFullIntegrity)
             {
                 // heavy armor and ceramic at full hp takes less small arms damage
                 if (slim.BlockDefinition.Id.SubtypeName.Contains("Ceramic") && info.Amount < slim.Integrity * 0.75f)
                 {
+                    MyAPIGateway.Utilities.ShowNotification($"hmm {info.Amount}", 10000);
                     info.Amount = (float)Math.Max(info.Amount - 400f, 0f);
                 }
             }
             // compromised ceramic, but will not shrapnel
-            else if (slim.BlockDefinition.Id.SubtypeName.Contains("Ceramic"))
+            else */if (slim.BlockDefinition.Id.SubtypeName.Contains("Ceramic"))
             {
+                MyAPIGateway.Utilities.ShowNotification($"hmm {info.Amount}", 10000);
                 info.Amount = (float)Math.Max(info.Amount * slim.MaxIntegrity / slim.Integrity, slim.Integrity);
             }
         }
@@ -187,7 +201,7 @@ namespace Shrapnel
             float overkill = info.Amount - slim.Integrity;
 
             if (slim.BlockDefinition.Id.SubtypeName.Contains("Heavy"))
-                overkill *= 2f;
+                overkill = overkill * 2f + 200;
 
             info.Amount = slim.Integrity;
 
