@@ -686,7 +686,7 @@ namespace MODERN_WARFARE_CORE
             // Get rotation input from the player's control of the cockpit
             double pitch = -MathHelper.Clamp(cockpit.RotationIndicator.X * 0.05, -1, 1);
             double yaw = -MathHelper.Clamp(cockpit.RotationIndicator.Y * 0.05, -1, 1);
-            double roll = -(double)cockpit.RollIndicator;
+            double roll = -(double)cockpit.RollIndicator * 0.2;
 
             if (pitch == 0 && yaw == 0 && roll == 0)
                 return;
