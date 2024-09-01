@@ -46,7 +46,7 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>OnagerWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="180" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="5" />
+		<MissileAmmoData RateOfFire="150" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="16" />
 		<DeviateShotAngle>0.2</DeviateShotAngle>
 		<DeviateShotAngleAiming>0.2</DeviateShotAngleAiming>
 		<AmmoMagazines>
@@ -75,7 +75,7 @@
 	<Volume>30</Volume>
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>32</Capacity>
+	<Capacity>16</Capacity>
 	<AmmoDefinitionId Subtype="OnagerAmmo_Proximity" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>
@@ -98,25 +98,20 @@
 			<IsExplosive>true</IsExplosive>
 			<BackkickForce>0</BackkickForce>
 			<PhysicalMaterial>MediumShell</PhysicalMaterial>
-			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+			<ExplosiveDamageMultiplier>2</ExplosiveDamageMultiplier>
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
 			<MissileMass>10</MissileMass>
-			<MissileExplosionRadius>2.5</MissileExplosionRadius>
+			<MissileExplosionRadius>5</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
 			<MissileInitialSpeed>1100</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>2000</MissileExplosionDamage>
+			<MissileExplosionDamage>500</MissileExplosionDamage>
 			<MissileHealthPool>100</MissileHealthPool>
 			<MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
-			<MissileMinRicochetAngle>40</MissileMinRicochetAngle>
-			<MissileMaxRicochetAngle>70</MissileMaxRicochetAngle>
-			<MissileMinRicochetProbability>0.25</MissileMinRicochetProbability>
-			<MissileMaxRicochetProbability>0.85</MissileMaxRicochetProbability>
-			<MissileRicochetDamage>2000</MissileRicochetDamage>
 		</MissileProperties>
 	</Ammo>
 	</Ammos>
