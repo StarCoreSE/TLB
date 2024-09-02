@@ -82,10 +82,10 @@
 		<SecondarySoundName></SecondarySoundName>
 		
 		<Effects>
-			<Effect Action="Shoot" Dummy="muzzle_projectile" Particle="Muzzle_Flash_Autocannon" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-0.7"/>
-			<Effect Action="Shoot" Dummy="None" Particle="Smoke_Autocannon" Loop="true" InstantStop="false"
-			OffsetX="0.09" OffsetY="-0.04" OffsetZ="-1.3" 
-			ParticleBirthStart="1" ParticleBirthMin="1" ParticleBirthMax="2" ParticleBirthDecrease="1" ParticleBirthIncrease="1" />
+			<Effect Action="Shoot" Dummy="muzzle_projectile" Particle="Muzzle_Flash_Large" Loop="true" InstantStop="true" OffsetX="0" OffsetY="0" OffsetZ="-1.1"/>
+                <Effect Action="Shoot" Dummy="None" Particle="Smoke_Autocannon" Loop="true" InstantStop="false"
+                OffsetX="0.09" OffsetY="-0.04" OffsetZ="-1.3" 
+                ParticleBirthStart="1" ParticleBirthMin="1" ParticleBirthMax="2" ParticleBirthDecrease="1" ParticleBirthIncrease="1" />
 		</Effects>
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="PolybolosMag" />

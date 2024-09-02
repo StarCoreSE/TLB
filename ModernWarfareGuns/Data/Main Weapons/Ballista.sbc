@@ -46,8 +46,8 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>BallistaWep</SubtypeId>
 		</Id>
-		<ProjectileAmmoData RateOfFire="60" ShootSoundName="WepMediumCalibreShot" ShotsInBurst="2" />
-		<!--<MissileAmmoData RateOfFire="120" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="5" />-->
+		<!--<ProjectileAmmoData RateOfFire="60" ShootSoundName="WepMediumCalibreShot" ShotsInBurst="2" />-->
+		<MissileAmmoData RateOfFire="120" ShootSoundName="WepMediumCalibreShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="5" />
 		<DeviateShotAngle>0.2</DeviateShotAngle>
 		<DeviateShotAngleAiming>0.2</DeviateShotAngleAiming>
 		<AmmoMagazines>
@@ -77,7 +77,7 @@
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
 	<Capacity>2</Capacity>
-	<AmmoDefinitionId Subtype="BallistaAltAmmo" />
+	<AmmoDefinitionId Subtype="BallistaAmmo" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>
 	<MaximumOfferAmount>1000</MaximumOfferAmount>
@@ -112,7 +112,6 @@
 			<ProjectileExplosionRadius>1</ProjectileExplosionRadius>
 		</ProjectileProperties>
 	</Ammo>
-	<!--
 	<Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
 		<Id>
 			<TypeId>AmmoDefinition</TypeId>
@@ -135,7 +134,7 @@
 			<MissileAcceleration>0</MissileAcceleration>
 			<MissileInitialSpeed>500</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>5000</MissileExplosionDamage>
+			<MissileExplosionDamage>1000</MissileExplosionDamage>
 			<MissileHealthPool>0</MissileHealthPool>
 			<MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
@@ -146,6 +145,5 @@
 			<MissileRicochetDamage>2000</MissileRicochetDamage>
 		</MissileProperties>
 	</Ammo>
-	-->
 	</Ammos>
 </Definitions>

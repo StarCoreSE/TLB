@@ -394,6 +394,42 @@ namespace MODERN_WARFARE_CORE
         }
     }
 
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Thrust), false, "ElectricFanDShape", "ElectricFanShape")]
+    public class DroneProp : MyGameLogicComponent
+    {
+        IMyFunctionalBlock block;
+        IMyThrust thruster;
+        IMyCubeGrid grid;
+
+        public override void Init(MyObjectBuilder_EntityBase objectBuilder)
+        {
+            grid = (Entity as IMyTerminalBlock).CubeGrid;
+            block = (IMyFunctionalBlock)Entity;
+            thruster = (Entity as IMyThrust);
+
+            this.NeedsUpdate |= MyEntityUpdateEnum.EACH_FRAME;
+        }
+
+        public override void UpdateBeforeSimulation()
+        {
+            if (grid.Physics == null || block == null || thruster.MaxEffectiveThrust == 0)
+                return;
+
+            if (!block.IsFunctional || thruster.CurrentThrust == 0 || !block.Enabled)
+                return;
+
+            ApplyHeliSpeedLimit();
+        }
+
+        public void ApplyHeliSpeedLimit()
+        {
+            if (grid.Physics.LinearVelocity.Length() > 100)
+            {
+                grid.Physics.LinearVelocity = Vector3D.Normalize(grid.Physics.LinearVelocity) * 100;
+            }
+        }
+    }
+
     /*[MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenGenerator), false)]
     public class Engine : MyGameLogicComponent
     {

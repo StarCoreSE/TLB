@@ -53,7 +53,7 @@
 			<AmmoMagazine Subtype="OnagerMag" />
 		</AmmoMagazines>
 		<Effects>
-			<Effect Action="Shoot" Dummy="Muzzle_Missile" Particle="Muzzle_Flash_Autocannon" Loop="true" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-0.7"/>
+			<Effect Action="Shoot" Dummy="Muzzle_Missile" Particle="Muzzle_Flash_Autocannon" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-2.0"/>
 		</Effects>
 		<ReloadTime>10000</ReloadTime>
 	</Weapon> <!--gren-->

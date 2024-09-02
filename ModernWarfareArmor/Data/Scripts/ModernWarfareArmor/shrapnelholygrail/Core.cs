@@ -181,7 +181,7 @@ namespace Shrapnel
             // compromised ceramic, but will not shrapnel
             else */if (slim.BlockDefinition.Id.SubtypeName.Contains("Ceramic"))
             {
-                MyAPIGateway.Utilities.ShowNotification($"hmm {info.Amount}", 10000);
+                //MyAPIGateway.Utilities.ShowNotification($"hmm {info.Amount}", 10000);
                 info.Amount = (float)Math.Max(info.Amount * slim.MaxIntegrity / slim.Integrity, slim.Integrity);
             }
         }

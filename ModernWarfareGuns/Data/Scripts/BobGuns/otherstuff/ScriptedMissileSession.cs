@@ -121,6 +121,9 @@ namespace ScriptedMissiles
         {
             public IMyMissile missile;
             public IMyEntity target;
+
+            public double distance_to_target = double.PositiveInfinity;
+
             private ScriptedMissileSession system; // Reference to GuidedMissileSystem
 
             private Vector3 lastLeadPosition = Vector3.Zero;
@@ -160,6 +163,14 @@ namespace ScriptedMissiles
                 Update();
             }
 
+            public Vector3 GetTargetPosition()
+            {
+                if (target is IMyCubeGrid)
+                    return (target as IMyCubeGrid).Physics.CenterOfMassWorld;
+                else
+                    return target.GetPosition();
+            }
+
             public Vector3 GetTargetPrediction()
             {
                 if (target.MarkedForClose)
@@ -185,22 +196,27 @@ namespace ScriptedMissiles
                     }
                 }
 
-                Vector3 targetPosition = target.GetPosition();
+                Vector3 targetPosition = GetTargetPosition();
 
                 Vector3 deltaPosition = targetPosition - missilePosition;
 
+                distance_to_target = deltaPosition.Length();
+
+                /*
                 double angle = VectorMath.AngleBetween(Vector3.Normalize(deltaPosition), direction);
                 if (angle > 1.00 && angle < 3.00)
                 {
-                    MyAPIGateway.Utilities.ShowNotification($"ang : {angle}", 1);
+                    //MyAPIGateway.Utilities.ShowNotification($"ang : {angle}", 1);
                     return lastLeadPosition;
-                }
+                }*/
 
+                Vector3 targetVelocity = (targetPosition - lastTargetPosition) * 60;
+
+                /*
                 MyPhysicsComponentBase targetPhysics = null;
 
                 if (target.Physics != null)
                     targetPhysics = target.Physics;
-
                 if (targetPhysics == null && target.Parent != null && target.Parent.Physics != null)
                     targetPhysics = target.Parent.Physics;
 
@@ -213,6 +229,7 @@ namespace ScriptedMissiles
                 {
                     targetVelocity = (targetPosition - lastTargetPosition) * 60;
                 }
+                */
 
                 Vector3 deltaVelocity = targetVelocity - missileVelocity;
 
@@ -310,12 +327,12 @@ namespace ScriptedMissiles
                 Vector3 predictionDirection = predictionPosition - missile.GetPosition();
                 predictionDirection.Normalize();
 
-                double angle = Math.Acos(Math.Max(Math.Min(Vector3.Dot(direction, predictionDirection), 1), -1));// / 50;
+                double angle = Math.Acos(Math.Max(Math.Min(Vector3.Dot(direction, predictionDirection), 1), -1)) / 10;
 
                 Vector3 rotationAxis = Vector3.Cross(direction, predictionDirection);
                 rotationAxis.Normalize();
 
-                if (isBeamRider || (target != null && !target.MarkedForClose && target.Parent != null))
+                if (isBeamRider || (target != null && !target.MarkedForClose))
                 {
                     Matrix rotationMatrix = Matrix.CreateFromQuaternion(Quaternion.CreateFromAxisAngle(rotationAxis, (float)(Math.Max(Math.Min(angle, 0.02), -0.02))));
                     direction = Vector3.Transform(direction, rotationMatrix);
@@ -344,7 +361,7 @@ namespace ScriptedMissiles
                 }
 
                 MyMissileAmmoDefinition ammo = (MyMissileAmmoDefinition)missile.AmmoDefinition;
-                Vector3 deltaPosition = target.GetPosition() - missile.GetPosition();
+                Vector3 deltaPosition = GetTargetPosition() - missile.GetPosition();
 
                 if (deltaPosition.Length() < ammo.MissileExplosionRadius * 10)
                 {
@@ -356,7 +373,7 @@ namespace ScriptedMissiles
             private void TryProximityDetonate(Vector3D targetDirection, float radius)
             {
                 IHitInfo hitinfo;
-                MyAPIGateway.Physics.CastRay(missile.GetPosition() + targetDirection, target.GetPosition(), out hitinfo, 0, false);
+                MyAPIGateway.Physics.CastRay(missile.GetPosition() + targetDirection, GetTargetPosition(), out hitinfo, 0, false);
 
                 float value = 4f * radius;
 
@@ -430,7 +447,6 @@ namespace ScriptedMissiles
                 IMyPlayer player = myPlayers.First();
 
                 target = player?.Character?.Components?.Get<MyTargetLockingComponent>()?.TargetEntity;
-                //MyAPIGateway.Utilities.ShowNotification($"target lock{target?.DisplayName}", 1600);
             }
 
             if (target == null)
@@ -453,6 +469,16 @@ namespace ScriptedMissiles
 
             }
 
+            IMyCubeGrid targetGrid = target as IMyCubeGrid;
+            if (targetGrid is IMyCubeGrid)
+            {
+                IMyEntity decoy = targetGrid.GetFatBlocks<IMyDecoy>().Count() > 0 ? targetGrid.GetFatBlocks<IMyDecoy>().First() : null;
+
+                if (decoy != null)
+                    target = decoy;
+            }
+
+            /*
             IMyCubeGrid targetGrid = target as IMyCubeGrid;
             if (targetGrid is IMyCubeGrid)
             {
@@ -486,7 +512,7 @@ namespace ScriptedMissiles
                     }
                 }
             }
-
+            */
             return target;
         }
 
@@ -574,10 +600,23 @@ namespace ScriptedMissiles
 
             missiles_to_be_exploded.Clear();
 
-            foreach (var missile in scriptedMissiles)
+            int incoming_missiles = 0;
+            double closest_missile_distance = double.PositiveInfinity;
+
+            foreach (var missile in scriptedMissiles.Values)
             {
-                missile.Value.Update();
+                missile.Update();
+
+                if (IsHoming(missile.missile) && MyAPIGateway.Session?.Player == MyAPIGateway.Players.GetPlayerControllingEntity((missile.target as IMyCubeBlock)?.CubeGrid))
+                {
+                    incoming_missiles++;
+                    if(missile.distance_to_target < closest_missile_distance)
+                        closest_missile_distance = missile.distance_to_target;
+                }
             }
+
+            if (incoming_missiles > 0)
+                MyAPIGateway.Utilities.ShowNotification($"<<< {incoming_missiles}X MISSILES {Math.Round(closest_missile_distance)} M DISTANCE >>>", 16, "Yellow");
 
             foreach(var missile in missiles_to_be_exploded)
             {

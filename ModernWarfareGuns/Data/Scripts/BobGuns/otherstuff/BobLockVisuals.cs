@@ -54,6 +54,8 @@ namespace BobLockVisuals
 
         private class TargetLockVisual
         {
+            public bool local_session_locked = false;
+
             const string subtypeId = "Welder";
 
             MyLight targetLight;
@@ -122,15 +124,19 @@ namespace BobLockVisuals
                 {
                     system.targetLocksKeysToRemove.Add(key);
                     RemoveLight();
+                    local_session_locked = false;
                     return;
                 }
 
                 if (MyAPIGateway.Session?.Player != MyAPIGateway.Players.GetPlayerControllingEntity(defender))
                 {
                     RemoveLight();
+                    local_session_locked = false;
                     // MyAPIGateway.Utilities.ShowNotification($"lights out: lock {targetLock == null}; atak {attacker.DisplayName}; def {defender.DisplayName}; gri {MyAPIGateway.Session?.Player == MyAPIGateway.Players.GetPlayerControllingEntity(defender)}", 16);
                     return;
                 }
+
+                local_session_locked = true;
 
                 if (targetLight == null)
                     CreateLight();
@@ -147,12 +153,21 @@ namespace BobLockVisuals
         {
             if (MyAPIGateway.Session?.Player?.Character == null || MyAPIGateway.Session.Camera == null)
                 return;
-                // MyAPIGateway.Utilities.ShowNotification($"drawing {targetLocks.Count}", 16);
+            // MyAPIGateway.Utilities.ShowNotification($"drawing {targetLocks.Count}", 16);
+            bool session_is_locked = false;
 
             foreach (TargetLockVisual targetLockVisual in targetLocks.Values)
             {
                 targetLockVisual.Update();
+                if (targetLockVisual.local_session_locked)
+                    session_is_locked = true;
             }
+
+            if(session_is_locked)
+            {
+                MyAPIGateway.Utilities.ShowNotification("<<<LOCKED>>>", 16, "Red");
+            }
+
         }
 
         public void UpdateLocks()
