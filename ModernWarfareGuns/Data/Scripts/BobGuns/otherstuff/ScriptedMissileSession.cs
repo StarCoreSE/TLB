@@ -420,6 +420,7 @@ namespace ScriptedMissiles
 
         private void OnMissileCollided(IMyMissile missile)
         {
+
             if(IsMine(missile) && missile.CollisionPoint != null && missile.CollidedEntity is IMyVoxelBase)
             {
                 MatrixD matrix = MatrixD.CreateFromDir(-missile.CollisionNormal);

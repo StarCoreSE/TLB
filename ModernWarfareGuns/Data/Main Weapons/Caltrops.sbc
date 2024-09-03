@@ -6,7 +6,7 @@
 			<TypeId>SmallMissileLauncher</TypeId>
 			<SubtypeId>CaltropsGunBlock</SubtypeId>
 		</Id>
-		<DisplayName>Caltrops Minelayer (experimental)</DisplayName>
+		<DisplayName>Caltrops Minelayer</DisplayName>
 		<Icon>Textures\Icons\Turrets\HwachaIcon.png</Icon>
 		<Description>Rocket barrage artillery</Description>
 		<CubeSize>Small</CubeSize>
@@ -95,24 +95,20 @@
 			<IsExplosive>true</IsExplosive>
 			<BackkickForce>1</BackkickForce>
 			<PhysicalMaterial></PhysicalMaterial>
-			<ExplosiveDamageMultiplier>0</ExplosiveDamageMultiplier>
+			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
 			<EndOfLifeEffect>Smoke_Construction</EndOfLifeEffect>
 		</BasicProperties>
 		<MissileProperties>
-			<MissileMass>0</MissileMass>
-			<MissileExplosionRadius>0</MissileExplosionRadius>
+			<MissileMass>1</MissileMass>
+			<MissileExplosionRadius>0.1</MissileExplosionRadius>
 			<MissileModelName>Models\Ammo\SmallBomb.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
 			<MissileInitialSpeed>50</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>0</MissileExplosionDamage>
-			<MissileHealthPool>0</MissileHealthPool>
+			<MissileHealthPool>1</MissileHealthPool>
 			<MissileTrailEffect></MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
-			<MissileRicochetAngle>0</MissileRicochetAngle>
-			<MissileRicochetDamage>0</MissileRicochetDamage>
-			<MissileRicochetProbability>0</MissileRicochetProbability>
-			<ExplosionFlags>FORCE_CUSTOM_END_OF_LIFE_EFFECT</ExplosionFlags>
+			<ExplosionFlags>APPLY_FORCE_AND_DAMAGE CREATE_DECALS CREATE_SHRAPNELS FORCE_CUSTOM_END_OF_LIFE_EFFECT</ExplosionFlags>
 		</MissileProperties>
 	</Ammo>
 	</Ammos>
