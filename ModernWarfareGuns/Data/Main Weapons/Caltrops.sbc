@@ -4,17 +4,17 @@
 	<Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
 		<Id>
 			<TypeId>SmallMissileLauncher</TypeId>
-			<SubtypeId>ArbalestGunBlock</SubtypeId>
+			<SubtypeId>CaltropsGunBlock</SubtypeId>
 		</Id>
-		<DisplayName>Arbalest Autocannon</DisplayName>
-		<Icon>Textures\Icons\Turrets\ArbalestIcon.dds</Icon>
-		<Description>A high ROF armour piercing autocannon</Description>
+		<DisplayName>Caltrops Minelayer (experimental)</DisplayName>
+		<Icon>Textures\Icons\Turrets\HwachaIcon.png</Icon>
+		<Description>Rocket barrage artillery</Description>
 		<CubeSize>Small</CubeSize>
 		<GuiVisible>false</GuiVisible>
 		<BlockTopology>TriangleMesh</BlockTopology>
-		<Size x="1" y="1" z="9" />
+		<Size x="3" y="3" z="6" />
 		<ModelOffset x="0" y="0" z="0" />
-		<Model>Models\Cubes\ArbalestModel.mwm</Model>
+		<Model>Models\Cubes\HwachaModel.mwm</Model>
 		<Components>
 			<Component Subtype="SteelPlate" Count="1" />
 			<Component Subtype="Construction" Count="1" />
@@ -25,10 +25,10 @@
 		<CriticalComponent Subtype="Computer" Index="0" />
 		<MirroringY>Z</MirroringY>
 		<MirroringZ>Y</MirroringZ>
-		<Center x="0" y="0" z="8" />
+		<Center x="0" y="1" z="3" />
 		<BuildTimeSeconds>6</BuildTimeSeconds>
 		<EdgeType>Light</EdgeType>
-		<WeaponDefinitionId Subtype="ArbalestWep" />
+		<WeaponDefinitionId Subtype="CaltropsWep" />
 		<ResourceSinkGroup>Defense</ResourceSinkGroup>
 		<InventoryMaxVolume>0.006</InventoryMaxVolume>
 		<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
@@ -44,31 +44,24 @@
 	<Weapon>
 		<Id>
 			<TypeId>WeaponDefinition</TypeId>
-			<SubtypeId>ArbalestWep</SubtypeId>
+			<SubtypeId>CaltropsWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="180" ShootSoundName="WepShipAutocannonShot" FlightSoundName="MediumShellFlightSound" RicochetSoundName="ImpMetalMetalCat3" ShotsInBurst="32" />
-		<ReleaseTimeAfterFire>204</ReleaseTimeAfterFire>
-		<DeviateShotAngle>0.15</DeviateShotAngle>
-		<DeviateShotAngleAiming>0.15</DeviateShotAngleAiming>
-		<MuzzleFlashLifeSpan>40</MuzzleFlashLifeSpan>
-		<NoAmmoSoundName>WepShipGatlingNoAmmo</NoAmmoSoundName>
-		<SecondarySoundName></SecondarySoundName>
-		<Effects>
-			<Effect Action="Shoot" Dummy="Muzzle_Missile" Particle="Muzzle_Flash_Autocannon" Loop="false" InstantStop="false" OffsetX="0" OffsetY="0" OffsetZ="-2.0"/>
-		</Effects>
+		<MissileAmmoData RateOfFire="100" ShootSoundName="thumpyhumpyhuffman" FlightSoundName="" ShotsInBurst="50" />
+		<DeviateShotAngle>3.0</DeviateShotAngle>
+		<DeviateShotAngleAiming>3.0</DeviateShotAngleAiming>
 		<AmmoMagazines>
-			<AmmoMagazine Subtype="ArbalestMag" />
+			<AmmoMagazine Subtype="CaltropsMag" />
 		</AmmoMagazines>
-		<ReloadTime>10000</ReloadTime>
+		<ReloadTime>30000</ReloadTime>
 	</Weapon> <!--gren-->
 	</Weapons>
 	<AmmoMagazines>
 	<AmmoMagazine>
 	<Id>
 		<TypeId>AmmoMagazine</TypeId>
-		<SubtypeId>ArbalestMag</SubtypeId>
+		<SubtypeId>CaltropsMag</SubtypeId>
 	</Id>
-	<DisplayName>Ammo Arbalest</DisplayName>
+	<DisplayName>Ammo Caltrops</DisplayName>
 	<Icon>Textures\Icons\Magazines\GrenadeCrate.png</Icon>
 	<Size>
 		<X>0.25</X>
@@ -79,8 +72,8 @@
 	<Volume>30</Volume>
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>32</Capacity>
-	<AmmoDefinitionId Subtype="ArbalestAmmo" />
+	<Capacity>10</Capacity>
+	<AmmoDefinitionId Subtype="CaltropsAmmo_Mine" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>
 	<MaximumOfferAmount>1000</MaximumOfferAmount>
@@ -93,36 +86,33 @@
 	<Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
 		<Id>
 			<TypeId>AmmoDefinition</TypeId>
-			<SubtypeId>ArbalestAmmo</SubtypeId>
+			<SubtypeId>CaltropsAmmo_Mine</SubtypeId>
 		</Id>
 		<BasicProperties>
-			<DesiredSpeed>1345</DesiredSpeed>
+			<DesiredSpeed>200</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>1400</MaxTrajectory>
-			<IsExplosive>false</IsExplosive>
-			<BackkickForce>1000</BackkickForce>
-			<PhysicalMaterial>MediumShell</PhysicalMaterial>
-			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
-			<EndOfLifeEffect>BlockDestroyedExplosion_Small</EndOfLifeEffect>
-			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
+			<IsExplosive>true</IsExplosive>
+			<BackkickForce>1</BackkickForce>
+			<PhysicalMaterial></PhysicalMaterial>
+			<ExplosiveDamageMultiplier>0</ExplosiveDamageMultiplier>
+			<EndOfLifeEffect>Smoke_Construction</EndOfLifeEffect>
 		</BasicProperties>
 		<MissileProperties>
-			<MissileMass>10</MissileMass>
-			<MissileExplosionRadius>0.1</MissileExplosionRadius>
-			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
+			<MissileMass>0</MissileMass>
+			<MissileExplosionRadius>0</MissileExplosionRadius>
+			<MissileModelName>Models\Ammo\SmallBomb.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>
-			<MissileInitialSpeed>1345</MissileInitialSpeed>
+			<MissileInitialSpeed>50</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
 			<MissileExplosionDamage>0</MissileExplosionDamage>
-			<MissileHealthPool>500</MissileHealthPool>
-			<MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
+			<MissileHealthPool>0</MissileHealthPool>
+			<MissileTrailEffect></MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
-			<MissileMinRicochetAngle>40</MissileMinRicochetAngle>
-			<MissileMaxRicochetAngle>70</MissileMaxRicochetAngle>
-			<MissileMinRicochetProbability>0.25</MissileMinRicochetProbability>
-			<MissileMaxRicochetProbability>0.85</MissileMaxRicochetProbability>
-			<MissileRicochetDamage>250</MissileRicochetDamage>
-			<ExplosionFlags>APPLY_FORCE_AND_DAMAGE CREATE_DECALS CREATE_SHRAPNELS FORCE_CUSTOM_END_OF_LIFE_EFFECT</ExplosionFlags>
+			<MissileRicochetAngle>0</MissileRicochetAngle>
+			<MissileRicochetDamage>0</MissileRicochetDamage>
+			<MissileRicochetProbability>0</MissileRicochetProbability>
+			<ExplosionFlags>FORCE_CUSTOM_END_OF_LIFE_EFFECT</ExplosionFlags>
 		</MissileProperties>
 	</Ammo>
 	</Ammos>

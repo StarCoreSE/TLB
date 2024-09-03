@@ -96,13 +96,13 @@
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>1400</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
-			<BackkickForce>0</BackkickForce>
+			<BackkickForce>1000</BackkickForce>
 			<PhysicalMaterial>MediumShell</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>1.2</ExplosiveDamageMultiplier>
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
-			<MissileMass>10</MissileMass>
+			<MissileMass>20</MissileMass>
 			<MissileExplosionRadius>1.5</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>

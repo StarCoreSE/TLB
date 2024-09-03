@@ -30,7 +30,7 @@
       <BuildTimeSeconds>15</BuildTimeSeconds>
       <InventoryMaxVolume>0.24</InventoryMaxVolume>
       <ResourceSinkGroup>Defense</ResourceSinkGroup>
-      <WeaponDefinitionId Subtype="LargeMissileTurret" />
+      <WeaponDefinitionId Subtype="LongbowWep" />
       <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
       <DamagedSound>ParticleWeapExpl</DamagedSound>
       <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
@@ -92,7 +92,7 @@
 			<SubtypeId>LongbowAmmo_Homing</SubtypeId>
 		</Id>
 		<BasicProperties>
-			<DesiredSpeed>1000</DesiredSpeed>
+			<DesiredSpeed>500</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
 			<MaxTrajectory>2000</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
@@ -102,13 +102,14 @@
 		</BasicProperties>
 		<MissileProperties>
 			<MissileMass>45</MissileMass>
-			<MissileExplosionRadius>4</MissileExplosionRadius>
+			<MissileExplosionRadius>2</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\Projectile_Missile.mwm</MissileModelName>
 			<MissileAcceleration>600</MissileAcceleration>
 			<MissileInitialSpeed>100</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>500</MissileExplosionDamage>
+			<MissileExplosionDamage>100</MissileExplosionDamage>
 			<MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
+			<MissileHealthPool>2500</MissileHealthPool>
 		</MissileProperties>
 	</Ammo>
 	</Ammos>

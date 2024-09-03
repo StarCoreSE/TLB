@@ -85,7 +85,7 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>MaceWep</SubtypeId>
 		</Id>
-		<MissileAmmoData RateOfFire="300" ShootSoundName="WepTurretMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="3" />
+			<MissileAmmoData RateOfFire="200" ShootSoundName="thumpyhumpyhuffman" FlightSoundName="MediumShellFlightSound" ShotsInBurst="16" />
 		<DeviateShotAngle>2.0</DeviateShotAngle>
 		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
 		<AmmoMagazines>
@@ -108,10 +108,10 @@
 		<Z>0.2</Z>
 	</Size><Health>999999</Health>
 	<Mass>60</Mass>
-	<Volume>30</Volume>
+	<Volume>16</Volume>
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>3</Capacity>
+	<Capacity>16</Capacity>
 	<AmmoDefinitionId Subtype="MaceAmmo" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>

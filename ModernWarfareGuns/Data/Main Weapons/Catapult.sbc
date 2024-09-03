@@ -103,7 +103,7 @@
 			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
 		<MissileProperties>
-			<MissileMass>1000</MissileMass>
+			<MissileMass>300</MissileMass>
 			<MissileExplosionRadius>3</MissileExplosionRadius>
 			<MissileModelName>Models\Weapons\LargeCalibreShell.mwm</MissileModelName>
 			<MissileAcceleration>0</MissileAcceleration>

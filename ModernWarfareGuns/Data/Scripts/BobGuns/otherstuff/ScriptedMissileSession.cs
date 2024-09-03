@@ -22,6 +22,9 @@ using Sandbox.Game.Lights;
 using Sandbox.Common.ObjectBuilders;
 using VRageRender.Lights;
 using System.Reflection;
+using VRage.Game.Entity;
+using VRage.Game.ModAPI.Interfaces;
+using CollisionLayers = Sandbox.Engine.Physics.MyPhysics.CollisionLayers;
 
 namespace ScriptedMissiles
 {
@@ -395,13 +398,16 @@ namespace ScriptedMissiles
 
         Dictionary<long, ScriptedMissile> scriptedMissiles = new Dictionary<long, ScriptedMissile>();
         public Dictionary<long, IMyMissile> flares = new Dictionary<long, IMyMissile>();
+        public HashSet<IMyEntity> mines = new HashSet<IMyEntity>();
         public HashSet<IMyMissile> all_missiles = new HashSet<IMyMissile>();
         public List<IMyMissile> missiles_to_be_exploded = new List<IMyMissile>();
-
+        public List<IMyPlayer> players = new List<IMyPlayer>();
         public override void BeforeStart()
         {
             MyAPIGateway.Missiles.OnMissileAdded += OnMissileAdded;
             MyAPIGateway.Missiles.OnMissileRemoved += OnMissileRemoved;
+            MyAPIGateway.Missiles.OnMissileCollided += OnMissileCollided;
+
             instance = this;
         }
 
@@ -409,6 +415,71 @@ namespace ScriptedMissiles
         {
             MyAPIGateway.Missiles.OnMissileAdded -= OnMissileAdded;
             MyAPIGateway.Missiles.OnMissileRemoved -= OnMissileRemoved;
+            MyAPIGateway.Missiles.OnMissileCollided -= OnMissileCollided;
+        }
+
+        private void OnMissileCollided(IMyMissile missile)
+        {
+            if(IsMine(missile) && missile.CollisionPoint != null && missile.CollidedEntity is IMyVoxelBase)
+            {
+                MatrixD matrix = MatrixD.CreateFromDir(-missile.CollisionNormal);
+                matrix.Translation = (Vector3D)missile.CollisionPoint;
+                mines.Add(new Mine(matrix, ModContext.ModPath + "\\Models\\Ammo\\SmallBomb.mwm", 300f, 8f, 5f));
+            }
+        }
+
+        public class Mine : MyEntity, IMyDestroyableObject
+        {
+            public float Integrity => 1f;
+            public bool UseDamageSystem => true;
+
+            public float damage;
+            public float explosion_radius;
+            public float detection_radius;
+
+            public bool DoDamage(float damage, MyStringHash damageSource, bool sync, MyHitInfo? hitInfo = null, long attackerId = 0,
+                long realHitEntityId = 0, bool shouldDetonateAmmo = true, MyStringHash? extraInfo = null)
+            {
+                Explode();
+                return true;
+            }
+
+            public void OnDestroy()
+            {
+                Explode();
+            }
+
+            public Mine(MatrixD initialMatrix, string modelPath, float damage, float explosion_radius, float detection_radius)
+            {
+                this.Init(null, modelPath, null, null, null);
+                this.DefinitionId = new MyDefinitionId(MyObjectBuilderType.Invalid, "CustomEntity");
+                this.Save = false;
+                this.DisplayName = modelPath;
+                this.WorldMatrix = initialMatrix;
+                this.AddToGamePruningStructure();
+                this.Flags |= EntityFlags.IsGamePrunningStructureObject;
+
+                this.damage = damage;
+                this.explosion_radius = explosion_radius;
+                this.detection_radius = detection_radius;
+
+                try
+                {
+                    MyEntities.Add(this as MyEntity, true);
+                }
+                catch (Exception ex) { }
+            }
+
+            public void Explode()
+            {
+                BoundingSphereD sphere = new BoundingSphereD(this.WorldMatrix.Translation, explosion_radius);
+                MyExplosionInfo explosion = new MyExplosionInfo(damage, damage, sphere, MyExplosionTypeEnum.MISSILE_EXPLOSION, true, true);
+                explosion.CreateParticleEffect = true;
+                explosion.LifespanMiliseconds = 150 + (int)explosion_radius * 45;
+                explosion.ParticleScale = 0.3f * (float)(explosion_radius);
+                MyExplosions.AddExplosion(ref explosion, true);
+                this.Close();
+            }
         }
 
         private void OnMissileAdded(IMyMissile missile)
@@ -533,8 +604,14 @@ namespace ScriptedMissiles
 
         private bool IsBeamRider(IMyMissile missile)
         {
-            //MyAPIGateway.Utilities.ShowNotification($"ismissile : {missile.AmmoDefinition.Id.SubtypeName} : {missile.AmmoDefinition.Id.SubtypeName.Contains("Missile")}");
             if (missile.AmmoDefinition.Id.SubtypeName.Contains("BeamRider"))
+                return true;
+
+            return false;
+        }
+        private bool IsMine(IMyMissile missile)
+        {
+            if (missile.AmmoDefinition.Id.SubtypeName.Contains("Mine"))
                 return true;
 
             return false;
@@ -542,7 +619,6 @@ namespace ScriptedMissiles
 
         private bool IsHoming(IMyMissile missile)
         {
-            //MyAPIGateway.Utilities.ShowNotification($"ismissile : {missile.AmmoDefinition.Id.SubtypeName} : {missile.AmmoDefinition.Id.SubtypeName.Contains("Missile")}");
             if (missile.AmmoDefinition.Id.SubtypeName.Contains("Homing"))
                 return true;
 
@@ -550,7 +626,6 @@ namespace ScriptedMissiles
         }
         private bool IsProximity(IMyMissile missile)
         {
-            //MyAPIGateway.Utilities.ShowNotification($"ismissile : {missile.AmmoDefinition.Id.SubtypeName} : {missile.AmmoDefinition.Id.SubtypeName.Contains("Missile")}");
             if (missile.AmmoDefinition.Id.SubtypeName.Contains("Proximity"))
                 return true;
 
@@ -599,6 +674,8 @@ namespace ScriptedMissiles
         {
 
             missiles_to_be_exploded.Clear();
+            players.Clear();
+
 
             int incoming_missiles = 0;
             double closest_missile_distance = double.PositiveInfinity;
@@ -622,6 +699,19 @@ namespace ScriptedMissiles
             {
                 CreateExplosionFromMissile(missile);
                 missile.Destroy();
+            }
+
+            MyAPIGateway.Players.GetPlayers(players);
+            foreach (IMyPlayer player in players)
+            {
+                if (player == null || player.Character == null || player.Character.IsDead) continue;
+
+                // lol
+                foreach (Mine mine in mines)
+                {
+                    if(mine != null && (player.Character.GetPosition() - mine.WorldMatrix.Translation).LengthSquared() < mine.detection_radius * mine.detection_radius)
+                        mine.Explode();
+                }
             }
         }
     }

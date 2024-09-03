@@ -118,7 +118,7 @@
 			<DesiredSpeed>900</DesiredSpeed>
 			<SpeedVariance>0.2</SpeedVariance>
 			<MaxTrajectory>1200</MaxTrajectory>
-			<BackkickForce>10000</BackkickForce>
+			<BackkickForce>5000</BackkickForce>
 			<PhysicalMaterial>GunBullet</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>0.6</ExplosiveDamageMultiplier>
 		</BasicProperties>
