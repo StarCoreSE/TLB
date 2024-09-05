@@ -21,6 +21,10 @@ using System.Security.AccessControl;
 using VRage.Game.Entity;
 using System.Numerics;
 using System.Text.RegularExpressions;
+using Sandbox.Game.Entities.Cube;
+using Sandbox.ModAPI.Interfaces.Terminal;
+using Sandbox.ModAPI.Interfaces;
+//using Sandbox.ModAPI.Ingame;
 
 namespace MODERN_WARFARE_CORE
 {
@@ -834,6 +838,14 @@ namespace MODERN_WARFARE_CORE
         IMyCubeGrid grid;
         IMyMotorSuspension suspension;
         IMyFunctionalBlock con;
+        MechanicalPowerGrid vehicle;
+
+
+        const float maxMass = 200000f;
+        const float minSpeed = 108f;
+        const float maxSpeed = 360f;
+
+        
 
         bool turned_off_by_bob = false; // Flag to check if the suspension was turned off by the converter
 
@@ -855,8 +867,18 @@ namespace MODERN_WARFARE_CORE
 
             if (con == null)
                 return;
+
+
+            if (vehicle == null)
+            {
+                if (!MechanicalPowerSession.instance.grids.TryGetValue(grid.EntityId, out vehicle))
+                    return;
+            }
+
+            SpeedLimitUpdate();
+
             //MyAPIGateway.Utilities.ShowNotification($"Converter is not null, and enabled", 160);
-            bool converter_is_working = con.Enabled && con.IsFunctional & (con as MyFueledPowerProducer).Capacity > 0;
+             bool converter_is_working = con.Enabled && con.IsFunctional & (con as MyFueledPowerProducer).Capacity > 0;
 
             // Check if the suspension is enabled and the converter is not working
             if (suspension.Enabled && !converter_is_working)
@@ -880,25 +902,24 @@ namespace MODERN_WARFARE_CORE
 
             foreach (IMySlimBlock slim in n)
             {
-                if(slim.FatBlock == null) continue;
+                if (slim.FatBlock == null) continue;
 
-                if(slim.BlockDefinition.Id.SubtypeName == "SuspensionConverter")
+                if (slim.BlockDefinition.Id.SubtypeName == "SuspensionConverter")
                 {
                     con = slim.FatBlock as IMyFunctionalBlock;
                     break;
                 }
             }
-
-            /*if (con == null)
+        }
+        public void SpeedLimitUpdate()
+        {
+            // stuff and thangs
+            float speedlimit = (((minSpeed - maxSpeed) /  maxMass) * vehicle.mass) + maxSpeed;
+            if (suspension.GetValue<float>("Speed Limit")*1.05 > speedlimit)
             {
-                suspension.Enabled = false;
-                turned_off_by_bob = true;
+                suspension.SetValue<float>("Speed Limit", speedlimit);
             }
-            else if(turned_off_by_bob)
-            {
-                suspension.Enabled = true;
-                turned_off_by_bob = false;
-            }*/
+            //MyAPIGateway.Utilities.ShowNotification($"maxSpeed: {speedlimit} {vehicle.mass}", 160);
         }
     }
 
@@ -990,6 +1011,8 @@ namespace MODERN_WARFARE_CORE
         public HashSet<IMyGasGenerator> engines = new HashSet<IMyGasGenerator>();
         public HashSet<IMyCubeBlock> cargos = new HashSet<IMyCubeBlock>();
 
+        public float mass = 0f;
+
         public MechanicalPowerGrid(IMyCubeGrid grid)
         {
             this.grid = grid;
@@ -999,6 +1022,7 @@ namespace MODERN_WARFARE_CORE
         {
             UpdateFuel();
             UpdateThrustAndProduction();
+            UpdateMass();
         }
 
         public void UpdateFuel()
@@ -1046,6 +1070,11 @@ namespace MODERN_WARFARE_CORE
             }
             //MyAPIGateway.Utilities.ShowNotification($"ice_fuel_consumed_per_second:  {ice_fuel_consumed_per_second}", 1600);
             //MyAPIGateway.Utilities.ShowNotification($"ice_fuel_consumed_per_second_max:  {ice_fuel_consumed_per_second_max}", 1600);
+        }
+
+        public void UpdateMass()
+        {
+            mass = (grid as MyCubeGrid).GetCurrentMass();
         }
     }
 
