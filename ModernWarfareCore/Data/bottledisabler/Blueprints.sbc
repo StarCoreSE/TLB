@@ -1,0 +1,35 @@
+﻿<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Blueprints>
+    <Blueprint Enabled="false">
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>HydrogenBottle</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Item_HydrogenBottle</DisplayName>
+      <Icon>Textures\GUI\Icons\component\HydrogenBottle_Component.dds</Icon>
+      <Prerequisites>
+        <Item Amount="80" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="10" TypeId="Ingot" SubtypeId="Silver" />
+        <Item Amount="30" TypeId="Ingot" SubtypeId="Nickel" />
+      </Prerequisites>
+      <Result Amount="1" TypeId="GasContainerObject" SubtypeId="HydrogenBottle" />
+      <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+    </Blueprint>
+	  <Blueprint Enabled="false">
+		  <Id>
+			  <TypeId>BlueprintDefinition</TypeId>
+			  <SubtypeId>OxygenBottle</SubtypeId>
+		  </Id>
+		  <DisplayName>DisplayName_Item_HydrogenBottle</DisplayName>
+		  <Icon>Textures\GUI\Icons\component\HydrogenBottle_Component.dds</Icon>
+		  <Prerequisites>
+			  <Item Amount="80" TypeId="Ingot" SubtypeId="Iron" />
+			  <Item Amount="10" TypeId="Ingot" SubtypeId="Silver" />
+			  <Item Amount="30" TypeId="Ingot" SubtypeId="Nickel" />
+		  </Prerequisites>
+		  <Result Amount="1" TypeId="GasContainerObject" SubtypeId="OxygenBottle" />
+		  <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+	  </Blueprint>
+  </Blueprints>
+</Definitions>

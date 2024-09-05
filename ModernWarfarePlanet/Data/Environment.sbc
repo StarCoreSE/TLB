@@ -13,7 +13,7 @@
 
     <PlanetProperties>
         <AtmosphereIntensityMultiplier>17</AtmosphereIntensityMultiplier>
-        <AtmosphereIntensityAmbientMultiplier>10</AtmosphereIntensityAmbientMultiplier>
+        <AtmosphereIntensityAmbientMultiplier>17</AtmosphereIntensityAmbientMultiplier>
         <CloudsIntensityMultiplier>17</CloudsIntensityMultiplier>
     </PlanetProperties>
     <FogProperties>
@@ -27,7 +27,7 @@
     </FogProperties>
 
     <SunProperties>
-      <SunIntensity>150</SunIntensity>
+      <SunIntensity>200</SunIntensity>
       <EnvironmentProbe>
         <TimeOut>0.3</TimeOut>
         <DrawDistance>130</DrawDistance>
@@ -72,10 +72,10 @@
         <AOSpotLight>0.7</AOSpotLight>
 
         <SkyboxBrightness>1.0</SkyboxBrightness>
-        <EnvSkyboxBrightness>5.0</EnvSkyboxBrightness>
+        <EnvSkyboxBrightness>1.0</EnvSkyboxBrightness>
         <ShadowFadeoutMultiplier>0.0</ShadowFadeoutMultiplier>
         <EnvShadowFadeoutMultiplier>0</EnvShadowFadeoutMultiplier>
-        <EnvAtmosphereBrightness>1.0</EnvAtmosphereBrightness>
+        <EnvAtmosphereBrightness>10.0</EnvAtmosphereBrightness>
 
           <AmbientRadius>50.0</AmbientRadius>
           <AmbientLightsGatherRadius>15.0</AmbientLightsGatherRadius>

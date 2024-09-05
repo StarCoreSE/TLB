@@ -208,9 +208,32 @@ namespace MODERN_WARFARE_GUNS
                         }
                     }
                 }
-                //});
-                //    }
-                //}
+
+                // fascinating
+                List<IMyPlayer> players = new List<IMyPlayer>();
+                MyAPIGateway.Players.GetPlayers(players);
+                foreach (IMyPlayer player in players)
+                {
+                    if (player == null || player.Character == null || player.Character.IsDead) continue;
+
+                    var gun = player.Character.EquippedTool as IMyGunObject<MyGunBase>;
+
+                    if (gun != null && gun.GunBase.CurrentAmmo == 0)
+                    {
+                        foreach (IMyShipMergeBlock ammoRack in ammoRacks)
+                        {
+                            if (ammoRack == null || !ammoRack.IsFunctional || usedRacks.Contains(ammoRack))
+                                continue;
+
+                            if ((ammoRack.GetPosition() - player.Character.GetPosition()).LengthSquared() < 5)
+                            {
+                                usedRacks.Add(ammoRack);
+                                gun.GunBase.CurrentAmmo = gun.GunBase.CurrentAmmoMagazineDefinition.Capacity;
+                                break;
+                            }
+                        }
+                    }
+                }
 
                 foreach (IMyShipMergeBlock ammoRack in usedRacks)
                 {

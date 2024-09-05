@@ -135,6 +135,26 @@ namespace cleaner
 
         });
 
+        /*
+        private void ConfigureXLBlocks(MyCubeBlockDefinition def)
+        {
+            var comp_list = new MyCubeBlockDefinition.Component[1];
+
+            MyComponentDefinition steel_plate = MyDefinitionManager.Static.TryGetDefinition(MyDefinitionId.TryParse("MyObjectBuilder_Component/SteelPlate"), out steel_plate);
+
+            MyCubeBlockDefinition.Component component = new MyCubeBlockDefinition.Component
+            {
+                Definition = steel_plate,
+                Count = 1000,
+                DeconstructItem = steel_plate
+            };
+
+            comp_list[0] = (component);
+
+            def.Components = comp_list;
+        }
+        */
+
         private void ApplyGitGoneFilters()
         {
             foreach (MyDefinitionBase def in MyDefinitionManager.Static.GetAllDefinitions())
@@ -148,6 +168,7 @@ namespace cleaner
 
                 bool is_banned = block_type_id_blacklist.Contains(type_id) || block_subtype_id_blacklist.Contains(subtype_id);
                 bool is_admin = subtype_id.Contains(ADMIN_TAG);
+                //bool is_XL_block = subtype_id.Contains("XL");
 
                 foreach (string banned_keyword in block_subtype_banned_keywords)
                 {
@@ -170,6 +191,9 @@ namespace cleaner
 
                 //if (def.DLCs != null)
                 //    EviscerateBlockDefinition(blockDef);
+
+                //if (is_XL_block)
+                //    ConfigureXLBlocks(block_def);
 
                 if (is_admin)
                 {
