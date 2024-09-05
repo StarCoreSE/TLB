@@ -299,11 +299,7 @@ namespace Digi2.AeroWings
                         var forceVector = liftVector + dragVector;
 
                         var subgrids2 = MyAPIGateway.GridGroups.GetGroup(grid, GridLinkTypeEnum.Logical);
-                        shipMass = 0f;
-                        foreach (MyCubeGrid subgrid in subgrids2)
-                        {
-                            shipMass += (subgrid as MyCubeGrid).GetCurrentMass();
-                        }
+                        shipMass = (grid as MyCubeGrid).GetCurrentMass();
                         tempcount++;
 
                         if(tempcount > 100)
