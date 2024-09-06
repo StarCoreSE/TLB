@@ -102,7 +102,7 @@ namespace MODERN_WARFARE_GUNS
                 ammoRacks.Add(slim.FatBlock as IMyShipMergeBlock);
             else if (slim.FatBlock is IMyGunObject<MyGunBase>)
             {
-                (slim.FatBlock as IMyGunObject<MyGunBase>).GunBase.CurrentAmmo = (slim.FatBlock as IMyGunObject<MyGunBase>).GunBase.CurrentAmmoMagazineDefinition.Capacity;
+                (slim.FatBlock as IMyGunObject<MyGunBase>).GunBase.CurrentAmmo = (slim.FatBlock as IMyGunObject<MyGunBase>).GunBase.ShotsInBurst;
                 weapons.Add(slim.FatBlock as IMyGunObject<MyGunBase>);
             }
         }
