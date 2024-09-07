@@ -21,6 +21,7 @@ namespace TLB.ShareTrack.ShipTracking
         private WcApi WcApi => AllGridsList.I.WcApi;
 
         public bool NeedsUpdate { get; private set; } = true;
+        public bool IsPrimaryGrid = false;
 
         #region Public Methods
 
@@ -313,6 +314,10 @@ namespace TLB.ShareTrack.ShipTracking
 
             if (WcApi.HasCoreWeapon((MyEntity)block))
             {
+                // Weapons on subgrids have an extra 20% cost applied (this is disabled)
+                //if (!IsPrimaryGrid)
+                //    blockPoints = (int)(blockPoints * 1.2f);
+
                 var validTargetTypes = new List<string>();
                 WcApi.GetTurretTargetTypes((MyEntity)block, validTargetTypes);
                 if (validTargetTypes.Contains("Projectiles"))
