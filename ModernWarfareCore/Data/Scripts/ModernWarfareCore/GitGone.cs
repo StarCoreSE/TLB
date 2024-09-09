@@ -90,7 +90,7 @@ namespace cleaner
             "Plane",
             "plane", ///... plane parts, fuck you.
             "wing_fill",
-            "wing_tip",
+            //"wing_tip",
             "wing_rigging",
         });
 

@@ -1059,5 +1059,303 @@
    <PCU>115</PCU>
 </Definition>
 
+<!-- Below are aesthetic wing tip blocks -->
+
+<Definition>
+  <Id>
+	<TypeId>CubeBlock</TypeId>
+	<SubtypeId>aero-wing_tip_A_1x1x1_rounded_half_Small</SubtypeId>
+  </Id>
+  <DisplayName>Wing_tip_A_1x1x1_rounded_half</DisplayName>
+  <Icon>Textures\Icons\aero-wing_tip_A_1x1x1_rounded_half.dds</Icon>
+  <CubeSize>Small</CubeSize>
+  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+  <BlockTopology>TriangleMesh</BlockTopology>
+  <Components>
+<Component Subtype="SteelPlate" Count="1" />
+  </Components>
+  <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+<Size x="1" y="1" z="1" />
+<ModelOffset x="0" y="0" z="0" />
+<Model>Models\aero-wing_tip_A_1x1x1_rounded_half\aero-wing_tip_A_1x1x1_rounded_half_Small.mwm</Model>
+<BuildProgressModels>
+			<Model BuildPercentUpperBound="1.00" File="Models\aero-wing_tip_A_1x1x1_rounded_half\aero-wing_tip_A_1x1x1_rounded_half_Small_Constr1.mwm" />
+</BuildProgressModels>
+<MountPoints>
+			<MountPoint Side="Front" StartX="0.20" StartY="0.00" EndX="1.00" EndY="1.00" />
+			<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+			<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true"/>
+			<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+			<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+</MountPoints>
+<BlockPairName>aero-wing_tip_A_1x1x1_rounded_half</BlockPairName>
+<MirroringX>Z</MirroringX>
+<MirroringY>None</MirroringY>
+<MirroringZ>X</MirroringZ>
+  <EdgeType>Light</EdgeType>
+  <BuildTimeSeconds>3</BuildTimeSeconds>
+  <PCU>1</PCU>
+</Definition>
+
+<Definition>
+  <Id>
+	<TypeId>CubeBlock</TypeId>
+	<SubtypeId>aero-wing_tip_B_1x1x1_rounded_half_Small</SubtypeId>
+  </Id>
+  <DisplayName>Wing_tip_B_1x1x1_rounded_half</DisplayName>
+  <Icon>Textures\Icons\aero-wing_tip_B_1x1x1_rounded_half.dds</Icon>
+  <GuiVisible>false</GuiVisible>
+  <CubeSize>Small</CubeSize>
+  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+  <BlockTopology>TriangleMesh</BlockTopology>
+  <Components>
+<Component Subtype="SteelPlate" Count="1" />
+  </Components>
+  <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+<Size x="1" y="1" z="1" />
+<ModelOffset x="0" y="0" z="0" />
+<Model>Models\aero-wing_tip_B_1x1x1_rounded_half\aero-wing_tip_B_1x1x1_rounded_half_Small.mwm</Model>
+<BuildProgressModels>
+			<Model BuildPercentUpperBound="1.00" File="Models\aero-wing_tip_B_1x1x1_rounded_half\aero-wing_tip_B_1x1x1_rounded_half_Small_Constr1.mwm" />
+</BuildProgressModels>
+<MountPoints>
+			<MountPoint Side="Front" StartX="0.20" StartY="0.00" EndX="1.00" EndY="1.00" />
+			<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true"/>
+			<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+			<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+</MountPoints>
+<BlockPairName>aero-wing_tip_B_1x1x1_rounded_half</BlockPairName>
+<MirroringX>Z</MirroringX>
+<MirroringY>None</MirroringY>
+<MirroringZ>X</MirroringZ>
+  <EdgeType>Light</EdgeType>
+  <BuildTimeSeconds>3</BuildTimeSeconds>
+  <PCU>1</PCU>
+</Definition>
+
+<Definition>
+  <Id>
+	<TypeId>CubeBlock</TypeId>
+	<SubtypeId>aero-wing_tip_C_1x1x1_rounded_full_Small</SubtypeId>
+  </Id>
+  <DisplayName>Wing_tip_C_1x1x1_rounded_full</DisplayName>
+  <Icon>Textures\Icons\aero-wing_tip_C_1x1x1_rounded_full.dds</Icon>
+  <GuiVisible>false</GuiVisible>
+  <CubeSize>Small</CubeSize>
+  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+  <BlockTopology>TriangleMesh</BlockTopology>
+  <Components>
+<Component Subtype="SteelPlate" Count="1" />
+  </Components>
+  <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+<Size x="1" y="1" z="1" />
+<ModelOffset x="0" y="0" z="0" />
+<Model>Models\aero-wing_tip_C_1x1x1_rounded_full\aero-wing_tip_C_1x1x1_rounded_full_Small.mwm</Model>
+<BuildProgressModels>
+			<Model BuildPercentUpperBound="1.00" File="Models\aero-wing_tip_C_1x1x1_rounded_full\aero-wing_tip_C_1x1x1_rounded_full_Small_Constr1.mwm" />
+</BuildProgressModels>
+<MountPoints>
+			<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+			<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true"/>
+			<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+			<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+</MountPoints>
+<BlockPairName>aero-wing_tip_C_1x1x1_rounded_full</BlockPairName>
+<MirroringX>Z</MirroringX>
+<MirroringY>None</MirroringY>
+<MirroringZ>X</MirroringZ>
+  <EdgeType>Light</EdgeType>
+  <BuildTimeSeconds>3</BuildTimeSeconds>
+  <PCU>1</PCU>
+</Definition>
+
+<Definition>
+  <Id>
+	<TypeId>CubeBlock</TypeId>
+	<SubtypeId>aero-wing_tip_D_2x1x1_rounded_full_to_edge_Small</SubtypeId>
+  </Id>
+  <DisplayName>Wing_tip_D_2x1x1_rounded_full_to_edge</DisplayName>
+  <Icon>Textures\Icons\aero-wing_tip_D_2x1x1_rounded_full_to_edge.dds</Icon>
+  <CubeSize>Small</CubeSize>
+  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+  <BlockTopology>TriangleMesh</BlockTopology>
+  <Components>
+<Component Subtype="SteelPlate" Count="1" />
+  </Components>
+  <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+<Size x="2" y="1" z="1" />
+<ModelOffset x="0" y="0" z="0" />
+<Model>Models\aero-wing_tip_D_2x1x1_rounded_full_to_edge\aero-wing_tip_D_2x1x1_rounded_full_to_edge_Small.mwm</Model>
+<BuildProgressModels>
+			<Model BuildPercentUpperBound="1.00" File="Models\aero-wing_tip_D_2x1x1_rounded_full_to_edge\aero-wing_tip_D_2x1x1_rounded_full_to_edge_Small_Constr1.mwm" />
+</BuildProgressModels>
+<MountPoints>
+			<MountPoint Side="Front" StartX="0.20" StartY="0.00" EndX="1.00" EndY="1.00" />
+			<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+			<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true"/>
+			<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+			<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+</MountPoints>
+<BlockPairName>aero-wing_tip_D_2x1x1_rounded_full_to_edge</BlockPairName>
+<MirroringX>Z</MirroringX>
+<MirroringY>None</MirroringY>
+<MirroringZ>X</MirroringZ>
+  <EdgeType>Light</EdgeType>
+  <BuildTimeSeconds>3</BuildTimeSeconds>
+  <PCU>1</PCU>
+</Definition>
+
+<Definition>
+  <Id>
+	<TypeId>CubeBlock</TypeId>
+	<SubtypeId>aero-wing_tip_E_2x1x1_rounded_half_to_edge_Small</SubtypeId>
+  </Id>
+  <DisplayName>Wing_tip_E_2x1x1_rounded_half_ro_edge</DisplayName>
+  <Icon>Textures\Icons\aero-wing_tip_E_2x1x1_rounded_half_to_edge.dds</Icon>
+  <GuiVisible>false</GuiVisible>
+  <CubeSize>Small</CubeSize>
+  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+  <BlockTopology>TriangleMesh</BlockTopology>
+  <Components>
+<Component Subtype="SteelPlate" Count="1" />
+  </Components>
+  <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+<Size x="2" y="1" z="1" />
+<ModelOffset x="0" y="0" z="0" />
+<Model>Models\aero-wing_tip_E_2x1x1_rounded_half_to_edge\aero-wing_tip_E_2x1x1_rounded_half_to_edge_Small.mwm</Model>
+<BuildProgressModels>
+			<Model BuildPercentUpperBound="1.00" File="Models\aero-wing_tip_E_2x1x1_rounded_half_to_edge\aero-wing_tip_E_2x1x1_rounded_half_to_edge_Small_Constr1.mwm" />
+</BuildProgressModels>
+<MountPoints>
+			<MountPoint Side="Front" StartX="0.20" StartY="0.00" EndX="1.00" EndY="1.00" />
+			<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+			<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" Default="true"/>
+			<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+			<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="0.80" EndY="1.00" />
+</MountPoints>
+<BlockPairName>aero-wing_tip_E_2x1x1_rounded_half_to_edge</BlockPairName>
+<MirroringX>Z</MirroringX>
+<MirroringY>None</MirroringY>
+<MirroringZ>X</MirroringZ>
+  <EdgeType>Light</EdgeType>
+  <BuildTimeSeconds>3</BuildTimeSeconds>
+  <PCU>1</PCU>
+</Definition>
+
+<Definition>
+  <Id>
+	<TypeId>CubeBlock</TypeId>
+	<SubtypeId>aero-wing_tip_F_2x2x1_edge_to_edge_Small</SubtypeId>
+  </Id>
+  <DisplayName>Wing_tip_F_2x2x1_edge_to_edge</DisplayName>
+  <Icon>Textures\Icons\aero-wing_tip_F_2x2x1_edge_to_edge.dds</Icon>
+  <GuiVisible>false</GuiVisible>
+  <CubeSize>Small</CubeSize>
+  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+  <BlockTopology>TriangleMesh</BlockTopology>
+  <Components>
+<Component Subtype="SteelPlate" Count="1" />
+  </Components>
+  <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+<Size x="2" y="1" z="2" />
+<ModelOffset x="0" y="0" z="0" />
+<Model>Models\aero-wing_tip_F_2x2x1_edge_to_edge\aero-wing_tip_F_2x2x1_edge_to_edge_Small.mwm</Model>
+<BuildProgressModels>
+			<Model BuildPercentUpperBound="1.00" File="Models\aero-wing_tip_F_2x2x1_edge_to_edge\aero-wing_tip_F_2x2x1_edge_to_edge_Small_Constr1.mwm" />
+</BuildProgressModels>
+<MountPoints>
+			<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="2.00" EndY="1.00" />
+			<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="2.00" EndY="1.00" />
+</MountPoints>
+<BlockPairName>aero-wing_tip_F_2x2x1_edge_to_edge</BlockPairName>
+<MirroringX>Z</MirroringX>
+<MirroringY>None</MirroringY>
+<MirroringZ>X</MirroringZ>
+  <EdgeType>Light</EdgeType>
+  <BuildTimeSeconds>3</BuildTimeSeconds>
+  <PCU>1</PCU>
+</Definition>
+
+<Definition>
+  <Id>
+	<TypeId>CubeBlock</TypeId>
+	<SubtypeId>aero-wing_tip_G_05x05x1_rounded_half_Small</SubtypeId>
+  </Id>
+  <DisplayName>Wing_tip_G_0.5x0.5x1_rounded_half</DisplayName>
+  <Icon>Textures\Icons\aero-wing_tip_G_05x05x1_rounded_half.dds</Icon>
+  <GuiVisible>false</GuiVisible>
+  <CubeSize>Small</CubeSize>
+  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+  <BlockTopology>TriangleMesh</BlockTopology>
+  <Components>
+<Component Subtype="SteelPlate" Count="1" />
+  </Components>
+  <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+<Size x="1" y="1" z="1" />
+<ModelOffset x="0" y="0" z="0" />
+<Model>Models\aero-wing_tip_G_05x05x1_rounded_half\aero-wing_tip_G_05x05x1_rounded_half_Small.mwm</Model>
+<BuildProgressModels>
+			<Model BuildPercentUpperBound="1.00" File="Models\aero-wing_tip_G_05x05x1_rounded_half\aero-wing_tip_G_05x05x1_rounded_half_Small_Constr1.mwm" />
+</BuildProgressModels>
+<MountPoints>
+			<MountPoint Side="Front" StartX="0.50" StartY="0.00" EndX="1.00" EndY="1.00" />
+			<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="0.50" EndY="1.00" />
+			<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="0.50" EndY="0.50" />
+			<MountPoint Side="Top" StartX="0.00" StartY="0.50" EndX="0.50" EndY="1.00" />
+</MountPoints>
+<BlockPairName>aero-wing_tip_G_05x05x1_rounded_half</BlockPairName>
+<MirroringX>Z</MirroringX>
+<MirroringY>None</MirroringY>
+<MirroringZ>X</MirroringZ>
+  <EdgeType>Light</EdgeType>
+  <BuildTimeSeconds>3</BuildTimeSeconds>
+  <PCU>1</PCU>
+</Definition>
+
+<Definition>
+  <Id>
+	<TypeId>CubeBlock</TypeId>
+	<SubtypeId>aero-wing_inside_curved_1x1x1_rounded_Small</SubtypeId>
+  </Id>
+  <DisplayName>Wing_1x1x1_inside_curved_rounded</DisplayName>
+  <Icon>Textures\Icons\aero-wing_inside_curved_1x1x1_rounded.dds</Icon>
+  <CubeSize>Small</CubeSize>
+  <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
+  <BlockTopology>TriangleMesh</BlockTopology>
+  <Components>
+	<Component Subtype="SteelPlate" Count="1" />
+  </Components>
+  <CriticalComponent Subtype="SteelPlate" Index="0" />
+
+<Size x="1" y="1" z="1" />
+<ModelOffset x="0" y="0" z="0" />
+<Model>Models\aero-wing_inside_curved_1x1x1_rounded\aero-wing_inside_curved_1x1x1_rounded_Small.mwm</Model>
+<BuildProgressModels>
+			<Model BuildPercentUpperBound="1.00" File="Models\aero-wing_inside_curved_1x1x1_rounded\aero-wing_inside_curved_1x1x1_rounded_Small_Constr1.mwm" />
+</BuildProgressModels>
+<MountPoints>
+			<MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+			<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+			<MountPoint Side="Left" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+			<MountPoint Side="Right" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+			<MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+			<MountPoint Side="Top" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00" />
+</MountPoints>
+<BlockPairName>aero-wing_inside_curved_1x1x1_rounded</BlockPairName>
+<MirroringX>Z</MirroringX>
+<MirroringY>None</MirroringY>
+<MirroringZ>X</MirroringZ>
+  <EdgeType>Light</EdgeType>
+  <BuildTimeSeconds>3</BuildTimeSeconds>
+  <PCU>1</PCU>
+</Definition>
+
   </CubeBlocks>
 </Definitions>
