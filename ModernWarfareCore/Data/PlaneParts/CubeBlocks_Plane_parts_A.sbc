@@ -1068,6 +1068,7 @@
   </Id>
   <DisplayName>Wing_tip_A_1x1x1_rounded_half</DisplayName>
   <Icon>Textures\Icons\aero-wing_tip_A_1x1x1_rounded_half.dds</Icon>
+  <Description>Does not provide lift</Description>
   <CubeSize>Small</CubeSize>
   <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
   <BlockTopology>TriangleMesh</BlockTopology>
@@ -1105,6 +1106,7 @@
   </Id>
   <DisplayName>Wing_tip_B_1x1x1_rounded_half</DisplayName>
   <Icon>Textures\Icons\aero-wing_tip_B_1x1x1_rounded_half.dds</Icon>
+  <Description>Does not provide lift</Description>
   <GuiVisible>false</GuiVisible>
   <CubeSize>Small</CubeSize>
   <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
@@ -1142,6 +1144,7 @@
   </Id>
   <DisplayName>Wing_tip_C_1x1x1_rounded_full</DisplayName>
   <Icon>Textures\Icons\aero-wing_tip_C_1x1x1_rounded_full.dds</Icon>
+  <Description>Does not provide lift</Description>
   <GuiVisible>false</GuiVisible>
   <CubeSize>Small</CubeSize>
   <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
@@ -1179,6 +1182,7 @@
   </Id>
   <DisplayName>Wing_tip_D_2x1x1_rounded_full_to_edge</DisplayName>
   <Icon>Textures\Icons\aero-wing_tip_D_2x1x1_rounded_full_to_edge.dds</Icon>
+  <Description>Does not provide lift</Description>
   <CubeSize>Small</CubeSize>
   <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
   <BlockTopology>TriangleMesh</BlockTopology>
@@ -1216,6 +1220,7 @@
   </Id>
   <DisplayName>Wing_tip_E_2x1x1_rounded_half_ro_edge</DisplayName>
   <Icon>Textures\Icons\aero-wing_tip_E_2x1x1_rounded_half_to_edge.dds</Icon>
+  <Description>Does not provide lift</Description>
   <GuiVisible>false</GuiVisible>
   <CubeSize>Small</CubeSize>
   <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
@@ -1254,6 +1259,7 @@
   </Id>
   <DisplayName>Wing_tip_F_2x2x1_edge_to_edge</DisplayName>
   <Icon>Textures\Icons\aero-wing_tip_F_2x2x1_edge_to_edge.dds</Icon>
+  <Description>Does not provide lift</Description>
   <GuiVisible>false</GuiVisible>
   <CubeSize>Small</CubeSize>
   <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
@@ -1289,6 +1295,7 @@
   </Id>
   <DisplayName>Wing_tip_G_0.5x0.5x1_rounded_half</DisplayName>
   <Icon>Textures\Icons\aero-wing_tip_G_05x05x1_rounded_half.dds</Icon>
+  <Description>Does not provide lift</Description>
   <GuiVisible>false</GuiVisible>
   <CubeSize>Small</CubeSize>
   <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
@@ -1326,6 +1333,7 @@
   </Id>
   <DisplayName>Wing_1x1x1_inside_curved_rounded</DisplayName>
   <Icon>Textures\Icons\aero-wing_inside_curved_1x1x1_rounded.dds</Icon>
+  <Description>Does not provide lift</Description>
   <CubeSize>Small</CubeSize>
   <GeneralDamageMultiplier>0.2</GeneralDamageMultiplier>
   <BlockTopology>TriangleMesh</BlockTopology>
