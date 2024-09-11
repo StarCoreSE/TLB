@@ -24,6 +24,7 @@ using System.Text.RegularExpressions;
 using Sandbox.Game.Entities.Cube;
 using Sandbox.ModAPI.Interfaces.Terminal;
 using Sandbox.ModAPI.Interfaces;
+using VRage.Game;
 //using Sandbox.ModAPI.Ingame;
 
 namespace MODERN_WARFARE_CORE
@@ -468,6 +469,7 @@ namespace MODERN_WARFARE_CORE
         IMyThrust thruster;
         IMyCubeGrid grid;
         MyPlanet planet;
+        MyParticleEffect effect;
 
         double mach = 0;
         double vang = 0;
@@ -477,6 +479,7 @@ namespace MODERN_WARFARE_CORE
         {
             thruster = Entity as IMyThrust;
             grid = thruster.CubeGrid;
+
             this.NeedsUpdate |= MyEntityUpdateEnum.EACH_10TH_FRAME | MyEntityUpdateEnum.EACH_FRAME;
         }
 
@@ -513,18 +516,116 @@ namespace MODERN_WARFARE_CORE
 
         private void ApplyStallTorque()
         {
-            Vector3 velocity = grid.Physics.LinearVelocity;
-            Vector3 forward = thruster.WorldMatrix.Backward;
+            Vector3D velocity = grid.Physics.LinearVelocity;
+            Vector3D forward = thruster.WorldMatrix.Backward;
+            Vector3D not_forward_velocity = velocity - forward.Dot(velocity);
 
-            float mismatch = -Vector3.Dot(forward, Vector3.Normalize(velocity));
+            double vang = Utilities.VectorAngleBetween(forward, Vector3.Normalize(velocity));
 
-            if (mismatch > -0.96f && velocity.Length() < MIN_STALL_SPEED)
+            if (vang > 0.25 && velocity.Length() < MIN_STALL_SPEED)
             {
-                Vector3D torque = grid.WorldAABB.Size.Length() * (grid as MyCubeGrid).GetCurrentMass() * Vector3D.Cross(velocity, -forward) * Math.Min(velocity.Length(), MIN_STALL_SPEED) * (0.49f + mismatch * mismatch / 10f) / 5000f;
-                grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque, MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
+                double torque = Math.Min(velocity.Length() / 600 * Math.Pow(vang - 0.25, 3), 1f) * grid.WorldAABB.Size.Length() * (grid as MyCubeGrid).GetCurrentMass();
+                grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque * Vector3D.Cross(velocity, -forward), MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
             }
         }
     }
+
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Thrust), false, "Prop2B")]
+    public class PropThruster : MyGameLogicComponent
+    {
+        IMyThrust thruster;
+        IMyCubeGrid grid;
+        MyPlanet planet;
+        MyParticleEffect effect;
+
+        double mach = 0;
+        double vang = 0;
+        const double MIN_STALL_SPEED = 60;
+
+        public override void Init(MyObjectBuilder_EntityBase objectBuilder)
+        {
+            thruster = Entity as IMyThrust;
+            grid = thruster.CubeGrid;
+
+            this.NeedsUpdate |= MyEntityUpdateEnum.EACH_10TH_FRAME | MyEntityUpdateEnum.EACH_FRAME;
+        }
+
+        public override void UpdateBeforeSimulation10()
+        {
+            if (planet == null)
+                planet = MyGamePruningStructure.GetClosestPlanet(grid.WorldMatrix.Translation);
+
+        }
+
+        public override void UpdateBeforeSimulation()
+        {
+            if (planet == null || grid?.Physics == null) return;
+
+            var speed = thruster.CubeGrid.Physics.LinearVelocity.Length();
+            mach = speed / Utilities.SpeedOfSound(planet.GetAirDensity(grid.WorldMatrix.Translation));
+
+            thruster.PowerConsumptionMultiplier = thruster.MaxThrust / thruster.MaxEffectiveThrust;
+
+            ApplyStallTorque();
+            ApplyBadJetNoVtol();
+            ApplySpeedLimit();
+            ApplyDrag(0.15);
+        }
+
+        private void ApplyBadJetNoVtol()
+        {
+            float inclination = Vector3.Dot(Vector3.Normalize(grid.Physics.Gravity), -thruster.WorldMatrix.Backward);
+
+            thruster.ThrustMultiplier = 1 - (float)mach * 1f;
+
+            if (inclination > .53)
+                thruster.ThrustMultiplier *= 2f - (.47f + inclination) * (.47f + inclination);
+            //MyAPIGateway.Utilities.ShowNotification($"{thruster.ThrustMultiplier}", 16);
+        }
+
+        public void ApplyDrag(double cd)
+        {
+            var blockMatrix = thruster.WorldMatrix;
+            Vector3D thrustDirection = blockMatrix.Backward; // Opposite of the thruster's forward direction
+            double velocityInThrustDirection = Vector3D.Dot(grid.Physics.LinearVelocity, thrustDirection);
+            // Apply drag force proportional to the velocity component in the thrust direction
+            Vector3D dragForce = -thrustDirection * 30 * cd * velocityInThrustDirection * velocityInThrustDirection;
+
+            //grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, dragForce, applyForceAt, null);
+            var subgrids = MyAPIGateway.GridGroups.GetGroup(grid, VRage.Game.ModAPI.GridLinkTypeEnum.Logical);
+            foreach (MyCubeGrid subgrid in subgrids)
+            {
+                subgrid.Physics.LinearVelocity += dragForce / (grid as MyCubeGrid).GetCurrentMass() * 0.0167;
+            }
+        }
+
+        public void ApplySpeedLimit()
+        {
+            thruster.PowerConsumptionMultiplier = thruster.MaxThrust / thruster.MaxEffectiveThrust;
+
+            if (grid.Physics.LinearVelocity.Length() > 160)
+            {
+                grid.Physics.LinearVelocity = Vector3D.Normalize(grid.Physics.LinearVelocity) * 160;
+            }
+        }
+
+        private void ApplyStallTorque()
+        {
+            Vector3D velocity = grid.Physics.LinearVelocity;
+            Vector3D forward = thruster.WorldMatrix.Backward;
+            Vector3D not_forward_velocity = velocity - forward.Dot(velocity);
+
+            double vang = Utilities.VectorAngleBetween(forward, Vector3.Normalize(velocity));
+
+            if (vang > 0.25 && velocity.Length() < MIN_STALL_SPEED)
+            {
+                double torque = Math.Min(velocity.Length() / 600 * Math.Pow(vang - 0.25, 3), 1f) * grid.WorldAABB.Size.Length() * (grid as MyCubeGrid).GetCurrentMass();
+                grid.Physics.AddForce(MyPhysicsForceType.ADD_BODY_FORCE_AND_BODY_TORQUE, null, null, Vector3D.Transform(torque * Vector3D.Cross(velocity, -forward), MatrixD.Transpose(grid.WorldMatrix.GetOrientation())));
+            }
+        }
+    }
+
+
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_OxygenGenerator), false, "JetEngineIntake")]
     public class JetIntake : MyGameLogicComponent
     {
@@ -685,13 +786,15 @@ namespace MODERN_WARFARE_CORE
             _lastThrustTime = MyAPIGateway.Session.ElapsedPlayTime.TotalSeconds;
 
             ApplyPlayerControlledTorque();
-            ApplyHeliSpeedLimit();
+            ApplySpeedLimit();
             ApplyRotorTorque();
         }
 
-        public void ApplyHeliSpeedLimit()
+        public void ApplySpeedLimit()
         {
-            if(grid.Physics.LinearVelocity.Length() > 100)
+            thruster.PowerConsumptionMultiplier = thruster.MaxThrust / thruster.MaxEffectiveThrust;
+
+            if (grid.Physics.LinearVelocity.Length() > 100)
             {
                 grid.Physics.LinearVelocity = Vector3D.Normalize(grid.Physics.LinearVelocity) * 100;
             }

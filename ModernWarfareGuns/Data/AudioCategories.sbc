@@ -1,0 +1,430 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<SoundCategories>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>F-18FlightControls</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="F-18FlightControls" SoundName="Flight Controls"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>F-18Altitude</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="F-18Altitude" SoundName="Altitude"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>F-18Bingo</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="F-18Bingo" SoundName="Bingo"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>F-18PullUp</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="F-18PullUp" SoundName="Pull Up"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>F-18RollLeft</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="F-18RollLeft" SoundName="Roll Left"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>F-18RollRight</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="F-18RollRight" SoundName="Roll Right"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>F-18EngineFireLeft</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="F-18EngineFireLeft" SoundName="Engine Fire Left"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>F-18EngineFireRight</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="F-18EngineFireRight" SoundName="Engine Fire Right"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>AIM9Lock</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="AIM9Lock" SoundName="AIM-9 Lock"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>AIM9Search</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="AIM9Search" SoundName="AIM-9 Search"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>RWR-MissileLaunchWarning</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="RWR-MissileLaunchWarning" SoundName="RWR - Missile Launch Warning"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>RWR-MissileLaunchWarningLong</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="RWR-MissileLaunchWarningLong" SoundName="RWR - MLW - Long"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>RWR-NewContact</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="RWR-NewContact" SoundName="RWR - New Contact"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>RWR-SpecialContact</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="RWR-SpecialContact" SoundName="RWR - Special Contact"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>RWR-TrackingAndTargeting</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="RWR-TrackingAndTargeting" SoundName="RWR - Tracking And Targeting"/>
+			</Sounds>
+		</SoundCategory>
+		
+		<SoundCategory>
+			<Id>
+				<TypeId>SoundCategoryDefinition</TypeId>
+				<SubtypeId>RWR-TrackingAndTargetingLong</SubtypeId>
+			</Id>
+			<Sounds>
+				<SoundDesc Id="RWR-TrackingAndTargetingLong" SoundName="RWR - TrackTarget - Long"/>
+			</Sounds>
+		</SoundCategory>
+		
+		
+	</SoundCategories>
+	
+	
+	<Sounds>
+		
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>F-18FlightControls</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\F-18FlightControls.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>F-18Altitude</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\F-18Altitude.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>F-18Bingo</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\F-18Bingo.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>F-18PullUp</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\F-18PullUp.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>F-18RollLeft</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\F-18RollLeft.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>F-18RollRight</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\F-18RollRight.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>F-18EngineFireLeft</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\F-18EngineFireLeft.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>F-18EngineFireRight</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\F-18EngineFireRight.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>AIM9Lock</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\AIM9Lock.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>AIM9Search</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\AIM9Search.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>RWR-MissileLaunchWarning</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\RWR-MissileLaunchWarning.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>RWR-MissileLaunchWarningLong</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\RWR-MissileLaunchWarningLong.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>RWR-NewContact</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\RWR-NewContact.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>RWR-SpecialContact</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\RWR-SpecialContact.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>RWR-TrackingAndTargeting</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\RWR-TrackingAndTargeting.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		<Sound>
+			<Id>
+				<TypeId>AudioDefinition</TypeId>
+				<SubtypeId>RWR-TrackingAndTargetingLong</SubtypeId>
+			</Id>
+			<Category>Sb</Category>
+			<MaxDistance>100</MaxDistance>
+			<Volume>0.6</Volume>
+			<Loopable>false</Loopable>
+			<Waves>
+				<Wave Type="D3">
+					<Start>Audio\RWR-TrackingAndTargetingLong.wav</Start>
+				</Wave>
+			</Waves>
+		</Sound>
+		
+		
+	</Sounds>
+</Definitions>

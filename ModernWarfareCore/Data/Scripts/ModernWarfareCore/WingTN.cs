@@ -230,7 +230,7 @@ namespace Digi2.AeroWings
                 if (speedSq >= 50)
                 {
                     Vector3D fw = blockMatrix.Left;
-                    double forceMul = 10f;
+                    double forceMul = 3f;
 
                     switch (block.BlockDefinition.SubtypeId)
                     {
@@ -295,7 +295,7 @@ namespace Digi2.AeroWings
                     {
                         var upDir = blockMatrix.Up;
                         var liftVector = -upDir * upDir.Dot(vel) * forceMul * speedDir * speedDir * atmosphere;
-                        var dragVector = -fw * speedDir * forceMul * 0.0001 * speedDir * speedDir * atmosphere;
+                        var dragVector = -fw * speedDir * forceMul * 0.001 * speedDir * speedDir * atmosphere;
                         var forceVector = liftVector + dragVector;
 
                         var subgrids2 = MyAPIGateway.GridGroups.GetGroup(grid, GridLinkTypeEnum.Logical);
@@ -310,7 +310,7 @@ namespace Digi2.AeroWings
                             double lift_force = liftVector.Length() * Math.Abs(speedDir) / 300 / forceMul;
                             //MyAPIGateway.Utilities.ShowNotification($"{block.SlimBlock.BlockDefinition.Id.SubtypeName} vs {lift_force}", 1600);
 
-                            if (lift_force > 750000) //vel.Length() > SpeedOfSound(atmosphere) && 
+                            if (lift_force > 650000) //vel.Length() > SpeedOfSound(atmosphere) && 
                             {
                                 List<IMySlimBlock> slims = new List<IMySlimBlock>();
                                 block.SlimBlock.GetNeighbours(slims);

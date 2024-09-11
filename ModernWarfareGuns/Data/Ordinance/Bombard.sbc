@@ -62,11 +62,11 @@
       <MaxAzimuthDegrees>180</MaxAzimuthDegrees>
       <IdleRotation>true</IdleRotation>
       <MaxRangeMeters>0</MaxRangeMeters>
-      <RotationSpeed>0.002</RotationSpeed>
-      <ElevationSpeed>0.002 </ElevationSpeed>
+      <RotationSpeed>0.0002</RotationSpeed>
+      <ElevationSpeed>0.0002 </ElevationSpeed>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
-      <MinFov>0.1</MinFov>
-      <MaxFov>1.04719755</MaxFov>
+      <MinFov>0.005</MinFov>
+      <MaxFov>0.7</MaxFov>
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>100</PCU>
@@ -130,26 +130,23 @@
 		<BasicProperties>
 			<DesiredSpeed>10000</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
-			<MaxTrajectory>5000</MaxTrajectory>
+			<MaxTrajectory>10000</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
 			<BackkickForce>1</BackkickForce>
-			<PhysicalMaterial>MediumShell</PhysicalMaterial>
-			<ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+			<PhysicalMaterial>Missile</PhysicalMaterial>
+			<ExplosiveDamageMultiplier>2</ExplosiveDamageMultiplier>
 		</BasicProperties>
 		<MissileProperties>
 			<MissileMass>300</MissileMass>
-			<MissileExplosionRadius>3</MissileExplosionRadius>
-			<MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
-			<MissileAcceleration>0</MissileAcceleration>
-			<MissileInitialSpeed>10</MissileInitialSpeed>
+			<MissileExplosionRadius>4</MissileExplosionRadius>
+			<MissileModelName>Models\Ammo\LargeBomb.mwm</MissileModelName>
+			<MissileAcceleration>1</MissileAcceleration>
+			<MissileInitialSpeed>50</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
 			<MissileExplosionDamage>500</MissileExplosionDamage>
-			<MissileHealthPool>500</MissileHealthPool>
-			<MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
+			<MissileHealthPool>2000</MissileHealthPool>
+			<MissileTrailEffect></MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
-			<MissileRicochetAngle>30</MissileRicochetAngle>
-			<MissileRicochetDamage>2000</MissileRicochetDamage>
-			<MissileRicochetProbability>0</MissileRicochetProbability>
 		</MissileProperties>
 	</Ammo>
 	</Ammos>

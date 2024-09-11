@@ -21,10 +21,8 @@ using Sandbox.Game.Weapons;
 using Sandbox.Game.Lights;
 using Sandbox.Common.ObjectBuilders;
 using VRageRender.Lights;
-using System.Reflection;
 using VRage.Game.Entity;
 using VRage.Game.ModAPI.Interfaces;
-using CollisionLayers = Sandbox.Engine.Physics.MyPhysics.CollisionLayers;
 
 namespace ScriptedMissiles
 {
@@ -124,10 +122,12 @@ namespace ScriptedMissiles
         {
             public IMyMissile missile;
             public IMyEntity target;
+            public IMyEntity launcher;
 
             public double distance_to_target = double.PositiveInfinity;
 
             private ScriptedMissileSession system; // Reference to GuidedMissileSystem
+            MyMissileAmmoDefinition ammo;
 
             private Vector3 lastLeadPosition = Vector3.Zero;
 
@@ -146,10 +146,11 @@ namespace ScriptedMissiles
 
             Vector3 position = Vector3.Zero;
 
-            public ScriptedMissile(IMyMissile missile, IMyEntity target, ScriptedMissileSession system, bool isBeamRider = false, bool isHoming = false, bool isProximityDetonator = false)
+            public ScriptedMissile(IMyMissile missile, IMyEntity target, IMyEntity launcher, ScriptedMissileSession system, bool isBeamRider = false, bool isHoming = false, bool isProximityDetonator = false)
             {
                 this.missile = missile;
                 this.target = target;
+                this.launcher = launcher;
                 this.system = system;
                 this.isBeamRider = isBeamRider;
                 this.isHoming = isHoming;
@@ -162,6 +163,10 @@ namespace ScriptedMissiles
                 lastTargetPosition = position + direction * 10000;
                 lastLeadPosition = position + direction * 10000;
 
+                ammo = (MyMissileAmmoDefinition)missile.AmmoDefinition;
+
+                if (launcher != null)
+                    velocity = (launcher as IMyCubeBlock).CubeGrid.Physics.LinearVelocity + ammo.MissileInitialSpeed * direction;
 
                 Update();
             }
@@ -278,7 +283,7 @@ namespace ScriptedMissiles
                 Vector3D shooterToMissile = missilePosition - shooterPosition;
 
                 // Project the shooterToMissile vector onto the shootingDirection to find the closest point on the shooting line
-                Vector3D leadPosition = shooterPosition + (Vector3D.Dot(shooterToMissile, shootingDirection) + 100) * shootingDirection;
+                Vector3D leadPosition = shooterPosition + (Vector3D.Dot(shooterToMissile, shootingDirection) + 100 + velocity.Length()) * shootingDirection;
 
                 lastLeadPosition = leadPosition;
                 lastTargetPosition = leadPosition;
@@ -306,13 +311,26 @@ namespace ScriptedMissiles
 
             public void UpdateVelocity()
             {
-                MyMissileAmmoDefinition ammo = (MyMissileAmmoDefinition)missile.AmmoDefinition;
-                float speed = Math.Min(ammo.MissileInitialSpeed + ammo.MissileAcceleration * time, ammo.DesiredSpeed);
-                velocity = direction * speed;
+
+                float speed = 0f;
 
                 // yuck
-                //if (isBeamRider && ammo.MissileGravityEnabled)
-                //    velocity = missile.Physics.LinearVelocity * 0.25f + direction * (missile.Physics.LinearVelocity.Length() * 0.75f + ammo.MissileAcceleration * 0.01667f) + missile.Physics.Gravity * 0.01667f * 0.5f;
+                if (isBeamRider && ammo.MissileGravityEnabled)
+                {
+                    var gravity = (launcher as IMyCubeBlock)?.CubeGrid?.Physics?.Gravity ?? Vector3.Zero;
+                    var accel_grav = direction.Dot(gravity);
+
+                    speed = velocity.Length() + (accel_grav + ammo.MissileAcceleration) * ticktime;
+
+                }
+                else // if you're a normal fckin person
+                {
+                    //speed = Math.Min(ammo.MissileInitialSpeed + ammo.MissileAcceleration * time, ammo.DesiredSpeed);
+                    speed = Math.Min(velocity.Length() + ammo.MissileAcceleration * ticktime, ammo.DesiredSpeed);
+                }
+
+                velocity = direction * speed;
+
 
                 if (missile.Physics != null)
                     missile.Physics.LinearVelocity = velocity;
@@ -330,7 +348,12 @@ namespace ScriptedMissiles
                 Vector3 predictionDirection = predictionPosition - missile.GetPosition();
                 predictionDirection.Normalize();
 
-                double angle = Math.Acos(Math.Max(Math.Min(Vector3.Dot(direction, predictionDirection), 1), -1)) / 10;
+                double angle = Math.Acos(Math.Max(Math.Min(Vector3.Dot(direction, predictionDirection), 1), -1)) * 0.1;
+
+                if (isBeamRider && ammo.MissileGravityEnabled)
+                    angle *= 1;// 0.1;
+                else if (isBeamRider)
+                    angle *= 0.2;
 
                 Vector3 rotationAxis = Vector3.Cross(direction, predictionDirection);
                 rotationAxis.Normalize();
@@ -503,7 +526,9 @@ namespace ScriptedMissiles
                 if (IsHoming(missile) || IsProximity(missile))
                     target = GetMissileTarget(missile);
 
-                scriptedMissiles.Add(missile.EntityId, new ScriptedMissile(missile, target, this, IsBeamRider(missile), IsHoming(missile), IsProximity(missile)));
+                IMyEntity launcher = MyAPIGateway.Entities.GetEntityById(missile.LauncherId);
+
+                scriptedMissiles.Add(missile.EntityId, new ScriptedMissile(missile, target, launcher, this, IsBeamRider(missile), IsHoming(missile), IsProximity(missile)));
             }
         }
 
@@ -693,8 +718,9 @@ namespace ScriptedMissiles
                 }
             }
 
-            if (incoming_missiles > 0)
-                MyAPIGateway.Utilities.ShowNotification($"<<< {incoming_missiles}X MISSILES {Math.Round(closest_missile_distance)} M DISTANCE >>>", 16, "Yellow");
+            // not certain this works at all.
+            //if (incoming_missiles > 0)
+            //   MyAPIGateway.Utilities.ShowNotification($"<<< {incoming_missiles}X MISSILES {Math.Round(closest_missile_distance)} M DISTANCE >>>", 16, "Yellow");
 
             foreach(var missile in missiles_to_be_exploded)
             {

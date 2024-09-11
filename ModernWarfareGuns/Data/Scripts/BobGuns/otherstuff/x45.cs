@@ -35,59 +35,44 @@ namespace launchers
     [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Thrust), true, "Propellantx4")]
     public class x4 : MyGameLogicComponent
     {
-        bool shot = false;
         bool init = false;
-        int tick = 0;
+        bool shot = false;
+
+        IMyThrust thrust;
 
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
             NeedsUpdate = MyEntityUpdateEnum.EACH_FRAME;
-            IMyThrust tb = Entity as IMyThrust;
-            IMyFunctionalBlock funk = tb as IMyFunctionalBlock;
-            funk.Enabled = false;
+            thrust = Entity as IMyThrust;
         }
 
         public override void UpdateBeforeSimulation()
         {
-            IMyThrust tb = Entity as IMyThrust;
-            IMyFunctionalBlock funk = tb as IMyFunctionalBlock;
-            var grid = tb.CubeGrid;
 
-            if (tb == null || grid == null || grid.Physics == null)
+            if (thrust == null || thrust.CubeGrid == null || thrust.CubeGrid.Physics == null || !thrust.IsFunctional)
                 return;
 
             if (!init)
             {
                 init = true;
-                funk.Enabled = false;
+                thrust.Enabled = false;
+                return;
             }
-
-            if (funk.Enabled == true)
+            else if (thrust.Enabled == true)
             {
                 shot = true;
             }
 
-            if (!shot)
-            {
-                shot = false;
-                funk.Enabled = false;
-                return;
-            }
+            if(shot)
+                Launch(Entity);
 
-            funk.Enabled = true;
-            Launch(Entity);
         }
 
         public void Launch(IMyEntity Entity)
         {
-            IMyThrust tb = Entity as IMyThrust;
-            var grid = tb.CubeGrid;
-
-            tb.SlimBlock.DoDamage(100f, MyStringHash.GetOrCompute("Bullet"), true);
-            tb.SetValue<float>("Override", tb.MaxThrust);
-            var thrustMatrix = tb.WorldMatrix;
-            var force = thrustMatrix.Backward * tb.MaxThrust;
-            grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, force * 1000, grid.Physics.CenterOfMassWorld, null);
+            thrust.SlimBlock.DoDamage(thrust.SlimBlock.Integrity, MyStringHash.GetOrCompute("Bullet"), true);
+            var force = thrust.WorldMatrix.Backward * 1e7;
+            thrust.CubeGrid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, force, thrust.CubeGrid.Physics.CenterOfMassWorld, null);
         }
     }
 
@@ -97,46 +82,56 @@ namespace launchers
         bool shot = false;
         bool init = false;
 
+        IMyThrust thrust;
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
             NeedsUpdate = MyEntityUpdateEnum.EACH_FRAME;
-            IMyThrust tb = Entity as IMyThrust;
-            IMyFunctionalBlock funk = tb as IMyFunctionalBlock;
+            thrust = Entity as IMyThrust;
         }
 
         public override void UpdateBeforeSimulation()
         {
-            IMyThrust tb = Entity as IMyThrust;
-            IMyFunctionalBlock funk = tb as IMyFunctionalBlock;
-            var grid = tb.CubeGrid;
-
-            if (tb == null || grid == null || grid.Physics == null)
+            if (thrust == null || thrust.CubeGrid == null || thrust.CubeGrid.Physics == null || !thrust.IsFunctional)
                 return;
 
             if (!init)
             {
+                // wrow
+                /*
+                MyResourceSourceComponent sourceComp = new MyResourceSourceComponent();
+                thrust.Components.Add(sourceComp);
+                sourceComp.Init(MyStringHash.GetOrCompute("SolarPanels"), new MyResourceSourceInfo()
+                {
+                    DefinedOutput = 1f,
+                    IsInfiniteCapacity = true,
+                    ProductionToCapacityMultiplier = 1,
+                    ResourceTypeId = MyResourceDistributorComponent.ElectricityId,
+                });
+                sourceComp.Enabled = true;
+                */
                 init = true;
-                funk.Enabled = false;
-            }
-
-            if (funk.Enabled == true)
-            {
-                shot = true;
-            }
-
-            if (!shot || !tb.IsFunctional)
-            {
-                shot = false;
-                funk.Enabled = false;
+                thrust.Enabled = false;
                 return;
             }
+            else if (thrust.Enabled == true)
+            {
+                shot = true; 
+            }
 
-            funk.Enabled = true;
-            tb.SlimBlock.DoDamage(0.1f, MyStringHash.GetOrCompute("Bullet"), true);
-            tb.SetValue<float>("Override", tb.MaxThrust);
-            var thrustMatrix = tb.WorldMatrix;
-            var force = thrustMatrix.Forward * tb.MaxThrust;
-            grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, -force * 2, grid.Physics.CenterOfMassWorld, null); // apply the thruster's force at center of mass
+            if(shot)
+            {
+                thrust.Enabled = true;
+                if (thrust.ThrustOverridePercentage == 0)
+                    thrust.ThrustOverridePercentage = 1f;
+
+                thrust.SlimBlock.DoDamage(0.1f, MyStringHash.GetOrCompute("Bullet"), true);
+
+                if (thrust.CurrentThrust == 0) //annoying but whatever
+                {
+                    var force = thrust.WorldMatrix.Backward * thrust.ThrustOverridePercentage * thrust.MaxEffectiveThrust;
+                    thrust.CubeGrid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, force, thrust.CubeGrid.Physics.CenterOfMassWorld, null);
+                }
+            }
         }
     }
 }

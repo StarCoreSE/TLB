@@ -43,7 +43,12 @@ namespace klime.LockSound
     [MySessionComponentDescriptor(MyUpdateOrder.AfterSimulation)]
     public class LockSound : MySessionComponentBase
     {
+        //retardation
+        int clientLocks = 0;
+
         //Sound Config
+
+        // lmao, needed a separate mod that didnt exist
         string lockSoundID = "RWR-TrackingAndTargeting";
         string unlockSoundID = "RWR-SpecialContact";
 
@@ -106,6 +111,8 @@ namespace klime.LockSound
                     ResolveTargets();
                 }
             }
+            else if (clientLocks > 0)
+                MyAPIGateway.Utilities.ShowNotification("<<<LOCKED>>>", 16, "Red");
 
             //if (MyAPIGateway.Input.IsNewKeyPressed(MyKeys.T))
             //{
@@ -116,7 +123,7 @@ namespace klime.LockSound
             //{
             //    PlayUnlockSound();
             //}
-
+            
             timer += 1;
         }
 
@@ -188,11 +195,13 @@ namespace klime.LockSound
                 if (incomingTargetChange.targetStatus == TargetStatus.Lock)
                 {
                     PlayLockSound();
+                    clientLocks++;
                 }
 
                 if (incomingTargetChange.targetStatus == TargetStatus.Unlock)
                 {
                     PlayUnlockSound();
+                    clientLocks--;
                 }
             }
         }

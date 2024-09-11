@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Sounds>
+
+
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>PlaneSound</SubtypeId>
+      </Id>
+      <Category>SHIP_JET</Category>
+      <MaxDistance>750</MaxDistance>
+      <PitchVariation>50</PitchVariation>
+      <Volume>0.25</Volume>
+      <Loopable>true</Loopable>
+	<DistantSounds>
+        <DistantSound DistanceCrossfade="25" Distance="750" Sound="PlaneSoundDistant" />
+	<DistantSound DistanceCrossfade="25" Distance="2000" Sound="PlaneSoundNone" />
+      </DistantSounds>
+      <UpdateDistance>750</UpdateDistance>
+      <RealisticFilter>realShipFilter</RealisticFilter>
+	<PreventSynchronization>15</PreventSynchronization>
+      <Waves>
+        <Wave Type="D3">
+          <Loop>Audio\PlaneSound.wav</Loop>
+        </Wave>
+      </Waves>
+    </Sound>
+
+
+
+<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>PlaneSoundDistant</SubtypeId>
+      </Id>
+      <Category>SHIP_JET</Category>
+      <MaxDistance>2000</MaxDistance>
+      <PitchVariation>50</PitchVariation>
+      <Volume>0.6</Volume>
+      <Loopable>true</Loopable>
+      <UpdateDistance>2000</UpdateDistance>
+      <RealisticFilter>realShipFilter</RealisticFilter>
+	<PreventSynchronization>15</PreventSynchronization>
+      <Waves>
+        <Wave Type="D3">
+          <Loop>Audio\PlaneSoundDistant.wav</Loop>
+        </Wave>
+      </Waves>
+    </Sound>
+
+<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>PlaneSoundNone</SubtypeId>
+      </Id>
+      <Category>SHIP_JET</Category>
+      <MaxDistance>3000</MaxDistance>
+      <PitchVariation>50</PitchVariation>
+      <Volume>0</Volume>
+      <Loopable>true</Loopable>
+      <UpdateDistance>3000</UpdateDistance>
+      <RealisticFilter>realShipFilter</RealisticFilter>
+	<PreventSynchronization>15</PreventSynchronization>
+      <Waves>
+        <Wave Type="D3">
+          <Loop>Audio\PlaneSoundDistant.wav</Loop>
+        </Wave>
+      </Waves>
+    </Sound>
+
+	</Sounds>
+</Definitions>

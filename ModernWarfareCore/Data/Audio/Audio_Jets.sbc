@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Sounds>
+    <Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>JetSound</SubtypeId>
+      </Id>
+      <Category>SHIP_JET</Category>
+      <MaxDistance>450</MaxDistance>
+      <PitchVariation>50</PitchVariation>
+      <Volume>6.5</Volume>
+      <DistantSounds>
+	<DistantSound DistanceCrossfade="25" Distance="450" Sound="JetSoundNear" />
+        <DistantSound DistanceCrossfade="25" Distance="1500" Sound="JetSoundDistant" />
+	<DistantSound DistanceCrossfade="25" Distance="3500" Sound="JetSoundNone" />
+      </DistantSounds>
+
+      <Loopable>true</Loopable>
+
+      <RealisticFilter>realShipFilter</RealisticFilter>
+	<PreventSynchronization>15</PreventSynchronization>
+      <Waves>
+        <Wave Type="D3">
+          <Loop>Audio\JetSFX.wav</Loop>
+        </Wave>
+      </Waves>
+    </Sound>
+
+	
+<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>JetSoundNear</SubtypeId>
+      </Id>
+      <Category>SHIP_JET</Category>
+      <MaxDistance>1500</MaxDistance>
+      <PitchVariation>50</PitchVariation>
+      <Volume>15</Volume>
+
+      <Loopable>true</Loopable>
+
+      <RealisticFilter>realShipFilter</RealisticFilter>
+	<PreventSynchronization>15</PreventSynchronization>
+      <Waves>
+        <Wave Type="D3">
+          <Loop>Audio\JetSFXNear.wav</Loop>
+        </Wave>
+      </Waves>
+    </Sound>
+
+<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>JetSoundDistant</SubtypeId>
+      </Id>
+      <Category>SHIP_JET</Category>
+      <MaxDistance>3500</MaxDistance>
+      <PitchVariation>50</PitchVariation>
+      <Volume>11</Volume>
+
+      <Loopable>true</Loopable>
+
+      <RealisticFilter>realShipFilter</RealisticFilter>
+	<PreventSynchronization>15</PreventSynchronization>
+      <Waves>
+        <Wave Type="D3">
+          <Loop>Audio\JetSFXDistant.wav</Loop>
+        </Wave>
+      </Waves>
+    </Sound>
+
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>JetSoundNone</SubtypeId>
+      </Id>
+      <Category>SHIP_JET</Category>
+      <MaxDistance>4500</MaxDistance>
+      <PitchVariation>50</PitchVariation>
+      <Volume>0</Volume>
+
+      <Loopable>true</Loopable>
+
+      <RealisticFilter>realShipFilter</RealisticFilter>
+	<PreventSynchronization>15</PreventSynchronization>
+      <Waves>
+        <Wave Type="D3">
+          <Loop>Audio\JetSFXDistant.wav</Loop>
+        </Wave>
+      </Waves>
+    </Sound>
+
+	</Sounds>
+</Definitions>

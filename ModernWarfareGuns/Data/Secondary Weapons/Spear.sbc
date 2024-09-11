@@ -146,6 +146,7 @@
 		<MissileSkipAcceleration>false</MissileSkipAcceleration>
 		<MissileExplosionDamage>500</MissileExplosionDamage>
 		<MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
+		<MissileGravityEnabled>false</MissileGravityEnabled>
 	  </MissileProperties>
 	</Ammo>
 	</Ammos>

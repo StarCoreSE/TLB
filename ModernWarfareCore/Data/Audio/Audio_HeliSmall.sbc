@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Sounds>
+
+
+	<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>HeliSmallSound</SubtypeId>
+      </Id>
+      <Category>SHIP_JET</Category>
+      <MaxDistance>750</MaxDistance>
+      <PitchVariation>30</PitchVariation>
+      <Volume>1</Volume>
+	<PreventSynchronization>15</PreventSynchronization>
+      <Loopable>true</Loopable>
+	<DistantSounds>
+        <DistantSound DistanceCrossfade="25" Distance="750" Sound="HeliSmallSoundDistant" />
+	<DistantSound DistanceCrossfade="25" Distance="1500" Sound="HeliSmallSoundNone" />
+      </DistantSounds>
+      <UpdateDistance>750</UpdateDistance>
+      <RealisticFilter>realShipFilter</RealisticFilter>
+      <Waves>
+        <Wave Type="D3">
+          <Loop>Audio\HeliSmallSound.wav</Loop>
+        </Wave>
+      </Waves>
+    </Sound>
+
+
+
+<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>HeliSmallSoundDistant</SubtypeId>
+      </Id>
+      <Category>SHIP_JET</Category>
+      <MaxDistance>1500</MaxDistance>
+      <PitchVariation>30</PitchVariation>
+      <Volume>1.33</Volume>
+	<PreventSynchronization>15</PreventSynchronization>
+      <Loopable>true</Loopable>
+      <UpdateDistance>1500</UpdateDistance>
+      <RealisticFilter>realShipFilter</RealisticFilter>
+      <Waves>
+        <Wave Type="D3">
+          <Loop>Audio\HeliSmallSoundDistant.wav</Loop>
+        </Wave>
+      </Waves>
+    </Sound>
+
+
+<Sound>
+      <Id>
+        <TypeId>MyObjectBuilder_AudioDefinition</TypeId>
+        <SubtypeId>HeliSmallSoundNone</SubtypeId>
+      </Id>
+      <Category>SHIP_JET</Category>
+      <MaxDistance>2500</MaxDistance>
+      <PitchVariation>30</PitchVariation>
+      <Volume>0</Volume>
+	<PreventSynchronization>15</PreventSynchronization>
+      <Loopable>true</Loopable>
+      <UpdateDistance>2500</UpdateDistance>
+      <RealisticFilter>realShipFilter</RealisticFilter>
+      <Waves>
+        <Wave Type="D3">
+          <Loop>Audio\HeliSmallSoundDistant.wav</Loop>
+        </Wave>
+      </Waves>
+    </Sound>
+
+	</Sounds>
+</Definitions>

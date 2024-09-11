@@ -97,7 +97,7 @@ namespace MODERN_WARFARE_GUNS
                 return;
 
             IMyCubeGrid grid = slim.CubeGrid;
-
+                
             if (slim.FatBlock is IMyShipMergeBlock)
                 ammoRacks.Add(slim.FatBlock as IMyShipMergeBlock);
             else if (slim.FatBlock is IMyGunObject<MyGunBase>)
