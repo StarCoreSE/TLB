@@ -14,7 +14,7 @@ using VRage.Utils;
  
 namespace bob
 {
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_LargeMissileTurret), false, "Shotgun", "RB_CompactTurretMissile_Small","Flamer", "Shotgun_Large", "RB_CompactTurretMissile_Small_Large", "Flamer_Large", "Minigun_Large", "Minigun")]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_LargeMissileTurret), false, "Shotgun", "RB_CompactTurretMissile_Small","Flamer", "Shotgun_Large", "RB_CompactTurretMissile_Small_Large", "Flamer_Large", "Minigun_Large", "Minigun", "SwordLauncher")]
     public class MissileTurret : MyGameLogicComponent
     {
         private IMyFunctionalBlock block;
