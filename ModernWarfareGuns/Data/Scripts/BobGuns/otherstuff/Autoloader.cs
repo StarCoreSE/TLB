@@ -206,6 +206,19 @@ namespace MODERN_WARFARE_GUNS
                             weapon.GunBase.CurrentAmmo = weapon.GunBase.CurrentAmmoMagazineDefinition.Capacity;
                             break;
                         }
+                        
+                        if(block.SlimBlock.BlockDefinition.Id.SubtypeName.Contains("Bay"))
+                        {
+                            difference = ammoRack.GetPosition() - GetExtentOfBlockWorld(block, true);
+                            distsq = difference.LengthSquared();
+
+                            if (distsq < 0.51f && (VectorAngleBetween(ammoRack.WorldMatrix.Forward, block.WorldMatrix.Forward) < 0.3 || VectorAngleBetween(ammoRack.WorldMatrix.Backward, block.WorldMatrix.Forward) < 0.3))
+                            {
+                                usedRacks.Add(ammoRack);
+                                weapon.GunBase.CurrentAmmo = weapon.GunBase.CurrentAmmoMagazineDefinition.Capacity;
+                                break;
+                            }
+                        }
                     }
                 }
 

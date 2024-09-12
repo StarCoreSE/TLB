@@ -4,10 +4,10 @@
     <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
       <Id>
         <TypeId>LargeMissileTurret</TypeId>
-        <SubtypeId>BombardLauncher</SubtypeId>
+        <SubtypeId>BombardBayLauncher</SubtypeId>
       </Id>
       <DisplayName>Bombard Bay</DisplayName>
-      <Icon>Textures\Icons\Turrets\GrenadeTurret.png</Icon>
+      <Icon>Textures\Icons\BombBayMedium.png</Icon>
       <Description>A basic turret that chucks Grenade ammo. Thunk.</Description>
       <CubeSize>Small</CubeSize>
       <GuiVisible>false</GuiVisible>
@@ -91,7 +91,7 @@
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="BombardMag" />
 		</AmmoMagazines>
-		<ReloadTime>10000</ReloadTime>
+		<ReloadTime>0</ReloadTime>
 	</Weapon> <!--gren-->
 	</Weapons>
 	<AmmoMagazines>
@@ -111,7 +111,7 @@
 	<Volume>30</Volume>
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>3</Capacity>
+	<Capacity>1</Capacity>
 	<AmmoDefinitionId Subtype="BombardAmmo_BeamRider" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>

@@ -64,7 +64,7 @@
 	<AmmoMagazines>
 		<AmmoMagazine Subtype="SmallBombMag" />
 	</AmmoMagazines>
-	<ReloadTime>30000</ReloadTime>
+	<ReloadTime>0</ReloadTime>
 	</Weapon>
 	</Weapons>
 	<AmmoMagazines>
@@ -84,7 +84,7 @@
       <Volume>100</Volume>
       <Model>Models\Ammo\SmallBomb.mwm</Model>
       <PhysicalMaterial>Ammo</PhysicalMaterial>
-      <Capacity>1</Capacity>
+      <Capacity>2</Capacity>
       <AmmoDefinitionId Subtype="SmallBomb" />
 
       <MinimumOfferAmount>50</MinimumOfferAmount>

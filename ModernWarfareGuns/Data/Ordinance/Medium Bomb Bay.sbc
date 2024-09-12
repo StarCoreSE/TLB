@@ -64,7 +64,7 @@
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="MediumBombMag" />
 		</AmmoMagazines>
-		<ReloadTime>30000</ReloadTime>
+		<ReloadTime>0</ReloadTime>
 	</Weapon>
 	</Weapons>
 </Definitions>

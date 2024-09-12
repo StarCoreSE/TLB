@@ -122,7 +122,13 @@ namespace Shrapnel
 
             }
             else if (info.Type == MyDamageType.Explosion && !(slim.FatBlock is IMyWarhead))
-                ConvertDamage(slim, ref info, info.Amount);
+            {
+                if (slim.BlockDefinition.Id.SubtypeName.Contains("XL"))
+                    ConvertDamage(slim, ref info, 5 * info.Amount);
+                else
+                    ConvertDamage(slim, ref info, info.Amount);
+
+            }
         }
         public BoundingSphereD GetExplosionSphere(Vector3D myPos)
         {

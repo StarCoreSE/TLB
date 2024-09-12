@@ -25,9 +25,9 @@
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <InventorySize>
-        <X>1.45</X>
-        <Y>1.45</Y>
-        <Z>1.45</Z>
+        <X>2.5</X>
+        <Y>0.5</Y>
+        <Z>1.25</Z>
       </InventorySize>-->
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
