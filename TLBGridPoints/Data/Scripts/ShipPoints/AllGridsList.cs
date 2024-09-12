@@ -461,7 +461,7 @@ namespace TLB.ShareTrack
             }
         }
 
-        public static void ClimbingCostRename(ref string blockDisplayName, ref double climbingCostMultiplier)  // Double instead of float.
+        public static void ClimbingCostRename(ref string blockDisplayName, ref float climbingCostMultiplier)  // Double instead of float.
         {
             if (I._climbingCostFunction == null) return;
             var results = I._climbingCostFunction.Invoke(blockDisplayName);

@@ -56,7 +56,7 @@ namespace TLB.ShareTrack
 
             string blockDisplayName = blockInfo.BlockName;
 
-            double thisClimbingCostMult = 0;
+            float thisClimbingCostMult = 0;
             AllGridsList.ClimbingCostRename(ref blockDisplayName, ref thisClimbingCostMult);  // Use double instead of float.
 
             _pointsMessage.Message.Clear();
@@ -65,7 +65,7 @@ namespace TLB.ShareTrack
                 _pointsMessage.Message.Append($" +{(blockPoints * thisClimbingCostMult)}bp/b");
 
             // Even though this is here, the tooltip will not be visible
-            _pointsMessage.Visible = false; // Ensures the HUD is never displayed
+            //_pointsMessage.Visible = false; // Ensures the HUD is never displayed
         }
     }
 }

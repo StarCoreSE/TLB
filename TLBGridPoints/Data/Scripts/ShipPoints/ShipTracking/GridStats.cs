@@ -218,7 +218,7 @@ namespace TLB.ShareTrack.ShipTracking
                     if (!AllGridsList.PointValues.ContainsKey(block.BlockDefinition.SubtypeName))
                         continue;
 
-                    double ignored = 0;
+                    float ignored = 0;
                     AllGridsList.ClimbingCostRename(ref blockDisplayName, ref ignored);
                     ShipTracker.SpecialBlockRename(ref blockDisplayName, block);
                     if (!SpecialBlockCounts.ContainsKey(blockDisplayName))
@@ -251,7 +251,7 @@ namespace TLB.ShareTrack.ShipTracking
                 // Check for WeaponCore weapons
                 if (AllGridsList.PointValues.TryGetValue(block.BlockDefinition.SubtypeName, out weaponPoints) && WcApi.HasCoreWeapon((MyEntity)block))
                 {
-                    double thisClimbingCostMult = 0;
+                    float thisClimbingCostMult = 0;
                     AllGridsList.ClimbingCostRename(ref weaponDisplayName, ref thisClimbingCostMult);
                     AddWeaponCount(weaponDisplayName);
                     continue;
@@ -296,7 +296,7 @@ namespace TLB.ShareTrack.ShipTracking
             if (blockPoints == 0) return;
 
             var blockDisplayName = block.DefinitionDisplayNameText;
-            double climbingCostMultiplier = 0;  // Updated name
+            float climbingCostMultiplier = 0;  // Updated name
             AllGridsList.ClimbingCostRename(ref blockDisplayName, ref climbingCostMultiplier);
 
             // DEBUG: Check multiplier
