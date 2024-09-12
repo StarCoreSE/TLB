@@ -145,6 +145,14 @@ namespace klime.LockSound
                         }
                     }
                 }
+                else
+                {
+                    var player = MyAPIGateway.Players.GetPlayerControllingEntity(target);
+                    if (player != null && !currentLockedPlayers.Contains(player.SteamUserId))
+                    {
+                        currentLockedPlayers.Add(player.SteamUserId);
+                    }
+                }
             }
 
             if (newLockChange == null || newUnlockChange == null)
