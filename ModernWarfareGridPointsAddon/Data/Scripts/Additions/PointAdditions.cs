@@ -78,9 +78,9 @@ namespace ShipPoints
 
             switch (blockDisplayName)
             {
-                case "Jet Thruster":
-                    blockDisplayName = "Jet Thruster";
-                    costMultiplier = 0.25f;
+                case "test":
+                    blockDisplayName = "test";
+                    costMultiplier = 0f;
                     break;
             }
 
