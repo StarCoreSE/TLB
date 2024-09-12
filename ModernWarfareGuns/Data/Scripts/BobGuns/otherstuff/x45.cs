@@ -36,7 +36,7 @@ namespace launchers
     public class x4 : MyGameLogicComponent
     {
         bool init = false;
-        bool shot = false;
+        int shot = 0;
 
         IMyThrust thrust;
 
@@ -60,10 +60,10 @@ namespace launchers
             }
             else if (thrust.Enabled == true)
             {
-                shot = true;
+                shot++;
             }
 
-            if(shot)
+            if(shot > 10)
                 Launch(Entity);
 
         }
