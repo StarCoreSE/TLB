@@ -1,4 +1,4 @@
-﻿using Sandbox.Definitions;
+﻿rousing Sandbox.Definitions;
 using System.Collections.Generic;
 
 using VRage.Game.Components;
@@ -108,8 +108,11 @@ namespace cleaner
             "LargeBlockBatteryBlock",
 
             "JetThruster",
+            "Prop2B",
             "MainHelicopterRotor",
             "TailHelicopterRotor",
+            "ElectricFan",
+            "ElectricFanDShape",
 
             "JetEngineIntake",
             "SmallDieselEngine",
@@ -130,8 +133,6 @@ namespace cleaner
             "aero-wing-plane-air_brake_double_1x1x1_Large",
 
             "SmallCameraBlock",
-            "ElectricFan",
-            "ElectricFanDShape",
 
         });
 

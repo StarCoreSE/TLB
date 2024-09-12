@@ -119,7 +119,7 @@
             <MinPowerConsumption>0.000000001</MinPowerConsumption>
       <SlowdownFactor>1</SlowdownFactor>
 
-      <MinPlanetaryInfluence>0.3</MinPlanetaryInfluence>
+      <MinPlanetaryInfluence>0.6</MinPlanetaryInfluence>
       <MaxPlanetaryInfluence>1</MaxPlanetaryInfluence>
       <EffectivenessAtMinInfluence>0</EffectivenessAtMinInfluence>
       <EffectivenessAtMaxInfluence>1</EffectivenessAtMaxInfluence>
@@ -181,12 +181,12 @@
 					<TypeId>GasProperties</TypeId>
 					<SubtypeId>Hydrogen</SubtypeId>
 				</FuelId>
-				<Efficiency>1</Efficiency>
+				<Efficiency>3</Efficiency>
 			</FuelConverter>
 			<MaxPowerConsumption>0.12</MaxPowerConsumption>
 			<MinPowerConsumption>0.000000001</MinPowerConsumption>
 			<SlowdownFactor>1</SlowdownFactor>
-			<MinPlanetaryInfluence>0.3</MinPlanetaryInfluence>
+			<MinPlanetaryInfluence>0.6</MinPlanetaryInfluence>
 			<MaxPlanetaryInfluence>1</MaxPlanetaryInfluence>
 			<EffectivenessAtMinInfluence>0</EffectivenessAtMinInfluence>
 			<EffectivenessAtMaxInfluence>1</EffectivenessAtMaxInfluence>
