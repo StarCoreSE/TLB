@@ -39,7 +39,7 @@ namespace BobLockVisuals
             {
                 MyTargetLockingComponent targetLock = player?.Character?.Components?.Get<MyTargetLockingComponent>();
                 if (targetLock == null) { return; }
-                if (!lockSafeWeather.Contains(MyAPIGateway.Session.WeatherEffects.GetWeather(player.Character.WorldMatrix.Translation)) && MyAPIGateway.Session.WeatherEffects.GetWeatherIntensity(player.Character.WorldMatrix.Translation) > 0.25f)
+                if (!lockSafeWeather.Contains(MyAPIGateway.Session.WeatherEffects.GetWeather(player.Character.WorldMatrix.Translation)) && MyAPIGateway.Session.WeatherEffects.GetWeatherIntensity(player.Character.WorldMatrix.Translation) > 0.75f)
                     targetLock.ReleaseTargetLock();
             }
 

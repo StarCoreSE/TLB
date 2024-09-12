@@ -210,13 +210,11 @@ namespace ScriptedMissiles
 
                 distance_to_target = deltaPosition.Length();
 
-                /*
                 double angle = VectorMath.AngleBetween(Vector3.Normalize(deltaPosition), direction);
                 if (angle > 1.00 && angle < 3.00)
                 {
-                    //MyAPIGateway.Utilities.ShowNotification($"ang : {angle}", 1);
                     return lastLeadPosition;
-                }*/
+                }
 
                 Vector3 targetVelocity = (targetPosition - lastTargetPosition) * 60;
 
