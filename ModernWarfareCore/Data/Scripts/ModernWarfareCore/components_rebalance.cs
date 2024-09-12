@@ -146,6 +146,7 @@ namespace SEBR_GITGAT
 
                     cubeDef.DamageEffectName = "Damage_WeapExpl_Damaged";
                     cubeDef.DamagedSound = new MySoundPair("ParticleWeapExpl");
+                    cubeDef.DeformationRatio = 0f;
 
                 }
 
