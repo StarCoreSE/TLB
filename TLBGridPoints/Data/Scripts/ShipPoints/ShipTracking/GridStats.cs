@@ -218,7 +218,7 @@ namespace TLB.ShareTrack.ShipTracking
                     if (!AllGridsList.PointValues.ContainsKey(block.BlockDefinition.SubtypeName))
                         continue;
 
-                    float ignored = 0;
+                    double ignored = 0;
                     AllGridsList.ClimbingCostRename(ref blockDisplayName, ref ignored);
                     ShipTracker.SpecialBlockRename(ref blockDisplayName, block);
                     if (!SpecialBlockCounts.ContainsKey(blockDisplayName))
@@ -251,7 +251,7 @@ namespace TLB.ShareTrack.ShipTracking
                 // Check for WeaponCore weapons
                 if (AllGridsList.PointValues.TryGetValue(block.BlockDefinition.SubtypeName, out weaponPoints) && WcApi.HasCoreWeapon((MyEntity)block))
                 {
-                    float thisClimbingCostMult = 0;
+                    double thisClimbingCostMult = 0;
                     AllGridsList.ClimbingCostRename(ref weaponDisplayName, ref thisClimbingCostMult);
                     AddWeaponCount(weaponDisplayName);
                     continue;
@@ -296,16 +296,20 @@ namespace TLB.ShareTrack.ShipTracking
             if (blockPoints == 0) return;
 
             var blockDisplayName = block.DefinitionDisplayNameText;
-            float thisClimbingCostMult = 0;
-            AllGridsList.ClimbingCostRename(ref blockDisplayName, ref thisClimbingCostMult);
+            double climbingCostMultiplier = 0;  // Updated name
+            AllGridsList.ClimbingCostRename(ref blockDisplayName, ref climbingCostMultiplier);
+
+            // DEBUG: Check multiplier
+            //MyAPIGateway.Utilities.ShowNotification($"Block: {blockDisplayName}, Multiplier: {climbingCostMultiplier}", 3000);
+
 
             if (!BlockCounts.ContainsKey(blockDisplayName))
                 BlockCounts.Add(blockDisplayName, 0);
 
             var thisSpecialBlocksCount = BlockCounts[blockDisplayName]++;
 
-            if (thisClimbingCostMult > 0)
-                blockPoints += (blockPoints * thisSpecialBlocksCount * thisClimbingCostMult);
+            if (climbingCostMultiplier > 0)  // Use consistent variable name
+                blockPoints += (blockPoints * thisSpecialBlocksCount * climbingCostMultiplier);
 
             if (block is IMyThrust || block is IMyGyro)
                 MovementPoints += blockPoints;

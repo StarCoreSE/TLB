@@ -70,20 +70,21 @@ namespace ShipPoints
         };
 
         private readonly Dictionary<string, double> FuzzyPoints = new Dictionary<string, double>();
-        private readonly Func<string, MyTuple<string, double>> _climbingCostRename = ClimbingCostRename;
+        private readonly Func<string, MyTuple<string, float>> _climbingCostRename = ClimbingCostRename;
 
-        private static MyTuple<string, double> ClimbingCostRename(string blockSubtypeName)
+        private static MyTuple<string, float> ClimbingCostRename(string blockDisplayName)
         {
-            double costMultiplier = 0;
+            float costMultiplier = 0f;
 
-            switch (blockSubtypeName)
+            switch (blockDisplayName)
             {
-                case "TestEntry1":
-                    costMultiplier = 0;
+                case "Jet Thruster":
+                    blockDisplayName = "Jet Thruster";
+                    costMultiplier = 0.25f;
                     break;
             }
 
-            return new MyTuple<string, double>(blockSubtypeName, costMultiplier);
+            return new MyTuple<string, float>(blockDisplayName, costMultiplier);
         }
 
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
