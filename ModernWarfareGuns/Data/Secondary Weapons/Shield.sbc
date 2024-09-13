@@ -85,7 +85,7 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>ShieldWep</SubtypeId>
 		</Id>
-		<ProjectileAmmoData RateOfFire="3000" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="90" />
+		<ProjectileAmmoData RateOfFire="1000" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="90" />
 		<DeviateShotAngle>2.0</DeviateShotAngle>
 		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
 		<AmmoMagazines>
