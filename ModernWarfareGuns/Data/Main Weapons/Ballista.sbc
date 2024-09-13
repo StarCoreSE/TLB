@@ -153,7 +153,7 @@
 		<BasicProperties>
 			<DesiredSpeed>500</DesiredSpeed>
 			<SpeedVariance>0</SpeedVariance>
-			<MaxTrajectory>1400</MaxTrajectory>
+			<MaxTrajectory>3500</MaxTrajectory>
 			<IsExplosive>true</IsExplosive>
 			<BackkickForce>13000</BackkickForce>
 			<PhysicalMaterial>MediumShell</PhysicalMaterial>
