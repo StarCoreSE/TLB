@@ -18,11 +18,11 @@
       <Model>Models\Cubes\HatchTurret.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
-        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="MetalGrid" Count="10" />
         <Component Subtype="Motor" Count="6" />
         <Component Subtype="Computer" Count="10" />
-        <Component Subtype="MetalGrid" Count="50" />
-        <Component Subtype="SteelPlate" Count="101" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="SteelPlate" Count="100" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <MountPoints>
