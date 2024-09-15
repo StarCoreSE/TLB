@@ -18,11 +18,11 @@
       <Model>Models\Cubes\MaceTurret.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
-        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="MetalGrid" Count="10" />
         <Component Subtype="Motor" Count="6" />
         <Component Subtype="Computer" Count="10" />
-        <Component Subtype="MetalGrid" Count="50" />
-        <Component Subtype="SteelPlate" Count="101" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="SteelPlate" Count="50" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <MountPoints>
@@ -144,11 +144,11 @@
         <MissileInitialSpeed>100</MissileInitialSpeed>
         <MissileSkipAcceleration>false</MissileSkipAcceleration>
         <MissileExplosionDamage>500</MissileExplosionDamage>
-        <MissileHealthPool>500</MissileHealthPool>
+        <MissileHealthPool>300</MissileHealthPool>
         <MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
         <MissileGravityEnabled>true</MissileGravityEnabled>
         <MissileRicochetAngle>30</MissileRicochetAngle>
-        <MissileRicochetDamage>2000</MissileRicochetDamage>
+        <MissileRicochetDamage>0</MissileRicochetDamage>
         <MissileRicochetProbability>0</MissileRicochetProbability>
       </MissileProperties>
 	</Ammo>

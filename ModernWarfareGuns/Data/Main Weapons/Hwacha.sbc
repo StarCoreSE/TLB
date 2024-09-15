@@ -16,11 +16,12 @@
 		<ModelOffset x="0" y="0" z="0" />
 		<Model>Models\Cubes\HwachaModel.mwm</Model>
 		<Components>
-			<Component Subtype="SteelPlate" Count="1" />
-			<Component Subtype="Construction" Count="1" />
-			<Component Subtype="LargeTube" Count="3" />
+			<Component Subtype="SteelPlate" Count="10" />
+			<Component Subtype="Construction" Count="10" />
+			<Component Subtype="MetalGrid" Count="5" />
+			<Component Subtype="LargeTube" Count="10" />
 			<Component Subtype="Computer" Count="1" />
-			<Component Subtype="SteelPlate" Count="1" />
+			<Component Subtype="SteelPlate" Count="100" />
 		</Components>
 		<CriticalComponent Subtype="Computer" Index="0" />
 		<MirroringY>Z</MirroringY>

@@ -11,7 +11,7 @@
 			</Id>
 			<DisplayName>V4 Gas Engine</DisplayName>
 			<Icon>Textures\GUI\Icons\Cubes\HydrogenEngineSmall.dds</Icon>
-			<Description>Fuel consumption of 20.0L/s, Fuel to Engine power ratio of 2L/L, Total power of 40.00L/s</Description>
+			<Description>Fuel consumption of 10.0L/s, Fuel to Engine power ratio of 2L/L, Total power of 40.00L/s</Description>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
 			<Size x="3" y="2" z="2" />
@@ -26,7 +26,7 @@
 				<Component Subtype="Motor" Count="20" />
 				<Component Subtype="Computer" Count="10" />
 				<Component Subtype="PowerCell" Count="2" />
-				<Component Subtype="SteelPlate" Count="20" />
+				<Component Subtype="SteelPlate" Count="10" />
 			</Components>
 			<CriticalComponent Subtype="Computer" Index="0" />
 			<MountPoints>
@@ -49,7 +49,7 @@
 			<EdgeType>Light</EdgeType>
 
 			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
-			<IceConsumptionPerSecond>20</IceConsumptionPerSecond>
+			<IceConsumptionPerSecond>10</IceConsumptionPerSecond>
             <InventoryMaxVolume>.1</InventoryMaxVolume>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <InventorySize>
@@ -71,7 +71,7 @@
                         <TypeId>GasProperties</TypeId>
                         <SubtypeId>Hydrogen</SubtypeId>
                     </Id>
-                    <IceToGasRatio>2</IceToGasRatio>
+                    <IceToGasRatio>4</IceToGasRatio>
                 </GasInfo>
             </ProducedGases>
             <BlueprintClasses>
@@ -96,7 +96,7 @@
 			</Id>
 			<DisplayName>V2 Gas Engine</DisplayName>
 			<Icon>Textures\GUI\Icons\Cubes\HydrogenEngineSmall.dds</Icon>
-			<Description>Fuel consumption of 12.0L/s, Fuel to Engine power ratio (efficiency) of 1.66L/L, Total power of 20.00L/s</Description>
+			<Description>Fuel consumption of 6.0L/s, Fuel to Engine power ratio (efficiency) of 3.33L/L, Total power of 20.00L/s</Description>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
 			<Size x="3" y="2" z="1" />
@@ -114,7 +114,7 @@
 				<Component Subtype="Motor" Count="10" />
 				<Component Subtype="Computer" Count="5" />
 				<Component Subtype="PowerCell" Count="1" />
-				<Component Subtype="SteelPlate" Count="10" />
+				<Component Subtype="SteelPlate" Count="5" />
 			</Components>
 			<CriticalComponent Subtype="Computer" Index="0" />
 			
@@ -134,7 +134,7 @@
 			<EdgeType>Light</EdgeType>
 
 			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
-			<IceConsumptionPerSecond>12</IceConsumptionPerSecond>
+			<IceConsumptionPerSecond>6</IceConsumptionPerSecond>
             <InventoryMaxVolume>.1</InventoryMaxVolume>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <InventorySize>
@@ -156,7 +156,7 @@
                         <TypeId>GasProperties</TypeId>
                         <SubtypeId>Hydrogen</SubtypeId>
                     </Id>
-                    <IceToGasRatio>1.667</IceToGasRatio>
+                    <IceToGasRatio>3.33</IceToGasRatio>
                 </GasInfo>
             </ProducedGases>
             <BlueprintClasses>
@@ -181,7 +181,7 @@
 			</Id>
 			<DisplayName>V6 Gas Engine</DisplayName>
 			<Icon>Textures\Icons\BobEngine.dds</Icon>
-			<Description>Fuel consumption of 24.0L/s, Fuel to Engine power ratio (efficiency) of 2.5L/L, Total power of 60.00L/s</Description>
+			<Description>Fuel consumption of 12.0L/s, Fuel to Engine power ratio (efficiency) of 5L/L, Total power of 60.00L/s</Description>
 			<CubeSize>Small</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
 			<Size x="3" y="3" z="3"/>
@@ -196,7 +196,7 @@
 				<Component Subtype="Motor" Count="40" />
 				<Component Subtype="Computer" Count="25" />
 				<Component Subtype="PowerCell" Count="3" />
-				<Component Subtype="SteelPlate" Count="40" />
+				<Component Subtype="SteelPlate" Count="25" />
 			</Components>
 			<CriticalComponent Subtype="Computer" Index="0" />
 			<BuildProgressModels>
@@ -208,7 +208,7 @@
 			<BuildTimeSeconds>30</BuildTimeSeconds>
 			<EdgeType>Light</EdgeType>
 			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
-			<IceConsumptionPerSecond>24</IceConsumptionPerSecond>
+			<IceConsumptionPerSecond>12</IceConsumptionPerSecond>
             <InventoryMaxVolume>.1</InventoryMaxVolume>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
             <InventorySize>
@@ -230,7 +230,7 @@
                         <TypeId>GasProperties</TypeId>
                         <SubtypeId>Hydrogen</SubtypeId>
                     </Id>
-                    <IceToGasRatio>2.5</IceToGasRatio>
+                    <IceToGasRatio>5</IceToGasRatio>
                 </GasInfo>
             </ProducedGases>
             <BlueprintClasses>

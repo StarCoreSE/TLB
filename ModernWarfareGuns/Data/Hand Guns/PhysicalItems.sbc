@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <PhysicalItems>
+        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>SemiAutoPistolItem</SubtypeId>
+            </Id>
+            <DisplayName>Pistol</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponPistol_Warfare.dds</Icon>
+            <Size>
+                <X>0.27</X>
+                <Y>0.15</Y>
+                <Z>0.08</Z>
+            </Size><Health>99999</Health>
+            <Mass>1</Mass>
+            <Volume>6</Volume>
+            <Model>Models\Weapons\Pistol_Warfare.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="PistolHandWep" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>20</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>100</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem> <!--pist-->
+        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>FullAutoPistolItem</SubtypeId>
+            </Id>
+            <DisplayName>Submachine Gun</DisplayName>
+            <Icon>Textures\Icons\Weapons\smg.dds</Icon>
+            <Size>
+                <X>0.27</X>
+                <Y>0.15</Y>
+                <Z>0.08</Z>
+            </Size><Health>99999</Health>
+            <Mass>1</Mass>
+            <Volume>8</Volume>
+            <Model>Models\Weapons\smg.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="HandSMGWep" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>10</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>100</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem> <!--smg-->
+        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>ElitePistolItem</SubtypeId>
+            </Id>
+            <DisplayName>Flamer</DisplayName>
+            <Icon>Textures\Icons\Weapons\Flamethrower.dds</Icon>
+            <Size>
+                <X>0.27</X>
+                <Y>0.15</Y>
+                <Z>0.08</Z>
+            </Size><Health>99999</Health>
+            <Mass>1</Mass>
+            <Volume>6</Volume>
+            <Model>Models\Weapons\Flamethrower.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="FlamerHandWep" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>3</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>100</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem> <!--flam-->
+        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>RapidFireAutomaticRifleItem</SubtypeId>
+            </Id>
+            <DisplayName>Rifle</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponAutomaticRifle.dds</Icon>
+            <Size>
+                <X>0.8</X>
+                <Y>0.24</Y>
+                <Z>0.08</Z>
+            </Size><Health>99999</Health>
+            <Mass>3</Mass>
+            <Volume>20</Volume>
+            <Model>Models\Weapons\AutomaticRifle.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="HandRifleWep" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>20</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>100</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem> <!--rifl-->
+		<PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>PreciseAutomaticRifleItem</SubtypeId>
+            </Id>
+            <DisplayName>Auto Sniper</DisplayName>
+            <Icon>Textures\Icons\Weapons\Sniper.dds</Icon>
+            <Size>
+                <X>0.8</X>
+                <Y>0.24</Y>
+                <Z>0.08</Z>
+            </Size><Health>99999</Health>
+            <Mass>3</Mass>
+            <Volume>20</Volume>
+			<Model>Models\Weapons\Sniper.mwm</Model>
+			<PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="HandSniperWep" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>10</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem> <!--snip-->
+        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>AutomaticRifleItem</SubtypeId>
+            </Id>
+            <DisplayName>Light Machine Gun</DisplayName>
+            <Icon>Textures\Icons\Weapons\lmg.dds</Icon>
+            <Size>
+                <X>0.8</X>
+                <Y>0.24</Y>
+                <Z>0.08</Z>
+            </Size><Health>99999</Health>
+            <Mass>3</Mass>
+            <Volume>20</Volume>
+            <Model>Models\Weapons\lmg.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="HandLMGWep" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>10</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem> <!--lmg-->
+        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition"> 
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>UltimateAutomaticRifleItem</SubtypeId>
+            </Id>
+            <DisplayName>Shotgun</DisplayName>
+            <Icon>Textures\Icons\Weapons\shotgun.dds</Icon>
+            <Size>
+                <X>0.8</X>
+                <Y>0.24</Y>
+                <Z>0.08</Z>
+            </Size><Health>99999</Health>
+            <Mass>3</Mass>
+            <Volume>20</Volume>
+            <Model>Models\Weapons\shotgun.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="ShotgunHandWep" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>3</MaximumOfferAmount>
+            <MinimumOrderAmount>5</MinimumOrderAmount>
+            <MaximumOrderAmount>10</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem> <!--shot-->
+        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>BasicHandHeldLauncherItem</SubtypeId>
+            </Id>
+            <DisplayName>Missile Launcher</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponRocketLauncher_Regular.dds</Icon>
+            <Size>
+                <X>0.8</X>
+                <Y>0.24</Y>
+                <Z>0.08</Z>
+            </Size><Health>99999</Health>
+            <Mass>25</Mass>
+            <Volume>125</Volume>
+            <Model>Models\Weapons\RocketLauncher_Regular.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="RocketHandWep" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>5</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>100</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem> <!--rock-->
+        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>AdvancedHandHeldLauncherItem</SubtypeId>
+            </Id>
+            <DisplayName>Grenade Launcher</DisplayName>
+            <Icon>Textures\Icons\Weapons\GrenadeLauncher.dds</Icon>
+            <Size>
+                <X>0.8</X>
+                <Y>0.24</Y>
+                <Z>0.08</Z>
+            </Size><Health>99999</Health>
+            <Mass>25</Mass>
+            <Volume>125</Volume>
+            <Model>Models\Weapons\GrenadeLauncher.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="HandGrenadeWep" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>3</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>100</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem> <!--nade-->
+    </PhysicalItems>
+</Definitions>

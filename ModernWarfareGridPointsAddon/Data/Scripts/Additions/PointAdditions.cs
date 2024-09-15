@@ -25,8 +25,8 @@ namespace ShipPoints
             ["TrebuchetGunBlock"] = 5,
             ["OnagerGunBlock"] = 6,
             ["ArbalestGunBlock"] = 6,
-            ["BallistaGunBlock"] = 7,
             ["HwachaGunBlock"] = 7,
+            ["BallistaGunBlock"] = 8,
             ["ScorpionGunBlock"] = 9,
             ["CatapultGunBlock"] = 10,
 
@@ -42,30 +42,30 @@ namespace ShipPoints
             // Ordnance
             ["SmallWarhead"] = 1,
             ["MountedMediumBomb"] = 1,
-            ["SmallBombBay"] = 3,
-            ["MediumBombBay"] = 4,
-            ["MountedLargeBomb"] = 1,
-            ["MountedMissile"] = 1.25,
+            ["SmallBombBay"] = 4,
+            ["MediumBombBay"] = 5,
+            ["MountedLargeBomb"] = 3,
+            ["MountedMissile"] = 1,
             ["BombardLauncher"] = 10,
-            ["BasiliskGunBlock"] = 2.5,
+            ["BasiliskGunBlock"] = 9/4,
 
             // Utilities
             ["SmallCameraBlock"] = 1,
             ["TLBSmallFlareLauncher"] = 2,
             ["TLBSmallSmokeLauncher"] = 3,
             ["APSTurret"] = 4,
-            ["DronePMW"] = 5,
-            ["SurvivalKit"] = 5,
-
-            // Propulsion 
-            ["JetThruster"] = 2,
-            ["SmallBlockGyro"] = 1,
-            ["MainHelicopterRotor"] = 3,
-            ["TailHelicopterRotor"] = 1,
+            // ["DronePMW"] = 4, dne
+            ["SurvivalKit"] = 3,
             ["Propellantx4"] = 2,
             ["Propellantx5"] = 2,
-            ["SmallBlockSmallFlatAtmosphericThrust"] = 0.5,
-            ["SmallBlockSmallFlatAtmosphericThrustDShape"] = 0.5,
+
+            // Propulsion 
+            ["JetThruster"] = 0,
+            ["SmallBlockGyro"] = 0,
+            ["MainHelicopterRotor"] = 0,
+            ["TailHelicopterRotor"] = 0,
+            ["SmallBlockSmallFlatAtmosphericThrust"] = 0,
+            ["SmallBlockSmallFlatAtmosphericThrustDShape"] = 0,
 
         };
 
@@ -89,13 +89,15 @@ namespace ShipPoints
 
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
         {
+
+            // i am sorry invalid
             // Add fuzzy rules (can be displayname or subtype)
-            FuzzyPoints.Add("aero-wing", 0.33);
-            FuzzyPoints.Add("Control Surface", 0.33);
-            FuzzyPoints.Add("suspension2x2", 0.125);
-            FuzzyPoints.Add("suspension3x3", 0.25);
-            FuzzyPoints.Add("suspension5x5", 0.5);
-            FuzzyPoints.Add("SmallDragWheel", 0.33);
+            // FuzzyPoints.Add("aero-wing", 0.33);
+            // FuzzyPoints.Add("Control Surface", 0.33);
+            // FuzzyPoints.Add("suspension2x2", 0.125);
+            // FuzzyPoints.Add("suspension3x3", 0.25);
+            // FuzzyPoints.Add("suspension5x5", 0.5);
+            // FuzzyPoints.Add("SmallDragWheel", 0.33);
 
             // Process fuzzy rules
             foreach (var kvp in FuzzyPoints)

@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Ammos>
+    <Ammo xsi:type="MyObjectBuilder_ProjectileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>MinigunAmmo</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>300</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>800</MaxTrajectory>
+        <BackkickForce>1.5</BackkickForce>
+        <PhysicalMaterial>RifleBullet</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>0.1</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <ProjectileProperties>
+        <ProjectileTrailScale>0.05</ProjectileTrailScale>
+        <ProjectileHitImpulse>1</ProjectileHitImpulse>
+        <ProjectileMassDamage>150</ProjectileMassDamage>
+        <ProjectileHealthDamage>10</ProjectileHealthDamage>
+        <HeadShot>true</HeadShot>
+        <ProjectileHeadShotDamage>300</ProjectileHeadShotDamage>
+      </ProjectileProperties>
+    </Ammo>
+
+    <Ammo xsi:type="MyObjectBuilder_ProjectileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>LaserAmmo</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>40000</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>5</MaxTrajectory>
+        <BackkickForce>0</BackkickForce>
+        <PhysicalMaterial>GunBullet</PhysicalMaterial>
+      </BasicProperties>
+      <ProjectileProperties>
+        <ProjectileTrailScale>0</ProjectileTrailScale>
+        <ProjectileHitImpulse>0</ProjectileHitImpulse>
+        <ProjectileMassDamage>0</ProjectileMassDamage>
+        <ProjectileHealthDamage>0</ProjectileHealthDamage>
+        <HeadShot>true</HeadShot>
+      </ProjectileProperties>
+    </Ammo>
+
+    <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>FlamerAmmo</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>80</DesiredSpeed>
+        <SpeedVariance>0.1</SpeedVariance>
+        <MaxTrajectory>300</MaxTrajectory>
+        <BackkickForce>0</BackkickForce>
+        <PhysicalMaterial></PhysicalMaterial>
+        <EndOfLifeSound></EndOfLifeSound>
+        <EndOfLifeEffect>Explosion_Flare</EndOfLifeEffect>
+        <DeathMessage>CauseOfDeath_LightWeapons</DeathMessage>
+      </BasicProperties>
+      <MissileProperties>
+        <MissileMass>100</MissileMass>
+        <MissileExplosionRadius>2.5</MissileExplosionRadius>
+        <MissileModelName>Models\Weapons\FlareAmmo.mwm</MissileModelName>
+        <MissileAcceleration>0</MissileAcceleration>
+        <MissileInitialSpeed>50</MissileInitialSpeed>
+        <MissileSkipAcceleration>false</MissileSkipAcceleration>
+        <MissileExplosionDamage>1000</MissileExplosionDamage>
+        <MissileHealthPool>100</MissileHealthPool>
+        <MissileTrailEffect>Smoke_Flare</MissileTrailEffect>
+        <MissileGravityEnabled>true</MissileGravityEnabled>
+        <ExplosionFlags>APPLY_FORCE_AND_DAMAGE CREATE_DECALS CREATE_SHRAPNELS FORCE_CUSTOM_END_OF_LIFE_EFFECT</ExplosionFlags>
+      </MissileProperties>
+    </Ammo>
+
+    <Ammo xsi:type="MyObjectBuilder_ProjectileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>MaxigunAmmo</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>400</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>800</MaxTrajectory>
+        <BackkickForce>1.7</BackkickForce>
+        <PhysicalMaterial>GunBullet</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>0.6</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <ProjectileProperties>
+        <ProjectileTrailScale>0.1</ProjectileTrailScale>
+        <ProjectileHitImpulse>2</ProjectileHitImpulse>
+        <ProjectileMassDamage>90</ProjectileMassDamage>
+        <ProjectileHealthDamage>33</ProjectileHealthDamage>
+        <HeadShot>true</HeadShot>
+      </ProjectileProperties>
+    </Ammo>
+
+    <Ammo xsi:type="MyObjectBuilder_ProjectileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>ShotgunAmmo</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>300</DesiredSpeed>
+        <SpeedVariance>0.4</SpeedVariance>
+        <MaxTrajectory>400</MaxTrajectory>
+        <BackkickForce>2</BackkickForce>
+      </BasicProperties>
+      <ProjectileProperties>
+        <ProjectileHitImpulse>10</ProjectileHitImpulse>
+        <ProjectileMassDamage>120</ProjectileMassDamage>
+        <!--nice-->
+        <ProjectileHealthDamage>10</ProjectileHealthDamage>
+        <ProjectileTrailScale>0.05</ProjectileTrailScale>
+        <ProjectileTrailColor x="1" y="1" z="1" />
+        <ProjectileTrailProbability>1</ProjectileTrailProbability>
+        <ProjectileCount>15</ProjectileCount>
+        <ProjectileOnHitEffectName>MaterialHit_Soil</ProjectileOnHitEffectName>
+      </ProjectileProperties>
+    </Ammo>
+
+    <Ammo xsi:type="MyObjectBuilder_ProjectileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>AutocannonAmmo</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>400</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>800</MaxTrajectory>
+        <BackkickForce>2</BackkickForce>
+        <PhysicalMaterial>GunAutocannonBullet</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>0.8</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <ProjectileProperties>
+        <ProjectileTrailScale>0.5</ProjectileTrailScale>
+        <ProjectileHitImpulse>3</ProjectileHitImpulse>
+        <ProjectileMassDamage>500</ProjectileMassDamage>
+        <ProjectileHealthDamage>85</ProjectileHealthDamage>
+        <HeadShot>true</HeadShot>
+      </ProjectileProperties>
+    </Ammo>
+
+    <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>MissileAmmo</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>200</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>800</MaxTrajectory>
+        <IsExplosive>true</IsExplosive>
+        <BackkickForce>0</BackkickForce>
+        <PhysicalMaterial>Missile</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>2</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <MissileProperties>
+        <MissileMass>45</MissileMass>
+        <MissileExplosionRadius>4</MissileExplosionRadius>
+        <MissileModelName>Models\Weapons\Projectile_Missile.mwm</MissileModelName>
+        <MissileAcceleration>600</MissileAcceleration>
+        <MissileInitialSpeed>100</MissileInitialSpeed>
+        <MissileSkipAcceleration>false</MissileSkipAcceleration>
+        <MissileExplosionDamage>100</MissileExplosionDamage>
+        <MissileTrailEffect>Smoke_Missile</MissileTrailEffect>
+		<MissileHealthPool>2000</MissileHealthPool>
+      </MissileProperties>
+    </Ammo>
+
+    <Ammo xsi:type="MyObjectBuilder_MissileAmmoDefinition">
+      <Id>
+        <TypeId>AmmoDefinition</TypeId>
+        <SubtypeId>GrenadeAmmo</SubtypeId>
+      </Id>
+      <BasicProperties>
+        <DesiredSpeed>100</DesiredSpeed>
+        <SpeedVariance>0</SpeedVariance>
+        <MaxTrajectory>1400</MaxTrajectory>
+        <IsExplosive>true</IsExplosive>
+        <BackkickForce>1</BackkickForce>
+        <PhysicalMaterial>MediumShell</PhysicalMaterial>
+        <ExplosiveDamageMultiplier>1</ExplosiveDamageMultiplier>
+      </BasicProperties>
+      <MissileProperties>
+        <MissileMass>300</MissileMass>
+        <MissileExplosionRadius>1.5</MissileExplosionRadius>
+        <MissileModelName>Models\Weapons\MediumCalibreShell.mwm</MissileModelName>
+        <MissileAcceleration>0</MissileAcceleration>
+        <MissileInitialSpeed>100</MissileInitialSpeed>
+        <MissileSkipAcceleration>false</MissileSkipAcceleration>
+        <MissileExplosionDamage>200</MissileExplosionDamage>
+        <MissileHealthPool>100</MissileHealthPool>
+        <MissileTrailEffect>MediumCalibreGun_Tracer</MissileTrailEffect>
+        <MissileGravityEnabled>true</MissileGravityEnabled>
+        <MissileRicochetAngle>30</MissileRicochetAngle>
+        <MissileRicochetDamage>0</MissileRicochetDamage>
+        <MissileRicochetProbability>0</MissileRicochetProbability>
+      </MissileProperties>
+    </Ammo>
+  </Ammos>
+</Definitions>

@@ -143,8 +143,8 @@
 			<MissileAcceleration>1</MissileAcceleration>
 			<MissileInitialSpeed>50</MissileInitialSpeed>
 			<MissileSkipAcceleration>false</MissileSkipAcceleration>
-			<MissileExplosionDamage>500</MissileExplosionDamage>
-			<MissileHealthPool>2000</MissileHealthPool>
+			<MissileExplosionDamage>3000</MissileExplosionDamage>
+			<MissileHealthPool>3000</MissileHealthPool>
 			<MissileTrailEffect></MissileTrailEffect>
 			<MissileGravityEnabled>true</MissileGravityEnabled>
 		</MissileProperties>

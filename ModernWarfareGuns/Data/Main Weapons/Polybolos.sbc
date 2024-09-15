@@ -19,13 +19,12 @@
 		<ModelOffset x="0" y="0" z="0" />
 		<Model>Models\Cubes\Small\Autocannon.mwm</Model>
 		<Components>
-			<Component Subtype="SteelPlate" Count="2" />
-			<Component Subtype="Construction" Count="2" />
-			<Component Subtype="MetalGrid" Count="2" />
-			<Component Subtype="SmallTube" Count="2" />
-			<Component Subtype="Motor" Count="1" />
+			<Component Subtype="SteelPlate" Count="5" />
+			<Component Subtype="Construction" Count="10" />
+			<Component Subtype="MetalGrid" Count="5" />
+			<Component Subtype="LargeTube" Count="10" />
 			<Component Subtype="Computer" Count="1" />
-			<Component Subtype="SteelPlate" Count="4" />
+			<Component Subtype="SteelPlate" Count="15" />
 		</Components>
 		<CriticalComponent Subtype="Computer" Index="0" />
 		<MountPoints>
@@ -138,8 +137,8 @@
 	<ProjectileProperties>
 		<ProjectileTrailScale>0.2</ProjectileTrailScale>
 		<ProjectileHitImpulse>3</ProjectileHitImpulse>
-		<ProjectileMassDamage>50</ProjectileMassDamage>
-		<ProjectileHealthDamage>100</ProjectileHealthDamage>
+		<ProjectileMassDamage>90</ProjectileMassDamage>
+		<ProjectileHealthDamage>33</ProjectileHealthDamage>
 		<HeadShot>true</HeadShot>
 	</ProjectileProperties>
 	</Ammo>

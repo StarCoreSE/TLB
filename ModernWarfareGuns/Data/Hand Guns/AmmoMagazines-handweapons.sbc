@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AmmoMagazines>
+    <!--lase-->
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>FlamerMag</SubtypeId>
+      </Id>
+      <DisplayName>Ammo Flamer</DisplayName>
+      <Icon>Textures\Icons\Magazines\FlamerCrate.png</Icon>
+      <Size>
+        <X>0.8</X>
+        <Y>0.24</Y>
+        <Z>0.08</Z>
+      </Size>
+      <Health>999999</Health>
+      <Mass>20</Mass>
+      <Volume>60</Volume>
+      <Model>Models\Magazines\FlamerCrate.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>200</Capacity>
+      <AmmoDefinitionId Subtype="FlamerAmmo" />
+      <MinimalPricePerUnit>4162</MinimalPricePerUnit>
+      <MinimumOfferAmount>1</MinimumOfferAmount>
+      <MaximumOfferAmount>10</MaximumOfferAmount>
+      <MinimumOrderAmount>1</MinimumOrderAmount>
+      <MaximumOrderAmount>10</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </AmmoMagazine>
+    <!--Flam-->
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>MinigunMag</SubtypeId>
+      </Id>
+      <DisplayName>Ammo Minigun</DisplayName>
+      <Icon>Textures\Icons\Magazines\MinigunCrate.png</Icon>
+      <Size>
+        <X>0.2</X>
+        <Y>0.05</Y>
+        <Z>0.02</Z>
+      </Size>
+      <Health>999999</Health>
+      <Mass>0.45</Mass>
+      <Volume>0.2</Volume>
+      <Model>Models\Magazines\MinigunCrate.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>60</Capacity>
+      <AmmoDefinitionId Subtype="MinigunAmmo" />
+
+      <MinimumOfferAmount>100</MinimumOfferAmount>
+      <MaximumOfferAmount>1000</MaximumOfferAmount>
+      <MinimumOrderAmount>100</MinimumOrderAmount>
+      <MaximumOrderAmount>2000</MaximumOrderAmount>
+      <CanPlayerOrder>false</CanPlayerOrder>
+    </AmmoMagazine>
+    <!--Mini-->
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>AutocannonMag</SubtypeId>
+      </Id>
+      <DisplayName>Ammo Autocannon</DisplayName>
+      <Icon>Textures\Icons\Magazines\AutocannonCrate.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+      <Health>999999</Health>
+      <Mass>13</Mass>
+      <Volume>4</Volume>
+      <Model>Models\Magazines\AutocannonCrate.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>12</Capacity>
+      <AmmoDefinitionId Subtype="AutocannonAmmo" />
+      <MinimumOfferAmount>30</MinimumOfferAmount>
+      <MaximumOfferAmount>300</MaximumOfferAmount>
+      <MinimumOrderAmount>10</MinimumOrderAmount>
+      <MaximumOrderAmount>1000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </AmmoMagazine>
+    <!--Auto-->
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>MaxigunMag</SubtypeId>
+      </Id>
+      <DisplayName>Ammo Maxigun</DisplayName>
+      <Icon>Textures\Icons\Magazines\MaxigunCrate.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+      <Health>999999</Health>
+      <Mass>35</Mass>
+      <Volume>16</Volume>
+      <Model>Models\Magazines\MaxigunCrate.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>300</Capacity>
+      <AmmoDefinitionId Subtype="MaxigunAmmo" />
+
+      <MinimumOfferAmount>50</MinimumOfferAmount>
+      <MaximumOfferAmount>500</MaximumOfferAmount>
+      <MinimumOrderAmount>100</MinimumOrderAmount>
+      <MaximumOrderAmount>2000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </AmmoMagazine>
+    <!--Maxi-->
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>ShotgunMag</SubtypeId>
+      </Id>
+      <DisplayName>Ammo Shotgun</DisplayName>
+      <Icon>Textures\Icons\Magazines\ShotgunCrate.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+      <Health>999999</Health>
+      <Mass>35</Mass>
+      <Volume>16</Volume>
+      <Model>Models\Magazines\ShotgunCrate.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>30</Capacity>
+      <AmmoDefinitionId Subtype="ShotgunAmmo" />
+
+      <MinimumOfferAmount>50</MinimumOfferAmount>
+      <MaximumOfferAmount>500</MaximumOfferAmount>
+      <MinimumOrderAmount>100</MinimumOrderAmount>
+      <MaximumOrderAmount>2000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </AmmoMagazine>
+    <!--Shot-->
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>MissileMag</SubtypeId>
+      </Id>
+      <DisplayName>Ammo Missile</DisplayName>
+      <Icon>Textures\Icons\Magazines\MissileCrate.png</Icon>
+      <Size>
+        <X>1.2</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+      <Health>999999</Health>
+      <Mass>45</Mass>
+      <Volume>60</Volume>
+      <Model>Models\Magazines\MissileCrate.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>1</Capacity>
+      <AmmoDefinitionId Subtype="Missile" />
+
+      <MinimumOfferAmount>50</MinimumOfferAmount>
+      <MaximumOfferAmount>500</MaximumOfferAmount>
+      <MinimumOrderAmount>100</MinimumOrderAmount>
+      <MaximumOrderAmount>2000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </AmmoMagazine>
+    <!--Miss-->
+
+    <!--cann-->
+    <AmmoMagazine>
+      <Id>
+        <TypeId>AmmoMagazine</TypeId>
+        <SubtypeId>GrenadeMag</SubtypeId>
+      </Id>
+      <DisplayName>Ammo Grenade</DisplayName>
+      <Icon>Textures\Icons\Magazines\GrenadeCrate.png</Icon>
+      <Size>
+        <X>0.25</X>
+        <Y>0.2</Y>
+        <Z>0.2</Z>
+      </Size>
+      <Health>999999</Health>
+      <Mass>60</Mass>
+      <Volume>30</Volume>
+      <Model>Models\Magazines\GrenadeCrate.mwm</Model>
+      <PhysicalMaterial>Ammo</PhysicalMaterial>
+      <Capacity>4</Capacity>
+      <AmmoDefinitionId Subtype="GrenadeAmmo" />
+
+      <MinimumOfferAmount>100</MinimumOfferAmount>
+      <MaximumOfferAmount>1000</MaximumOfferAmount>
+      <MinimumOrderAmount>100</MinimumOrderAmount>
+      <MaximumOrderAmount>2000</MaximumOrderAmount>
+      <CanPlayerOrder>true</CanPlayerOrder>
+    </AmmoMagazine>
+    <!--gren-->
+  </AmmoMagazines>
+</Definitions>

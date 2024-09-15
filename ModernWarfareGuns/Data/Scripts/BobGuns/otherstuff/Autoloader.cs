@@ -231,6 +231,8 @@ namespace MODERN_WARFARE_GUNS
 
                     var gun = player.Character.EquippedTool as IMyGunObject<MyGunBase>;
 
+                    var handheld = gun as IMyHandheldGunObject<MyGunBase>;
+
                     if (gun != null && gun.GunBase.CurrentAmmo == 0)
                     {
                         foreach (IMyShipMergeBlock ammoRack in ammoRacks)
@@ -241,6 +243,8 @@ namespace MODERN_WARFARE_GUNS
                             if ((ammoRack.GetPosition() - player.Character.GetPosition()).LengthSquared() < 5)
                             {
                                 usedRacks.Add(ammoRack);
+                                // fascinating
+                                handheld.Reload();
                                 gun.GunBase.CurrentAmmo = gun.GunBase.CurrentAmmoMagazineDefinition.Capacity;
                                 break;
                             }

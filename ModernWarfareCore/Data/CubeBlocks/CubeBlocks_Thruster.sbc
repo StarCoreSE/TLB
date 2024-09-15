@@ -19,9 +19,9 @@
 				<Component Subtype="Construction" Count="6" />
 				<Component Subtype="Superconductor" Count="5" />
 				<Component Subtype="Computer" Count="1" />
-				<Component Subtype="Motor" Count="20" />
+				<Component Subtype="Motor" Count="100" />
 				<Component Subtype="Construction" Count="5" />
-				<Component Subtype="SteelPlate" Count="10" />
+				<Component Subtype="SteelPlate" Count="15" />
 			</Components>
 			<CriticalComponent Subtype="Motor" Index="0" />
 			<Center x="0" y="0" z="0" />
@@ -166,9 +166,9 @@
 				<Component Subtype="Construction" Count="6" />
 				<Component Subtype="Superconductor" Count="5" />
 				<Component Subtype="Computer" Count="1" />
-				<Component Subtype="Motor" Count="20" />
+				<Component Subtype="Motor" Count="70" />
 				<Component Subtype="Construction" Count="5" />
-				<Component Subtype="SteelPlate" Count="10" />
+				<Component Subtype="SteelPlate" Count="20" />
 			</Components>
 			<CriticalComponent Subtype="Motor" Index="0" />
 			<Center x="0" y="0" z="0" />

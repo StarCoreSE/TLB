@@ -18,11 +18,11 @@
       <Model>Models\Cubes\SwordTurret.mwm</Model>
       <UseModelIntersection>true</UseModelIntersection>
       <Components>
-        <Component Subtype="MetalGrid" Count="50" />
+        <Component Subtype="MetalGrid" Count="10" />
         <Component Subtype="Motor" Count="6" />
         <Component Subtype="Computer" Count="10" />
-        <Component Subtype="MetalGrid" Count="50" />
-        <Component Subtype="SteelPlate" Count="101" />
+        <Component Subtype="MetalGrid" Count="10" />
+        <Component Subtype="SteelPlate" Count="75" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <MountPoints>
@@ -85,13 +85,13 @@
 			<TypeId>WeaponDefinition</TypeId>
 			<SubtypeId>SwordWep</SubtypeId>
 		</Id>
-		<ProjectileAmmoData RateOfFire="3000" ShootSoundName="WepGatlingTurretShot" ShotsInBurst="140" />
+		<ProjectileAmmoData RateOfFire="575" ShootSoundName="WepShipGatlingShot" ShotsInBurst="200" />
 		<DeviateShotAngle>2.0</DeviateShotAngle>
 		<DeviateShotAngleAiming>2.0</DeviateShotAngleAiming>
 		<AmmoMagazines>
 			<AmmoMagazine Subtype="SwordMag" />
 		</AmmoMagazines>
-		<ReloadTime>10000</ReloadTime>
+		<ReloadTime>1000</ReloadTime>
 	</Weapon> <!--gren-->
 	</Weapons>
 	<AmmoMagazines>
@@ -128,20 +128,21 @@
 			<SubtypeId>SwordAmmo</SubtypeId>
 		</Id>
 		<BasicProperties>
-			<DesiredSpeed>400</DesiredSpeed>
-			<SpeedVariance>0</SpeedVariance>
+			<DesiredSpeed>850</DesiredSpeed>
+			<SpeedVariance>0.2</SpeedVariance>
 			<MaxTrajectory>800</MaxTrajectory>
-			<BackkickForce>1.7</BackkickForce>
+			<BackkickForce>10</BackkickForce>
 			<PhysicalMaterial>GunBullet</PhysicalMaterial>
 			<ExplosiveDamageMultiplier>0.6</ExplosiveDamageMultiplier>
+			<DeathMessage>CauseOfDeath_HeavyWeapons</DeathMessage>
 		</BasicProperties>
-		<ProjectileProperties>
-			<ProjectileTrailScale>0.1</ProjectileTrailScale>
-			<ProjectileHitImpulse>2</ProjectileHitImpulse>
-			<ProjectileMassDamage>90</ProjectileMassDamage>
-			<ProjectileHealthDamage>33</ProjectileHealthDamage>
-			<HeadShot>true</HeadShot>
-		</ProjectileProperties>
+	<ProjectileProperties>
+		<ProjectileTrailScale>0.2</ProjectileTrailScale>
+		<ProjectileHitImpulse>3</ProjectileHitImpulse>
+		<ProjectileMassDamage>90</ProjectileMassDamage>
+		<ProjectileHealthDamage>33</ProjectileHealthDamage>
+		<HeadShot>true</HeadShot>
+	</ProjectileProperties>
 	</Ammo>
 	</Ammos>
 </Definitions>
