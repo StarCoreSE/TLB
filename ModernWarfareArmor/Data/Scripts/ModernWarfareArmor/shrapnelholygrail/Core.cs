@@ -3,22 +3,14 @@ using Sandbox.ModAPI;
 using Sandbox.Game;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using VRageMath;
 using VRage.Game;
 using VRage.Game.Components;
 using VRage.Game.ModAPI;
-using VRage.Utils;
-using System.Collections;
-using Sandbox.Game.Entities.Cube;
-using Sandbox.Game.Entities.Debris;
 using Sandbox.Game.Entities;
 using VRage.Game.Entity;
-using SpaceEngineers.Game.Entities.Blocks;
 using SpaceEngineers.Game.ModAPI;
-using VRage.ModAPI;
-using Sandbox.Common.ObjectBuilders.Definitions;
-using Sandbox.Game.Weapons;
+using System.Linq;
 
 namespace Shrapnel
 {
@@ -26,6 +18,8 @@ namespace Shrapnel
     public class Core : MySessionComponentBase
     {
         HashSet<ChainLocation> chainLocations = new HashSet<ChainLocation>();
+        Dictionary<long, IMyAttachableTopBlock> turretTossPair = new Dictionary<long, IMyAttachableTopBlock>();
+
         long tick;
         private Queue<ShrapnelData> queue = new Queue<ShrapnelData>();
 
@@ -131,7 +125,12 @@ namespace Shrapnel
                 //MyAPIGateway.Utilities.ShowNotification($"Damage: {info.Amount}, {slim.BlockDefinition.Id.SubtypeName}", 500);
                 if (slim.BlockDefinition.Id.SubtypeName.Contains("AdvancedTurretRotor") && (slim.Integrity - info.Amount) < slim.MaxIntegrity * 0.7)
                 {
-                    slim.FatBlock.CubeGrid.RazeBlock(slim.Position);
+                    IMyAttachableTopBlock block = slim.FatBlock as IMyAttachableTopBlock;
+                    if(block != null && block.Base != null && !turretTossPair.ContainsKey(block.EntityId))
+                    {
+                        turretTossPair.Add(block.EntityId, block);
+                        block.Base.Detach();
+                    }
                 }
 
 
@@ -348,13 +347,26 @@ namespace Shrapnel
 
                 foreach (ChainLocation chain in explosionsToTrigger)
                 {
-                    float totalDamage = 200f + (20 * chain.ammorackCount);
-                    float totalRadius = 1f + (1f * chain.ammorackCount);
+                    float totalDamage = 200f + (50 * chain.ammorackCount);
+                    float totalRadius = 1.5f * chain.ammorackCount;
                     CreateExplosion(chain.position, totalDamage, totalRadius, null,false);
                     //MyAPIGateway.Utilities.ShowNotification($"Chain reaction with {chain.ammorackCount} ammo racks", 5000);
                     chainLocations.Remove(chain);
                 }
                 explosionsToTrigger.Clear();
+            }
+
+            foreach (IMyAttachableTopBlock block in turretTossPair.Values.ToList())
+            {
+                if(block.Base == null)
+                {
+                    IMyCubeGrid grid = block.CubeGrid;
+                    MatrixD gridMatrix = grid.WorldMatrix;
+                    gridMatrix.Translation = grid.WorldMatrix.Translation + block.WorldMatrix.Up * 0.5;
+                    grid.WorldMatrix = gridMatrix;
+                    grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, block.WorldMatrix.Up * 1e7, grid.Physics.CenterOfMassWorld, null);
+                    turretTossPair.Remove(block.EntityId);
+                }
             }
         }
     }

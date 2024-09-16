@@ -231,6 +231,48 @@
 			<PCU>1</PCU>
 		</Definition>
 		
+		 <Definition xsi:type="MyObjectBuilder_WarheadDefinition">
+            <Id>
+                <TypeId>Warhead</TypeId>
+                <SubtypeId>SmallWarhead</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_Warhead</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\warhead.dds</Icon>
+            <Description>Description_Warhead</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\warhead.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="1" />
+                <Component Subtype="Girder" Count="1" />
+                <Component Subtype="Construction" Count="1" />
+                <Component Subtype="SmallTube" Count="2" />
+                <Component Subtype="Computer" Count="1" />
+                <Component Subtype="Explosives" Count="2" />
+                <Component Subtype="SteelPlate" Count="3" />
+            </Components>
+            <CriticalComponent Subtype="Explosives" Index="0" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\WarheadConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\WarheadConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>Warhead</BlockPairName>
+            <ActionSound>WepLrgWarheadExpl</ActionSound>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <ExplosionRadius> 2 </ExplosionRadius>
+            <WarheadExplosionDamage>13000</WarheadExplosionDamage>
+            <EmissiveColorPreset>Timer</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>50</PCU>
+            <IsAirTight>false</IsAirTight>
+            <TargetingGroups>
+                <string>Weapons</string>
+            </TargetingGroups>
+        </Definition>
         <Definition xsi:type="MyObjectBuilder_MergeBlockDefinition">
             <Id>
                 <TypeId>MergeBlock</TypeId>
