@@ -23,9 +23,12 @@ using Sandbox.Common.ObjectBuilders;
 using VRageRender.Lights;
 using VRage.Game.Entity;
 using VRage.Game.ModAPI.Interfaces;
+using ProtoBuf;
+using static ScriptedMissiles.ScriptedMissileSession;
 
 namespace ScriptedMissiles
 {
+
     public static class VectorMath
     {
         public static Vector3D SafeNormalize(Vector3D a)
@@ -423,13 +426,20 @@ namespace ScriptedMissiles
         public HashSet<IMyMissile> all_missiles = new HashSet<IMyMissile>();
         public List<IMyMissile> missiles_to_be_exploded = new List<IMyMissile>();
         public List<IMyPlayer> players = new List<IMyPlayer>();
+        private Dictionary<long, Mine> clientMines = new Dictionary<long, Mine>();
+
         public override void BeforeStart()
         {
             MyAPIGateway.Missiles.OnMissileAdded += OnMissileAdded;
             MyAPIGateway.Missiles.OnMissileRemoved += OnMissileRemoved;
             MyAPIGateway.Missiles.OnMissileCollided += OnMissileCollided;
+        }
 
+        public override void LoadData()
+        {
             instance = this;
+            HeartNetwork.I = new HeartNetwork();
+            HeartNetwork.I.LoadData(42354); // Use a unique network ID
         }
 
         protected override void UnloadData()
@@ -437,6 +447,8 @@ namespace ScriptedMissiles
             MyAPIGateway.Missiles.OnMissileAdded -= OnMissileAdded;
             MyAPIGateway.Missiles.OnMissileRemoved -= OnMissileRemoved;
             MyAPIGateway.Missiles.OnMissileCollided -= OnMissileCollided;
+            HeartNetwork.I.UnloadData();
+            instance = null;
         }
 
         private void OnMissileCollided(IMyMissile missile)
@@ -445,7 +457,40 @@ namespace ScriptedMissiles
             {
                 MatrixD matrix = MatrixD.CreateFromDir(-missile.CollisionNormal);
                 matrix.Translation = (Vector3D)missile.CollisionPoint;
-                mines.Add(new Mine(matrix, ModContext.ModPath + "\\Models\\Ammo\\SmallBomb.mwm", 300f, 8f, 5f));
+                Mine newMine = new Mine(matrix, ModContext.ModPath + "\\Models\\Ammo\\SmallBomb.mwm");
+                mines.Add(newMine);
+
+                // Send the new mine to clients
+                MineSyncPacket packet = new MineSyncPacket(newMine);
+                HeartNetwork.I.SendToEveryone(packet);
+            }
+        }
+
+        public void AddOrUpdateClientMine(long entityId, MatrixD worldMatrix)
+        {
+            Mine existingMine;
+            if (clientMines.TryGetValue(entityId, out existingMine))
+            {
+                existingMine.WorldMatrix = worldMatrix;
+                //existingMine.damage = damage;
+                //existingMine.explosion_radius = explosionRadius;
+                //existingMine.detection_radius = detectionRadius;
+            }
+            else
+            {
+                Mine newMine = new Mine(worldMatrix, ModContext.ModPath + "\\Models\\Ammo\\SmallBomb.mwm");
+                newMine.EntityId = entityId;
+                clientMines.Add(entityId, newMine);
+            }
+        }
+
+        public void RemoveClientMine(long entityId)
+        {
+            Mine mine;
+            if (clientMines.TryGetValue(entityId, out mine))
+            {
+                mine.Close();
+                clientMines.Remove(entityId);
             }
         }
 
@@ -470,7 +515,7 @@ namespace ScriptedMissiles
                 Explode();
             }
 
-            public Mine(MatrixD initialMatrix, string modelPath, float damage, float explosion_radius, float detection_radius)
+            public Mine(MatrixD initialMatrix, string modelPath)
             {
                 this.Init(null, modelPath, null, null, null);
                 this.DefinitionId = new MyDefinitionId(MyObjectBuilderType.Invalid, "CustomEntity");
@@ -499,6 +544,14 @@ namespace ScriptedMissiles
                 explosion.LifespanMiliseconds = 150 + (int)explosion_radius * 45;
                 explosion.ParticleScale = 0.3f * (float)(explosion_radius);
                 MyExplosions.AddExplosion(ref explosion, true);
+
+                // Notify clients about mine removal
+                if (MyAPIGateway.Session.IsServer)
+                {
+                    MineSyncPacket packet = new MineSyncPacket(this, true);
+                    HeartNetwork.I.SendToEveryone(packet);
+                }
+
                 this.Close();
             }
         }
@@ -634,10 +687,7 @@ namespace ScriptedMissiles
         }
         private bool IsMine(IMyMissile missile)
         {
-            if (missile.AmmoDefinition.Id.SubtypeName.Contains("Mine"))
-                return true;
-
-            return false;
+            return missile.AmmoDefinition.Id.SubtypeName.Contains("Mine");
         }
 
         private bool IsHoming(IMyMissile missile)
@@ -715,11 +765,61 @@ namespace ScriptedMissiles
                 }
             }
 
+            foreach (var missile in missiles_to_be_exploded)
+            {
+                CreateExplosionFromMissile(missile);
+                missile.Destroy();
+            }
+
+            if (MyAPIGateway.Session.IsServer)
+            {
+                foreach (Mine mine in mines.ToList())
+                {
+                    if (mine.MarkedForClose)
+                    {
+                        mines.Remove(mine);
+                        MineSyncPacket removePacket = new MineSyncPacket(mine, true);
+                        HeartNetwork.I.SendToEveryone(removePacket);
+                    }
+                }
+
+                // Server-side mine detection
+                var players = new List<IMyPlayer>();
+                MyAPIGateway.Players.GetPlayers(players);
+                foreach (IMyPlayer player in players)
+                {
+                    if (player.Character == null || player.Character.IsDead) continue;
+
+                    foreach (Mine mine in mines)
+                    {
+                        if (mine != null && (player.Character.GetPosition() - mine.WorldMatrix.Translation).LengthSquared() < mine.detection_radius * mine.detection_radius)
+                            mine.Explode();
+                    }
+                }
+            }
+            else
+            {
+                // Client-side mine detection
+                IMyPlayer localPlayer = MyAPIGateway.Session.Player;
+                if (localPlayer?.Character != null && !localPlayer.Character.IsDead)
+                {
+                    foreach (Mine mine in clientMines.Values)
+                    {
+                        if (mine != null && (localPlayer.Character.GetPosition() - mine.WorldMatrix.Translation).LengthSquared() < mine.detection_radius * mine.detection_radius)
+                        {
+                            // Send explosion request to server
+                            ExplosionRequestPacket packet = new ExplosionRequestPacket(mine.EntityId);
+                            HeartNetwork.I.SendToServer(packet);
+                        }
+                    }
+                }
+            }
+
             // not certain this works at all.
             //if (incoming_missiles > 0)
             //   MyAPIGateway.Utilities.ShowNotification($"<<< {incoming_missiles}X MISSILES {Math.Round(closest_missile_distance)} M DISTANCE >>>", 16, "Yellow");
 
-            foreach(var missile in missiles_to_be_exploded)
+            foreach (var missile in missiles_to_be_exploded)
             {
                 CreateExplosionFromMissile(missile);
                 missile.Destroy();
