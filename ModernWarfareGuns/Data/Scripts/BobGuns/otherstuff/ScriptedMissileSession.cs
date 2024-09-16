@@ -441,8 +441,7 @@ namespace ScriptedMissiles
 
         private void OnMissileCollided(IMyMissile missile)
         {
-
-            if(IsMine(missile) && missile.CollisionPoint != null && missile.CollidedEntity is IMyVoxelBase)
+            if (MyAPIGateway.Session.IsServer && IsMine(missile) && missile.CollisionPoint != null && missile.CollidedEntity is IMyVoxelBase)
             {
                 MatrixD matrix = MatrixD.CreateFromDir(-missile.CollisionNormal);
                 matrix.Translation = (Vector3D)missile.CollisionPoint;
@@ -480,7 +479,7 @@ namespace ScriptedMissiles
                 this.WorldMatrix = initialMatrix;
                 this.AddToGamePruningStructure();
                 this.Flags |= EntityFlags.IsGamePrunningStructureObject;
-
+                (this as IMyEntity).Synchronized = true;
                 this.damage = damage;
                 this.explosion_radius = explosion_radius;
                 this.detection_radius = detection_radius;
