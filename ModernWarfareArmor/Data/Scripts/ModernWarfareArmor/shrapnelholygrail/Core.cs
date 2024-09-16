@@ -26,7 +26,7 @@ namespace Shrapnel
     public class Core : MySessionComponentBase
     {
         HashSet<ChainLocation> chainLocations = new HashSet<ChainLocation>();
-        int tick;
+        long tick;
         private Queue<ShrapnelData> queue = new Queue<ShrapnelData>();
 
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
@@ -34,102 +34,174 @@ namespace Shrapnel
             MyAPIGateway.Session.DamageSystem.RegisterBeforeDamageHandler(int.MaxValue, ProcessDamage);
         }
 
-        private void CreateExplosion(Vector3D myPos, float dmg, float radius, MyEntity ownerEntity)
+        private void CreateExplosion(Vector3D myPos, float dmg, float radius, MyEntity ownerEntity, bool silentExplosion)
         {
             //Explosion Damage!
             //BoundingSphereD sphere = GetExplosionSphere(myPos);
-            BoundingSphereD sphere = new BoundingSphereD(myPos, radius);
-            MyExplosionInfo bomb = new MyExplosionInfo(dmg, dmg, sphere, MyExplosionTypeEnum.MISSILE_EXPLOSION, true, true);
-            bomb.CreateParticleEffect = true;
-            bomb.LifespanMiliseconds = 150 + (int)radius * 45;
-            bomb.ParticleScale = 0.30f * radius;
-            bomb.OwnerEntity = ownerEntity;
 
-            MyExplosions.AddExplosion(ref bomb, true);
+            MyExplosionTypeEnum explosiontype = MyExplosionTypeEnum.MISSILE_EXPLOSION;
+            BoundingSphereD sphere = new BoundingSphereD(myPos, radius);
+
+            if (silentExplosion)
+            {
+                //MyAPIGateway.Utilities.ShowNotification("Silent explosion", 10000);
+                var explosion = new MyExplosionInfo()
+                {
+                    PlayerDamage = dmg,
+                    Damage = dmg,
+                    ExplosionSphere = sphere,
+                    StrengthImpulse = 0f,
+                    ExplosionFlags = MyExplosionFlags.APPLY_FORCE_AND_DAMAGE | MyExplosionFlags.APPLY_DEFORMATION | MyExplosionFlags.FORCE_CUSTOM_END_OF_LIFE_EFFECT,
+                    ExplosionType = explosiontype,
+                    LifespanMiliseconds = 700,
+                    ObjectsRemoveDelayInMiliseconds = 0,
+                    ParticleScale = 1f,
+                    VoxelCutoutScale = 1f,
+                    Direction = null,
+                    CheckIntersections = true,
+                    Velocity = Vector3.Zero,
+                    OriginEntity = 0L,
+                    PlaySound = false,
+                    CustomEffect = "",
+                    CustomSound = null,
+                    KeepAffectedBlocks = false,
+                    IgnoreFriendlyFireSetting = true,
+                    EffectHitAngle = MyObjectBuilder_MaterialPropertiesDefinition.EffectHitAngle.None,
+                    DirectionNormal = null,
+                    ShouldDetonateAmmo = true,
+                    AffectVoxels = false,
+                };
+                MyExplosions.AddExplosion(ref explosion, true);
+            }
+            else
+            {
+                //MyAPIGateway.Utilities.ShowNotification("Loud explosion", 10000);
+                var explosion = new MyExplosionInfo()
+                {
+                    PlayerDamage = dmg,
+                    Damage = dmg,
+                    ExplosionSphere = sphere,
+                    StrengthImpulse = 0f,
+                    ExplosionFlags = MyExplosionFlags.CREATE_DEBRIS | MyExplosionFlags.AFFECT_VOXELS | MyExplosionFlags.APPLY_FORCE_AND_DAMAGE | MyExplosionFlags.CREATE_DECALS | MyExplosionFlags.CREATE_PARTICLE_EFFECT | MyExplosionFlags.APPLY_DEFORMATION, ExplosionType = explosiontype,
+                    LifespanMiliseconds = 700,
+                    ObjectsRemoveDelayInMiliseconds = 0,
+                    ParticleScale = 1f,
+                    VoxelCutoutScale = 1f,
+                    Direction = null,
+                    CheckIntersections = true,
+                    Velocity = Vector3.Zero,
+                    OriginEntity = 0L,
+                    PlaySound = true,
+                    CustomEffect = "",
+                    CustomSound = null,
+                    KeepAffectedBlocks = false,
+                    IgnoreFriendlyFireSetting = true,
+                    EffectHitAngle = MyObjectBuilder_MaterialPropertiesDefinition.EffectHitAngle.None,
+                    DirectionNormal = null,
+                    ShouldDetonateAmmo = true,
+                    AffectVoxels = true,
+                };
+                MyExplosions.AddExplosion(ref explosion, true);
+            }
+            
         }   
 
         public class ChainLocation
         {
-            public Vector3D pt;
-            public int xp;
-            public int duration;
+            public Vector3D position;
+            public int ammorackCount;
+            public long lastupdateTick;
+            public HashSet<long> entityIds = new HashSet<long>();
 
-            public ChainLocation(Vector3D pt, int xp, int duration)
+            public ChainLocation(Vector3D position, int ammorackCount, int tick)
             {
-                this.pt = pt;
-                this.xp = xp;
-                this.duration = duration;
+                this.position = position;
+                this.ammorackCount = ammorackCount;
+                this.lastupdateTick = tick;
             }
         }
 
         public void ProcessDamage(object target, ref MyDamageInformation info)
         {
-
             IMySlimBlock slim = target as IMySlimBlock;
-            if (slim == null) return; // || info.Type == MyDamageType.Deformation
+            if (slim == null) return;
 
-
-            if (info.Type == MyDamageType.Bullet || info.Type == MyDamageType.Rocket)
+            if (info.Type == MyDamageType.Bullet)
             {
-                //MyLog.Default.Info($"Amount: {info.Amount}, Integrity: {slim.Integrity}, Overkill: {info.Amount - slim.Integrity}");
+                //MyAPIGateway.Utilities.ShowNotification($"Damage: {info.Amount}, {slim.BlockDefinition.Id.SubtypeName}", 500);
+                if (slim.BlockDefinition.Id.SubtypeName.Contains("AdvancedTurretRotor") && (slim.Integrity - info.Amount) < slim.MaxIntegrity * 0.7)
+                {
+                    slim.FatBlock.CubeGrid.RazeBlock(slim.Position);
+                }
 
+
+                // Handle special armor interactions
                 if (slim.BlockDefinition.Id.SubtypeName.Contains("Armor"))
                     HandleArmorInteractions(slim, ref info);
 
+                //MyAPIGateway.Utilities.ShowNotification($"Damage: {info.Amount}, {slim.Integrity}", 500);
 
-                // bang sizzle
-                if (slim.BlockDefinition.Id.SubtypeName.Contains("AmmoRack") && slim.Integrity - info.Amount < slim.Integrity * 0.7)
+                // Bullets need to damage the ammorack to 70% integrity, but rockets will always trigger a chain reaction
+                if (slim.BlockDefinition.Id.SubtypeName.Contains("AmmoRack") && (slim.Integrity - info.Amount) < slim.MaxIntegrity * 0.7)
                 {
-
+                    // Find the closest chain reaction location
                     ChainLocation closestChain = null;
-                    double closestDistance = 999999;
 
-                    // iterate throuuh all chain locs
-                    foreach(ChainLocation chainLoc in chainLocations)
+                    foreach (ChainLocation chainlocation in chainLocations)
                     {
-                        double dist = (slim.FatBlock.WorldMatrix.Translation - chainLoc.pt).Length();
-                        if(dist < closestDistance && dist < 100)
+                        double distance = (slim.FatBlock.WorldMatrix.Translation - chainlocation.position).Length();
+                        if (distance < 50)
                         {
-                            closestDistance = dist;
-                            closestChain = chainLoc;
+                            closestChain = chainlocation;
                         }
                     }
 
-                    // if we are close enough
-                    if(closestChain != null && closestChain.xp < 10)
+                    // If close to an existing chain reaction, increase its power
+                    if (closestChain != null && closestChain.ammorackCount < 100 && !closestChain.entityIds.Contains(slim.FatBlock.EntityId))
                     {
-                        closestChain.xp += 1;
-                        CreateExplosion(slim.FatBlock.WorldMatrix.Translation, 1500f + 100f * closestChain.xp, 1f + 1f * closestChain.xp, null);
-                        //MyAPIGateway.Utilities.ShowNotification($"bang, {closestChain.xp}!", 3000);
+                        closestChain.ammorackCount ++;
+                        closestChain.lastupdateTick = tick;
+                        closestChain.entityIds.Add(slim.FatBlock.EntityId);
+                        closestChain.position = (closestChain.position * (closestChain.ammorackCount - 1) + slim.FatBlock.WorldMatrix.Translation)/closestChain.ammorackCount;
+                        // Silent explosion logic here
+                        CreateExplosion(slim.FatBlock.WorldMatrix.Translation, 250, 10, null, true);
                     }
-                    // or if we are alone, add
+                    // If no nearby chain reaction, start a new one
                     else if (closestChain == null)
                     {
-                        chainLocations.Add(new ChainLocation(slim.FatBlock.WorldMatrix.Translation, 0, 100));
-                        CreateExplosion(slim.FatBlock.WorldMatrix.Translation, 1500f, 1f, null);
-                        //MyAPIGateway.Utilities.ShowNotification($"nope!", 3000);
+                        closestChain = new ChainLocation(slim.FatBlock.WorldMatrix.Translation, 0, 100);
+                        chainLocations.Add(closestChain);
+                        closestChain.ammorackCount++;
+                        closestChain.lastupdateTick = tick;
+                        closestChain.entityIds.Add(slim.FatBlock.EntityId);
+                        closestChain.position = slim.FatBlock.WorldMatrix.Translation;
+                        // Silent explosion logic here
+                        CreateExplosion(slim.FatBlock.WorldMatrix.Translation, 250, 10, null, true);
                     }
 
-                    info.Amount = slim.Integrity;
-
+                    // Ensure the block is destroyed
+                    //info.Amount = slim.Integrity;
+                    slim.FatBlock.CubeGrid.RazeBlock(slim.Position);
+                    slim.FatBlock.Close();
                 }
 
+                // Create shrapnel if the block is destroyed
                 if (slim.Integrity <= info.Amount)
                 {
                     CreateShrapnel(slim, ref info);
                     return;
                 }
-
             }
             else if (info.Type == MyDamageType.Explosion && !(slim.FatBlock is IMyWarhead))
             {
+                // Handle explosion damage, with special multiplier for XL blocks
                 if (slim.BlockDefinition.Id.SubtypeName.Contains("XL"))
                     ConvertDamage(slim, ref info, 5 * info.Amount);
                 else
                     ConvertDamage(slim, ref info, info.Amount);
-
             }
         }
+
         public BoundingSphereD GetExplosionSphere(Vector3D myPos)
         {
             float radiusToCheckForAmmoBlock = 0.25f; // Static value for range of ammo racks that will be added to the explosion
@@ -158,7 +230,7 @@ namespace Shrapnel
         {
             if (slim.BlockDefinition.Id.SubtypeName.Contains("Reactive"))
             {
-                CreateExplosion(slim.FatBlock.WorldMatrix.Translation + slim.FatBlock.WorldMatrix.Up, 2000f, 0.5f, slim.FatBlock as MyEntity);
+                CreateExplosion(slim.FatBlock.WorldMatrix.Translation + slim.FatBlock.WorldMatrix.Up, 2000f, 0.5f, slim.FatBlock as MyEntity,false);
                 info.Amount = slim.Integrity;
             }
             else if(slim.BlockDefinition.Id.SubtypeName.Contains("Heavy") && info.Amount < slim.Integrity * 0.75f ) 
@@ -253,6 +325,8 @@ namespace Shrapnel
 
         public override void UpdateBeforeSimulation()
         {
+            //MyAPIGateway.Utilities.ShowNotification($"Chain locations: {chainLocations.Count}", 16);
+            tick++;
             int tasks = 0;
             while (queue.Count > 0 && tasks < 200)
             {
@@ -260,15 +334,27 @@ namespace Shrapnel
                 HandleShrapnel();
             }
 
-            if(chainLocations.Count > 1)
+            if (chainLocations.Count > 0)
             {
-                tick++;
+                List<ChainLocation> explosionsToTrigger = new List<ChainLocation>();
 
-                if(tick > 100)
+                foreach (ChainLocation chain in chainLocations)
                 {
-                    chainLocations.Clear();
-                    tick = 0;
+                    if (tick - chain.lastupdateTick > 10)
+                    {
+                        explosionsToTrigger.Add(chain);
+                    }
                 }
+
+                foreach (ChainLocation chain in explosionsToTrigger)
+                {
+                    float totalDamage = 200f + (20 * chain.ammorackCount);
+                    float totalRadius = 1f + (1f * chain.ammorackCount);
+                    CreateExplosion(chain.position, totalDamage, totalRadius, null,false);
+                    //MyAPIGateway.Utilities.ShowNotification($"Chain reaction with {chain.ammorackCount} ammo racks", 5000);
+                    chainLocations.Remove(chain);
+                }
+                explosionsToTrigger.Clear();
             }
         }
     }

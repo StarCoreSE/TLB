@@ -68,7 +68,7 @@
 				<Component Subtype="SmallTube" Count="1" />
 				<Component Subtype="Motor" Count="2" />
 				<Component Subtype="Computer" Count="2" />
-				<Component Subtype="SteelPlate" Count="54" />
+				<Component Subtype="SteelPlate" Count="5" />
 			</Components>
 			<CriticalComponent Subtype="Motor" Index="0" />
 			<BlockPairName>AdvancedTurretRotor5x5</BlockPairName>
@@ -145,7 +145,7 @@
 				<Component Subtype="SmallTube" Count="1" />
 				<Component Subtype="Motor" Count="2" />
 				<Component Subtype="Computer" Count="2" />
-				<Component Subtype="SteelPlate" Count="104" />
+				<Component Subtype="SteelPlate" Count="10" />
 			</Components>
 			<CriticalComponent Subtype="Motor" Index="0" />
 			<BlockPairName>AdvancedTurretRotor7x7</BlockPairName>
@@ -221,7 +221,7 @@
 				<Component Subtype="SmallTube" Count="1" />
 				<Component Subtype="Motor" Count="2" />
 				<Component Subtype="Computer" Count="2" />
-				<Component Subtype="SteelPlate" Count="154" />
+				<Component Subtype="SteelPlate" Count="15" />
 			</Components>
 			<CriticalComponent Subtype="Motor" Index="0" />
 			<BlockPairName>AdvancedTurretRotor9x9</BlockPairName>
@@ -274,8 +274,8 @@
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
             <EmissiveColorPreset>ConnectBlock</EmissiveColorPreset>
-            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
-            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <DestroyEffect></DestroyEffect>
+            <DestroySound></DestroySound>
             <DeformationRatio>0.5</DeformationRatio>
             <PCU>125</PCU>
             <IsAirTight>true</IsAirTight>
