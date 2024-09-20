@@ -102,6 +102,7 @@ namespace cleaner
             "PassengerSeatSmall",
             "PassengerSeatSmallNew",
             "PassengerSeatLarge",
+            "PassengerBench",
 
             "SmallBlockBatteryBlock",
             "SmallBlockSmallBatteryBlock",
