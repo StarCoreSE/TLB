@@ -749,7 +749,7 @@ namespace ScriptedMissiles
         int tick = 0;
         bool init = false;
 
-        const int max_tick = 30;
+        const int max_tick = 120;
         const string subtypeId = "Welder";
 
         List<IMyMissile> close_missiles = new List<IMyMissile>();
