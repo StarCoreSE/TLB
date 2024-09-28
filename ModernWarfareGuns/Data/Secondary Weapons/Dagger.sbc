@@ -111,7 +111,7 @@
 	<Volume>30</Volume>
 	<Model>Models\Magazines\GrenadeCrate.mwm</Model>
 	<PhysicalMaterial>Ammo</PhysicalMaterial>
-	<Capacity>3</Capacity>
+	<Capacity>140</Capacity>
 	<AmmoDefinitionId Subtype="DaggerAmmo" />
 
 	<MinimumOfferAmount>100</MinimumOfferAmount>
