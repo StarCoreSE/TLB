@@ -165,6 +165,12 @@ namespace cleaner
 
             "ScorpionGunBlock",
             "PolybolosGunBlock",
+            "DaggerLaunncher",
+            "MaceLauncher",
+            "ShieldTurret_AIEnabled",
+            "SpearLauncher",
+            "SwordLauncher",
+            "APSTurret",
         });
 
         /*
