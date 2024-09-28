@@ -8,6 +8,8 @@ using VRage.Game.ModAPI;
 
 using Sandbox.ModAPI;
 using System.Runtime.CompilerServices;
+using Sandbox.Game.Weapons;
+using SpaceEngineers.Game.Weapons.Guns;
 
 namespace cleaner
 {
@@ -57,6 +59,9 @@ namespace cleaner
             "MyObjectBuilder_OxygenTank",
             "MyObjectBuilder_OxygenGenerator",
             "MyObjectBuilder_HydrogenEngine",
+            "MyObjectBuilder_LargeMissileTurret",
+            "MyObjectBuilder_LargeGatlingTurret",
+            "MyObjectBuilder_SmallGatlingGun",
         });
 
         public List<string> block_subtype_id_blacklist = new List<string>(new string[]
@@ -83,6 +88,29 @@ namespace cleaner
             "Small_2x1_Control_Centered",
             "Small_2x1_Control_Flat",
 
+            "SmallMissileLauncherWarfare2",
+            "SmallGatlingGunWarfare2",
+            "SmallGatlingTurret",
+            "SmallMissileTurret",
+            "SmallMissileLauncher",
+            "SmallRocketLauncherReload",
+            "SmallGatlingGun",
+            "SmallBlockAutocannon",
+            "SmallBlockMediumCalibreGun",
+            "LargeBlockLargeCalibreGun",
+            "SmallRailgun",
+            "SmallBlockMediumCalibreTurret",
+            "SmallFlareLauncher",
+            "LargeFlareLauncher",
+            "LargeRailgun",
+            "LargeBlockLargeCalibreGun",
+            "LargeMissileLauncher",
+            "LargeInteriorTurret",
+            "LargeMissileTurret",
+            "LargeGatlingTurret",
+            "AutoCannonTurret",
+            "LargeBlockMediumCalibreTurret",
+            "LargeCalibreTurret",
         });
 
         public List<string> block_subtype_banned_keywords = new List<string>(new string[]
@@ -135,6 +163,8 @@ namespace cleaner
 
             "SmallCameraBlock",
 
+            "ScorpionGunBlock",
+            "PolybolosGunBlock",
         });
 
         /*

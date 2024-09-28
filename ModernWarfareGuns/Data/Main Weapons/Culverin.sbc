@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<CubeBlocks>
-        <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
+		<Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
             <Id>
                 <TypeId>SmallMissileLauncher</TypeId>
                 <SubTypeID>Culverin</SubTypeID>
@@ -10,7 +10,7 @@
             <Icon>Textures\GUI\Icons\Cubes\missile_launcher_small.dds</Icon>
             <Description>Rocket pod.... not really sure what more you could want...</Description>
             <CubeSize>Small</CubeSize>
-            <GuiVisible>false</GuiVisible>
+            <GuiVisible>true</GuiVisible>
             <BlockTopology>TriangleMesh</BlockTopology>
             <Size x="1" y="1" z="4" />
             <ModelOffset x="0" y="0" z="0" />
@@ -41,7 +41,7 @@
             <Center x="0" y="0" z="3" />
             <BuildTimeSeconds>15</BuildTimeSeconds>
             <EdgeType>Light</EdgeType>
-            <WeaponDefinitionId Subtype="SmallMissileLauncher" />
+            <WeaponDefinitionId Subtype="CulverinWep" />
             <ResourceSinkGroup>Defense</ResourceSinkGroup>
             <InventoryMaxVolume>0.24</InventoryMaxVolume>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
@@ -58,7 +58,7 @@
 	<Weapon>
 		<Id>
 			<TypeId>WeaponDefinition</TypeId>
-			<SubtypeId>SmallMissileLauncher</SubtypeId>
+			<SubtypeId>CulverinWep</SubtypeId>
 		</Id>
 		<MissileAmmoData RateOfFire="60" ShootSoundName="WepShipSmallMissileShot" FlightSoundName="MissileFlightSound" ShotsInBurst="0" />
 		<DeviateShotAngle>0.1</DeviateShotAngle>
