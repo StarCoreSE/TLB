@@ -16,6 +16,7 @@ using System.Linq;
 using SpaceEngineers.Game.Entities.Blocks;
 using VRage.ModAPI;
 using VRage;
+using System.Diagnostics;
 
 
 namespace MyMod
@@ -75,6 +76,40 @@ namespace MyMod
             return joints;
         }
 
+    }
+
+    public class PIDController
+    {
+        private double kp; // Proportional gain
+        private double ki; // Integral gain
+        private double kd; // Derivative gain
+
+        private double previousError; // Previous error value
+        private double integral;      // Integral of the error
+
+        public PIDController(double kp, double ki, double kd)
+        {
+            this.kp = kp;
+            this.ki = ki;
+            this.kd = kd;
+            this.previousError = 0;
+            this.integral = 0;
+        }
+
+        public double Calculate(double currentError, double deltaTime)
+        {
+            // Integral and derivative calculations
+            integral += currentError * deltaTime;
+            double derivative = (currentError - previousError) / deltaTime;
+
+            // PID formula
+            double output = kp * currentError + ki * integral + kd * derivative;
+
+            // Save current error for the next calculation
+            previousError = currentError;
+
+            return output;
+        }
     }
 
     public class Mecha
@@ -138,7 +173,7 @@ namespace MyMod
                 }
 
                 // Display current phase and leg offset in a notification
-                MyAPIGateway.Utilities.ShowNotification($"phase {phase_leg_to_move}, leg {leg.GetPhaseOffset()}", 16);
+                // MyAPIGateway.Utilities.ShowNotification($"phase {phase_leg_to_move}, leg {leg.GetPhaseOffset()}", 16);
 
                 // If the leg is on a surface, calculate and accumulate movement force
                 if (leg.surface != null)
@@ -221,46 +256,52 @@ namespace MyMod
     {
         bool connected = false;
 
-        const double spring_constant = 1000000;
+        const double translation_constant = 10000000;
+        const double rotation_constant = 10;
 
         IMyCubeGrid segment_grid;
         IMyCubeGrid leg_grid;
+        IMyCubeBlock leg;
         Vector3D start_joint;
         Vector3D end_joint;
 
-        public Segment(string definition_string, Vector3D start_joint, Vector3D end_joint, Vector3D up, IMyCubeGrid leg_grid)
+        private PIDController startPid = new PIDController(1.0, 0.0, 0.1); // Adjust gains as needed
+        private PIDController endPid = new PIDController(1.0, 0.0, 0.1);
+
+        public Segment(string definition_string, Vector3D start_joint, Vector3D end_joint, Vector3D up, IMyCubeGrid leg_grid, IMyCubeBlock leg)
         {
             SpawnSegmentBlock(definition_string, start_joint, end_joint, up);
 
-            this.start_joint = start_joint;
-            this.end_joint = end_joint;
-            this.leg_grid = leg_grid;
-        }
-
-        public void Update(Vector3D start_joint, Vector3D end_joint)
-        {
-            var center = (start_joint - this.start_joint) / 2;
-
-            this.start_joint = start_joint;
-            this.end_joint = end_joint;
-
-            /*
-            if (leg_grid as MyCubeGrid != null && segment_grid as MyCubeGrid != null && !connected)
+            try
             {
-                try
+                if (leg_grid as MyCubeGrid != null && segment_grid as MyCubeGrid != null && !connected)
                 {
                     Utilities.ConnectGrids(leg_grid as MyCubeGrid, segment_grid as MyCubeGrid);
                     if (MyAPIGateway.GridGroups.HasConnection(leg_grid, segment_grid, GridLinkTypeEnum.Logical))
                         connected = true;
                 }
-                catch(Exception ex)
-                {
-                    connected = false;
-                }
             }
-            */
+            catch(Exception e)
+            {
 
-            ApplyConnectingForces();
+            }
+
+            this.start_joint = start_joint;
+            this.end_joint = end_joint;
+            this.leg_grid = leg_grid;
+            this.leg = leg;
+        }
+
+        public void Update(Vector3D start_joint, Vector3D end_joint)
+        {
+            var center = (start_joint + end_joint) / 2;
+            var dir = Vector3D.Normalize(start_joint - end_joint);
+            this.start_joint = start_joint;
+            this.end_joint = end_joint;
+
+            ManuallyParent(center, dir, Vector3D.Cross(dir, leg.WorldMatrix.Forward));
+
+            //ApplyConnectingForces();
         }
 
         private void SpawnSegmentBlock(string definition_string, Vector3D start_joint, Vector3D end_joint, Vector3D up)
@@ -288,34 +329,16 @@ namespace MyMod
             // Create a new grid object builder for the detached grid
             MyObjectBuilder_CubeGrid gridOB = MyObjectBuilderSerializer.CreateNewObject<MyObjectBuilder_CubeGrid>();
             gridOB.EntityId = 0;  // Allow the game to assign a new ID
+            gridOB.IsStatic = true;
             gridOB.DisplayName = "";
             gridOB.CreatePhysics = true;
             gridOB.GridSizeEnum = blockDef.CubeSize;
             gridOB.PositionAndOrientation = new MyPositionAndOrientation(_pos, worldMatrix.Forward, worldMatrix.Up);
             gridOB.PersistentFlags = MyPersistentEntityFlags2.InScene;
-            gridOB.IsStatic = false;  // This is a dynamic grid for the detached connector
             gridOB.Editable = true;
             gridOB.DestructibleBlocks = true;  // Allow destruction of the grid
             gridOB.IsRespawnGrid = false;
             gridOB.CubeBlocks.Add(ob);
-
-            IMyCubeGrid grid = null;
-
-            // Spawn the new grid asynchronously
-            /*
-            MyAPIGateway.Entities.CreateFromObjectBuilderParallel(gridOB, true, gridEntity =>
-            {
-                var spawnedGrid = gridEntity as MyCubeGrid;
-                MyAPIGateway.Utilities.ShowNotification($"grid : {spawnedGrid != null}", 10000);
-                if (spawnedGrid == null)
-                    return;
-
-                // Set up the new grid (e.g., marking it as not a preview grid)
-                spawnedGrid.IsPreview = false;
-                spawnedGrid.Save = true;  // Allow saving the new grid
-
-                segment_grid = spawnedGrid as IMyCubeGrid;
-            });*/
 
             IMyEntity ent = MyAPIGateway.Entities.CreateFromObjectBuilderAndAdd(gridOB);
             ent.Save = true;
@@ -355,24 +378,59 @@ namespace MyMod
             MyAPIGateway.Utilities.ShowMessage("MaintainOffset", $"Offset Error: {offsetError}, Correction Velocity: {correctionVelocity}");
         }
 
+        public void ManuallyParent(Vector3D offset, Vector3D fwd, Vector3D up)
+        {
+            Vector3D error = segment_grid.GetPosition() - offset;
+
+            double correction = startPid.Calculate(error.Length(), 0);
+
+            //if (segment_grid?.Physics != null)
+            //    segment_grid.Physics.LinearVelocity = leg_grid.Physics.LinearVelocity + correction * Vector3D.Normalize(error);
+
+            //segment_grid.Teleport(MatrixD.CreateWorld(offset, fwd, up));
+
+            MyAPIGateway.Utilities.InvokeOnGameThread(() => segment_grid.WorldMatrix = MatrixD.CreateWorld(offset, fwd, up));
+
+            Utilities.DrawLineBetweenVectors(segment_grid.GetPosition(), offset, Color.Purple);
+
+        }
+
         public void ApplyConnectingForces()
         {
-            if (segment_grid?.Physics == null) // || !connected)
+            if (segment_grid?.Physics == null)
                 return;
-            /*
-            Vector3D block_start = segment_grid.WorldMatrix.Translation + segment_grid.WorldMatrix.Forward;
-            Vector3D block_end = segment_grid.WorldMatrix.Translation + segment_grid.WorldMatrix.Backward;
 
-            segment_grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, spring_constant * -(block_start - start_joint), block_start, null);
-            segment_grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, spring_constant * -(block_end - end_joint), block_end, null);
+            // Current positions of the block ends
+            Vector3D block_start = segment_grid.WorldMatrix.Translation + 5 * segment_grid.WorldMatrix.Forward;
+            Vector3D block_end = segment_grid.WorldMatrix.Translation + 5 * segment_grid.WorldMatrix.Backward;
 
-            if(segment_grid.Physics.Gravity != null)
+            // Errors between the block ends and target joints
+            Vector3D start_error = start_joint - block_start;
+            Vector3D end_error = end_joint - block_end;
+
+
+            // Calculate PID-controlled forces
+            double start_magnitude = startPid.Calculate(start_error.Length(), 0);
+            double end_magnitude = endPid.Calculate(end_error.Length(), 0);
+
+            // Cap forces to prevent instability
+            const double MAX_FORCE = 1000.0;
+            start_magnitude = Math.Min(start_magnitude, MAX_FORCE);
+            end_magnitude = Math.Min(end_magnitude, MAX_FORCE);
+
+            Vector3D start_force = -start_magnitude * Vector3D.Normalize(start_error);
+            Vector3D end_force = -end_magnitude * Vector3D.Normalize(end_error);
+
+            // Apply PID-based forces
+            segment_grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, start_force, block_start, null);
+            segment_grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, end_force, block_end, null);
+
+            // Gravity correction (commented out for debugging)
+            if (segment_grid.Physics.Gravity != null)
             {
-                segment_grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, (segment_grid as MyCubeGrid).GetCurrentMass() * -segment_grid.Physics.Gravity, null, null);
+                Vector3D gravity_force = (segment_grid as MyCubeGrid).GetCurrentMass() * -segment_grid.Physics.Gravity;
+                segment_grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, gravity_force, null, null);
             }
-
-            MaintainOffsetVelocity(segment_grid, leg_grid, (start_joint - this.start_joint) / 2 - leg_grid.WorldMatrix.Translation);
-            */
         }
     }
 
@@ -410,13 +468,13 @@ namespace MyMod
         {
             if (!a.IsInSameLogicalGroupAs(b))
             {
-                MyCubeGrid.CreateGridGroupLink(GridLinkTypeEnum.Logical, a.EntityId, a, b);
-                MyCubeGrid.CreateGridGroupLink(GridLinkTypeEnum.Physical, a.EntityId, a, b);
-                MyCubeGrid.CreateGridGroupLink(GridLinkTypeEnum.Electrical, a.EntityId, a, b);
+                MyCubeGrid.CreateGridGroupLink(GridLinkTypeEnum.Logical, long.MaxValue, a, b);
+                MyCubeGrid.CreateGridGroupLink(GridLinkTypeEnum.Physical, long.MaxValue, a, b);
+                MyCubeGrid.CreateGridGroupLink(GridLinkTypeEnum.Electrical, long.MaxValue, a, b);
 
-                MyCubeGrid.CreateGridGroupLink(GridLinkTypeEnum.Logical, b.EntityId, a, b);
-                MyCubeGrid.CreateGridGroupLink(GridLinkTypeEnum.Physical, b.EntityId, a, b);
-                MyCubeGrid.CreateGridGroupLink(GridLinkTypeEnum.Electrical, b.EntityId, a, b);
+                MyCubeGrid.CreateGridGroupLink(GridLinkTypeEnum.Logical, long.MaxValue, a, b);
+                MyCubeGrid.CreateGridGroupLink(GridLinkTypeEnum.Physical, long.MaxValue, a, b);
+                MyCubeGrid.CreateGridGroupLink(GridLinkTypeEnum.Electrical, long.MaxValue, a, b);
             }
                 // MyLog.Default.Info($"[Tether] ConnectGrids: grids {a.EntityId} and {b.EntityId} are now connected");
 
@@ -500,7 +558,7 @@ namespace MyMod
         Vector3D relativeSurfaceVelocity = Vector3D.Zero;
         double suspension_height = double.MaxValue;
 
-        public double height => 15 * suspension.Height;
+        public double height => 20 * suspension.Height;
         public double StepLength => height / 2;
         public double StepHeight => height / 5;
 
@@ -519,12 +577,24 @@ namespace MyMod
             Vector3D.Zero,
         };
 
-        List<double> segmentLengths = new List<double> { 8, 8 };
+        List<double> segmentLengths = new List<double> { 10, 10 };
 
         public Leg(IMyMotorSuspension suspension, IMyCubeGrid grid)
         {
             this.suspension = suspension;
             this.grid = grid;
+
+            up = GetUpDirection();
+
+            footLocation = -up * height;
+
+            joints[0] = suspension.GetPosition();
+            FABRIKSolver.SolveFABRIK(joints, segmentLengths, footLocation + suspension.GetPosition());
+
+            for (int i = 0; i < joints.Count - 1; i++)
+            {
+                segments.Add(new Segment("MyObjectBuilder_UpgradeModule/LargeProductivityModule", joints[i], joints[i + 1], up, grid, suspension as IMyCubeBlock));
+            }
         }
 
         public void Update(bool forceMoveFoot, bool canMoveFoot)
@@ -537,9 +607,6 @@ namespace MyMod
                 suspension.Top.Close();
             }
 
-            if (!init)
-                init_leg();
-
             UpdateFootLocation(forceMoveFoot, canMoveFoot);
             UpdateJoints();
             DebugDrawLeg();
@@ -549,6 +616,7 @@ namespace MyMod
 
         public void UpdateFootLocation(bool forceMoveFoot, bool canMoveFoot)
         {
+            up = GetUpDirection();
             suspension_height = GetSuspensionHeight();
             targetLocation = GetTargetLocation();
             relativeSurfaceVelocity = GetRelativeSurfaceVelocity();
@@ -577,23 +645,6 @@ namespace MyMod
             {
                 surface = null;
             }
-        }
-
-        public void init_leg()
-        {
-            up = GetUpDirection();
-
-            footLocation = -up * height;
-
-            joints[0] = suspension.GetPosition();
-            FABRIKSolver.SolveFABRIK(joints, segmentLengths, footLocation + suspension.GetPosition());
-
-            for (int i = 0; i < joints.Count - 1; i++)
-            {
-                segments.Add(new Segment("MyObjectBuilder_UpgradeModule/LargeProductivityModule", joints[i], joints[i+1], up, grid));
-            }
-
-            init = true;
         }
 
         public bool isOverextended(bool canMoveFoot)
@@ -643,7 +694,7 @@ namespace MyMod
 
             netForce += CalculateFrictionForceVector(grid.Physics.Mass / legs * grid.Physics.Gravity, 1.0, 1.0);
 
-            DebugState($"netforce {netForce.Length()}", Color.Black);
+            // DebugState($"netforce {netForce.Length()}", Color.Black);
 
             grid.Physics.AddForce(MyPhysicsForceType.APPLY_WORLD_FORCE, netForce, null, null);
         }
@@ -710,7 +761,7 @@ namespace MyMod
                 return surface;
             }
 
-            DebugState($"checking for surf {hit == null}", Color.Green);
+            // DebugState($"checking for surf {hit == null}", Color.Green);
 
             return null;
         }
@@ -810,6 +861,7 @@ namespace MyMod
             }
         }
 
+
         private void DebugState(string message, Color color)
         {
             MyAPIGateway.Utilities.ShowNotification(message, 16);
@@ -830,12 +882,19 @@ namespace MyMod
             if (suspension == null || grid == null)
                 return;
 
+            NeedsUpdate |= MyEntityUpdateEnum.BEFORE_NEXT_FRAME;
+        }
+
+        public override void UpdateOnceBeforeFrame()
+        {
+            base.UpdateOnceBeforeFrame();
             Mecha mecha;
             Leg leg = new Leg(suspension, grid);
 
             if (LegSessionComponent.instance.mechas.TryGetValue(grid.EntityId, out mecha))
             {
-                mecha.legs.Add(leg);
+                if (mecha != null)
+                    mecha.legs.Add(leg);
             }
             else
             {
