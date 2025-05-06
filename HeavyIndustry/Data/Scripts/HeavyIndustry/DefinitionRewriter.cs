@@ -145,7 +145,7 @@ namespace HeavyIndustry
                 {
                     var item = new MyBlueprintDefinition.Item();
                     item.Amount = ap;
-                    item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/Girder");
+                    item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/StructuralParts");
                     items.Add(item);
                 }
 
@@ -153,7 +153,7 @@ namespace HeavyIndustry
                 {
                     var item = new MyBlueprintDefinition.Item();
                     item.Amount = he;
-                    item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/Explosives");
+                    item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/ExplosiveParts");
                     items.Add(item);
                 }
 
@@ -161,7 +161,7 @@ namespace HeavyIndustry
                 {
                     var item = new MyBlueprintDefinition.Item();
                     item.Amount = prop;
-                    item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/Explosives");
+                    item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/MissileParts");
                     items.Add(item);
                 }
 
@@ -170,7 +170,7 @@ namespace HeavyIndustry
                 {
                     var item = new MyBlueprintDefinition.Item();
                     item.Amount = guid;
-                    item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/RadioCommunication");
+                    item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/CommunicationParts");
                     items.Add(item);
                 }
 
@@ -178,7 +178,7 @@ namespace HeavyIndustry
                 {
                     var item = new MyBlueprintDefinition.Item();
                     item.Amount = rail;
-                    item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/PowerCell");
+                    item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/ElectricalParts");
                     items.Add(item);
                 }
 
