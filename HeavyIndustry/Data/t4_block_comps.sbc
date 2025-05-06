@@ -4,9 +4,9 @@
         <Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>Superconductor</SubtypeId>
+                <SubtypeId>TemporalisationParts</SubtypeId>
             </Id>
-            <DisplayName>Superconductor Parts</DisplayName>
+            <DisplayName>Temporalisation Parts</DisplayName>
             <Icon>Textures\Icons\Components\BasicCrate.dds</Icon>
             <Size>
                 <X>0.5</X>
@@ -32,9 +32,9 @@
         <Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>Reactor</SubtypeId>
+                <SubtypeId>ReactorParts</SubtypeId>
             </Id>
-            <DisplayName>Nuclear Reactor Parts</DisplayName>
+            <DisplayName>Reactor Parts</DisplayName>
             <Icon>Textures\Icons\Components\BasicCrate.dds</Icon>
             <Size>
                 <X>0.2</X>
@@ -86,9 +86,9 @@
         <Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>GravityGenerator</SubtypeId>
+                <SubtypeId>GravityParts</SubtypeId>
             </Id>
-            <DisplayName>Gravity Generator Parts </DisplayName>
+            <DisplayName>Gravity Parts </DisplayName>
             <Icon>Textures\Icons\Components\BasicCrate.dds</Icon>
             <Size>
                 <X>1</X>
