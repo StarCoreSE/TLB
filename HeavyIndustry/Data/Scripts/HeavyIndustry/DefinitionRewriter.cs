@@ -277,6 +277,10 @@ namespace HeavyIndustry
                     {
                         //donothing
                     }
+                    else if (def.DisplayNameText.Contains("Science"))
+                    {
+                        def.DisplayNameEnum = MyStringId.GetOrCompute("Science: " + def.DisplayNameText.Replace("Science", ""));
+                    }
                     else if (!def.DisplayNameText.Contains("Parts"))
                     {
                         def.DisplayNameEnum = MyStringId.GetOrCompute("Comp: " + def.DisplayNameText);
@@ -285,6 +289,7 @@ namespace HeavyIndustry
                     {
                         def.DisplayNameEnum = MyStringId.GetOrCompute("Part: " + def.DisplayNameText.Replace("Parts", ""));
                     }
+
                 }
                 else if (def.Id.SubtypeName.Contains("elder") || def.Id.SubtypeName.Contains("rill") || def.Id.SubtypeName.Contains("rinder"))
                 {
