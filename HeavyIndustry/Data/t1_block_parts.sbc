@@ -7,7 +7,7 @@
         <Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>Girder</SubtypeId>
+                <SubtypeId>StructuralParts</SubtypeId>
             </Id>
             <DisplayName>Structural Parts</DisplayName>
             <Icon>Textures\Icons\Components\StructuralPartsCrate.png</Icon>
@@ -35,7 +35,7 @@
         <Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>Motor</SubtypeId>
+                <SubtypeId>MechanicalParts</SubtypeId>
             </Id>
             <DisplayName>Mechanical Parts</DisplayName>
             <Icon>Textures\Icons\Components\MechanicalPartsCrate.png</Icon>
@@ -91,7 +91,7 @@
         <Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>Explosives</SubtypeId>
+                <SubtypeId>ExplosiveParts</SubtypeId>
             </Id>
             <DisplayName>Explosive Parts</DisplayName>
             <Icon>Textures\Icons\Components\BasicCrate.dds</Icon>
@@ -119,7 +119,7 @@
 		<Component>
 			<Id>
 				<TypeId>Component</TypeId>
-				<SubtypeId>BulletproofGlass</SubtypeId>
+				<SubtypeId>GlassParts</SubtypeId>
 			</Id>
 			<DisplayName>Glass Parts</DisplayName>
 			<Icon>Textures\Icons\Components\GlassPartsCrate.png</Icon>

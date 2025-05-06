@@ -48,19 +48,23 @@ namespace HeavyIndustry
 
         public Dictionary<string, string> compReplacements = new Dictionary<string, string>()
         {
-            { "SteelPlate","Girder" },
-            { "LargeTube","Girder"},
-            { "SmallTube","Girder" },
-            { "Construction","Girder" },
-            { "InteriorPlate","Girder" },
+            { "SteelPlate","StructuralParts" },
+            { "LargeTube","StructuralParts"},
+            { "SmallTube","StructuralParts" },
+            { "Construction","StructuralParts" },
+            { "InteriorPlate","StructuralParts" },
+            { "Girder","StructuralParts" },
+
             { "Display","Computer" },
-            //{ "Reactor","PowerCell" },
-            //{ "GravityGenerator","PowerCell" },
-            //{ "RadioCommunication","PowerCell" },
             { "Detector","Computer" },
-            //{ "Superconductor","PowerCell" },
-            //{ "SolarCell","PowerCell" },
             { "Medical","Computer" },
+
+            { "BulletproofGlass","GlassParts" },
+            { "RadioCommunication","CommunicationParts" },
+            { "PowerCell","ElectricalParts" },
+            { "Explosives","ExplosiveParts" },
+
+
         };
 
         int theseExist = 0;
