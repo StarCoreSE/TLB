@@ -238,7 +238,7 @@ namespace InserterExtractor
 
         public override void UpdateAfterSimulation100()
 		{
-            DebugStatus();
+            //DebugStatus();
 
             if (MyAPIGateway.Multiplayer.IsServer && IsFunctional() && inventory != null)
             {
