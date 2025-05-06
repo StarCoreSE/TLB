@@ -203,8 +203,6 @@
             <MinimumAcquisitionAmount>10</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
         </Component>
-		
-
 	</Components>
 </Definitions>
 		
