@@ -13,6 +13,7 @@ using VRageMath;
 using System.Collections.Generic;
 using Sandbox.Game;
 using VRage.Game;
+using Sandbox.ModAPI.Weapons;
 
 namespace InserterExtractor
 
@@ -140,7 +141,7 @@ namespace InserterExtractor
             if(nblock is IMyProductionBlock)
             {
                 IMyProductionBlock pblock = nblock as IMyProductionBlock;
-                if (extract)
+                if (extract)    
                     inventory = pblock.OutputInventory as MyInventory;
                 else
                     inventory = pblock.InputInventory as MyInventory;
@@ -166,9 +167,24 @@ namespace InserterExtractor
                 return;
 
             var item = inventory.GetItemAt(0);
+
             if (item.HasValue)
             {
-                inserted_inventory.TransferItemFrom(inventory, 0, null, true, item.Value.Amount);
+                var amount = item.Value.Amount;
+
+                if (inserted is IMyAssembler || inserted is IMyShipWelder)
+                {
+                    var inserted_amount = (int)inserted_inventory.GetItemAmount((MyDefinitionId)item.Value.Type);
+
+                    //MyAPIGateway.Utilities.ShowNotification($"ee {inserted_amount}");
+
+                    if (inserted_amount > 50)
+                        amount = 0;
+                    else
+                        amount = (VRage.MyFixedPoint)Math.Min((int)item.Value.Amount, 50 - inserted_amount);
+                }
+
+                inserted_inventory.TransferItemFrom(inventory, 0, null, true, amount);
             }
         }
 
