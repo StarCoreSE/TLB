@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Components>
+		
+		<!--basic comps-->
+		
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>Girder</SubtypeId>
+            </Id>
+            <DisplayName>Structural Parts</DisplayName>
+            <Icon>Textures\Icons\Components\StructuralPartsCrate.png</Icon>
+            <Size>
+                <X>0.2</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size><Health>99999</Health>
+            <Mass>5</Mass>
+            <Volume>0.5</Volume>
+            <Model>Models\Components\StructuralPartsCrate.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>30</MaxIntegrity>
+            <Health>40</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>100</MinimumOrderAmount>
+            <MaximumOrderAmount>1000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>Motor</SubtypeId>
+            </Id>
+            <DisplayName>Mechanical Parts</DisplayName>
+            <Icon>Textures\Icons\Components\MechanicalPartsCrate.png</Icon>
+            <Size>
+                <X>0.2</X>
+                <Y>0.2</Y>
+                <Z>0.2</Z>
+            </Size><Health>99999</Health>
+            <Mass>20</Mass>
+            <Volume>0.5</Volume>
+            <Model>Models\Components\MechanicalPartsCrate.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>40</MaxIntegrity>
+            <Health>14</Health>
+            <MinimumOfferAmount>1000</MinimumOfferAmount>
+            <MaximumOfferAmount>2000</MaximumOfferAmount>
+            <MinimumOrderAmount>100</MinimumOrderAmount>
+            <MaximumOrderAmount>1000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>Computer</SubtypeId>
+            </Id>
+            <DisplayName>Computer Parts</DisplayName>
+            <Icon>Textures\Icons\Components\ComputerPartsCrate.png</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.02</Z>
+            </Size><Health>99999</Health>
+            <Mass>0.2</Mass>
+            <Volume>1</Volume>
+            <Model>Models\Components\ComputerPartsCrate.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>1</MaxIntegrity>
+            <Health>11</Health>
+            <MinimumOfferAmount>1000</MinimumOfferAmount>
+            <MaximumOfferAmount>5000</MaximumOfferAmount>
+            <MinimumOrderAmount>300</MinimumOrderAmount>
+            <MaximumOrderAmount>1000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>300</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>Explosives</SubtypeId>
+            </Id>
+            <DisplayName>Explosive Parts</DisplayName>
+            <Icon>Textures\Icons\Components\BasicCrate.dds</Icon>
+            <Size>
+                <X>0.2</X>
+                <Y>0.2</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>2</Mass>
+            <Volume>2</Volume>
+            <Model>Models\Components\BasicCrate.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>5</MaxIntegrity>
+            <Health>21</Health>
+            <MinimumOfferAmount>10</MinimumOfferAmount>
+            <MaximumOfferAmount>50</MaximumOfferAmount>
+            <MinimumOrderAmount>6</MinimumOrderAmount>
+            <MaximumOrderAmount>18</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>6</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>18</MaximumAcquisitionAmount>
+        </Component>
+
+		<Component>
+			<Id>
+				<TypeId>Component</TypeId>
+				<SubtypeId>BulletproofGlass</SubtypeId>
+			</Id>
+			<DisplayName>Glass Parts</DisplayName>
+			<Icon>Textures\Icons\Components\GlassPartsCrate.png</Icon>
+			<Size>
+				<X>0.5</X>
+				<Y>0.5</Y>
+				<Z>0.03</Z>
+			</Size><Health>99999</Health>
+			<Mass>15</Mass>
+			<Volume>1</Volume>
+			<Model>Models\Components\GlassPartsCrate.mwm</Model>
+			<PhysicalMaterial>Glass</PhysicalMaterial>
+			<MaxIntegrity>60</MaxIntegrity>
+			<Health>14</Health>
+			<MinimumOfferAmount>100</MinimumOfferAmount>
+			<MaximumOfferAmount>1000</MaximumOfferAmount>
+			<MinimumOrderAmount>200</MinimumOrderAmount>
+			<MaximumOrderAmount>1000</MaximumOrderAmount>
+			<CanPlayerOrder>true</CanPlayerOrder>
+
+			<MinimumAcquisitionAmount>200</MinimumAcquisitionAmount>
+			<MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+		</Component>
+
+    </Components>
+</Definitions>

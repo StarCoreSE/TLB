@@ -1,0 +1,82 @@
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CategoryClasses>
+
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+	<Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Control</DisplayName>
+      <Name>bobcockpit</Name>
+      <ItemIds>	  
+      </ItemIds>  
+  </Category>
+
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Logistics</DisplayName>
+      <Name>logistics</Name>
+      <ItemIds>
+      </ItemIds>
+    </Category>
+
+    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Mechanical</DisplayName>
+      <Name>mobility</Name>
+      <ItemIds>
+      </ItemIds>
+    </Category>
+	
+	<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Attitude</DisplayName>
+      <Name>attitude</Name>
+      <ItemIds>
+      </ItemIds>
+    </Category>
+	
+	<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Landing and Reentry</DisplayName>
+      <Name>reentry</Name>
+      <ItemIds>
+      </ItemIds>
+    </Category>
+	
+	    <Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Propulsion</DisplayName>
+      <Name>prop</Name>
+      <ItemIds>
+      </ItemIds>
+    </Category>
+	
+	<Category xsi:type="MyObjectBuilder_GuiBlockCategoryDefinition">
+      <Id>
+        <TypeId>GuiBlockCategoryDefinition</TypeId>
+        <SubtypeId/>
+      </Id>
+      <DisplayName>Energy</DisplayName>
+      <Name>bobpower</Name>
+      <ItemIds>
+      </ItemIds>
+    </Category>
+
+  </CategoryClasses>
+</Definitions>

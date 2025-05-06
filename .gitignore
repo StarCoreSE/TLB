@@ -8,3 +8,5 @@ bin/
 .idea
 .idea/workspace.xml
 Scratch
+*.blend
+*.blend1

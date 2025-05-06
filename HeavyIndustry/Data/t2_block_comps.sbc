@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Components>
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>MetalGrid</SubtypeId>
+            </Id>
+            <DisplayName>Armor Parts</DisplayName>
+            <Icon>Textures\Icons\Components\ArmorPartsCrate.png</Icon>
+            <Size>
+                <X>0.5</X>
+                <Y>0.5</Y>
+                <Z>0.05</Z>
+            </Size><Health>99999</Health>
+            <Mass>6</Mass>
+            <Volume>1</Volume>
+            <Model>Models\Components\ArmorPartsCrate.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>120</MaxIntegrity>
+            <Health>100</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>1000</MaximumOfferAmount>
+            <MinimumOrderAmount>125</MinimumOrderAmount>
+            <MaximumOrderAmount>1000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>125</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>Turbine</SubtypeId>
+            </Id>
+            <DisplayName>Aeronautical Parts</DisplayName>
+            <Icon>Textures\Icons\Components\MechanicalPartsCrate.png</Icon>
+            <Size>
+                <X>0.2</X>
+                <Y>0.2</Y>
+                <Z>0.2</Z>
+            </Size><Health>99999</Health>
+            <Mass>20</Mass>
+            <Volume>2</Volume>
+            <Model>Models\Components\MechanicalPartsCrate.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>40</MaxIntegrity>
+            <Health>14</Health>
+            <MinimumOfferAmount>1000</MinimumOfferAmount>
+            <MaximumOfferAmount>2000</MaximumOfferAmount>
+            <MinimumOrderAmount>100</MinimumOrderAmount>
+            <MaximumOrderAmount>1000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>RadioCommunication</SubtypeId>
+            </Id>
+            <DisplayName>Communication Parts</DisplayName>
+            <Icon>Textures\Icons\Components\BasicCrate.dds</Icon>
+            <Size>
+                <X>1</X>
+                <Y>0.5</Y>
+                <Z>0.4</Z>
+            </Size>
+            <Mass>8</Mass>
+            <Volume>70</Volume>
+            <Model>Models\Components\BasicCrate.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>15</MaxIntegrity>
+            <Health>11</Health>
+            <MinimumOfferAmount>30</MinimumOfferAmount>
+            <MaximumOfferAmount>500</MaximumOfferAmount>
+            <MinimumOrderAmount>40</MinimumOrderAmount>
+            <MaximumOrderAmount>500</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>10</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PowerCell</SubtypeId>
+            </Id>
+            <DisplayName>Electrical Parts</DisplayName>
+            <Icon>Textures\Icons\Components\ElectricalPartsCrate.png</Icon>
+            <Size>
+                <X>0.5</X>
+                <Y>0.3</Y>
+                <Z>0.3</Z>
+            </Size><Health>99999</Health>
+            <Mass>25</Mass>
+            <Volume>1</Volume>
+            <Model>Models\Components\ElectricalPartsCrate.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>50</MaxIntegrity>
+            <Health>14</Health>
+            <MinimumOfferAmount>100</MinimumOfferAmount>
+            <MaximumOfferAmount>500</MaximumOfferAmount>
+            <MinimumOrderAmount>50</MinimumOrderAmount>
+            <MaximumOrderAmount>100</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>10</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>120</MaximumAcquisitionAmount>
+        </Component>
+    </Components>
+</Definitions>
