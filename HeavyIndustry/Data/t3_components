@@ -1,93 +1,6 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <Components>
-		<Component>
-            <Id>
-                <TypeId>Component</TypeId>
-                <SubtypeId>Ceramics</SubtypeId>
-            </Id>
-            <DisplayName>Ceramics</DisplayName>
-            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
-            <Size>
-                <X>0.5</X>
-                <Y>0.5</Y>
-                <Z>0.01</Z>
-            </Size>
-            <Mass>20</Mass>
-            <Volume>3</Volume>
-            <Model>Models\Components\steel_plate_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>100</MaxIntegrity>
-            <DropProbability>0.9</DropProbability>
-            <Health>53</Health>
-            <MinimumOfferAmount>250</MinimumOfferAmount>
-            <MaximumOfferAmount>2500</MaximumOfferAmount>
-            <MinimumOrderAmount>100</MinimumOrderAmount>
-            <MaximumOrderAmount>1000</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
-        </Component>
-		
-		<Component>
-            <Id>
-                <TypeId>Component</TypeId>
-                <SubtypeId>TurbineBlades</SubtypeId>
-            </Id>
-            <DisplayName>Turbine Blades</DisplayName>
-            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
-            <Size>
-                <X>0.5</X>
-                <Y>0.5</Y>
-                <Z>0.01</Z>
-            </Size>
-            <Mass>20</Mass>
-            <Volume>3</Volume>
-            <Model>Models\Components\steel_plate_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>100</MaxIntegrity>
-            <DropProbability>0.9</DropProbability>
-            <Health>53</Health>
-            <MinimumOfferAmount>250</MinimumOfferAmount>
-            <MaximumOfferAmount>2500</MaximumOfferAmount>
-            <MinimumOrderAmount>100</MinimumOrderAmount>
-            <MaximumOrderAmount>1000</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
-        </Component>
-		
-		<Component>
-            <Id>
-                <TypeId>Component</TypeId>
-                <SubtypeId>AdvancedCircuit</SubtypeId>
-            </Id>
-            <DisplayName>Advanced Circuit</DisplayName>
-            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
-            <Size>
-                <X>0.5</X>
-                <Y>0.5</Y>
-                <Z>0.01</Z>
-            </Size>
-            <Mass>20</Mass>
-            <Volume>3</Volume>
-            <Model>Models\Components\steel_plate_component.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>100</MaxIntegrity>
-            <DropProbability>0.9</DropProbability>
-            <Health>53</Health>
-            <MinimumOfferAmount>250</MinimumOfferAmount>
-            <MaximumOfferAmount>2500</MaximumOfferAmount>
-            <MinimumOrderAmount>100</MinimumOrderAmount>
-            <MaximumOrderAmount>1000</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-
-            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
-        </Component>
-		
+    <Components>	
 		<Component>
             <Id>
                 <TypeId>Component</TypeId>
@@ -116,95 +29,173 @@
             <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
         </Component>
-		
 		<Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>MetalGrid</SubtypeId>
+                <SubtypeId>Insulator</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_MetalGrid</DisplayName>
-            <Icon>Textures\GUI\Icons\component\metal_grid_component.dds</Icon>
+            <DisplayName>Insulator</DisplayName>
+            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
             <Size>
                 <X>0.5</X>
                 <Y>0.5</Y>
-                <Z>0.05</Z>
+                <Z>0.01</Z>
             </Size>
-            <Mass>6</Mass>
-            <Volume>15</Volume>
-            <Model>Models\Components\metal_grid_component.mwm</Model>
+            <Mass>20</Mass>
+            <Volume>3</Volume>
+            <Model>Models\Components\steel_plate_component.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>30</MaxIntegrity>
-            <DropProbability>0.95</DropProbability>
-            <Health>69</Health>
+            <MaxIntegrity>100</MaxIntegrity>
+            <DropProbability>0.9</DropProbability>
+            <Health>53</Health>
             <MinimumOfferAmount>250</MinimumOfferAmount>
-            <MaximumOfferAmount>1000</MaximumOfferAmount>
-            <MinimumOrderAmount>125</MinimumOrderAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>100</MinimumOrderAmount>
             <MaximumOrderAmount>1000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
 
-            <MinimumAcquisitionAmount>125</MinimumAcquisitionAmount>
+            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
         </Component>
-		
 		<Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>PowerCell</SubtypeId>
+                <SubtypeId>PhotoreceptiveCells</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_PowerCell</DisplayName>
-            <Icon>Textures\GUI\Icons\component\BatteryComponent.dds</Icon>
+            <DisplayName>Photoreceptive Cells</DisplayName>
+            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
             <Size>
                 <X>0.5</X>
-                <Y>0.3</Y>
-                <Z>0.3</Z>
+                <Y>0.5</Y>
+                <Z>0.01</Z>
             </Size>
-            <Mass>25</Mass>
-            <Volume>40</Volume>
-            <Model>Models\Components\PowerCellComponent.mwm</Model>
+            <Mass>20</Mass>
+            <Volume>3</Volume>
+            <Model>Models\Components\steel_plate_component.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>50</MaxIntegrity>
-            <DropProbability>0.3</DropProbability>
-            <Health>14</Health>
-            <MinimumOfferAmount>100</MinimumOfferAmount>
-            <MaximumOfferAmount>500</MaximumOfferAmount>
-            <MinimumOrderAmount>50</MinimumOrderAmount>
-            <MaximumOrderAmount>100</MaximumOrderAmount>
+            <MaxIntegrity>100</MaxIntegrity>
+            <DropProbability>0.9</DropProbability>
+            <Health>53</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>100</MinimumOrderAmount>
+            <MaximumOrderAmount>1000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
 
-            <MinimumAcquisitionAmount>10</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>120</MaximumAcquisitionAmount>
+            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
         </Component>
-		
 		<Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>RadioCommunication</SubtypeId>
+                <SubtypeId>Magnet</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_RadioCommunicationComponents</DisplayName>
-            <Icon>Textures\GUI\Icons\component\radio_communication_components_component.dds</Icon>
+            <DisplayName>Magnet</DisplayName>
+            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
             <Size>
-                <X>1</X>
+                <X>0.5</X>
                 <Y>0.5</Y>
-                <Z>0.4</Z>
+                <Z>0.01</Z>
             </Size>
-            <Mass>8</Mass>
-            <Volume>70</Volume>
-            <Model>Models\Components\radio_communication_components_component.mwm</Model>
+            <Mass>20</Mass>
+            <Volume>3</Volume>
+            <Model>Models\Components\steel_plate_component.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MaxIntegrity>15</MaxIntegrity>
-            <DropProbability>0.1</DropProbability>
-            <Health>11</Health>
-            <MinimumOfferAmount>30</MinimumOfferAmount>
-            <MaximumOfferAmount>500</MaximumOfferAmount>
-            <MinimumOrderAmount>40</MinimumOrderAmount>
-            <MaximumOrderAmount>500</MaximumOrderAmount>
+            <MaxIntegrity>100</MaxIntegrity>
+            <DropProbability>0.9</DropProbability>
+            <Health>53</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>100</MinimumOrderAmount>
+            <MaximumOrderAmount>1000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
 
-            <MinimumAcquisitionAmount>10</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
+            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
         </Component>
-		
+		<Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>Server</SubtypeId>
+            </Id>
+            <DisplayName>Server</DisplayName>
+            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
+            <Size>
+                <X>0.5</X>
+                <Y>0.5</Y>
+                <Z>0.01</Z>
+            </Size>
+            <Mass>20</Mass>
+            <Volume>3</Volume>
+            <Model>Models\Components\steel_plate_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>100</MaxIntegrity>
+            <DropProbability>0.9</DropProbability>
+            <Health>53</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>100</MinimumOrderAmount>
+            <MaximumOrderAmount>1000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
 
+            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+		<Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>Nozzle</SubtypeId>
+            </Id>
+            <DisplayName>Nozzle</DisplayName>
+            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
+            <Size>
+                <X>0.5</X>
+                <Y>0.5</Y>
+                <Z>0.01</Z>
+            </Size>
+            <Mass>20</Mass>
+            <Volume>3</Volume>
+            <Model>Models\Components\steel_plate_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>100</MaxIntegrity>
+            <DropProbability>0.9</DropProbability>
+            <Health>53</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>100</MinimumOrderAmount>
+            <MaximumOrderAmount>1000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+		<Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>Turbopump</SubtypeId>
+            </Id>
+            <DisplayName>Turbopump</DisplayName>
+            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
+            <Size>
+                <X>0.5</X>
+                <Y>0.5</Y>
+                <Z>0.01</Z>
+            </Size>
+            <Mass>20</Mass>
+            <Volume>3</Volume>
+            <Model>Models\Components\steel_plate_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>100</MaxIntegrity>
+            <DropProbability>0.9</DropProbability>
+            <Health>53</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>100</MinimumOrderAmount>
+            <MaximumOrderAmount>1000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
 	</Components>
 </Definitions>
-		

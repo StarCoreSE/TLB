@@ -353,6 +353,32 @@
             <MinimumAcquisitionAmount>30</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>300</MaximumAcquisitionAmount>
         </PhysicalItem>
+		<PhysicalItem>
+            <Id>
+                <TypeId>Ingot</TypeId>
+                <SubtypeId>Alloy</SubtypeId>
+            </Id>
+            <DisplayName>Alloy</DisplayName>
+            <Icon>Textures\GUI\Icons\ingot\nickel_ingot.dds</Icon>
+            <Size>
+                <X>0.048</X>
+                <Y>0.048</Y>
+                <Z>0.048</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>0.112</Volume>
+            <Model>Models\Ingots\nickel_ingot.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <IconSymbol>IconSymbol_Ni</IconSymbol>
+            <MinimumOfferAmount>1000</MinimumOfferAmount>
+            <MaximumOfferAmount>10000</MaximumOfferAmount>
+            <MinimumOrderAmount>100</MinimumOrderAmount>
+            <MaximumOrderAmount>10000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>3</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>30</MaximumAcquisitionAmount>
+        </PhysicalItem>
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
