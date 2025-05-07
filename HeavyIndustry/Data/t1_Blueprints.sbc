@@ -164,7 +164,7 @@
                 <SubtypeId>StructuralPartsBlueprint</SubtypeId>
             </Id>
             <DisplayName>Structural Parts</DisplayName>
-            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Icon>Textures\Icons\Components\StructuralPartsCrate.png</Icon>
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Iron" />
             </Prerequisites>
@@ -179,7 +179,7 @@
                 <SubtypeId>ConcretePartsBlueprint</SubtypeId>
             </Id>
             <DisplayName>Concrete Parts</DisplayName>
-            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Icon>Textures\Icons\Components\BasicCrate.dds</Icon>
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Sandbag" />
             </Prerequisites>
@@ -194,7 +194,7 @@
                 <SubtypeId>GlassPartsBlueprint</SubtypeId>
             </Id>
             <DisplayName>Glass Parts</DisplayName>
-            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Icon>Textures\Icons\Components\GlassPartsCrate.png</Icon>
             <Prerequisites>
                 <Item Amount="1" TypeId="Component" SubtypeId="Glass" />
             </Prerequisites>
@@ -209,7 +209,7 @@
                 <SubtypeId>MechanicalPartsBlueprint</SubtypeId>
             </Id>
             <DisplayName>Mechanical Parts</DisplayName>
-            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Icon>Textures\Icons\Components\MechanicalPartsCrate.png</Icon>
             <Prerequisites>
                 <Item Amount="1" TypeId="Component" SubtypeId="Gear" />
 				<Item Amount="1" TypeId="Component" SubtypeId="CopperWire" />
@@ -225,7 +225,7 @@
                 <SubtypeId>WheelPartsBlueprint</SubtypeId>
             </Id>
             <DisplayName>Wheel Parts</DisplayName>
-            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Icon>Textures\Icons\Components\BasicCrate.dds</Icon>
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Plastic" />
 				<Item Amount="1" TypeId="Component" SubtypeId="Gear" />
@@ -241,7 +241,7 @@
                 <SubtypeId>ComputerBlueprint</SubtypeId>
             </Id>
             <DisplayName>Computer Parts</DisplayName>
-            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Icon>Textures\Icons\Components\ComputerPartsCrate.png</Icon>
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Plastic" />
 				<Item Amount="1" TypeId="Component" SubtypeId="CopperWire" />
@@ -257,7 +257,7 @@
                 <SubtypeId>ProjectilePartsBlueprint</SubtypeId>
             </Id>
             <DisplayName>Projectile Parts</DisplayName>
-            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Icon>Textures\Icons\Components\BasicCrate.dds</Icon>
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Oil" />
 				<Item Amount="1" TypeId="Component" SubtypeId="CopperTube" />
