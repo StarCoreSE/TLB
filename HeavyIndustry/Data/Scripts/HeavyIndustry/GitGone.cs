@@ -189,7 +189,7 @@ namespace cleaner
 
                 if (DEBUG)
                 {
-                    MyLog.Default.WriteLine($"[TLB-GG] DEBUG: {type_id}/{subtype_id}, bn: {is_banned}, adm: {is_admin}");
+                    //MyLog.Default.WriteLine($"[TLB-GG] DEBUG: {type_id}/{subtype_id}, bn: {is_banned}, adm: {is_admin}");
                 }
 
                 // deprecated code to kill dlcs

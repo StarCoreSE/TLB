@@ -517,7 +517,7 @@ namespace HeavyIndustry
 
                 if(is_hydro)
                 {
-                    ExchangeComponents(ref compList, "ArmorParts", "CommunicationParts", 0.5f);
+                    ExchangeComponents(ref compList, "ArmorParts", "AstroParts", 0.1f);
                 }
 
                 if (is_ion)
@@ -590,7 +590,7 @@ namespace HeavyIndustry
 
                 if (gyro_def != null)
                 {
-                    gyro_def.ForceMagnitude /= 100;
+                    gyro_def.ForceMagnitude /= 10;
                 }
 
                 def.Components = compList.ToArray();
@@ -753,6 +753,23 @@ namespace HeavyIndustry
             return -1;
         }
 
+        public void SafeRemoveIndex(ref List<MyCubeBlockDefinition.Component> compList, ref MyCubeBlockDefinition cubeDef, ref int i)
+        {
+            if(i != cubeDef.CriticalGroup)
+            {
+                compList[i - 1].Count += compList[i].Count;
+                compList.RemoveAt(i);
+                i--;
+                if (i <= cubeDef.CriticalGroup && cubeDef.CriticalGroup > 0)
+                    cubeDef.CriticalGroup--;
+            }
+        }
+
+        bool IsValidPart(string subtypeName)
+        {
+            return validParts.Contains(subtypeName) || subtypeName.Contains("Prototech");
+        }
+
         private void ExchangeAndFix(ref List<MyCubeBlockDefinition.Component> compList, MyCubeBlockDefinition cubeDef)
         {
             for (int i = 0; i < compList.Count; i++)
@@ -762,18 +779,20 @@ namespace HeavyIndustry
                 {
                     ExchangeComponents(ref compList, comp.Definition.Id.SubtypeName, compReplacements[comp.Definition.Id.SubtypeName]);
                 }
+
+                if (!IsValidPart(compList[i].Definition.Id.SubtypeName) && compList.Count > 1)
+                {
+                    MyLog.Default.WriteLineAndConsole($"UGH DEBUG : {cubeDef.Id.SubtypeName} {compList[i].Definition.Id.SubtypeName}");
+                    SafeRemoveIndex(ref compList, ref cubeDef, ref i);
+                }
             }
 
             for (int i = 0; i < compList.Count; i++)
             {
                 // Fix duplicate component stacks.
-                if (i > 0 && compList[i].Definition == compList[i - 1].Definition && (i != (int)cubeDef.CriticalGroup))
+                if (i > 0 && compList[i].Definition == compList[i - 1].Definition)
                 {
-                    compList[i - 1].Count += compList[i].Count;
-                    compList.RemoveAt(i);
-                    i--;
-                    if (i <= cubeDef.CriticalGroup && cubeDef.CriticalGroup > 0)
-                        cubeDef.CriticalGroup--;
+                    SafeRemoveIndex(ref compList, ref cubeDef, ref i);
                 }
             }
         }
