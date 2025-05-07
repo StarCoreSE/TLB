@@ -267,7 +267,7 @@
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
-                <SubtypeId>Stone</SubtypeId>
+                <SubtypeId>Sandbag</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Item_Gravel</DisplayName>
             <Icon>Textures\GUI\Icons\ingot\gravel_ingot.dds</Icon>
@@ -382,9 +382,9 @@
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
-                <SubtypeId>Nickel</SubtypeId>
+                <SubtypeId>Copper</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_NickelIngot</DisplayName>
+            <DisplayName>Copper Ingot</DisplayName>
             <Icon>Textures\GUI\Icons\ingot\nickel_ingot.dds</Icon>
             <Size>
                 <X>0.048</X>

@@ -65,7 +65,7 @@
                 <TypeId>Component</TypeId>
                 <SubtypeId>Computer</SubtypeId>
             </Id>
-            <DisplayName>Computer Parts</DisplayName>
+            <DisplayName>Circuit Parts</DisplayName>
             <Icon>Textures\Icons\Components\ComputerPartsCrate.png</Icon>
             <Size>
                 <X>0.1</X>
@@ -87,8 +87,6 @@
             <MinimumAcquisitionAmount>300</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
         </Component>
-
-
 
 		<Component>
 			<Id>

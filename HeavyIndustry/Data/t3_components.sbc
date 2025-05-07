@@ -60,9 +60,9 @@
 		<Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>PhotoreceptiveCells</SubtypeId>
+                <SubtypeId>PhotoreceptiveCell</SubtypeId>
             </Id>
-            <DisplayName>Photoreceptive Cells</DisplayName>
+            <DisplayName>Photoreceptive Cell</DisplayName>
             <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
             <Size>
                 <X>0.5</X>
