@@ -173,6 +173,122 @@
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
 		<!-- Parts -->
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>ExplosivePartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Explosive Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Plastic" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Explosives" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="ExplosiveParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
 		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>MissilePartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Missile Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Turbines" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Explosives" />
+				<Item Amount="1" TypeId="Component" SubtypeId="ProjectileParts" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="ExplosiveParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AeroPartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Aero Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Turbines" />
+				<Item Amount="1" TypeId="Component" SubtypeId="MetalGrid" />
+				<Item Amount="1" TypeId="Component" SubtypeId="MechanicalParts" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="AeroParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>ArmorPartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Armor Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Consruction" />
+				<Item Amount="1" TypeId="Component" SubtypeId="MetalGrid" />
+				<Item Amount="1" TypeId="Component" SubtypeId="StructuralParts" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="ArmorParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>ElectricalPartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Electrical Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="PowerCell" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Detector" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Computer" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="ElectricalParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>CommunicationPartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Communication Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Antenna" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Detector" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Computer" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="CommunicationParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>ComputerPartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Computer Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Detector" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Processor" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Computer" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="ComputerParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
     </Blueprints>
 </Definitions>

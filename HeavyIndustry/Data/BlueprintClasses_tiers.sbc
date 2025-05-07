@@ -37,6 +37,43 @@
             <HighlightIcon>Textures\GUI\Icons\buttons\component_focus.dds</HighlightIcon>
             <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
         </Class>
+		
+		<Class>
+            <Id>
+                <TypeId>BlueprintClassDefinition</TypeId>
+                <SubtypeId>T1Parts</SubtypeId>
+            </Id>
+            <DisplayName>Tier 1 Parts</DisplayName>
+            <Description>Tier 1 Parts</Description>
+            <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
+            <FocusIcon>Textures\GUI\Icons\buttons\component.dds</FocusIcon>
+            <HighlightIcon>Textures\GUI\Icons\buttons\component_focus.dds</HighlightIcon>
+            <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+        </Class>
+		<Class>
+            <Id>
+                <TypeId>BlueprintClassDefinition</TypeId>
+                <SubtypeId>T2Parts</SubtypeId>
+            </Id>
+            <DisplayName>Tier 2 Parts</DisplayName>
+            <Description>Tier 2 Parts</Description>
+            <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
+            <FocusIcon>Textures\GUI\Icons\buttons\component.dds</FocusIcon>
+            <HighlightIcon>Textures\GUI\Icons\buttons\component_focus.dds</HighlightIcon>
+            <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+        </Class>
+		<Class>
+            <Id>
+                <TypeId>BlueprintClassDefinition</TypeId>
+                <SubtypeId>T3Parts</SubtypeId>
+            </Id>
+            <DisplayName>Tier 3 Parts</DisplayName>
+            <Description>Tier 3 Parts</Description>
+            <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
+            <FocusIcon>Textures\GUI\Icons\buttons\component.dds</FocusIcon>
+            <HighlightIcon>Textures\GUI\Icons\buttons\component_focus.dds</HighlightIcon>
+            <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+        </Class>
     </BlueprintClasses>	
 
     <BlueprintClassEntries>
@@ -62,5 +99,22 @@
 		<Entry Class="T3Components" BlueprintSubtypeId="NozzleBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="TurbopumpBlueprint" />
 		-->
+		
+		<Entry Class="T1Parts" BlueprintSubtypeId="StructuralPartsBluprint" />
+		<Entry Class="T1Parts" BlueprintSubtypeId="ConcretePartsBlueprint" />
+		<Entry Class="T1Parts" BlueprintSubtypeId="GlassPartsBlueprint" />
+		<Entry Class="T1Parts" BlueprintSubtypeId="MechanicalPartsBlueprint" />
+		<Entry Class="T1Parts" BlueprintSubtypeId="WheelPartsBlueprint" />
+		<Entry Class="T1Parts" BlueprintSubtypeId="ComputerBlueprint" />
+		<Entry Class="T1Parts" BlueprintSubtypeId="ProjectilePartsBlueprint" />
+
+		<Entry Class="T2Parts" BlueprintSubtypeId="ExplosivePartsBlueprint" />
+		<Entry Class="T2Parts" BlueprintSubtypeId="MissilePartsBlueprint" />
+		<Entry Class="T2Parts" BlueprintSubtypeId="AeroPartsBlueprint" />
+		<Entry Class="T2Parts" BlueprintSubtypeId="ArmorPartsBlueprint" />
+		<Entry Class="T2Parts" BlueprintSubtypeId="ElectricalPartsBlueprint" />
+		<Entry Class="T2Parts" BlueprintSubtypeId="CommunicationPartsBlueprint" />
+		<Entry Class="T2Parts" BlueprintSubtypeId="ComputerPartsBlueprint" />
+		
     </BlueprintClassEntries>
 </Definitions>

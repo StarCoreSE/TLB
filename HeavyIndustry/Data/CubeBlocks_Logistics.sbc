@@ -234,8 +234,11 @@
             <OperationalPowerConsumption>0.56</OperationalPowerConsumption>
             <BlueprintClasses>
                 <Class>T1Components</Class>
+				<Class>T1Parts</Class>
 				<Class>T2Components</Class>
+				<Class>T2Parts</Class>
 				<Class>T3Components</Class>
+				<Class>T3Parts</Class>
             </BlueprintClasses>
             <IgnoredBlueprintClassesIcons>
                 <IgnoredClassIcon>BuildPlanner</IgnoredClassIcon>

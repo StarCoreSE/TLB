@@ -156,7 +156,115 @@
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
-		<!-- Parts -->
 		
+		<!-- Parts -->
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>StructuralPartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Structural Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Iron" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="StructuralParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>ConcretePartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Concrete Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Sandbag" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="ConcreteParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>GlassPartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Glass Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Glass" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="GlassParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>MechanicalPartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Mechanical Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Gear" />
+				<Item Amount="1" TypeId="Component" SubtypeId="CopperWire" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="MechanicalParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>WheelPartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Wheel Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Plastic" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Gear" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="WheelParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>ComputerBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Computer Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Plastic" />
+				<Item Amount="1" TypeId="Component" SubtypeId="CopperWire" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="Computer" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>ProjectilePartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Projectile Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Oil" />
+				<Item Amount="1" TypeId="Component" SubtypeId="CopperTube" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="ProjectileParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
     </Blueprints>
 </Definitions>
