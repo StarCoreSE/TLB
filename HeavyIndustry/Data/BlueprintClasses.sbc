@@ -148,7 +148,6 @@
             <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
         </Class>
 
-
 		<!-- Assembler -->
         <Class>
             <Id>

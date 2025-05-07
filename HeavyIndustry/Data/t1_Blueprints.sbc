@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Blueprints>
+		<!-- Ingots -->
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>CopperPlateBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>CopperPlate</DisplayName>
+            <Icon>Textures\GUI\Icons\component\interior_plate_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="3" TypeId="Ore" SubtypeId="CrudeOil" />
+				<Item Amount="3" TypeId="Ore" SubtypeId="Copper" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Ingot" SubtypeId="InteriorPlate" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>false</Public>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SteelPlateBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_SteelPlate</DisplayName>
+            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="21" TypeId="Ore" SubtypeId="Iron" />
+				<Item Amount="21" TypeId="Ore" SubtypeId="CrudeOil" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Ingot" SubtypeId="SteelPlate" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>false</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PlasticBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Plastic</DisplayName>
+            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="21" TypeId="Ingot" SubtypeId="Oil" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Ingot" SubtypeId="Plastic" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>false</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>OilBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Oil</DisplayName>
+            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="21" TypeId="Ore" SubtypeId="Ice" />
+				<Item Amount="21" TypeId="Ore" SubtypeId="CrudeOil" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Ingot" SubtypeId="Oil" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>false</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SandBagBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Sand Bag</DisplayName>
+            <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="21" TypeId="Ore" SubtypeId="Stone" />
+				<Item Amount="21" TypeId="Ore" SubtypeId="CrudeOil" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Ingot" SubtypeId="SandBag" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>false</Public>
+        </Blueprint>
+		
+		<!-- Components -->
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>ConstructionBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_ConstructionComponent</DisplayName>
+            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="" TypeId="Component" SubtypeId="SteelPlate" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="Construction" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>false</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>GearBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_ConstructionComponent</DisplayName>
+            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="" TypeId="Component" SubtypeId="SteelPlate" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="Gear" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>false</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>CopperTubeBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_ConstructionComponent</DisplayName>
+            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="" TypeId="Component" SubtypeId="CopperPlate" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="CopperTube" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>false</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>CopperWireBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_ConstructionComponent</DisplayName>
+            <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="" TypeId="Component" SubtypeId="CopperPlate" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="CopperWire" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>false</Public>
+        </Blueprint>
+		
+		<!-- Parts -->
+		
+    </Blueprints>
+</Definitions>

@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <BlueprintClasses>
+        <Class>
+            <Id>
+                <TypeId>BlueprintClassDefinition</TypeId>
+                <SubtypeId>T1Components</SubtypeId>
+            </Id>
+            <DisplayName>Tier 1 Components</DisplayName>
+            <Description></Description>
+            <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
+            <FocusIcon>Textures\GUI\Icons\buttons\component.dds</FocusIcon>
+            <HighlightIcon>Textures\GUI\Icons\buttons\component_focus.dds</HighlightIcon>
+            <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+        </Class>
+		<Class>
+            <Id>
+                <TypeId>BlueprintClassDefinition</TypeId>
+                <SubtypeId>T2Components</SubtypeId>
+            </Id>
+            <DisplayName>Tier 2 Components</DisplayName>
+            <Description></Description>
+            <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
+            <FocusIcon>Textures\GUI\Icons\buttons\component.dds</FocusIcon>
+            <HighlightIcon>Textures\GUI\Icons\buttons\component_focus.dds</HighlightIcon>
+            <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+        </Class>
+		<Class>
+            <Id>
+                <TypeId>BlueprintClassDefinition</TypeId>
+                <SubtypeId>T3Components</SubtypeId>
+            </Id>
+            <DisplayName>Tier 3 Components</DisplayName>
+            <Description></Description>
+            <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
+            <FocusIcon>Textures\GUI\Icons\buttons\component.dds</FocusIcon>
+            <HighlightIcon>Textures\GUI\Icons\buttons\component_focus.dds</HighlightIcon>
+            <InputConstraintIcon>Textures\GUI\Icons\filter_ingot.dds</InputConstraintIcon>
+        </Class>
+    </BlueprintClasses>	
+
+    <BlueprintClassEntries>
+        <Entry Class="T1Components" BlueprintSubtypeId="Concrete" />
+		<Entry Class="T1Components" BlueprintSubtypeId="CircuitBoard" />
+		<Entry Class="T1Components" BlueprintSubtypeId="CopperWire" />
+		<Entry Class="T1Components" BlueprintSubtypeId="SmallTube" />
+		<Entry Class="T1Components" BlueprintSubtypeId="LargeTube" />
+		<Entry Class="T1Components" BlueprintSubtypeId="BulletproofGlass" />
+		<Entry Class="T1Components" BlueprintSubtypeId="Medical" />
+		<Entry Class="T1Components" BlueprintSubtypeId="Display" />
+		<Entry Class="T1Components" BlueprintSubtypeId="SteelPlate" />
+		<Entry Class="T1Components" BlueprintSubtypeId="Girder" />
+		<Entry Class="T1Components" BlueprintSubtypeId="ComputerComponent" />
+		<Entry Class="T1Components" BlueprintSubtypeId="InteriorPlate" />
+		<Entry Class="T1Components" BlueprintSubtypeId="Motor" />
+		<Entry Class="T1Components" BlueprintSubtypeId="Construction" />
+		<Entry Class="T1Components" BlueprintSubtypeId="Detector" />
+		<Entry Class="T1Components" BlueprintSubtypeId="Wheels" />
+		<Entry Class="T1Components" BlueprintSubtypeId="Casings" />
+		<!--
+		<Entry Class="T2Components" BlueprintSubtypeId="Ceramics" />
+		<Entry Class="T2Components" BlueprintSubtypeId="TurbineBlades" />
+		<Entry Class="T2Components" BlueprintSubtypeId="AdvancedCircuit" />
+		<Entry Class="T2Components" BlueprintSubtypeId="MetalGrid" />
+		<Entry Class="T2Components" BlueprintSubtypeId="PowerCell" />
+		<Entry Class="T2Components" BlueprintSubtypeId="RadioCommunication" />
+		
+		<Entry Class="T3Components" BlueprintSubtypeId="LaserDiode" />
+		<Entry Class="T3Components" BlueprintSubtypeId="Insulator" />
+		<Entry Class="T3Components" BlueprintSubtypeId="PhotoreceptiveCells" />
+		<Entry Class="T3Components" BlueprintSubtypeId="Magnet" />
+		<Entry Class="T3Components" BlueprintSubtypeId="Server" />
+		<Entry Class="T3Components" BlueprintSubtypeId="Nozzle" />
+		<Entry Class="T3Components" BlueprintSubtypeId="Turbopump" />
+		-->
+    </BlueprintClassEntries>
+</Definitions>
