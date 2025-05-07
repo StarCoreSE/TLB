@@ -172,6 +172,7 @@
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
+		
 		<!-- Parts -->
 		<Blueprint>
             <Id>
@@ -231,7 +232,7 @@
             <DisplayName>Armor Parts</DisplayName>
             <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Component" SubtypeId="Consruction" />
+                <Item Amount="1" TypeId="Component" SubtypeId="Construction" />
 				<Item Amount="1" TypeId="Component" SubtypeId="MetalGrid" />
 				<Item Amount="1" TypeId="Component" SubtypeId="StructuralParts" />
             </Prerequisites>
@@ -265,7 +266,7 @@
             <DisplayName>Communication Parts</DisplayName>
             <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Component" SubtypeId="Antenna" />
+                <Item Amount="1" TypeId="Component" SubtypeId="RadioCommunication" />
 				<Item Amount="1" TypeId="Component" SubtypeId="Detector" />
 				<Item Amount="1" TypeId="Component" SubtypeId="Computer" />
             </Prerequisites>
