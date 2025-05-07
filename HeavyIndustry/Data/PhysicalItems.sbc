@@ -356,28 +356,106 @@
 		<PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
+                <SubtypeId>Oil</SubtypeId>
+            </Id>
+            <DisplayName>Oil</DisplayName>
+            <Icon>Textures\GUI\Icons\ingot\iron_ingot.dds</Icon>
+            <Size>
+                <X>0.05</X>
+                <Y>0.05</Y>
+                <Z>0.05</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>0.127</Volume>
+            <Model>Models\Ingots\iron_ingot.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <IconSymbol>IconSymbol_Fe</IconSymbol>
+            <MinimumOfferAmount>1000</MinimumOfferAmount>
+            <MaximumOfferAmount>10000</MaximumOfferAmount>
+            <MinimumOrderAmount>1000</MinimumOrderAmount>
+            <MaximumOrderAmount>20000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>30</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>300</MaximumAcquisitionAmount>
+        </PhysicalItem>
+		<PhysicalItem>
+            <Id>
+                <TypeId>Ingot</TypeId>
+                <SubtypeId>Plastic</SubtypeId>
+            </Id>
+            <DisplayName>Plastic</DisplayName>
+            <Icon>Textures\GUI\Icons\ingot\iron_ingot.dds</Icon>
+            <Size>
+                <X>0.05</X>
+                <Y>0.05</Y>
+                <Z>0.05</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>0.127</Volume>
+            <Model>Models\Ingots\iron_ingot.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <IconSymbol>IconSymbol_Fe</IconSymbol>
+            <MinimumOfferAmount>1000</MinimumOfferAmount>
+            <MaximumOfferAmount>10000</MaximumOfferAmount>
+            <MinimumOrderAmount>1000</MinimumOrderAmount>
+            <MaximumOrderAmount>20000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>30</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>300</MaximumAcquisitionAmount>
+        </PhysicalItem>
+		<PhysicalItem>
+            <Id>
+                <TypeId>Ingot</TypeId>
+                <SubtypeId>Ceramic</SubtypeId>
+            </Id>
+            <DisplayName>Ceramic</DisplayName>
+            <Icon>Textures\GUI\Icons\ingot\iron_ingot.dds</Icon>
+            <Size>
+                <X>0.05</X>
+                <Y>0.05</Y>
+                <Z>0.05</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>0.127</Volume>
+            <Model>Models\Ingots\iron_ingot.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <IconSymbol>IconSymbol_Fe</IconSymbol>
+            <MinimumOfferAmount>1000</MinimumOfferAmount>
+            <MaximumOfferAmount>10000</MaximumOfferAmount>
+            <MinimumOrderAmount>1000</MinimumOrderAmount>
+            <MaximumOrderAmount>20000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>30</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>300</MaximumAcquisitionAmount>
+        </PhysicalItem>
+		<PhysicalItem>
+            <Id>
+                <TypeId>Ingot</TypeId>
                 <SubtypeId>Alloy</SubtypeId>
             </Id>
             <DisplayName>Alloy</DisplayName>
-            <Icon>Textures\GUI\Icons\ingot\nickel_ingot.dds</Icon>
+            <Icon>Textures\GUI\Icons\ingot\iron_ingot.dds</Icon>
             <Size>
-                <X>0.048</X>
-                <Y>0.048</Y>
-                <Z>0.048</Z>
+                <X>0.05</X>
+                <Y>0.05</Y>
+                <Z>0.05</Z>
             </Size>
             <Mass>1</Mass>
-            <Volume>0.112</Volume>
-            <Model>Models\Ingots\nickel_ingot.mwm</Model>
+            <Volume>0.127</Volume>
+            <Model>Models\Ingots\iron_ingot.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <IconSymbol>IconSymbol_Ni</IconSymbol>
+            <IconSymbol>IconSymbol_Fe</IconSymbol>
             <MinimumOfferAmount>1000</MinimumOfferAmount>
             <MaximumOfferAmount>10000</MaximumOfferAmount>
-            <MinimumOrderAmount>100</MinimumOrderAmount>
-            <MaximumOrderAmount>10000</MaximumOrderAmount>
+            <MinimumOrderAmount>1000</MinimumOrderAmount>
+            <MaximumOrderAmount>20000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
 
-            <MinimumAcquisitionAmount>3</MinimumAcquisitionAmount>
-            <MaximumAcquisitionAmount>30</MaximumAcquisitionAmount>
+            <MinimumAcquisitionAmount>30</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>300</MaximumAcquisitionAmount>
         </PhysicalItem>
         <PhysicalItem>
             <Id>
@@ -460,7 +538,7 @@
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
-                <SubtypeId>Silicon</SubtypeId>
+                <SubtypeId>SiliconWafer</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Item_SiliconWafer</DisplayName>
             <Icon>Textures\GUI\Icons\ingot\silicon_ingot.dds</Icon>

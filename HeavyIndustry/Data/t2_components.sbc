@@ -33,9 +33,9 @@
 		<Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>TurbineBlades</SubtypeId>
+                <SubtypeId>Turbines</SubtypeId>
             </Id>
-            <DisplayName>Turbine Blades</DisplayName>
+            <DisplayName>Turbines</DisplayName>
             <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
             <Size>
                 <X>0.5</X>
@@ -62,9 +62,9 @@
 		<Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>AdvancedCircuit</SubtypeId>
+                <SubtypeId>Processor</SubtypeId>
             </Id>
-            <DisplayName>Advanced Circuit</DisplayName>
+            <DisplayName>Processor</DisplayName>
             <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
             <Size>
                 <X>0.5</X>
@@ -151,7 +151,7 @@
                 <TypeId>Component</TypeId>
                 <SubtypeId>RadioCommunication</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_RadioCommunicationComponents</DisplayName>
+            <DisplayName>Antenna</DisplayName>
             <Icon>Textures\GUI\Icons\component\radio_communication_components_component.dds</Icon>
             <Size>
                 <X>1</X>

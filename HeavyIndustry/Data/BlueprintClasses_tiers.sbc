@@ -6,7 +6,7 @@
                 <TypeId>BlueprintClassDefinition</TypeId>
                 <SubtypeId>T1Components</SubtypeId>
             </Id>
-            <DisplayName>Tier1</DisplayName>
+            <DisplayName>Tier 1 Components</DisplayName>
             <Description>Tier 1 Components</Description>
             <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
             <FocusIcon>Textures\GUI\Icons\buttons\component.dds</FocusIcon>
@@ -19,7 +19,7 @@
                 <SubtypeId>T2Components</SubtypeId>
             </Id>
             <DisplayName>Tier 2 Components</DisplayName>
-            <Description></Description>
+            <Description>Tier 2 Components</Description>
             <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
             <FocusIcon>Textures\GUI\Icons\buttons\component.dds</FocusIcon>
             <HighlightIcon>Textures\GUI\Icons\buttons\component_focus.dds</HighlightIcon>
@@ -31,7 +31,7 @@
                 <SubtypeId>T3Components</SubtypeId>
             </Id>
             <DisplayName>Tier 3 Components</DisplayName>
-            <Description></Description>
+            <Description>Tier 3 Components</Description>
             <Icon>Textures\GUI\Icons\buttons\component.dds</Icon>
             <FocusIcon>Textures\GUI\Icons\buttons\component.dds</FocusIcon>
             <HighlightIcon>Textures\GUI\Icons\buttons\component_focus.dds</HighlightIcon>
@@ -45,7 +45,6 @@
 		<Entry Class="T1Components" BlueprintSubtypeId="CopperTubeBlueprint" />
 		<Entry Class="T1Components" BlueprintSubtypeId="CopperWireBlueprint" />
 
-		<!--
 		<Entry Class="T2Components" BlueprintSubtypeId="ExplosivesBlueprint" />
 		<Entry Class="T2Components" BlueprintSubtypeId="TurbinesBlueprint" />
 		<Entry Class="T2Components" BlueprintSubtypeId="PowerCellBlueprint" />
@@ -54,6 +53,7 @@
 		<Entry Class="T2Components" BlueprintSubtypeId="DetectorBlueprint" />
 		<Entry Class="T2Components" BlueprintSubtypeId="ProcessorBlueprint" />
 		
+		<!--
 		<Entry Class="T3Components" BlueprintSubtypeId="LaserDiodeBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="InsulatorBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="PhotoreceptiveCellBlueprint" />

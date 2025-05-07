@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Blueprints>
+		<!-- Ingots -->
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>AlloyBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Alloy</DisplayName>
+            <Icon>Textures\GUI\Icons\component\interior_plate_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="3" TypeId="Ore" SubtypeId="Iron" />
+				<Item Amount="3" TypeId="Ore" SubtypeId="Cobalt" />
+				<Item Amount="3" TypeId="Ore" SubtypeId="Ice" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Ingot" SubtypeId="Alloy" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>false</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>CeramicBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Ceramic</DisplayName>
+            <Icon>Textures\GUI\Icons\component\interior_plate_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="3" TypeId="Ore" SubtypeId="CrudeOil" />
+				<Item Amount="3" TypeId="Ore" SubtypeId="Stone" />
+				<Item Amount="3" TypeId="Ore" SubtypeId="Ice" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Ingot" SubtypeId="Ceramic" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>false</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SiliconWaferBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Silicon Wafer</DisplayName>
+            <Icon>Textures\GUI\Icons\component\interior_plate_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="3" TypeId="Ore" SubtypeId="Silicon" />
+				<Item Amount="3" TypeId="Ore" SubtypeId="Copper" />
+				<Item Amount="3" TypeId="Ore" SubtypeId="Ice" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Ingot" SubtypeId="SiliconWafer" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>false</Public>
+        </Blueprint>
+
+		<!-- Components -->
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>ExplosivesBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Explosives</DisplayName>
+            <Icon>Textures\GUI\Icons\component\ExplosivesComponent.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Oil" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Plastic" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Alloy" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="Explosives" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>TurbinesBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Turbines</DisplayName>
+            <Icon>Textures\GUI\Icons\component\motor_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Gear" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Ceramic" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Alloy" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="Turbines" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>PowerCellBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Power Cell</DisplayName>
+            <Icon>Textures\GUI\Icons\component\BatteryComponent.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="CopperWire" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Plastic" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Alloy" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="PowerCell" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>MetalGridBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Metal Grid</DisplayName>
+            <Icon>Textures\GUI\Icons\component\metal_grid_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Construction" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Ceramic" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Alloy" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="MetalGrid" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>RadioCommunicationBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Antenna</DisplayName>
+            <Icon>Textures\GUI\Icons\component\radio_communication_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Construction" />
+				<Item Amount="1" TypeId="Component" SubtypeId="CopperTube" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Alloy" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="RadioCommunication" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>DetectorBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Detector</DisplayName>
+            <Icon>Textures\GUI\Icons\component\detector_components_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="CopperWire" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Glass" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Ceramic" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="Detector" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>ProcessorBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Processor</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="CopperWire" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Glass" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="SiliconWafer" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="Processor" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		<!-- Parts -->
+		
+    </Blueprints>
+</Definitions>
