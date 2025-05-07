@@ -115,6 +115,34 @@
 			<MinimumAcquisitionAmount>200</MinimumAcquisitionAmount>
 			<MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
 		</Component>
+		
+		<Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>WheelParts</SubtypeId>
+            </Id>
+            <DisplayName>Wheel Parts</DisplayName>
+            <Icon>Textures\Icons\Components\BasicCrate.dds</Icon>
+            <Size>
+                <X>0.2</X>
+                <Y>0.2</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>2</Mass>
+            <Volume>2</Volume>
+            <Model>Models\Components\BasicCrate.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>5</MaxIntegrity>
+            <Health>21</Health>
+            <MinimumOfferAmount>10</MinimumOfferAmount>
+            <MaximumOfferAmount>50</MaximumOfferAmount>
+            <MinimumOrderAmount>6</MinimumOrderAmount>
+            <MaximumOrderAmount>18</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>6</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>18</MaximumAcquisitionAmount>
+        </Component>
 
     </Components>
 </Definitions>
