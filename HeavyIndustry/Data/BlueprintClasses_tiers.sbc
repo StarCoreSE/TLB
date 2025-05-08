@@ -90,7 +90,6 @@
 		<Entry Class="T2Components" BlueprintSubtypeId="DetectorBlueprint" />
 		<Entry Class="T2Components" BlueprintSubtypeId="ProcessorBlueprint" />
 		
-		<!--
 		<Entry Class="T3Components" BlueprintSubtypeId="LaserDiodeBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="InsulatorBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="PhotoreceptiveCellBlueprint" />
@@ -98,7 +97,6 @@
 		<Entry Class="T3Components" BlueprintSubtypeId="ServerBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="NozzleBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="TurbopumpBlueprint" />
-		-->
 		
 		<Entry Class="T1Parts" BlueprintSubtypeId="StructuralPartsBluprint" />
 		<Entry Class="T1Parts" BlueprintSubtypeId="ConcretePartsBlueprint" />
@@ -116,5 +114,10 @@
 		<Entry Class="T2Parts" BlueprintSubtypeId="CommunicationPartsBlueprint" />
 		<Entry Class="T2Parts" BlueprintSubtypeId="ComputerPartsBlueprint" />
 		
+		<Entry Class="T3Parts" BlueprintSubtypeId="SolarPartsBlueprint" />
+		<Entry Class="T3Parts" BlueprintSubtypeId="LaserPartsBlueprint" />
+		<Entry Class="T3Parts" BlueprintSubtypeId="MagneticPartsBlueprint" />
+		<Entry Class="T3Parts" BlueprintSubtypeId="AutomationPartsBlueprint" />
+		<Entry Class="T3Parts" BlueprintSubtypeId="AstroPartsBlueprint" />
     </BlueprintClassEntries>
 </Definitions>

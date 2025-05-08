@@ -159,9 +159,9 @@
         <PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
-                <SubtypeId>Silver</SubtypeId>
+                <SubtypeId>Titanium</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_SilverOre</DisplayName>
+            <DisplayName>Titanium Ore</DisplayName>
             <Icon>Textures\GUI\Icons\ore_Ag_silver.dds</Icon>
             <Size>
                 <X>0.07</X>
@@ -457,6 +457,32 @@
             <MinimumAcquisitionAmount>30</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>300</MaximumAcquisitionAmount>
         </PhysicalItem>
+		<PhysicalItem>
+            <Id>
+                <TypeId>Ingot</TypeId>
+                <SubtypeId>Composite</SubtypeId>
+            </Id>
+            <DisplayName>Composite</DisplayName>
+            <Icon>Textures\GUI\Icons\ingot\iron_ingot.dds</Icon>
+            <Size>
+                <X>0.05</X>
+                <Y>0.05</Y>
+                <Z>0.05</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>0.127</Volume>
+            <Model>Models\Ingots\iron_ingot.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <IconSymbol>IconSymbol_Fe</IconSymbol>
+            <MinimumOfferAmount>1000</MinimumOfferAmount>
+            <MaximumOfferAmount>10000</MaximumOfferAmount>
+            <MinimumOrderAmount>1000</MinimumOrderAmount>
+            <MaximumOrderAmount>20000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>30</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>300</MaximumAcquisitionAmount>
+        </PhysicalItem>
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
@@ -564,9 +590,9 @@
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
-                <SubtypeId>Silver</SubtypeId>
+                <SubtypeId>Titanium</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_SilverIngot</DisplayName>
+            <DisplayName>Titanium</DisplayName>
             <Icon>Textures\GUI\Icons\ingot\silver_ingot.dds</Icon>
             <Size>
                 <X>0.046</X>
