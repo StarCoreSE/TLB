@@ -25,6 +25,8 @@ using Sandbox.Game.ParticleEffects;
 using static VRage.Game.ObjectBuilders.Definitions.MyObjectBuilder_GameDefinition;
 using Sandbox.Common.ObjectBuilders;
 using static HeavyIndustry.DefinitionRedefiner;
+using SpaceEngineers.Game.Entities.Blocks;
+using System.Collections;
 
 
 namespace HeavyIndustry
@@ -120,12 +122,17 @@ namespace HeavyIndustry
             UpdateResearchBlocks();
         }
 
-        private void UpdateToolBluePrint(MyPhysicalItemDefinition toolDef)
+        private void UpdateToolBlueprint(MyPhysicalItemDefinition toolDef)
         {
             MyBlueprintDefinitionBase bpdef = FindBlueprint(toolDef.Id);
 
             if (bpdef == null)
                 return;
+
+            var bpclass = MyDefinitionManager.Static.GetBlueprintClass("Tools");
+
+            if (!bpclass.ContainsBlueprint(bpdef))
+                bpclass.AddBlueprint(bpdef);
 
             bool enhanced = toolDef.Id.SubtypeName.Contains("2Item");
             bool proficient = toolDef.Id.SubtypeName.Contains("3Item");
@@ -194,6 +201,114 @@ namespace HeavyIndustry
             bpdef.Prerequisites = items.ToArray();
         }
 
+
+        private void UpdateWeaponBlueprint(MyWeaponItemDefinition wepDef)
+        {
+            MyBlueprintDefinitionBase bpdef = FindBlueprint(wepDef.Id);
+
+            if (bpdef == null)
+                return;
+
+            var bpclass = MyDefinitionManager.Static.GetBlueprintClass("BasicWeapons");
+
+            if (!bpclass.ContainsBlueprint(bpdef))
+                bpclass.AddBlueprint(bpdef);
+
+            MyWeaponDefinition wep = MyDefinitionManager.Static.GetWeaponDefinition(wepDef.WeaponDefinitionId);
+            MyAmmoMagazineDefinition mag;
+            MyAmmoDefinition ammo;
+
+            if (wep != null)
+            {
+                mag = MyDefinitionManager.Static.GetAmmoMagazineDefinition(wep.AmmoMagazinesId[0]);
+                if (mag != null)
+                {
+                    ammo = MyDefinitionManager.Static.GetAmmoDefinition(mag.AmmoDefinitionId);
+                    if (ammo == null)
+                    {
+                        return;
+
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+
+            int rof = 0;
+
+            if(wep.HasMissileAmmoDefined)
+            {
+                rof = wep.WeaponAmmoDatas[1].RateOfFire;
+            }
+            else if(wep.HasProjectileAmmoDefined)
+            {
+                rof = wep.WeaponAmmoDatas[0].RateOfFire;
+            }
+
+            var ammoInts = new AmmoInts(mag, ammo);
+
+            List<MyBlueprintDefinition.Item> items = new List<MyBlueprintDefinition.Item>();
+            MyBlueprintDefinition.Item item;
+
+            item = new MyBlueprintDefinition.Item();
+            item.Amount = 5;
+            item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/StructuralParts");
+            items.Add(item);
+
+            item = new MyBlueprintDefinition.Item();
+            item.Amount = (int)(10 *  rof / 200);
+            item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/MechanicalParts");
+            items.Add(item);
+
+            if (ammoInts.ap > 0)
+            {
+                item = new MyBlueprintDefinition.Item();
+                item.Amount = ammoInts.ap;
+                item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/MechanicalParts");
+                items.Add(item);
+            }
+
+            if (ammoInts.he > 0)
+            {
+                item = new MyBlueprintDefinition.Item();
+                item.Amount = ammoInts.he;
+                item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/ComputerParts");
+                items.Add(item);
+            }
+
+            if (ammoInts.prop > 0)
+            {
+                item = new MyBlueprintDefinition.Item();
+                item.Amount = ammoInts.prop;
+                item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/AeroParts");
+                items.Add(item);
+            }
+
+            if (ammoInts.guid > 0)
+            {
+                item = new MyBlueprintDefinition.Item();
+                item.Amount = ammoInts.guid;
+                item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/CommunicationParts");
+                items.Add(item);
+            }
+
+            if (ammoInts.rail > 0)
+            {
+                item = new MyBlueprintDefinition.Item();
+                item.Amount = ammoInts.rail;
+                item.Id = MyDefinitionId.Parse("MyObjectBuilder_Component/MagneticParts");
+                items.Add(item);
+            }
+
+            bpdef.Prerequisites = items.ToArray();
+        }
+
         MyBlueprintDefinitionBase FindBlueprint(MyDefinitionId id)
         {
 
@@ -212,11 +327,11 @@ namespace HeavyIndustry
 
         public struct AmmoInts
         {
-            public readonly int ap;
-            public readonly int he;
-            public readonly int prop;
-            public readonly int guid;
-            public readonly int rail;
+            public int ap;
+            public int he;
+            public int prop;
+            public int guid;
+            public int rail;
 
             public AmmoInts(MyAmmoMagazineDefinition mag, MyAmmoDefinition ammo)
             {
@@ -271,10 +386,10 @@ namespace HeavyIndustry
                     continue;
                 }
 
-                var ammoClass = MyDefinitionManager.Static.GetBlueprintClass("Ammo");
+                var bpclass = MyDefinitionManager.Static.GetBlueprintClass("Ammo");
 
-                if(!ammoClass.ContainsBlueprint(bpdef))
-                    ammoClass.AddBlueprint(bpdef);
+                if(!bpclass.ContainsBlueprint(bpdef))
+                    bpclass.AddBlueprint(bpdef);
 
 
                 MyAmmoDefinition ammo = MyDefinitionManager.Static.GetAmmoDefinition(ammodef.AmmoDefinitionId);
@@ -435,11 +550,12 @@ namespace HeavyIndustry
                 else if (def.Id.SubtypeName.Contains("elder") || def.Id.SubtypeName.Contains("rill") || def.Id.SubtypeName.Contains("rinder"))
                 {
                     def.DisplayNameEnum = MyStringId.GetOrCompute("Tool: " + def.DisplayNameText);
-                    UpdateToolBluePrint(def);
+                    UpdateToolBlueprint(def);
                 }
                 else if (def is MyWeaponItemDefinition)
                 {
                     def.DisplayNameEnum = MyStringId.GetOrCompute("Weapon: " + def.DisplayNameText);
+                    UpdateWeaponBlueprint(def as MyWeaponItemDefinition);
                 }
                 else if (def is MyAmmoMagazineDefinition)
                 {
@@ -467,7 +583,7 @@ namespace HeavyIndustry
                 var battery_def = def as MyBatteryBlockDefinition;
 				var turret_def = def as MyLargeTurretBaseDefinition;
                 var warhead_def = def as MyWarheadDefinition;
-                var fixed_weapon_def = def as MyWeaponBlockDefinition;
+                var weapon_def = def as MyWeaponBlockDefinition;
                 var cock_def = def as MyCockpitDefinition;
                 var reactor_def = def as MyReactorDefinition;
                 var solar_def = def as MySolarPanelDefinition;
@@ -490,6 +606,7 @@ namespace HeavyIndustry
 
                 bool is_simple_logic = (def is MyTimerBlockDefinition || def is MyEventControllerBlockDefinition);
 
+                bool is_wheel = subtype_id.Contains("heel") && !subtype_id.Contains("uspension");
 
                 bool is_atmo = thrust_def != null && thrust_def.EffectivenessAtMinInfluence < 0.0001;
                 bool is_hydro = thrust_def != null && thrust_def.EffectivenessAtMinInfluence > 0.4 && thrust_def.EffectivenessAtMinInfluence > 0.4 && thrust_def.FuelConverter?.FuelId.SubtypeName == "Hydrogen";
@@ -498,6 +615,11 @@ namespace HeavyIndustry
                 bool is_control_surface = type_id == "MyObjectBuilder_TerminalBlock" && subtype_id.Contains("aero-wing_") && (subtype_id.Contains("pointed_edge") || subtype_id.Contains("rounded_edge"));
 
                 bool is_ai_block = (def is MyBasicMissionBlockDefinition || def is MyFlightMovementBlockDefinition || def is MyDefensiveCombatBlockDefinition || def is MyOffensiveCombatBlockDefinition);
+                bool is_logic_block = (def is MyProgrammableBlockDefinition || def is MyTimerBlockDefinition || def is MyEventControllerBlockDefinition);
+
+                bool is_projectile = weapon_def != null && (type_id.Contains("Interior") || type_id.Contains("Gatling"));
+                bool is_missile = weapon_def != null && type_id.Contains("Missile");
+                bool is_railgun = weapon_def != null && type_id.Contains("Missile") && subtype_id.Contains("ailgun");
 
                 var compList = new List<MyCubeBlockDefinition.Component>(def.Components);
 
@@ -510,6 +632,12 @@ namespace HeavyIndustry
                 }
 
                 #region thrust
+                
+                if(is_wheel)
+                {
+                    ExchangeComponents(ref compList, "StructuralParts", "WheelParts", 0.5f, null, true);
+                }
+
                 if (is_atmo || is_control_surface)
                 {
                     ExchangeComponents(ref compList, "MechanicalParts", "AeroParts", 0.5f);
@@ -532,21 +660,44 @@ namespace HeavyIndustry
                 if (ctc_def != null)
                 {
                     int radio_comps = (int)Math.Round(ctc_def.MaxRangeMeters / 250);
-                    InsertComponents(ref compList, radio_comps, 1, "RadioCommunication");
+                    InsertComponents(ref compList, radio_comps, 1, "CommunicationParts");
+                }
+
+                if(weapon_def != null)
+                {
+                    if(is_projectile)
+                    {
+                        ExchangeComponents(ref compList, "ArmorParts", "StructuralParts");
+                    }
+                    if (is_missile)
+                    {
+                        ExchangeComponents(ref compList, "Computer", "ComputerParts", 0.5f);
+                    }
+                    if(is_railgun)
+                    {
+                        ExchangeComponents(ref compList, "Computer", "ComputerParts", 0.5f);
+                        ExchangeComponents(ref compList, "ElectricalParts", "MagneticParts", 0.1f);
+                    }
                 }
 
                 if (turret_def != null)
                 {
                     int radio_comps = (int)Math.Round(turret_def.MaxRangeMeters / 250);
-                    InsertComponents(ref compList, radio_comps, 1, "RadioCommunication");
+                    InsertComponents(ref compList, radio_comps, 1, "CommunicationParts");
                 }
 
                 if (is_ai_block)
                 {
                     if(def is MyDefensiveCombatBlockDefinition || def is MyOffensiveCombatBlockDefinition)
                     {
-                        InsertComponents(ref compList, 3, 1, "RadioCommunication");
+                        InsertComponents(ref compList, 3, 1, "CommunicationParts");
                     }
+                    InsertComponents(ref compList, 3, 1, "AutomationParts");
+                }
+
+                if (is_logic_block)
+                {
+                    InsertComponents(ref compList, 3, 1, "ComputerParts");
                 }
 
                 #endregion
@@ -592,6 +743,8 @@ namespace HeavyIndustry
                 {
                     gyro_def.ForceMagnitude /= 10;
                 }
+
+                ExchangeAndFix(ref compList, def);
 
                 def.Components = compList.ToArray();
                 string criticalCompSubtype = def.Components[def.CriticalGroup].Definition.Id.SubtypeName;
@@ -648,10 +801,10 @@ namespace HeavyIndustry
                 //    var component = def.Components[n];
                 //    if (n <= critical)
                 //    {
-                //        MyPhysicalItemDefinition Scrap;
-                //        oreDefs.TryGetValue("Scrap", out Scrap);
+                //        //MyPhysicalItemDefinition Scrap;
+                //        //oreDefs.TryGetValue("Scrap", out Scrap);
 
-                //        component.DeconstructItem = Scrap;
+                //        component.DeconstructItem = component.Definition;
                 //    }
                 //}
 
@@ -782,7 +935,7 @@ namespace HeavyIndustry
 
                 if (!IsValidPart(compList[i].Definition.Id.SubtypeName) && compList.Count > 1)
                 {
-                    MyLog.Default.WriteLineAndConsole($"UGH DEBUG : {cubeDef.Id.SubtypeName} {compList[i].Definition.Id.SubtypeName}");
+                    //MyLog.Default.WriteLineAndConsole($"UGH DEBUG : {cubeDef.Id.SubtypeName} {compList[i].Definition.Id.SubtypeName}");
                     SafeRemoveIndex(ref compList, ref cubeDef, ref i);
                 }
             }
@@ -797,7 +950,7 @@ namespace HeavyIndustry
             }
         }
 
-        private void ExchangeComponents(ref List<MyCubeBlockDefinition.Component> components, string fromCompSubtype, string toCompSubtype, float ratio = 1f, string deconstructItemSubtype = null)
+        private void ExchangeComponents(ref List<MyCubeBlockDefinition.Component> components, string fromCompSubtype, string toCompSubtype, float ratio = 1f, string deconstructItemSubtype = null, bool justOnce = false)
         {
 
             MyComponentDefinition fromComp;
@@ -826,8 +979,10 @@ namespace HeavyIndustry
                 {
                     var toStack = new MyCubeBlockDefinition.Component();
                     toStack.Definition = toComp;
-                    if(deconstructItem != null)
+                    if (!string.IsNullOrEmpty(deconstructItemSubtype))
                         toStack.DeconstructItem = deconstructItem;
+                    else
+                        toStack.DeconstructItem = toStack.Definition;
 
                     if (ratio == 1f)
                     {
@@ -849,6 +1004,8 @@ namespace HeavyIndustry
                         components.Insert(i, toStack);
                         i++;
                     }
+                    if (justOnce)
+                        return;
                 }
             }
         }
@@ -872,8 +1029,10 @@ namespace HeavyIndustry
             var stack = new MyCubeBlockDefinition.Component();
             stack.Definition = toComp;
             stack.Count = quantity;
-            if (deconstructItem != null)
+            if (!string.IsNullOrEmpty(deconstructItemSubtype))
                 stack.DeconstructItem = deconstructItem;
+            else
+                stack.DeconstructItem = stack.Definition;
 
             components.Insert(index, stack);
         }
