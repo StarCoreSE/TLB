@@ -111,9 +111,9 @@
 		<Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
-                <SubtypeId>ServerBlueprint</SubtypeId>
+                <SubtypeId>MainframeBlueprint</SubtypeId>
             </Id>
-            <DisplayName>Server</DisplayName>
+            <DisplayName>Mainframe</DisplayName>
             <Icon>Textures\GUI\Icons\component\ExplosivesComponent.dds</Icon>
             <Prerequisites>
                 <Item Amount="1" TypeId="Component" SubtypeId="Processor" />
@@ -121,7 +121,7 @@
 				<Item Amount="1" TypeId="Component" SubtypeId="RadioCommunication" />
 				<Item Amount="1" TypeId="Component" SubtypeId="MetalGrid" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Component" SubtypeId="Server" />
+            <Result Amount="1" TypeId="Component" SubtypeId="Mainframe" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
@@ -170,7 +170,7 @@
             <DisplayName>Solar Parts</DisplayName>
             <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Ceramic" />
+                <Item Amount="1" TypeId="Component" SubtypeId="Insulator" />
 				<Item Amount="1" TypeId="Component" SubtypeId="PhotoreceptiveCell" />
 				<Item Amount="1" TypeId="Component" SubtypeId="ElectricalParts" />
 				<Item Amount="1" TypeId="Component" SubtypeId="ComputerParts" />
@@ -224,7 +224,7 @@
             <DisplayName>Automation Parts</DisplayName>
             <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Component" SubtypeId="Server" />
+                <Item Amount="1" TypeId="Component" SubtypeId="Mainframe" />
 				<Item Amount="1" TypeId="Component" SubtypeId="Magnet" />
 				<Item Amount="1" TypeId="Component" SubtypeId="ComputerParts" />
 				<Item Amount="1" TypeId="Component" SubtypeId="CommunicationParts" />

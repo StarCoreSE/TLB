@@ -94,7 +94,7 @@
 		<Entry Class="T3Components" BlueprintSubtypeId="InsulatorBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="PhotoreceptiveCellBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="MagnetBlueprint" />
-		<Entry Class="T3Components" BlueprintSubtypeId="ServerBlueprint" />
+		<Entry Class="T3Components" BlueprintSubtypeId="MainframeBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="NozzleBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="TurbopumpBlueprint" />
 		

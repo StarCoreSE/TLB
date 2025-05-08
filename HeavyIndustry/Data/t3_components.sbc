@@ -116,9 +116,9 @@
 		<Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>Server</SubtypeId>
+                <SubtypeId>Mainframe</SubtypeId>
             </Id>
-            <DisplayName>Server</DisplayName>
+            <DisplayName>Mainframe</DisplayName>
             <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
             <Size>
                 <X>0.5</X>
