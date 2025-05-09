@@ -31,7 +31,7 @@
 				<Item Amount="3" TypeId="Ore" SubtypeId="Ice" />
 				<Item Amount="3" TypeId="Ore" SubtypeId="Silver" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Ingot" SubtypeId="Titanium" />
+            <Result Amount="1" TypeId="Ingot" SubtypeId="Silver" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>false</Public>
         </Blueprint>
@@ -65,7 +65,7 @@
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Ceramic" />
 				<Item Amount="1" TypeId="Component" SubtypeId="Detector" />
 				<Item Amount="1" TypeId="Ingot" SubtypeId="Composite" />
-				<Item Amount="1" TypeId="Ingot" SubtypeId="Titanium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Silver" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="LaserDiode" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
@@ -98,7 +98,7 @@
             <DisplayName>Magnet</DisplayName>
             <Icon>Textures\GUI\Icons\component\ExplosivesComponent.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Titanium" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Silver" />
 				<Item Amount="1" TypeId="Component" SubtypeId="Detector" />
 				<Item Amount="1" TypeId="Component" SubtypeId="PowerCell" />
 				<Item Amount="1" TypeId="Component" SubtypeId="MetalGrid" />
@@ -135,7 +135,7 @@
             <Icon>Textures\GUI\Icons\component\ExplosivesComponent.dds</Icon>
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Composite" />
-				<Item Amount="1" TypeId="Ingot" SubtypeId="Titanium" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Silver" />
 				<Item Amount="1" TypeId="Component" SubtypeId="MetalGrid" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="Nozzle" />
