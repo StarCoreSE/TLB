@@ -50,7 +50,9 @@ namespace HeavyIndustry
         public Dictionary<string, MyResearchGroupDefinition> rsGroupDefs = new Dictionary<string, MyResearchGroupDefinition>();
 
 
-        public List<string> validParts = new List<string>()
+        public List<string> validParts = new List<string>();
+
+        public List<string> t1Parts = new List<string>()
         {
             //T1
             "StructuralParts",
@@ -60,16 +62,22 @@ namespace HeavyIndustry
             "Computer", // CircuitParts
             "GlassParts",
             "ProjectileParts",
+        };
 
+        public List<string> t2Parts = new List<string>()
+        {
             //T2
-            "ComputerParts",    
+            "ComputerParts",
             "ArmorParts",
             "AeroParts",
             "CommunicationParts",
             "ElectricalParts",
             "ExplosiveParts",
             "MissileParts",
+        };
 
+        public List<string> t3Parts = new List<string>()
+        {
             //T3
             "SolarParts",
             "LaserParts",
@@ -77,12 +85,17 @@ namespace HeavyIndustry
             "AutomationParts",
             "AstroParts",
 
+        };
+
+        public List<string> t4Parts = new List<string>()
+        {
             //T4
             "ReactorParts",
             "IonThrusterParts",
             "TemporalisationParts",
             "GravityParts",
         };
+
 
         public Dictionary<string, string> compReplacements = new Dictionary<string, string>()
         {
@@ -581,7 +594,7 @@ namespace HeavyIndustry
 
                 var thrust_def = def as MyThrustDefinition;
                 var battery_def = def as MyBatteryBlockDefinition;
-				var turret_def = def as MyLargeTurretBaseDefinition;
+                var turret_def = def as MyLargeTurretBaseDefinition;
                 var warhead_def = def as MyWarheadDefinition;
                 var weapon_def = def as MyWeaponBlockDefinition;
                 var cock_def = def as MyCockpitDefinition;
@@ -623,6 +636,8 @@ namespace HeavyIndustry
 
                 var compList = new List<MyCubeBlockDefinition.Component>(def.Components);
 
+                //var is_t1 = subtype_id.Contains("T1") || is_atmo
+
                 ExchangeAndFix(ref compList, def);
 
 
@@ -630,7 +645,7 @@ namespace HeavyIndustry
                 {
                     InsertComponents(ref compList, 1, 1, "GlassParts");
                 }
-
+                
                 #region thrust
                 
                 if(is_wheel)
@@ -1054,12 +1069,18 @@ namespace HeavyIndustry
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
         {
             //UpdateResearchGroups();
+
             UpdateAmmoBluePrints();
             UpdateBlueprints();
         }
 
         public override void LoadData()
         {
+            validParts.AddRange(t1Parts);
+            validParts.AddRange(t2Parts);
+            validParts.AddRange(t3Parts);
+            validParts.AddRange(t4Parts);
+
             UpdateAllDefinitions();
         }
 
