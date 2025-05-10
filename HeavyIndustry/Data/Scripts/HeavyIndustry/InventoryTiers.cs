@@ -63,6 +63,7 @@ namespace HeavyIndustry
             {
                 og_constraint = inventory.Constraint;
                 inventory.InventoryContentChanged += HandleConstraints;
+                HandleConstraints(inventory, new MyPhysicalInventoryItem(), 0);
             }
         }
 

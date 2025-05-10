@@ -5,20 +5,124 @@ using VRage.Game.ModAPI;
 using VRage.ModAPI;
 using VRage.ObjectBuilders;
 using System;
-using VRage.Utils;
-using Sandbox.Definitions;
-using Sandbox.Game.Entities;
-using Sandbox.Game.EntityComponents;
 using VRageMath;
 using System.Collections.Generic;
 using Sandbox.Game;
 using VRage.Game;
-using Sandbox.ModAPI.Weapons;
+using VRage;
+using VRage.Game.Entity;
+using Sandbox.ModAPI.Interfaces.Terminal;
+using System.Linq;
+using VRage.Utils;
+using Sandbox.Game.Entities;
+using Sandbox.Game.GameSystems.Conveyors;
+
 
 namespace InserterExtractor
 
 {
-	[MyEntityComponentDescriptor(typeof(MyObjectBuilder_CargoContainer), false, "InserterExtractor")]
+
+    public class GridInventories
+    {
+        IMyCubeGrid grid;
+        public List<IMyTerminalBlock> inventory_blocks = new List<IMyTerminalBlock>();
+        
+        public GridInventories(IMyCubeGrid grid)
+        {
+            this.grid = grid;
+
+            grid.OnBlockAdded += OnBlockAdded;
+            grid.OnBlockRemoved += OnBlockRemoved;
+
+            grid.OnGridMerge += HandleSplitMerge;
+            grid.OnGridSplit += HandleSplitMerge;
+            grid.OnMarkForClose += OnClose;
+
+            Recalculate();
+        }
+
+        public void OnBlockAdded(IMySlimBlock slim)
+        {
+            if(slim?.FatBlock != null && slim?.FatBlock.GetInventory(0) != null)
+            {
+                inventory_blocks.Add(slim.FatBlock as IMyTerminalBlock);
+            }
+        }
+
+        public void OnBlockRemoved(IMySlimBlock slim)
+        {
+            if (slim?.FatBlock != null && slim?.FatBlock.GetInventory(0) != null)
+            {
+                inventory_blocks.Remove(slim.FatBlock as IMyTerminalBlock);
+            }
+        }
+
+        public void HandleSplitMerge(IMyCubeGrid him, IMyCubeGrid her)
+        {
+            //dinnae care laddy
+            Recalculate();
+        }
+
+        public void Recalculate()
+        {
+            inventory_blocks.Clear();
+
+            var ts = MyAPIGateway.TerminalActionsHelper.GetTerminalSystemForGrid(grid);
+
+            if (ts != null)
+            {
+                ts.GetBlocksOfType<IMyTerminalBlock>(inventory_blocks, block => block.HasInventory && block.GetInventory(0) != null);
+            }
+        }
+
+        public void OnClose(IMyEntity ent)
+        {
+            inventory_blocks.Clear();
+
+            grid.OnBlockAdded -= OnBlockAdded;
+            grid.OnBlockRemoved -= OnBlockRemoved;
+
+            grid.OnGridMerge -= HandleSplitMerge;
+            grid.OnGridSplit -= HandleSplitMerge;
+            grid.OnClose -= OnClose;
+        }
+    }
+
+    [MySessionComponentDescriptor(MyUpdateOrder.BeforeSimulation)] // No continuous updates needed for this component
+    public class InserterSessionComponent : MySessionComponentBase
+    {
+
+        public static InserterSessionComponent instance;
+
+        public static Dictionary<long, GridInventories> inserter_grids = new Dictionary<long, GridInventories>();
+
+        public override void LoadData()
+        {
+            base.LoadData();
+
+            instance = this;
+            MyAPIGateway.Entities.OnEntityAdd += OnEntityAdd;
+        }
+
+        public void OnEntityAdd(IMyEntity entity)
+        {
+            IMyCubeGrid grid = entity as IMyCubeGrid;
+            string data;
+            if (grid != null && grid.Physics != null && !inserter_grids.ContainsKey(grid.EntityId))
+            {
+                inserter_grids.Add(grid.EntityId, new GridInventories(grid));
+            }
+        }
+
+        protected override void UnloadData()
+        {
+            MyAPIGateway.Entities.OnEntityAdd -= OnEntityAdd;
+
+            inserter_grids.Clear();
+        }
+    }
+
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Collector), false, "InserterExtractor")]
 
 	public class InserterExtractor : MyGameLogicComponent
     {
@@ -34,12 +138,17 @@ namespace InserterExtractor
         List<IMySlimBlock> neighbours = new List<IMySlimBlock>();
         Queue<IMySlimBlock> blocksAdded = new Queue<IMySlimBlock>();
 
+        GridInventories gint;
+
         bool extracting = true;
+
+        int tier = 1;
 
         public override void Init(MyObjectBuilder_EntityBase objectBuilder)
         {
 			block = (IMyCubeBlock)Entity;
             slim = block.SlimBlock;
+            tier = GetTier();
 
             if (MyAPIGateway.Multiplayer.IsServer)
             {
@@ -55,12 +164,30 @@ namespace InserterExtractor
             {
                 block.CubeGrid.OnBlockAdded -= OnBlockAdded;
                 block.CubeGrid.OnBlockRemoved -= OnBlockRemoved;
+                if (inventory != null)
+                    inventory.ContentsAdded -= OnInventoryAdded;
             }
+        }
+
+        public int GetTier()
+        {
+            MyDefinitionBase def = block.SlimBlock.BlockDefinition;
+
+            var subtypeName = def.Id.SubtypeName;
+
+            if (subtypeName.Contains("T2"))
+                return 2;
+            else if (subtypeName.Contains("T3"))
+                return 3;
+            else if (subtypeName.Contains("T4"))
+                return 4;
+
+            return 1;
         }
 
         private bool IsFunctional()
 		{
-			return block != null && !block.MarkedForClose && block.CubeGrid?.Physics != null && block.IsFunctional;
+			return block != null && !block.MarkedForClose && block.CubeGrid?.Physics != null && block.IsFunctional && (block as IMyFunctionalBlock).Enabled;
 		}
 
         public override void UpdateOnceBeforeFrame()
@@ -68,6 +195,8 @@ namespace InserterExtractor
             if(MyAPIGateway.Multiplayer.IsServer)
             {
                 inventory = block.GetInventory(0) as MyInventory;
+
+                InserterSessionComponent.inserter_grids.TryGetValue(block.CubeGrid.EntityId, out gint);
 
                 slim.GetNeighbours(neighbours);
 
@@ -94,6 +223,14 @@ namespace InserterExtractor
             {
                 inserted = null;
                 inserted_inventory = null;
+            }
+        }
+
+        public void OnInventoryAdded(MyPhysicalInventoryItem item, MyFixedPoint amount)
+        {
+            if(inserted == null)
+            {
+                InsertPushConveyor();
             }
         }
 
@@ -154,6 +291,65 @@ namespace InserterExtractor
             return inventory;
         }
 
+
+        public void InsertPushConveyor()
+        {
+            var item = inventory.GetItemAt(0);
+
+            if (item.HasValue)// && (block as VRage.Game.ModAPI.Ingame.IMyInventoryOwner).UseConveyorSystem)
+            {
+                var amount = item.Value.Amount;
+
+                //MyAPIGateway.Parallel.ForEach(gint.inventory_blocks.ToList(), term =>
+                //{
+
+                //    if(item != inventory.GetItemAt(0)) { return; }
+
+                //    if (item == null || item.Value.Amount == 0 || term == null || !term.IsFunctional || !(term as IMyFunctionalBlock).Enabled) { return; }
+
+                //    MyLog.Default.WriteLineAndConsole($"woweee, success {item.Value.Type} {item.Value.Amount}");
+
+                //    var term_inventory = GetAppropriateInventory(term, false);
+                //    if (term_inventory != null)
+                //    {
+                //        var transfer_amount = (VRage.MyFixedPoint)Math.Min((int)item.Value.Amount, 50);
+                //        term_inventory.TransferItemFrom(inventory, 0, null, true, transfer_amount);
+                //    }
+                //});
+
+                foreach(IMyTerminalBlock term in gint.inventory_blocks)
+                {
+
+                    if (item == null || item.Value.Amount == 0 || term == null || !term.IsFunctional) { continue; }
+
+                    MyLog.Default.WriteLineAndConsole($"woweee, success {item.Value.Type} {item.Value.Amount}");
+
+                    var term_inventory = GetAppropriateInventory(term, false);
+                    if (term_inventory != null)
+                    {
+                        var transfer_amount = (VRage.MyFixedPoint)Math.Min((int)item.Value.Amount / 10, 50);
+                        term_inventory.TransferItemFrom(inventory, 0, null, true, transfer_amount);
+                    }
+                }
+            }
+        }
+
+        public void InsertPushConveyorLegacy()
+        {
+            var item = inventory.GetItemAt(0);
+
+            if (item.HasValue)// && (block as VRage.Game.ModAPI.Ingame.IMyInventoryOwner).UseConveyorSystem)
+            {
+
+                var amount = item.Value.Amount;
+                VRage.MyFixedPoint transferred_amount;
+
+                block.CubeGrid.ConveyorSystem.PushGenerateItem(item.Value.Type, amount, out transferred_amount, block as IMyEntity, false);
+                inventory.RemoveItems(item.Value.ItemId, transferred_amount);
+                //MyAPIGateway.Utilities.ShowNotification($"SQUAWK : {item.Value.Type} {transferred_amount}");
+            }
+        }
+
         public void Insert()
         {
             if (inserted == null || inserted.MarkedForClose || inserted_inventory == null)
@@ -170,7 +366,7 @@ namespace InserterExtractor
 
             if (item.HasValue)
             {
-                var amount = item.Value.Amount;
+                var amount = (VRage.MyFixedPoint)((int)item.Value.Amount / 2);
 
                 if (inserted is IMyAssembler || inserted is IMyShipWelder)
                 {
@@ -258,11 +454,10 @@ namespace InserterExtractor
 
             if (MyAPIGateway.Multiplayer.IsServer && IsFunctional() && inventory != null)
             {
-                if (inventory == null)
-                    inventory = block.GetInventory(0) as MyInventory;
 
+                InserterSessionComponent.inserter_grids.TryGetValue(block.CubeGrid.EntityId, out gint);
 
-                if(!inventory.IsFull && extracting)
+                if (!inventory.IsFull && extracting)
                 {
                     Extract();
                 }
@@ -270,6 +465,7 @@ namespace InserterExtractor
                 if (!inventory.Empty() && !extracting)
                 {
                     Insert();
+                    InsertPushConveyor();
                 }
 
                 extracting = !extracting;

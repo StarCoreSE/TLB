@@ -37,10 +37,11 @@
             <Size x="1" y="1" z="1" />
         </EntityComponent>
     </EntityComponents>
+
     <CubeBlocks>
-        <Definition xsi:type="MyObjectBuilder_CargoContainerDefinition">
+		<Definition xsi:type="MyObjectBuilder_PoweredCargoContainerDefinition">
             <Id>
-                <TypeId>CargoContainer</TypeId>
+                <TypeId>Collector</TypeId>
                 <SubtypeId>InserterExtractor</SubtypeId>
             </Id>
             <DisplayName>Inserter / Extractor</DisplayName>
@@ -52,37 +53,37 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\InserterExtractor.mwm</Model>
             <Components>
-                <Component Subtype="InteriorPlate" Count="40" />
-                <Component Subtype="Construction" Count="100" />
-                <Component Subtype="SmallTube" Count="50" />
-                <Component Subtype="Computer" Count="20" />
-                <Component Subtype="Motor" Count="2" />
-                <Component Subtype="Construction" Count="20" />
-                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="SteelPlate" Count="30" />
+                <Component Subtype="Construction" Count="50" />
+                <Component Subtype="SmallTube" Count="12" />
+                <Component Subtype="Motor" Count="8" />
+                <Component Subtype="Display" Count="4" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="SteelPlate" Count="15" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
-            <MountPoints>
-                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
-                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
-                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
-            </MountPoints>
             <BuildProgressModels>
-                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\ConveyorSorterConstruction_1.mwm" />
-                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\ConveyorSorterConstruction_2.mwm" />
-                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\ConveyorSorterConstruction_3.mwm" />
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\CollectorConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\CollectorConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\CollectorConstruction_3.mwm" />
             </BuildProgressModels>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>25</BuildTimeSeconds>
+            <ResourceSinkGroup>Conveyors</ResourceSinkGroup>
+            <RequiredPowerInput>0.01</RequiredPowerInput>
+            <InventorySize>
+                <X>10.0</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </InventorySize>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
-            <EdgeType>Light</EdgeType>
-            <BuildTimeSeconds>15</BuildTimeSeconds>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <ActionSound>BlockCollect</ActionSound>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>10</PCU>
+            <PCU>25</PCU>
             <IsAirTight>true</IsAirTight>
         </Definition>
         <!-- End Region Conveyor system -->
