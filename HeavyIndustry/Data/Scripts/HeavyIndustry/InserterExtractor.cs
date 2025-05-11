@@ -122,7 +122,7 @@ namespace InserterExtractor
         }
     }
 
-    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Collector), false, "InserterExtractor")]
+    [MyEntityComponentDescriptor(typeof(MyObjectBuilder_Collector), false, "InserterExtractor", "InserterExtractor90")]
 
 	public class InserterExtractor : MyGameLogicComponent
     {

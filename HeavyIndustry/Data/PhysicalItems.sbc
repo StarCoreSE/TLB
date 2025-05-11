@@ -105,7 +105,7 @@
         <PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
-                <SubtypeId>Magnesium</SubtypeId>
+                <SubtypeId>Silicon</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Item_SiliconOre</DisplayName>
             <Icon>Textures\GUI\Icons\ore_Si_silicon.dds</Icon>
@@ -132,7 +132,7 @@
         <PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
-                <SubtypeId>Silver</SubtypeId>
+                <SubtypeId>Titanium</SubtypeId>
             </Id>
             <DisplayName>Titanium Ore</DisplayName>
             <Icon>Textures\GUI\Icons\ore_Ag_silver.dds</Icon>
@@ -278,9 +278,9 @@
 		<PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
-                <SubtypeId>Silicon</SubtypeId>
+                <SubtypeId>Petroleum</SubtypeId>
             </Id>
-            <DisplayName>Crude Oil</DisplayName>
+            <DisplayName>Petroleum</DisplayName>
             <Icon>Textures\GUI\Icons\ore_H2O_ice.dds</Icon>
             <Size>
                 <X>0.07</X>
@@ -563,7 +563,7 @@
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
-                <SubtypeId>Silver</SubtypeId>
+                <SubtypeId>Titanium</SubtypeId>
             </Id>
             <DisplayName>Titanium</DisplayName>
             <Icon>Textures\GUI\Icons\ingot\silver_ingot.dds</Icon>

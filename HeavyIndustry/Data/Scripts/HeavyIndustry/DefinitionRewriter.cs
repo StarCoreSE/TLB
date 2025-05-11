@@ -27,6 +27,7 @@ using Sandbox.Common.ObjectBuilders;
 using static HeavyIndustry.DefinitionRedefiner;
 using SpaceEngineers.Game.Entities.Blocks;
 using System.Collections;
+using ResourceNodes;
 
 
 namespace HeavyIndustry
@@ -516,6 +517,13 @@ namespace HeavyIndustry
             }
         }
 
+        private void UpdateAllVoxels()
+        {
+            foreach (MyVoxelMaterialDefinition def in MyDefinitionManager.Static.GetVoxelMaterialDefinitions())
+            {
+                def.MinedOreRatio /= 10;
+            }
+        }
 
         private void UpdateAllPhysicalItems()
         {
@@ -616,6 +624,7 @@ namespace HeavyIndustry
                 var ctc_def = def as MyTurretControlBlockDefinition;
                 var pb_def = def as MyProgrammableBlockDefinition;
                 var cam_def = def as MyCameraBlockDefinition;
+                var drill_def = def as MyShipDrillDefinition;
 
                 bool is_simple_logic = (def is MyTimerBlockDefinition || def is MyEventControllerBlockDefinition);
 
@@ -639,7 +648,6 @@ namespace HeavyIndustry
                 //var is_t1 = subtype_id.Contains("T1") || is_atmo
 
                 ExchangeAndFix(ref compList, def);
-
 
                 if(cam_def != null)
                 {
@@ -753,11 +761,6 @@ namespace HeavyIndustry
                 }
 
                 #endregion
-
-                if (gyro_def != null)
-                {
-                    gyro_def.ForceMagnitude /= 10;
-                }
 
                 ExchangeAndFix(ref compList, def);
 
@@ -951,7 +954,7 @@ namespace HeavyIndustry
                 if (!IsValidPart(compList[i].Definition.Id.SubtypeName) && compList.Count > 1)
                 {
                     //MyLog.Default.WriteLineAndConsole($"UGH DEBUG : {cubeDef.Id.SubtypeName} {compList[i].Definition.Id.SubtypeName}");
-                    SafeRemoveIndex(ref compList, ref cubeDef, ref i);
+                    //SafeRemoveIndex(ref compList, ref cubeDef, ref i);
                 }
             }
 
@@ -1069,7 +1072,7 @@ namespace HeavyIndustry
         public override void Init(MyObjectBuilder_SessionComponent sessionComponent)
         {
             //UpdateResearchGroups();
-
+            UpdateAllVoxels();
             UpdateAmmoBluePrints();
             UpdateBlueprints();
         }

@@ -42,6 +42,53 @@
 		<Definition xsi:type="MyObjectBuilder_PoweredCargoContainerDefinition">
             <Id>
                 <TypeId>Collector</TypeId>
+                <SubtypeId>InserterExtractor90</SubtypeId>
+            </Id>
+            <DisplayName>Inserter / Extractor Rotated</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\InserterExtractor90.dds</Icon>
+            <Description>Description_SmallCargoContainer</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="2" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\InserterExtractor90.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="30" />
+                <Component Subtype="Construction" Count="50" />
+                <Component Subtype="SmallTube" Count="12" />
+                <Component Subtype="Motor" Count="8" />
+                <Component Subtype="Display" Count="4" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="SteelPlate" Count="15" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\CollectorConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\CollectorConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\CollectorConstruction_3.mwm" />
+            </BuildProgressModels>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>25</BuildTimeSeconds>
+            <ResourceSinkGroup>Conveyors</ResourceSinkGroup>
+            <RequiredPowerInput>0.01</RequiredPowerInput>
+            <InventorySize>
+                <X>10.0</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </InventorySize>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <ActionSound>BlockCollect</ActionSound>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+		<Definition xsi:type="MyObjectBuilder_PoweredCargoContainerDefinition">
+            <Id>
+                <TypeId>Collector</TypeId>
                 <SubtypeId>InserterExtractor</SubtypeId>
             </Id>
             <DisplayName>Inserter / Extractor</DisplayName>

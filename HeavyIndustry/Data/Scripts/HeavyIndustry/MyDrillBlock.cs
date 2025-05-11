@@ -131,7 +131,7 @@ namespace ResourceNodes
                         float yield = 1 * Block.UpgradeValues["Effectiveness"];
                         MyObjectBuilder_Ore oreObject = MyObjectBuilderSerializer.CreateNewObject<MyObjectBuilder_Ore>(myOre.MinedOre);
                         
-                        double amount = (yield * myOre.MinedOreRatio);
+                        double amount = (yield * 10 * myOre.MinedOreRatio);
                         InvFull = !Inv.CanItemsBeAdded((MyFixedPoint)amount, oreObject);
 
                         if (!InvFull)

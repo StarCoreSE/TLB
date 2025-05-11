@@ -27,7 +27,7 @@
             <DisplayName>Ceramic</DisplayName>
             <Icon>Textures\GUI\Icons\component\interior_plate_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="3" TypeId="Ore" SubtypeId="Silicon" />
+                <Item Amount="3" TypeId="Ore" SubtypeId="Petroleum" />
 				<Item Amount="3" TypeId="Ore" SubtypeId="Stone" />
 				<Item Amount="3" TypeId="Ore" SubtypeId="Ice" />
             </Prerequisites>
@@ -44,7 +44,7 @@
             <DisplayName>Silicon Wafer</DisplayName>
             <Icon>Textures\GUI\Icons\component\interior_plate_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="3" TypeId="Ore" SubtypeId="Magnesium" />
+                <Item Amount="3" TypeId="Ore" SubtypeId="Silicon" />
 				<Item Amount="3" TypeId="Ore" SubtypeId="Nickel" />
 				<Item Amount="3" TypeId="Ore" SubtypeId="Ice" />
             </Prerequisites>

@@ -10,7 +10,7 @@
             <DisplayName>Copper</DisplayName>
             <Icon>Textures\GUI\Icons\component\interior_plate_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="3" TypeId="Ore" SubtypeId="CrudeOil" />
+                <Item Amount="3" TypeId="Ore" SubtypeId="Petroleum" />
 				<Item Amount="3" TypeId="Ore" SubtypeId="Nickel" />
             </Prerequisites>
             <Result Amount="1" TypeId="Ingot" SubtypeId="Copper" />
@@ -27,7 +27,7 @@
             <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
             <Prerequisites>
                 <Item Amount="21" TypeId="Ore" SubtypeId="Iron" />
-				<Item Amount="21" TypeId="Ore" SubtypeId="Silicon" />
+				<Item Amount="21" TypeId="Ore" SubtypeId="Petroleum" />
             </Prerequisites>
             <Result Amount="1" TypeId="Ingot" SubtypeId="Iron" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
@@ -58,7 +58,7 @@
             <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
             <Prerequisites>
                 <Item Amount="21" TypeId="Ore" SubtypeId="Ice" />
-				<Item Amount="21" TypeId="Ore" SubtypeId="Silicon" />
+				<Item Amount="21" TypeId="Ore" SubtypeId="Petroleum" />
             </Prerequisites>
             <Result Amount="1" TypeId="Ingot" SubtypeId="Oil" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
@@ -74,7 +74,7 @@
             <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
             <Prerequisites>
                 <Item Amount="21" TypeId="Ore" SubtypeId="Stone" />
-				<Item Amount="21" TypeId="Ore" SubtypeId="Silicon" />
+				<Item Amount="21" TypeId="Ore" SubtypeId="Petroleum" />
             </Prerequisites>
             <Result Amount="1" TypeId="Ingot" SubtypeId="Sandbag" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
