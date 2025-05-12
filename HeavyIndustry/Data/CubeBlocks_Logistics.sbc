@@ -260,15 +260,11 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\Assembler.mwm</Model>
             <Components>
-                <Component Subtype="SteelPlate" Count="120" />
-                <Component Subtype="Construction" Count="80" />
-                <Component Subtype="Motor" Count="20" />
-                <Component Subtype="Display" Count="10" />
-                <Component Subtype="MetalGrid" Count="10" />
-                <Component Subtype="Computer" Count="160" />
-                <Component Subtype="SteelPlate" Count="20" />
+				<Component Subtype="StructuralParts" Count="20" />
+                <Component Subtype="MechanicalParts" Count="1" />
+                <Component Subtype="StructuralParts" Count="10" />
             </Components>
-            <CriticalComponent Subtype="Computer" Index="0" />
+            <CriticalComponent Subtype="MechanicalParts" Index="0" />
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>80</BuildTimeSeconds>
             <ResourceSinkGroup>Factory</ResourceSinkGroup>
@@ -283,8 +279,111 @@
             <BlueprintClasses>
                 <Class>T1Components</Class>
 				<Class>T1Parts</Class>
+            </BlueprintClasses>
+            <IgnoredBlueprintClassesIcons>
+                <IgnoredClassIcon>BuildPlanner</IgnoredClassIcon>
+            </IgnoredBlueprintClassesIcons>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <PrimarySound>BlockAssembler</PrimarySound>
+            <ActionSound>BlockAssemblerProcess</ActionSound>
+            <DestroyEffect>Explosion_Missile</DestroyEffect>
+            <DestroySound>WepSmallMissileExpl</DestroySound>
+            <PCU>40</PCU>
+            <IsAirTight>true</IsAirTight>
+            <TieredUpdateTimes>
+                <unsignedInt>60</unsignedInt>
+                <unsignedInt>120</unsignedInt>
+                <unsignedInt>240</unsignedInt>
+            </TieredUpdateTimes>
+        </Definition>
+		
+		        <Definition xsi:type="MyObjectBuilder_AssemblerDefinition">
+            <Id>
+                <TypeId>Assembler</TypeId>
+                <SubtypeId>T2Assembler</SubtypeId>
+            </Id>
+            <DisplayName>Tier 2 Assembler</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Assembler.dds</Icon>
+            <Description>Description_Assembler</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5" y="5" z="5" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\Assembler.mwm</Model>
+            <Components>
+				<Component Subtype="StructuralParts" Count="120" />
+                <Component Subtype="MechanicalParts" Count="50" />
+                <Component Subtype="Computer" Count="20" />
+                <Component Subtype="StructuralParts" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>80</BuildTimeSeconds>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <InventoryMaxVolume>4</InventoryMaxVolume>
+            <InventorySize>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+            </InventorySize>
+            <StandbyPowerConsumption>0.001</StandbyPowerConsumption>
+            <OperationalPowerConsumption>0.56</OperationalPowerConsumption>
+            <BlueprintClasses>
 				<Class>T2Components</Class>
 				<Class>T2Parts</Class>
+            </BlueprintClasses>
+            <IgnoredBlueprintClassesIcons>
+                <IgnoredClassIcon>BuildPlanner</IgnoredClassIcon>
+            </IgnoredBlueprintClassesIcons>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <PrimarySound>BlockAssembler</PrimarySound>
+            <ActionSound>BlockAssemblerProcess</ActionSound>
+            <DestroyEffect>Explosion_Missile</DestroyEffect>
+            <DestroySound>WepSmallMissileExpl</DestroySound>
+            <PCU>40</PCU>
+            <IsAirTight>true</IsAirTight>
+            <TieredUpdateTimes>
+                <unsignedInt>60</unsignedInt>
+                <unsignedInt>120</unsignedInt>
+                <unsignedInt>240</unsignedInt>
+            </TieredUpdateTimes>
+        </Definition>
+		
+		        <Definition xsi:type="MyObjectBuilder_AssemblerDefinition">
+            <Id>
+                <TypeId>Assembler</TypeId>
+                <SubtypeId>T3Assembler</SubtypeId>
+            </Id>
+            <DisplayName>Tier 3 Assembler</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Assembler.dds</Icon>
+            <Description>Description_Assembler</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5" y="5" z="5" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\Assembler.mwm</Model>
+            <Components>
+                <Component Subtype="StructuralParts" Count="120" />
+                <Component Subtype="MechanicalParts" Count="20" />
+                <Component Subtype="StructuralParts" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>80</BuildTimeSeconds>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <InventoryMaxVolume>4</InventoryMaxVolume>
+            <InventorySize>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+            </InventorySize>
+            <StandbyPowerConsumption>0.001</StandbyPowerConsumption>
+            <OperationalPowerConsumption>0.56</OperationalPowerConsumption>
+            <BlueprintClasses>
 				<Class>T3Components</Class>
 				<Class>T3Parts</Class>
             </BlueprintClasses>

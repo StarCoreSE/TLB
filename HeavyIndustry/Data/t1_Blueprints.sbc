@@ -13,7 +13,7 @@
                 <Item Amount="3" TypeId="Ore" SubtypeId="Petroleum" />
 				<Item Amount="3" TypeId="Ore" SubtypeId="Nickel" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Ingot" SubtypeId="Copper" />
+            <Result Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>false</Public>
         </Blueprint>
@@ -120,7 +120,7 @@
             <DisplayName>Copper Tube</DisplayName>
             <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Copper" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="CopperTube" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
@@ -135,7 +135,7 @@
             <DisplayName>Copper Wire</DisplayName>
             <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Copper" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="InteriorPlate" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>

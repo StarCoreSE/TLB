@@ -48,7 +48,7 @@
 				<Item Amount="3" TypeId="Ore" SubtypeId="Nickel" />
 				<Item Amount="3" TypeId="Ore" SubtypeId="Ice" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Ingot" SubtypeId="SiliconWafer" />
+            <Result Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>false</Public>
         </Blueprint>
@@ -166,7 +166,7 @@
             <Prerequisites>
                 <Item Amount="1" TypeId="Component" SubtypeId="InteriorPlate" />
 				<Item Amount="1" TypeId="Component" SubtypeId="BulletproofGlass" />
-				<Item Amount="1" TypeId="Ingot" SubtypeId="SiliconWafer" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="Processor" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
