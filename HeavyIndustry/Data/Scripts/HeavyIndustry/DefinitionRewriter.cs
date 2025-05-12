@@ -97,7 +97,6 @@ namespace HeavyIndustry
             "GravityParts",
         };
 
-
         public Dictionary<string, string> compReplacements = new Dictionary<string, string>()
         {
             { "SteelPlate","StructuralParts" },
@@ -627,10 +626,10 @@ namespace HeavyIndustry
                 var drill_def = def as MyShipDrillDefinition;
 
                 bool is_simple_logic = (def is MyTimerBlockDefinition || def is MyEventControllerBlockDefinition);
-
+                bool is_XL_block = subtype_id.Contains("XL");
                 bool is_wheel = subtype_id.Contains("heel") && !subtype_id.Contains("uspension");
 
-                bool is_atmo = thrust_def != null && thrust_def.EffectivenessAtMinInfluence < 0.0001;
+                bool is_atmo = thrust_def != null && thrust_def.EffectivenessAtMinInfluence < 0.0001 && !subtype_id.Contains("Aquatic");
                 bool is_hydro = thrust_def != null && thrust_def.EffectivenessAtMinInfluence > 0.4 && thrust_def.EffectivenessAtMinInfluence > 0.4 && thrust_def.FuelConverter?.FuelId.SubtypeName == "Hydrogen";
                 bool is_ion = thrust_def != null && thrust_def.EffectivenessAtMaxInfluence < 0.4;
 
@@ -652,6 +651,15 @@ namespace HeavyIndustry
                 if(cam_def != null)
                 {
                     InsertComponents(ref compList, 1, 1, "GlassParts");
+                }
+
+                if(is_XL_block)
+                {
+                    for(int i = 0; i < compList.Count; i++)
+                    {
+                        MyCubeBlockDefinition.Component comp = compList[i];
+                        ExchangeComponents(ref compList, comp.Definition.Id.SubtypeName, "ConcreteParts");
+                    }
                 }
                 
                 #region thrust
