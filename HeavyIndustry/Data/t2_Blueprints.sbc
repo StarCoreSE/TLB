@@ -48,7 +48,7 @@
 				<Item Amount="3" TypeId="Ore" SubtypeId="Nickel" />
 				<Item Amount="3" TypeId="Ore" SubtypeId="Ice" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Ingot" SubtypeId="SiliconWafer" />
+            <Result Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>false</Public>
         </Blueprint>
@@ -79,7 +79,7 @@
             <DisplayName>Turbines</DisplayName>
             <Icon>Textures\GUI\Icons\component\motor_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Component" SubtypeId="Gear" />
+                <Item Amount="1" TypeId="Component" SubtypeId="SmallTube" />
 				<Item Amount="1" TypeId="Ingot" SubtypeId="Ceramic" />
 				<Item Amount="1" TypeId="Ingot" SubtypeId="Alloy" />
             </Prerequisites>
@@ -96,7 +96,7 @@
             <DisplayName>Power Cell</DisplayName>
             <Icon>Textures\GUI\Icons\component\BatteryComponent.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Component" SubtypeId="CopperWire" />
+                <Item Amount="1" TypeId="Component" SubtypeId="InteriorPlate" />
 				<Item Amount="1" TypeId="Ingot" SubtypeId="Plastic" />
 				<Item Amount="1" TypeId="Ingot" SubtypeId="Alloy" />
             </Prerequisites>
@@ -147,8 +147,8 @@
             <DisplayName>Detector</DisplayName>
             <Icon>Textures\GUI\Icons\component\detector_components_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Component" SubtypeId="CopperWire" />
-				<Item Amount="1" TypeId="Component" SubtypeId="Glass" />
+                <Item Amount="1" TypeId="Component" SubtypeId="InteriorPlate" />
+				<Item Amount="1" TypeId="Component" SubtypeId="BulletproofGlass" />
 				<Item Amount="1" TypeId="Ingot" SubtypeId="Ceramic" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="Detector" />
@@ -164,9 +164,9 @@
             <DisplayName>Processor</DisplayName>
             <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Component" SubtypeId="CopperWire" />
-				<Item Amount="1" TypeId="Component" SubtypeId="Glass" />
-				<Item Amount="1" TypeId="Ingot" SubtypeId="SiliconWafer" />
+                <Item Amount="1" TypeId="Component" SubtypeId="InteriorPlate" />
+				<Item Amount="1" TypeId="Component" SubtypeId="BulletproofGlass" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="Processor" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>

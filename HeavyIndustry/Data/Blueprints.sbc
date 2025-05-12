@@ -334,6 +334,8 @@
             <Prerequisites>
                 <Item Amount="10" TypeId="Ingot" SubtypeId="Iron" />
                 <Item Amount="2" TypeId="Ingot" SubtypeId="Gold" />
+				<Item Amount="2" TypeId="Ingot" SubtypeId="Composite" />
+				<Item Amount="2" TypeId="Ingot" SubtypeId="Ceramic" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="Superconductor" />
             <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>

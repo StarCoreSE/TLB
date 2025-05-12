@@ -4,7 +4,7 @@
 		<Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>CopperWire</SubtypeId>
+                <SubtypeId>InteriorPlate</SubtypeId>
             </Id>
             <DisplayName>Copper Wire</DisplayName>
             <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
@@ -62,7 +62,7 @@
 		<Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>Gear</SubtypeId>
+                <SubtypeId>SmallTube</SubtypeId>
             </Id>
             <DisplayName>Gear</DisplayName>
             <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
@@ -91,7 +91,7 @@
 		<Component>
             <Id>
                 <TypeId>Component</TypeId>
-                <SubtypeId>Glass</SubtypeId>
+                <SubtypeId>BulletproofGlass</SubtypeId>
             </Id>
             <DisplayName>Glass</DisplayName>
             <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>

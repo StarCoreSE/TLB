@@ -13,7 +13,7 @@
                 <Item Amount="3" TypeId="Ore" SubtypeId="Petroleum" />
 				<Item Amount="3" TypeId="Ore" SubtypeId="Nickel" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Ingot" SubtypeId="Copper" />
+            <Result Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>false</Public>
         </Blueprint>
@@ -107,7 +107,7 @@
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Iron" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Component" SubtypeId="Gear" />
+            <Result Amount="1" TypeId="Component" SubtypeId="SmallTube" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
@@ -120,7 +120,7 @@
             <DisplayName>Copper Tube</DisplayName>
             <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Copper" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="CopperTube" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
@@ -135,9 +135,9 @@
             <DisplayName>Copper Wire</DisplayName>
             <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Copper" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Component" SubtypeId="CopperWire" />
+            <Result Amount="1" TypeId="Component" SubtypeId="InteriorPlate" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
@@ -152,7 +152,7 @@
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Sandbag" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Component" SubtypeId="Glass" />
+            <Result Amount="1" TypeId="Component" SubtypeId="BulletproofGlass" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
@@ -196,7 +196,7 @@
             <DisplayName>Glass Parts</DisplayName>
             <Icon>Textures\Icons\Components\GlassPartsCrate.png</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Component" SubtypeId="Glass" />
+                <Item Amount="1" TypeId="Component" SubtypeId="BulletproofGlass" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="GlassParts" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
@@ -211,8 +211,8 @@
             <DisplayName>Mechanical Parts</DisplayName>
             <Icon>Textures\Icons\Components\MechanicalPartsCrate.png</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Component" SubtypeId="Gear" />
-				<Item Amount="1" TypeId="Component" SubtypeId="CopperWire" />
+                <Item Amount="1" TypeId="Component" SubtypeId="SmallTube" />
+				<Item Amount="1" TypeId="Component" SubtypeId="InteriorPlate" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="MechanicalParts" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
@@ -228,7 +228,7 @@
             <Icon>Textures\Icons\Components\BasicCrate.dds</Icon>
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Plastic" />
-				<Item Amount="1" TypeId="Component" SubtypeId="Gear" />
+				<Item Amount="1" TypeId="Component" SubtypeId="SmallTube" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="WheelParts" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
@@ -244,7 +244,7 @@
             <Icon>Textures\Icons\Components\ComputerPartsCrate.png</Icon>
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Plastic" />
-				<Item Amount="1" TypeId="Component" SubtypeId="CopperWire" />
+				<Item Amount="1" TypeId="Component" SubtypeId="InteriorPlate" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="Computer" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
