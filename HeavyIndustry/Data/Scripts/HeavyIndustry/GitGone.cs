@@ -213,40 +213,6 @@ namespace cleaner
 
         private void ChangeDisplayNamesForF10Menu()
         {
-            foreach (MyDefinitionBase def in MyDefinitionManager.Static.GetAllDefinitions())
-            {
-                var ammo_mag_def = def as MyAmmoMagazineDefinition;
-                if (ammo_mag_def != null)
-                {
-                    ammo_mag_def.DisplayNameString = "USE AMMO RACKS";
-                    ammo_mag_def.DisplayNameEnum = MyStringId.GetOrCompute(ammo_mag_def.DisplayNameString);
-                    continue;
-                }
-
-                var phys_item_def = def as MyPhysicalItemDefinition;
-                if (phys_item_def != null && phys_item_def.Id.SubtypeName == "Ice")
-                {
-                    phys_item_def.DisplayNameString = $"1: {phys_item_def.DisplayNameString}";
-                    phys_item_def.DisplayNameEnum = MyStringId.GetOrCompute(phys_item_def.DisplayNameString);
-                    continue;
-                }
-
-                var hand_wep_def = def as MyWeaponItemDefinition;
-                if (hand_wep_def != null)
-                {
-                    hand_wep_def.DisplayNameString = $"2: {hand_wep_def.DisplayNameString}";
-                    hand_wep_def.DisplayNameEnum = MyStringId.GetOrCompute(hand_wep_def.DisplayNameString);
-                    continue;
-                }
-
-                var hand_item_def = def as MyToolItemDefinition;
-                if (hand_item_def != null)
-                {
-                    hand_item_def.DisplayNameString = $"3: {hand_item_def.DisplayNameString}";
-                    hand_item_def.DisplayNameEnum = MyStringId.GetOrCompute(hand_item_def.DisplayNameString);
-                    continue;
-                }
-            }
         }
 
         private void SortBlockCategories()
@@ -288,11 +254,11 @@ namespace cleaner
                     }
 
                     // from weapon ai remover - thanks fire and jp
-                    if (turret_def != null && !subtype_id.Contains(ADMIN_TAG) && !subtype_id.Contains(AI_ENABLED_TAG))
-                    {
-                        turret_def.AiEnabled = false;
-                        turret_def.MaxRangeMeters = 0f;
-                    }
+                    //if (turret_def != null && !subtype_id.Contains(ADMIN_TAG) && !subtype_id.Contains(AI_ENABLED_TAG))
+                    //{
+                    //    turret_def.AiEnabled = false;
+                    //    turret_def.MaxRangeMeters = 0f;
+                    //}
 
                     weapon_def_hashset.Add(type_id + "/" + subtype_id);
                     continue;
