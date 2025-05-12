@@ -92,7 +92,7 @@
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Iron" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Component" SubtypeId="Construction" />
+            <Result Amount="10" TypeId="Component" SubtypeId="Construction" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
@@ -107,7 +107,7 @@
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Iron" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Component" SubtypeId="SmallTube" />
+            <Result Amount="5" TypeId="Component" SubtypeId="SmallTube" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
@@ -122,7 +122,7 @@
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Component" SubtypeId="CopperTube" />
+            <Result Amount="10" TypeId="Component" SubtypeId="CopperTube" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
@@ -137,7 +137,7 @@
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Component" SubtypeId="InteriorPlate" />
+            <Result Amount="10" TypeId="Component" SubtypeId="InteriorPlate" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
@@ -152,7 +152,7 @@
             <Prerequisites>
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Sandbag" />
             </Prerequisites>
-            <Result Amount="1" TypeId="Component" SubtypeId="BulletproofGlass" />
+            <Result Amount="5" TypeId="Component" SubtypeId="BulletproofGlass" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
@@ -263,6 +263,23 @@
 				<Item Amount="1" TypeId="Component" SubtypeId="CopperTube" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="ProjectileParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<!-- Science -->
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>T1ScienceBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Tier 1 Science</DisplayName>
+            <Icon>Textures\Icons\Components\StructuralPartsCrate.png</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Computer" />
+                <Item Amount="1" TypeId="Component" SubtypeId="MechanicalParts" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="T1Science" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>

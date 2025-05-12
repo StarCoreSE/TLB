@@ -36,6 +36,41 @@
             <IsPrimary>true</IsPrimary><Public>false</Public>
         </Blueprint>
 		<!-- Components -->
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>RefrigerantBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Refrigerant</DisplayName>
+            <Icon>Textures\GUI\Icons\component\ExplosivesComponent.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Ice" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Alloy" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Insulator" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="Insulator" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SuperconductorBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Superconductor</DisplayName>
+            <Icon>Textures\GUI\Icons\component\ExplosivesComponent.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Ceramic" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Gold" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Composite" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Insulator" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="Insulator" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
@@ -162,6 +197,43 @@
 
 		
 		<!-- Parts -->
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>CryogenicPartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Cryogenic Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Superconductor" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Refrigerant" />
+				<Item Amount="1" TypeId="Component" SubtypeId="ComputerParts" />
+				<Item Amount="1" TypeId="Component" SubtypeId="ElectricalParts" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="CryogenicParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SuperconductorPartsBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Superconductor Parts</DisplayName>
+            <Icon>Textures\GUI\Icons\component\computer_component.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Superconductor" />
+				<Item Amount="1" TypeId="Component" SubtypeId="Insulator" />
+				<Item Amount="1" TypeId="Component" SubtypeId="ComputerParts" />
+				<Item Amount="1" TypeId="Component" SubtypeId="ElectricalParts" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="SuperconductorParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
 		<Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
@@ -248,6 +320,25 @@
 				<Item Amount="1" TypeId="Component" SubtypeId="MissileParts" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="AstroParts" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
+		
+		<!-- Science -->
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>T3ScienceBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Tier 3 Science</DisplayName>
+            <Icon>Textures\Icons\Components\StructuralPartsCrate.png</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="Computer" />
+                <Item Amount="1" TypeId="Component" SubtypeId="MechanicalParts" />
+                <Item Amount="1" TypeId="Component" SubtypeId="T2Science" />
+                <Item Amount="1" TypeId="Component" SubtypeId="AutomationParts" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="T1Science" />
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>

@@ -291,5 +291,23 @@
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
+		
+		<!-- Science -->
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>T2ScienceBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Tier 2 Sience</DisplayName>
+            <Icon>Textures\Icons\Components\StructuralPartsCrate.png</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Component" SubtypeId="ComputerParts" />
+                <Item Amount="1" TypeId="Component" SubtypeId="ElectricalParts" />
+                <Item Amount="1" TypeId="Component" SubtypeId="T1Science" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="T2Science" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
     </Blueprints>
 </Definitions>
