@@ -91,6 +91,8 @@
 		<Entry Class="T2Components" BlueprintSubtypeId="ProcessorBlueprint" />
 		
 		<Entry Class="T3Components" BlueprintSubtypeId="LaserDiodeBlueprint" />
+		<Entry Class="T3Components" BlueprintSubtypeId="RefrigerantBlueprint" />
+		<Entry Class="T3Components" BlueprintSubtypeId="SuperconductorBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="InsulatorBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="PhotoreceptiveCellBlueprint" />
 		<Entry Class="T3Components" BlueprintSubtypeId="MagnetBlueprint" />
@@ -115,6 +117,8 @@
 		<Entry Class="T2Parts" BlueprintSubtypeId="ComputerPartsBlueprint" />
 		
 		<Entry Class="T3Parts" BlueprintSubtypeId="SolarPartsBlueprint" />
+		<Entry Class="T3Parts" BlueprintSubtypeId="CryogenicPartsBlueprint" />
+		<Entry Class="T3Parts" BlueprintSubtypeId="SuperconductorPartsBlueprint" />
 		<Entry Class="T3Parts" BlueprintSubtypeId="LaserPartsBlueprint" />
 		<Entry Class="T3Parts" BlueprintSubtypeId="MagneticPartsBlueprint" />
 		<Entry Class="T3Parts" BlueprintSubtypeId="AutomationPartsBlueprint" />

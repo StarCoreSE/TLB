@@ -44,7 +44,7 @@
             <DisplayName>Refrigerant</DisplayName>
             <Icon>Textures\GUI\Icons\component\ExplosivesComponent.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Ice" />
+                <Item Amount="1" TypeId="Ore" SubtypeId="Ice" />
 				<Item Amount="1" TypeId="Ingot" SubtypeId="Alloy" />
 				<Item Amount="1" TypeId="Component" SubtypeId="Insulator" />
             </Prerequisites>
