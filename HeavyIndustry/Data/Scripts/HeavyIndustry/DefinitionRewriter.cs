@@ -133,6 +133,7 @@ namespace HeavyIndustry
             UpdateAllComponents();
             UpdateAllCubes();
             UpdateResearchBlocks();
+            UpdateOreMap();
         }
 
         private void UpdateToolBlueprint(MyPhysicalItemDefinition toolDef)
@@ -585,6 +586,41 @@ namespace HeavyIndustry
                 {
                     def.DisplayNameEnum = MyStringId.GetOrCompute("Item: " + def.DisplayNameText);
                 }
+            }
+        }
+
+        private void UpdateOreMap()
+        {
+            var allPlanets = MyDefinitionManager.Static.GetPlanetsGeneratorsDefinitions();
+
+            foreach (var def in allPlanets)
+            {
+
+                var planet = def as MyPlanetGeneratorDefinition;
+                var oreList = new List<MyPlanetOreMapping>(planet.OreMappings.ToList());
+
+                for (int i = 0; i < oreList.Count; i++)
+                {
+                    var oreMap = planet.OreMappings[i];
+
+                    if (oreMap.Type.Contains("Ice_01") == true) { oreMap.Start = 0; oreMap.Depth = 10; }
+
+                    if (oreMap.Type.Contains("Iron_02") == true) { oreMap.Start = 0; oreMap.Depth = 10; }
+                    if (oreMap.Type.Contains("Nickel_01") == true) { oreMap.Start = 0; oreMap.Depth = 10; }
+                    if (oreMap.Type.Contains("Silicon_01") == true) { oreMap.Start = 0; oreMap.Depth = 10; }
+
+                    if (oreMap.Type.Contains("Cobalt_01") == true) { oreMap.Start = 0; oreMap.Depth = 10; }
+                    if (oreMap.Type.Contains("Magnesium_01") == true) { oreMap.Start = 0; oreMap.Depth = 10; }
+
+                    if (oreMap.Type.Contains("Silver_01") == true) { oreMap.Start = 0; oreMap.Depth = 10; }
+                    if (oreMap.Type.Contains("Gold_01") == true) { oreMap.Start = 0; oreMap.Depth = 10; }
+
+                    if (oreMap.Type.Contains("Platinum_01") == true) { oreMap.Start = 0; oreMap.Depth = 10; }
+                    if (oreMap.Type.Contains("Uraninite_01") == true) { oreMap.Start = 0; oreMap.Depth = 10; }
+                }
+
+                planet.OreMappings = oreList.ToArray();
+
             }
         }
 
@@ -1093,6 +1129,7 @@ namespace HeavyIndustry
             validParts.AddRange(t4Parts);
 
             UpdateAllDefinitions();
+
         }
 
         bool init = false;
