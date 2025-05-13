@@ -298,7 +298,7 @@
                 <TypeId>BlueprintDefinition</TypeId>
                 <SubtypeId>T2ScienceBlueprint</SubtypeId>
             </Id>
-            <DisplayName>Tier 2 Sience</DisplayName>
+            <DisplayName>Tier 2 Science</DisplayName>
             <Icon>Textures\Icons\Components\StructuralPartsCrate.png</Icon>
             <Prerequisites>
                 <Item Amount="1" TypeId="Component" SubtypeId="ComputerParts" />
