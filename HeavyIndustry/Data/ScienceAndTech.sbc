@@ -121,7 +121,7 @@
                 <TypeId>Component</TypeId>
                 <SubtypeId>T2Tech</SubtypeId>
             </Id>
-            <DisplayName>Tier 2 Tech</DisplayName>
+            <DisplayName>Tech: Tier 2</DisplayName>
             <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
             <Size>
                 <X>0.5</X>
@@ -149,7 +149,7 @@
                 <TypeId>Component</TypeId>
                 <SubtypeId>T3Tech</SubtypeId>
             </Id>
-            <DisplayName>Tier 3 Tech</DisplayName>
+            <DisplayName>Tech: Tier 3</DisplayName>
             <Icon>Textures\GUI\Icons\component\steel_plate_component.dds</Icon>
             <Size>
                 <X>0.5</X>

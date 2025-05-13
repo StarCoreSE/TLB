@@ -313,6 +313,7 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\Assembler.mwm</Model>
             <Components>
+				<Component Subtype="T2Tech" Count="1000" />
 				<Component Subtype="StructuralParts" Count="120" />
                 <Component Subtype="MechanicalParts" Count="50" />
                 <Component Subtype="Computer" Count="20" />
@@ -367,6 +368,7 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\Assembler.mwm</Model>
             <Components>
+                <Component Subtype="T3Tech" Count="1000" />
                 <Component Subtype="StructuralParts" Count="120" />
                 <Component Subtype="MechanicalParts" Count="20" />
                 <Component Subtype="StructuralParts" Count="20" />
