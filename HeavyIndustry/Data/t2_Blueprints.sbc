@@ -309,5 +309,20 @@
             <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary><Public>true</Public>
         </Blueprint>
+		
+		<Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>T3TechBlueprint</SubtypeId>
+            </Id>
+            <DisplayName>Tier 3 Tech</DisplayName>
+            <Icon>Textures\Icons\Components\StructuralPartsCrate.png</Icon>
+            <Prerequisites>
+				<Item Amount="10" TypeId="Component" SubtypeId="T2Science" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="T3Tech" />
+            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary><Public>true</Public>
+        </Blueprint>
     </Blueprints>
 </Definitions>

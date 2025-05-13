@@ -228,11 +228,6 @@ namespace cleaner
 
                 /*----------------------------------------SKY PIRATES--------------------------------------*/
 
-                if (subtype_id.Contains("ZeppelinTank"))
-                {
-                    mobility_def_hashset.Add(type_id + "/" + subtype_id);
-                    continue;
-                }
 
                 if (type_id == "MyObjectBuilder_AdvancedDoor" && subtype_id.Contains("air_brake"))
                 {
